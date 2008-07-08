@@ -1,0 +1,339 @@
+/*
+** Plumi Global style sheet - plumi.skin.layer based
+*/
+
+/***********************/
+/* General site layout */
+/***********************/
+
+/** Site and wrapper **/
+
+body {
+  background: white url(++resource++bg.png) 50% 0 repeat-y;
+}
+
+#visual-portal-wrapper {
+  width: 990px;
+  margin: 0 auto;
+}
+
+#portal-footer {
+  margin-top: 0 !important;
+}
+
+/***************/
+/* Left column */
+
+#portal-column-one {
+  border-right: 1px solid #ddd;
+}
+
+#portal-column-one .visualPadding,
+#portal-column-two .visualPadding {
+  padding: 0;
+}
+
+dl.portlet,
+dd.portletItem,
+dd.portletFooter,
+dt.portletHeader {
+  border: 0;
+}
+
+dl.portlet {
+  margin-top: 0;
+}
+
+dd.portletFooter {
+  background-color: transparent;
+  font-style: italic;
+}
+
+.portletHeader {
+  background: transparent url(++resource++menu.gif) 0 0 repeat-x;
+  line-height: 30px;
+  display: block;
+  height: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-right: 0.5em;
+}
+
+dt.portletHeader,
+dt.portletHeader a {
+  color: #414900;
+}
+
+
+/** Specific to the two buttons : browse - publish **/
+
+#portlet-publish a,
+#portlet-browse a {
+  display: block;
+  background-color: #a7ba00;
+  text-align: right;
+  text-decoration: none;
+  padding: 1.6em 0.5em 0.7em 0;
+}
+
+#portlet-publish a {
+  background-color: #d9ea28;
+}
+
+#portlet-publish a span,
+#portlet-browse a span {
+  background-color: white;
+  font-weight: bold;
+  font-size: 100%;
+  padding: 0.2em 0.5em;
+  color: black;
+  text-transform: uppercase;
+}
+
+
+/** Right column **/
+
+#portal-column-two {
+  border-left: 1px solid #ddd;
+}
+
+#portal-column-two .portletHeader {
+  background: transparent url(++resource++menu.gif) top right repeat-x;
+  text-align: right;
+  padding-left: 0.5em;
+}
+
+.visualIconPadding, .actionMenu .actionMenuContent .visualIconPadding {
+  padding-left: 20px;
+}
+
+/** Main content zone **/
+
+#content {
+  margin: 1em 0.3em !important;
+  padding: 0 ! important;
+}
+
+
+/***************/
+/* Site Header */
+/***************/
+
+/** Personal Bar **/
+
+#portal-personaltools {
+  border: 0;
+  margin: 0pt;
+  padding: 0em 3em;
+  background-color: transparent;
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+#portal-breadcrumbs {
+  padding-bottom: 0.5em;
+}
+
+
+/** Navigation tabs **/
+
+#portal-globalnav {
+  padding: 0em;
+  background: transparent url(++resource++menu.gif) 0 0 repeat-x;
+  height: 30px;
+  border-style: solid none;
+  border-color: #ddd;
+  border-width: 1px;
+}
+
+#portal-globalnav li.selected,
+#portal-globalnav li {
+  border-style: none solid none none;
+  border-color: #ddd;
+  border-width: 1px;
+  height: 30px;
+  display: block;
+  float: left;
+  line-height: 30px;
+}
+
+#portal-globalnav li.selected a,
+#portal-globalnav li a {
+  border: 0;
+  padding: 0em 1.25em;
+  background-color: transparent;
+  color: #666666;
+  height: auto;
+  margin-right: 0.5em;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+#portal-globalnav li a:hover {
+  border: 0;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+#portal-globalnav li.selected a { 
+  font-weight: bold;
+  border: 0;
+  background-color: transparent;
+}
+
+#video-infos {
+  float: left;
+  width: 45%;
+}
+
+#video-infos thead th {
+  font-weight: bold;
+}
+
+#video-core {
+  float: left;
+  width: 55%;
+  padding-top: 0.5em;
+}
+
+#video-about {
+  clear: both;
+  padding-top: 1em;
+}
+
+#no-video-player {
+  display: block;
+  margin-top: 2em;
+  width: 320px;
+  text-align: center;
+  text-decoration: none;
+}
+
+#video-player div {
+  padding: 0.4em 0 0.6em 0;
+  font-color: #aaa;
+  font-size: 85%;
+}
+
+#video-player textarea {
+  background: #f4f4f4 url(++resource++homepage_desc.gif) 0 0;
+  font-size: 90%;
+}
+
+
+/**************************/
+/* Categories / genres... */
+
+.plumi-props-listing {
+  clear: both;
+  padding: 0;
+}
+
+.plumi-props-listing dt {
+  color: #414900;
+  font-size: 90%;
+  padding-bottom: 0.2em;
+}
+
+.plumi-props-listing dd {
+  margin: 0 0 0 0.5em;
+}
+
+.plumi-props-listing ul,
+.plumi-props-listing li {
+  list-style: none;
+  list-image-style: none;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.plumi-props-listing ul {
+  font-size: 80%;
+}
+
+.plumi-props-listing ul li {
+  margin-right: 0.7em;
+}
+
+.plumi-props-listing ul li a:hover {
+  color: black;
+}
+
+/****************************/
+/* Different kind of blocks */
+
+#video-downloads {
+  padding-top: 1em;
+}
+
+.download-block {
+  font-size: 90%;
+}
+
+.download-block a {
+  background: transparent url(++resource++downloads.png) 0 2px no-repeat;
+  padding: 4px 0 4px 19px;
+  border: 0 !important;
+  text-transform: none;
+  font-weight: bold;
+}
+
+.download-block a#ogg-link {
+  background: transparent url(++resource++ogg_icon.png) 0 2px no-repeat;
+}
+
+.download-block a#vlc-link {
+  background-image: url(++resource++vlc_icon.gif);
+  background-position: 0 0;
+}
+
+#vlc-link span {
+  font-weight: normal;
+  color: #e16800;
+}
+
+.plumi-nice-description {
+  font-size: 100%;
+  color: black;
+  margin: 0.5em 0;
+  background: #f4f4f4 url(++resource++homepage_desc.gif) 0 0;
+  width: auto;
+  padding: 0.5em;
+  border: 1px solid #eee;
+}
+
+#video-core .link-external {
+  padding: 0;
+  background-image: none;
+}
+
+.link-external,
+.link-mailto {
+  padding-left: 18p;x
+}
+
+.videos-listing .plumi-props-listing dt,
+.videos-listing .plumi-props-listing dd {
+  display: inline;
+}
+
+.videos-listing .plumi-nice-description {
+  margin: 1em 185px 0.2em 0.6em;
+}
+
+.videos-listing .plumi-props-listing {
+  padding-top: 1em;
+}
+
+.videos-listing .plumi-props-listing {
+  border-bottom: 1px dashed #ddd;
+  padding-bottom: 0.5em;
+}
+
+form div textarea#subject_keywords {
+  width: 200px;
+  padding: 0px 3px;
+  margin: 0 0 0 0;
+}
