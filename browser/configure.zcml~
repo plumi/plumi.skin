@@ -1,0 +1,7 @@
+<configure
+    xmlns="http://namespaces.zope.org/browser"
+    xmlns:sd="http://namespaces.zope.org/plumi"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+
+</configure>

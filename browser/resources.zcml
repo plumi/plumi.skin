@@ -1,4 +1,48 @@
 <configure
     xmlns="http://namespaces.zope.org/browser">
+  
+  <!-- Stylesheets -->
+  <resource
+      file="stylesheets/plumi.css"
+      name="plumi.css"
+      layer="plumi.skin.browser.interfaces.IPlumiSkinLayer"
+      />
+
+  <!-- Image -->
+  <resource
+      file="images/menu.gif"
+      name="menu.gif"
+      layer="plumi.skin.browser.interfaces.IPlumiSkinLayer"
+      />
+
+  <resource
+      file="images/bg.png"
+      name="bg.png"
+      layer="plumi.skin.browser.interfaces.IPlumiSkinLayer"
+      />
+
+  <resource
+      file="images/ogg_icon.png"
+      name="ogg_icon.png"
+      layer="plumi.skin.browser.interfaces.IPlumiSkinLayer"
+      />
+
+  <resource
+      file="images/homepage_desc.gif"
+      name="homepage_desc.gif"
+      layer="plumi.skin.browser.interfaces.IPlumiSkinLayer"
+      />
+
+  <resource
+      file="images/downloads.png"
+      name="downloads.png"
+      layer="plumi.skin.browser.interfaces.IPlumiSkinLayer"
+      />
+
+  <resource
+      file="images/vlc_icon.gif"
+      name="vlc_icon.gif"
+      layer="plumi.skin.browser.interfaces.IPlumiSkinLayer"
+      />
 
 </configure>
