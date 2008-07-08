@@ -1,0 +1,13 @@
+<configure
+    xmlns="http://namespaces.zope.org/browser"
+    xmlns:zope="http://namespaces.zope.org/zope">
+
+  <include file="resources.zcml" />
+
+  <zope:interface
+      interface=".interfaces.IPlumiSkinLayer"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="plumi.skin.layer"
+      />
+
+</configure>
