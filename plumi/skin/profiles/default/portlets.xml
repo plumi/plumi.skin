@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<portlets>
+ <assignment name="plumi.browse" category="context" key="/"
+    manager="plone.leftcolumn" type="plone.portlet.static.Static"
+    insert-before="*">
+  <property name="header">browse</property>
+  <property name="more_url"/>
+  <property name="hide">False</property>
+  <property name="footer"/>
+  <property name="text">
+    &lt;h2 align="right"&gt;
+      &lt;a title="Browse Videos" class="internal-link" href="taxonomy"&gt;BROWSE&lt;/a&gt;
+    &lt;/h2&gt;
+  </property>
+  <property name="omit_border">True</property>
+ </assignment> 
+ <assignment name="plumi.publish" category="context" key="/"
+    manager="plone.leftcolumn" type="plone.portlet.static.Static"
+    insert-before="plumi.browse">
+  <property name="header">publish</property>
+  <property name="more_url"/>
+  <property name="hide">False</property>
+  <property name="footer"/>
+  <property name="text">
+    &lt;h2 align="right"&gt;
+      &lt;a title="Publish Video" class="internal-link" href="publish"&gt;PUBLISH&lt;/a&gt;
+    &lt;/h2&gt;
+  </property>
+  <property name="omit_border">True</property>
+ </assignment> 
+</portlets>
