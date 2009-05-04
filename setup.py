@@ -1,37 +1,40 @@
 from setuptools import setup, find_packages
-from os.path import join
+import os
 
-name = 'plumi.skin'
 version = '0.1'
-readme = open("README.txt").read()
-history = ""
 
-setup(name = name,
-      version = version,
-      description = 'Plumi skin',
-      long_description = readme[readme.find('\n\n'):] + '\n' + history,
-      keywords = 'plone CMS zope',
-      author = 'Souheil Chelfouh',
-      author_email = 'trollfot@gmail.com',
-      url = 'http://plumi.org/',
-      download_url = 'https://svn.plone.org/svn/collective/plumi.skin/trunk',
-      license = 'GPL',
-      packages = find_packages(),
-      namespace_packages = ['plumi.skin', 'plumi'],
-      include_package_data = True,
-      platforms = 'Any',
-      zip_safe = False,
+setup(name='plumi.skin',
+      version=version,
+      description="A Plumi 0.3 Skin Product",
+      long_description=open("README.txt").read() + "\n" +
+                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+      classifiers=[
+        "Framework :: Plone",
+        "Programming Language :: Python",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        ],
+      keywords='plone plumi skin',
+      author='Andy Nicholson',
+      author_email='andy@engagemedia.org',
+      url='http://plumi.org/',
+      license='GPL',
+      packages=find_packages(exclude=['ez_setup']),
+      namespace_packages=['plumi'],
+      include_package_data=True,
+      zip_safe=False,
       install_requires=[
           'setuptools',
+          # -*- Extra requirements: -*-
       ],
-      classifiers = [
-        'Development Status :: 4 - Beta',
-        'Environment :: Web Environment',
-        'Framework :: Plone',
-        'Intended Audience :: Other Audience',
-	'Topic :: Software Development :: Libraries :: Python Modules',
-        'License :: OSI Approved :: GNU General Public License (GPL)',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python',
-      ],
-)
+      entry_points="""
+      # -*- Entry points: -*-
+
+      [distutils.setup_keywords]
+      paster_plugins = setuptools.dist:assert_string_list
+
+      [egg_info.writers]
+      paster_plugins.txt = setuptools.command.egg_info:write_arg
+      """,
+      paster_plugins = ["ZopeSkel"],
+      )

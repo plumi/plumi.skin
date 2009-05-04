@@ -1,17 +1,24 @@
 <?xml version="1.0"?>
-<object name="portal_skins"
-	allow_any="False"
-	cookie_persistence="False"
-	default_skin="plumi.skin.layer"
-	request_varname="plone_skin">
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="Plumi 0.3 Skin">
 
-  <object name="plumi.skin"
-	  meta_type="Filesystem Directory View"
-	  directory="plumi.skin.browser:browser_layer" />
-  
-  <skin-path name="plumi.skin.layer"
-	     based-on="Plone Default">
-    <layer name="plumi.skin"
-	   insert-after="custom" />
-  </skin-path>
+ <object name="plumi_skin_custom_images"
+    meta_type="Filesystem Directory View"
+    directory="plumi.skin:skins/plumi_skin_custom_images"/>
+ <object name="plumi_skin_custom_templates"
+    meta_type="Filesystem Directory View"
+    directory="plumi.skin:skins/plumi_skin_custom_templates"/>
+ <object name="plumi_skin_styles"
+    meta_type="Filesystem Directory View"
+    directory="plumi.skin:skins/plumi_skin_styles"/>
+
+ <skin-path name="Plumi 0.3 Skin" based-on="Plone Default">
+  <layer name="plumi_skin_custom_images"
+     insert-after="custom"/>
+  <layer name="plumi_skin_custom_templates"
+     insert-after="plumi_skin_custom_images"/>
+  <layer name="plumi_skin_styles"
+     insert-after="plumi_skin_custom_templates"/>
+ </skin-path>
+
 </object>

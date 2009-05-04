@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="plumi.skin">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Plumi 0.3 Skin"
+      directory="profiles/default"
+      description='Extension profile for the "Plumi 0.3 Skin" Plone theme.'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+</configure>

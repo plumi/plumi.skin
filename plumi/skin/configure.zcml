@@ -1,20 +1,12 @@
 <configure
-    xmlns="http://namespaces.zope.org/browser"
-    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    xmlns:i18n="http://namespaces.zope.org/i18n">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    i18n_domain="plumi.skin">
 
+  <five:registerPackage package="." initialize=".initialize" />
   <include package=".browser" />
-
-  <!-- Generic Setup Profile -->
-  <genericsetup:registerProfile
-        name="default"
-        title="Plumi skin"
-        directory="profiles/default"
-        description="Extension profile for plumi graphical customizations"
-        provides="Products.GenericSetup.interfaces.EXTENSION"
-        />
-
-  <!-- Translations -->
-  <i18n:registerTranslations directory="locales"/>
+  <include file="skins.zcml" />
+  <include file="profiles.zcml" />
 
 </configure>
