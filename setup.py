@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from os.path import join
 
 name = 'plumi.skin'
-version = "0.1"
+version = '0.1'
 readme = open("README.txt").read()
 history = ""
 
