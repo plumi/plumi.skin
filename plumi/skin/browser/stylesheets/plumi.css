@@ -9,7 +9,7 @@
 /** Site and wrapper **/
 
 body {
-  background: white url(++resource++bg.png) 50% 0 repeat-y;
+  background: white url(++resource++plumi.skin.images/bg.png) 50% 0 repeat-y;
 }
 
 #visual-portal-wrapper {
@@ -50,7 +50,7 @@ dd.portletFooter {
 }
 
 .portletHeader {
-  background: transparent url(++resource++menu.gif) 0 0 repeat-x;
+  background: transparent url(++resource++plumi.skin.images/menu.gif) 0 0 repeat-x;
   line-height: 30px;
   display: block;
   height: 30px;
@@ -98,7 +98,7 @@ dt.portletHeader a {
 }
 
 #portal-column-two .portletHeader {
-  background: transparent url(++resource++menu.gif) top right repeat-x;
+  background: transparent url(++resource++plumi.skin.images/menu.gif) top right repeat-x;
   text-align: right;
   padding-left: 0.5em;
 }
@@ -140,7 +140,7 @@ dt.portletHeader a {
 
 #portal-globalnav {
   padding: 0em;
-  background: transparent url(++resource++menu.gif) 0 0 repeat-x;
+  background: transparent url(++resource++plumi.skin.images/menu.gif) 0 0 repeat-x;
   height: 30px;
   border-style: solid none;
   border-color: #ddd;
@@ -217,7 +217,7 @@ dt.portletHeader a {
 }
 
 #video-player textarea {
-  background: #f4f4f4 url(++resource++homepage_desc.gif) 0 0;
+  background: #f4f4f4 url(++resource++plumi.skin.images/homepage_desc.gif) 0 0;
   font-size: 90%;
 }
 
@@ -273,7 +273,7 @@ dt.portletHeader a {
 }
 
 .download-block a {
-  background: transparent url(++resource++downloads.png) 0 2px no-repeat;
+  background: transparent url(++resource++plumi.skin.images/downloads.png) 0 2px no-repeat;
   padding: 4px 0 4px 19px;
   border: 0 !important;
   text-transform: none;
@@ -281,11 +281,11 @@ dt.portletHeader a {
 }
 
 .download-block a#ogg-link {
-  background: transparent url(++resource++ogg_icon.png) 0 2px no-repeat;
+  background: transparent url(++resource++plumi.skin.images/ogg_icon.png) 0 2px no-repeat;
 }
 
 .download-block a#vlc-link {
-  background-image: url(++resource++vlc_icon.gif);
+  background-image: url(++resource++plumi.skin.images/vlc_icon.gif);
   background-position: 0 0;
 }
 
@@ -298,7 +298,7 @@ dt.portletHeader a {
   font-size: 100%;
   color: black;
   margin: 0.5em 0;
-  background: #f4f4f4 url(++resource++homepage_desc.gif) 0 0;
+  background: #f4f4f4 url(++resource++plumi.skin.images/homepage_desc.gif) 0 0;
   width: auto;
   padding: 0.5em;
   border: 1px solid #eee;
