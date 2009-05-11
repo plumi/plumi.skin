@@ -19,6 +19,9 @@
      insert-after="plumi_skin_custom_images"/>
   <layer name="plumi_skin_styles"
      insert-after="plumi_skin_custom_templates"/>
+<layer name="ATVocabularyManager"
+     insert-after="cmf_legacy"/>
+
  </skin-path>
 
 </object>
