@@ -8,9 +8,9 @@
   <property name="hide">False</property>
   <property name="footer"/>
   <property name="text">
-    &lt;h2 align="right"&gt;
-      &lt;a title="Browse Videos" class="internal-link" href="taxonomy"&gt;BROWSE&lt;/a&gt;
-    &lt;/h2&gt;
+    &lt;div id="portlet-browse"&gt;
+      &lt;a title="Browse Videos" class="internal-link" href="taxonomy"&gt;browse&lt;/a&gt;
+    &lt;/div&gt;
   </property>
   <property name="omit_border">True</property>
  </assignment> 
@@ -22,9 +22,9 @@
   <property name="hide">False</property>
   <property name="footer"/>
   <property name="text">
-    &lt;h2 align="right"&gt;
-      &lt;a title="Publish Video" class="internal-link" href="publish"&gt;PUBLISH&lt;/a&gt;
-    &lt;/h2&gt;
+    &lt;div id="portlet-publish"&gt;
+      &lt;a title="Publish Video" class="internal-link" href="publish"&gt;publish&lt;/a&gt;
+    &lt;/div&gt;
   </property>
   <property name="omit_border">True</property>
  </assignment> 
