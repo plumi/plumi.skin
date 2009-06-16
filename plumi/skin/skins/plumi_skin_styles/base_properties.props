@@ -2,7 +2,7 @@ title:string=Plumi 0.3 Skin's color, font, logo and border defaults
 
 plone_skin:string=Plumi 0.3 Skin
 
-logoName:string=logo.jpg
+logoName:string=logo.gif
 
 fontFamily:string="Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif
 fontBaseSize:string=69%
@@ -11,17 +11,17 @@ fontSmallSize:string=85%
 
 backgroundColor:string=White
 
-linkColor:string=#436976
+linkColor:string=#444
 linkActiveColor:string=Red
 linkVisitedColor:string=Purple
 
 borderWidth:string=1px
 borderStyle:string=solid
-borderStyleAnnotations:string=dashed
+borderStyleAnnotations:string=solid
 
-globalBorderColor:string=#8cacbb
-globalBackgroundColor:string=#dee7ec
-globalFontColor:string=#436976
+globalBorderColor:string=#ddd
+globalBackgroundColor:string=#f4f4f4
+globalFontColor:string=#666
 
 headingFontFamily:string="Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif
 
@@ -33,7 +33,7 @@ inputFontColor:string=Black
 
 textTransform:string=lowercase
 
-evenRowBackgroundColor:string=#eef3f5 
+evenRowBackgroundColor:string=#f4f4f4
 oddRowBackgroundColor:string=transparent
 
 notifyBorderColor:string=#ffa500

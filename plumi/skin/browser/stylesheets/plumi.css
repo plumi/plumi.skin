@@ -13,7 +13,7 @@ body {
 }
 
 #visual-portal-wrapper {
- /* width: 990px; */
+  width: 990px;
   margin: 0 auto;
 }
 
@@ -70,10 +70,13 @@ dt.portletHeader a {
 #portlet-publish a,
 #portlet-browse a {
   display: block;
-  background-color: #a7ba00;
   text-align: right;
   text-decoration: none;
   padding: 1.6em 0.5em 0.7em 0;
+}
+
+#portlet-browse a {
+  background-color: #a7ba00;
 }
 
 #portlet-publish a {
