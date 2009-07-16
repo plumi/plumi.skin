@@ -1,6 +1,12 @@
-Debug CSS issues on install
+DONE Debug CSS issues on install
 
 workflow scripts from plumi 0.2.x - replace functionality
+
+portlets
+	latest news
+	latest events
+	latest call outs
+	latest comments
 
 review PlumiSkin Installer from plumi 0.2.x to see if we missed anything
 
