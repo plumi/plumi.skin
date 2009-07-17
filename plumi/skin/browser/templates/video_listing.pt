@@ -1,0 +1,31 @@
+<tal:topiccontents define="topicContents view/videos;
+			   batch topicContents;
+			   template_id string:video_listing_view">
+	    
+  <tal:listing condition="topicContents">
+    <!-- Navigation -->
+    <div metal:use-macro="here/batch_macros/macros/navigation" />
+	      
+    <metal:listingmacro define-macro="listing">
+      <dl id="featured-video"
+	  class="featured-block videos-listing">
+	
+	<dd class="featuredItem"
+	    tal:repeat="obj view/renderers">
+	  <tal:video replace="structure obj/render_listing" />
+	</dd>
+      </dl>
+    </metal:listingmacro>
+    <!-- Navigation -->
+    <div metal:use-macro="here/batch_macros/macros/navigation" />
+    
+  </tal:listing>
+  
+  <p class="discreet"
+     tal:condition="view/empty"
+     i18n:domain="atcontenttypes"
+     i18n:translate="description_no_items_in_topic">
+    There are currently no results for this search.
+  </p>
+	    
+</tal:topiccontents>

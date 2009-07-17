@@ -1,7 +1,7 @@
-<configure
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:browser="http://namespaces.zope.org/browser"
-    i18n_domain="plumi.skin">
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five"
+ 	   i18n_domain="plumi.skin">
 
   <!-- 'Plumi 0.3 Skin' Zope 3 browser layer -->
   <interface
@@ -26,5 +26,55 @@
       directory="stylesheets"
       layer=".interfaces.IThemeSpecific"
       />
+
+  <!-- old Plumi 0.2.x Plumi Skin zcml -->
+ <five:implements
+      class="Products.ZCatalog.CatalogBrains.AbstractCatalogBrain"
+      interface=".interfaces.IAbstractCatalogBrain"
+      />
+
+  <browser:page
+      for="*"
+      name="recent_comment_view"
+      class=".portlets.recent_comments.RecentCommentPortlet"
+      permission="zope2.View"
+      allowed_interface="Products.CMFPlone.browser.interfaces.IRecentPortlet"
+      />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
+      name="featured_videos_homepage"
+      class=".featured_videos.FeaturedVideosPage"
+      template="templates/featured.pt"
+      permission="zope2.View"
+      allowed_interface=".interfaces.ITopicsProvider"
+      />
+
+  <browser:page
+      for="zope.app.container.interfaces.IContainer"
+      name="video_listing_view"
+      template="templates/video_listing_view.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="zope.app.container.interfaces.IContainer"
+      name="video_listing"
+      class=".videos_listing.VideosListing"
+      template="templates/video_listing.pt"
+      permission="zope2.View"
+      allowed_attributes="videos empty parent_url renderers"
+      />
+
+  <browser:page
+      for="*"
+      name="author_view"
+      class=".author.AuthorPage"
+      permission="zope2.View"
+      allowed_interface=".interfaces.IAuthorPage"
+      />
+
+  <adapter factory=".brain_rendering.PlumiVideoBrain"
+	   provides=".interfaces.IPlumiVideoBrain" />
 
 </configure>

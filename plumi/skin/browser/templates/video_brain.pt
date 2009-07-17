@@ -1,0 +1,85 @@
+<tal:video define="video nocall: view/video">
+
+  <span tal:omit-tag="" tal:condition="options/feature_video">
+	 <div class="featured-video-image"
+		tal:condition="video/isTranscodedPlumiVideoObj/transcoding_status"
+	             tal:content="structure video/isTranscodedPlumiVideoObj/indytube_html" />
+ </span>
+
+ <span tal:omit-tag="" tal:condition="not:options/feature_video">
+  <tal:image condition="video/hasImageAndCaption">
+    <a class="featured-video-image"
+       tal:attributes="href string:${view/url}/view;
+		       title view/video_title">
+      <img tal:attributes="src string:${view/url}/thumbnailImage_small;
+			   alt string:${view/video_title}'s thumbnail image" />
+    </a>
+  </tal:image>
+  </span>
+
+
+
+
+
+  <h4 tal:condition="options/show_title">
+
+    <a class="featuredItemTitle" href=""
+       tal:content="view/video_title"
+       tal:attributes="href string:${view/url}/view;
+		       title video/Description" />
+  </h4>
+
+  <span class="featuredItemDetailsPosted discreet">
+    Posted:
+    <tal:date content="view/post_date" />
+  </span>
+
+  <span class="featured-video-duration">
+    Video duration :
+    <!-- <span tal:content="video/getFormattedDuration" /> -->
+  </span>
+
+  <p class="discreet plumi-nice-description" >
+    <tal:desc tal:content="video/Description" />
+    <span class="featured-read-more">
+      <a href=""
+	 id="featured-video-more"
+	 tal:attributes="href string:${view/url}/view;
+			 title view/video_title"
+	 >Read more&hellip;</a>
+    </span>
+ </p>
+
+  <dl class="plumi-categories plumi-props-listing"
+      tal:define="categories view/categories"
+      tal:condition="categories">
+    <dt>Categories</dt>
+    <dd>
+      <ul>
+	<li tal:repeat="cat categories">
+	  <a href="" title="" id=""
+	     tal:attributes="href cat/url;
+			     id cat/id;
+			     title cat/title;
+			     class string:category-${cat/id};"
+	     tal:content="cat/title" />
+	</li>
+      </ul>
+    </dd>
+  </dl>
+
+   <dl class="plumi-categories plumi-props-listing"
+      tal:define="country video/country_dict; "
+      tal:condition="country">
+    <dt>Country</dt>
+    <dd><ul><li>
+	  <a href="" title="" id=""
+	     tal:attributes="href country/url ;
+			     id country/id ;
+			     title country/title ;
+			     " tal:content="country/title"/>
+	     </li></ul>
+    </dd>
+  </dl>
+ 
+</tal:video>
