@@ -1,12 +1,19 @@
 DONE Debug CSS issues on install
 
 workflow scripts from plumi 0.2.x - replace functionality
-
-portlets
+portlets:
 	latest news
 	latest events
 	latest call outs
 	latest comments
+	tag cloud
 
-review PlumiSkin Installer from plumi 0.2.x to see if we missed anything
+RSS / RSS2 / Transmission syndication templates
 
+PlumiSkin 0.2.x browser templates::
+	author profile templates
+	video listings / featured home page
+
+review PlumiSkin product from plumi 0.2.x to see if we missed anything
+
+release egg for plumi 0.3.0 : plumi.skin 0.1 alpha 1 egg
