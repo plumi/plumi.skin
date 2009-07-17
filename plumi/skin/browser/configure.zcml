@@ -84,6 +84,7 @@
       class=".video.VideoView"
       template="templates/plumi_video_view.pt"
       permission="zope2.View"
+      layer=".interfaces.IThemeSpecific"
       />
 
   <browser:page
@@ -92,6 +93,8 @@
       class=".portlets.recent_callouts.RecentCalloutsPortlet"
       permission="zope.Public"
       allowed_interface="Products.CMFPlone.browser.interfaces.IRecentPortlet"
+      layer=".interfaces.IThemeSpecific"
+
       />
 
   <browser:page
@@ -100,6 +103,8 @@
       class=".portlets.recent_comments.RecentCommentPortlet"
       permission="zope2.View"
       allowed_interface="Products.CMFPlone.browser.interfaces.IRecentPortlet"
+      layer=".interfaces.IThemeSpecific"
+
       />
 
   <browser:page
@@ -109,6 +114,8 @@
       template="templates/featured.pt"
       permission="zope2.View"
       allowed_interface=".interfaces.ITopicsProvider"
+      layer=".interfaces.IThemeSpecific"
+
       />
 
   <browser:page
@@ -116,6 +123,8 @@
       name="video_listing_view"
       template="templates/video_listing_view.pt"
       permission="zope2.View"
+      layer=".interfaces.IThemeSpecific"
+
       />
 
   <browser:page
@@ -125,6 +134,8 @@
       template="templates/video_listing.pt"
       permission="zope2.View"
       allowed_attributes="videos empty parent_url renderers"
+      layer=".interfaces.IThemeSpecific"
+
       />
 
   <browser:page
@@ -133,6 +144,8 @@
       class=".author.AuthorPage"
       permission="zope2.View"
       allowed_interface=".interfaces.IAuthorPage"
+      layer=".interfaces.IThemeSpecific"
+
       />
 
   <adapter factory=".brain_rendering.PlumiVideoBrain"
