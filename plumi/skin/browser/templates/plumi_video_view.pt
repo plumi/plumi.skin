@@ -1,0 +1,290 @@
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+  <body>
+    <metal:main fill-slot="main">
+
+      <div metal:use-macro="here/document_actions/macros/document_actions">
+	Document actions (print, sendto etc)
+      </div>
+        
+      <h1 tal:content="context/title_or_id"
+	  class="documentFirstHeading" />
+
+      <div metal:use-macro="here/document_byline/macros/byline">
+	Get the byline - contains details about author and modification date.
+      </div>
+
+      <p class="documentDescriptionVideo discreet"
+	   tal:content="here/Description">
+	description
+      </p>
+
+      <div id="video-infos">
+	
+	<dl class="videoitemtop plumi-props-listing plumi-genres"
+	    tal:define="genres view/genres"
+	    tal:condition="genres">
+	  <dt>Genres</dt>
+	  <dd>
+	    <ul>
+	      <li tal:repeat="genre genres">
+		<a href="" title="" id=""
+           tal:condition="python: genre['id'] != 'aaa_none'"
+		   tal:attributes="href genre/url;
+				   id genre/id;
+				   title genre/title;
+				   class string:genre-${genre/id};"
+		   tal:content="genre/title" />
+	      </li>
+	    </ul>
+	  </dd>
+	</dl>
+	
+	<dl class="videoitemtop plumi-props-listing plumi-categories"
+	    tal:define="categories view/categories"
+	    tal:condition="categories">
+	  <dt>Categories</dt>
+	  <dd>
+	    <ul>
+	      <li tal:repeat="cat categories">
+		<a href="" title="" id=""
+		   tal:attributes="href cat/url;
+				   id cat/id;
+				   title cat/title;
+				   class string:category-${cat/id};"
+		   tal:content="cat/title" />
+	      </li>
+	    </ul>
+	  </dd>
+	</dl>
+
+	<dl class="videoitemtop plumi-props-listing plumi-keywords"
+	    tal:define="subjects view/subjects"
+	    tal:condition="subjects">
+	  <dt>Keywords</dt>
+	  <dd>
+	    <ul>
+	      <li tal:repeat="kw subjects">
+		<a href="" title="" id=""
+		   tal:attributes="href kw/url;
+				   id kw/id;
+				   title kw/title;
+				   class string:keyword-${kw/id};"
+		   tal:content="kw/title" />
+	      </li>
+	    </ul>
+	  </dd>
+	</dl>
+	
+	<dl class="videoitemtop plumi-props-listing plumi-keywords"
+	    tal:define="country view/country"
+	    tal:condition="country">
+	  <dt>Country</dt>
+	  <dd>
+	    <ul>
+	      <li>
+		<a tal:attributes="href country/url;
+				   class string:country-${country/id}"
+		   tal:content="country/title">countryname</a>
+	      </li>
+	    </ul>
+	  </dd>
+	</dl>
+
+	<div class="vcard">
+	  <table summary="Event details" class="vertical listing">
+	    <thead>
+	      <tr>
+		<th colspan="2" class="nosort">
+		  Video information
+		</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr tal:condition="here/Producer">
+		<th i18n:translate="">
+		  Produced by
+		</th>
+		<td tal:content="here/Producer">
+		  Producer
+		</td>
+	      </tr>
+	      <tr tal:condition="here/Director">
+		<th i18n:translate="">
+		  Directed by
+		</th>
+		<td tal:content="here/Director">
+		  Director
+		</td>
+	      </tr>
+	      <tr tal:condition="here/ProducerEmail"
+		  tal:define="emailaddy here/ProducerEmail">
+		<th>Contact</th>
+		<td>
+		  <a href=""
+		     tal:attributes="href string:mailto:$emailaddy">
+		    write the producer
+		  </a>
+		</td>
+	      </tr>
+	      <tr tal:condition="here/WebsiteURL">
+		<th>Home page</th>
+		<td>
+		  <a href=""
+		     tal:define="url here/WebsiteURL"
+		     tal:attributes="href url">more info</a>
+		</td>
+	      </tr>
+	      <tr tal:define="language view/language"
+		  tal:condition="language">
+		<th>Language</th>
+		<td tal:content="language/title"
+		    tal:attributes="class string:language-${language/id}">
+		  language
+		</td>
+	      </tr>
+
+	      <tr tal:define="dp view/post_date"
+		  tal:condition="dp">
+		<th>Produced</th>
+		<td tal:content="dp">
+		  date produced.
+		</td>
+	      </tr>
+
+	      <tr tal:condition="here/ProductionCompanyName">
+		<th>Production Company</th>
+		<td tal:content="here/ProductionCompanyName">
+		  production company
+		</td>
+	      </tr>
+	      <tr tal:condition="here/Distributor">
+		<th>Distributor</th>
+		<td tal:content="here/Distributor">
+		  Distributor
+		</td>
+	      </tr>
+
+	    </tbody>
+	  </table>
+	</div>
+      </div>
+
+      <div id="video-core">
+
+	<div class="hvlog">
+
+	  <a rel="enclosure" 
+	     class="hVlogTarget"
+	     onClick="vPIPPlay(this); return false;"
+	     tal:condition="view/use_vpip"
+	     tal:attributes="href here/absolute_url;
+			     title here/title" >
+	    <img tal:condition="view/hasThumbnailImage"
+		 tal:attributes="alt here/thumbnailImageDescription;
+				src string:${here/absolute_url}/thumbnailImage_medium;" />
+	    <span class="playvideo"> 
+	      <img tal:replace="structure here/video_icon.png" />
+	      Play video
+	    </span>
+	  </a>
+
+	  <tal:use-vpip condition="not: view/use_vpip">	
+	    <tal:failed_transcode condition="not: view/transcoding_ready">
+	      <a id="no-video-player"
+		 tal:condition="view/hasThumbnailImage"
+		 tal:attributes="href string:${here/absolute_url}/thumbnailImage/image_view_fullscreen">
+		<img tal:attributes="src string:${here/absolute_url}/thumbnailImage_medium;
+					alt here/thumbnailImageDescription;
+				     style string:margin-bottom:5px;" />
+		<span>
+		  <img tal:replace="structure here/search_icon.gif" />
+		  <tal:larger i18n:translate="thumbnail_click_to_enlarge">
+		    View larger image
+		  </tal:larger>
+		</span>
+	      </a>
+	    </tal:failed_transcode>
+	    <div id="video-player" 
+		 tal:condition="view/transcoding_ready" 
+		 tal:content="structure here/getIndyTubeHTML" ></div>
+	    <div tal:omit-tag="" tal:condition="view/transcoding_ready">	
+		    <div style="width:320px;margin-top:5px;">Copy the following to embed the movie into another web page:</div>
+		    <form>
+		    <textarea style="overflow-x:auto;width:320px;" onclick="this.focus();this.select();"><span tal:omit-tag="" tal:content="structure here/getIndyTubeHTMLMarkedUp" /></textarea>
+		    </form>
+	     </div>
+
+
+
+	  </tal:use-vpip>
+	</div>
+	
+	<a class="download" 
+	   tal:define="bt_info view/bt_availability"
+	   tal:condition="bt_info/available"
+	   tal:attributes="href bt_info/url"> 
+	  <img alt="" src=""
+	       tal:replace="structure here/torrent.png" />
+	  Download via BitTorrent
+	</a>
+
+	<div id="video-downloads">
+	  <p class="download-block">
+	    <a id="download-link"
+	       tal:attributes="href here/getDownloadServerURL"
+	       tal:condition="view/enclosure">
+	      Download Hi-Res / Screening Version
+	    </a>
+	    <span class="discreet"
+		  tal:define="fsiz here/getObjSize"
+		  tal:content="string:($fsiz)" />
+	  </p>
+
+	  <p class="download-block">
+	    <a id="vlc-link"
+	       href="http://www.videolan.org">
+	      <span>Videos best viewed on VLC player</span>
+	    </a>
+	  </p>
+	</div>
+      </div>
+
+      <h2 id="video-about">Full description</h2>
+      <p tal:define="fulldesc here/FullDescription"
+	 tal:condition="fulldesc"
+	 tal:content="structure fulldesc" />
+
+	
+      <div tal:condition="view/transcoding_rights">	
+	<div id="video-transcoding"
+	     tal:define="transcoding view/transcoding_status">
+	  <h2>Transcode Status</h2> 
+	  <p tal:content="transcoding" />
+	  <p i18n:translate="restart_transcoding">
+	    You may like to try to
+	    <a tal:attributes="href string:${here/absolute_url}/reTranscode"
+	       >re-start transcoding.</a>
+	  </p>
+	  <p i18n:translate="cancel_transcoding">
+	    If the automatically transcoded movie is corrupted,
+	    or poor quality etc. , you may like to
+	    <a tal:attributes="href string:${here/absolute_url}/stopTranscode"
+	       >turn off flowplayer and automatic transcoding.</a>
+	  </p>
+	</div>
+      </div>
+
+      <div id="video-licensing">
+	<tal:copyright replace="structure context/copyright_byline_view" />
+	<tal:citation  replace="structure context/citation_view" />
+	<tal:metadata  replace="structure context/metadata_view" />
+      </div>
+
+  </metal:main>
+  </body>
+</html>

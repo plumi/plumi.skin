@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from zope.interface import Interface, Attribute
-from zope.app.publisher.interfaces.browser import IBrowserView
+from zope.publisher.interfaces.browser import IBrowserView
 from plone.theme.interfaces import IDefaultPloneLayer
  
 class IThemeSpecific(IDefaultPloneLayer):
@@ -9,6 +9,33 @@ class IThemeSpecific(IDefaultPloneLayer):
 class IAbstractCatalogBrain( Interface ):
     u"""Marker interface
     """
+
+class IVideoView( IBrowserView ):
+    u"""Gathers useful properties from the video and format them for
+    display purposes. The lists are all made the same way. They are
+    lists of dicts. The dict has 3 keys : title, url and id. Values
+    are strings.
+    """
+    categories = Attribute("The list of categories linked to the video.")
+    genres = Attribute("The list of genres linked to the video.")
+    subjects = Attribute("The list of subjects linked to the video.")
+    language = Attribute("The language of the video. Returns a dict if "
+                         "the language exists. None otherwise.")
+    country = Attribute("The country where the video is from. "
+                        "Returns a dict if country exists. None otherwise.")
+    use_vpip = Attribute("Boolean.")
+    enclosure = Attribute("Boolean determining if the video enclosure has a "
+                          "length. See ATMediaFile.content.mediafile for more "
+                          "info.")
+
+    transcoding_rights = Attribute("Boolean representing the right to see "
+                                   "transcoding information.")
+    transcoding_status = Attribute("Status of the video transcoding.")
+    transcoding_result = Attribute("Boolean representing the transcoding "
+                                   "results.")
+
+    bt_availability = Attribute("A dict giving info about the BT status of the"
+                                " file. It's a dict with two keys.")
 
 class IVideosProvider( Interface ):
     u"""This interface defines a content types able to generate a list of

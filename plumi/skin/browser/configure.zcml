@@ -38,6 +38,62 @@
   <adapter factory=".adapters.OrderedFolderVideosProvider"
            provides=".interfaces.IVideosProvider" />
 
+ <browser:page
+          name="transmission.xml"
+      for="collective.contentlicensing.DublinCoreExtensions.interfaces.ILicensable"
+      class=".rssview.RSSView"
+      template="templates/transmission.pt"
+      permission="zope2.View"
+      />
+  <browser:page
+          name="transmission_template"
+      for="collective.contentlicensing.DublinCoreExtensions.interfaces.ILicensable"
+      class=".rssview.RSSView"
+      template="templates/transmission_template.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      name="RSS2"
+      for="collective.contentlicensing.DublinCoreExtensions.interfaces.ILicensable"
+      class=".rssview.RSSView"
+      template="templates/RSS2.pt"
+      permission="zope2.View"
+      />
+<!--
+ <browser:page
+      name="RSS"
+      for="Products.ContentLicensing.DublinCoreExtensions.interfaces.ILicensable"
+      class=".rssview.RSSView"
+      template="../../ContentLicensing/browser/rss.pt"
+      permission="zope2.View"
+      />
+-->
+
+  <browser:page
+      name="rss_template"
+      for="collective.contentlicensing.DublinCoreExtensions.interfaces.ILicensable"
+      class=".rssview.RSSView"
+      template="templates/rss_template.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      name="video_view"
+      for="plumi.content.interfaces.IPlumiVideo"
+      class=".video.VideoView"
+      template="templates/plumi_video_view.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="*"
+      name="recent_callouts_view"
+      class=".portlets.recent_callouts.RecentCalloutsPortlet"
+      permission="zope.Public"
+      allowed_interface="Products.CMFPlone.browser.interfaces.IRecentPortlet"
+      />
+
   <browser:page
       for="*"
       name="recent_comment_view"
