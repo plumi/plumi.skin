@@ -1,6 +1,13 @@
 DONE Debug CSS issues on install
 
+PlumiSkin 0.2.x browser templates::
+	DONE	video listings 
+	DONE 	featured home page
+		video view page
+		author profile templates
+
 workflow scripts from plumi 0.2.x - replace functionality
+
 portlets:
 	latest news
 	latest events
@@ -9,10 +16,6 @@ portlets:
 	tag cloud
 
 RSS / RSS2 / Transmission syndication templates
-
-PlumiSkin 0.2.x browser templates::
-	author profile templates
-	video listings / featured home page
 
 review PlumiSkin product from plumi 0.2.x to see if we missed anything
 
