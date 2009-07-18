@@ -10,7 +10,7 @@ class IAbstractCatalogBrain( Interface ):
     u"""Marker interface
     """
 
-class IVideoView( IBrowserView ):
+class IVideoView( Interface ):
     u"""Gathers useful properties from the video and format them for
     display purposes. The lists are all made the same way. They are
     lists of dicts. The dict has 3 keys : title, url and id. Values

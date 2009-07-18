@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from zope.interface import implements
-from Products.Five  import BrowserView
+from Products.Five.browser  import BrowserView
 from Products.CMFCore.utils import getToolByName
 from plumi.app.config import TOPLEVEL_TAXONOMY_FOLDER, CATEGORIES_FOLDER, COUNTRIES_FOLDER
 from interfaces import ITopicsProvider

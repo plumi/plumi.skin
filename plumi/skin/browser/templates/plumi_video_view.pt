@@ -1,11 +1,13 @@
 <html  xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+       xmlns:tal="http://xml.zope.org/namespaces/tal"
+       xmlns:metal="http://xml.zope.org/namespaces/metal"
+       metal:use-macro="here/main_template/macros/master"
+       i18n:domain="plone">
 
   <body>
-    <metal:main fill-slot="main">
+    <div metal:fill-slot="main">
+  	<metal:main_macro define-macro="main">
+		<metal:body define-macro="body_macro">
 
       <div metal:use-macro="here/document_actions/macros/document_actions">
 	Document actions (print, sendto etc)
@@ -284,7 +286,8 @@
 	<tal:citation  replace="structure context/citation_view" />
 	<tal:metadata  replace="structure context/metadata_view" />
       </div>
-
-  </metal:main>
+	</metal:body>
+      </metal:main_macro>
+  </div>
   </body>
 </html>

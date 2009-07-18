@@ -79,15 +79,6 @@
       />
 
   <browser:page
-      name="video_view"
-      for="plumi.content.interfaces.IPlumiVideo"
-      class=".video.VideoView"
-      template="templates/plumi_video_view.pt"
-      permission="zope2.View"
-      layer=".interfaces.IThemeSpecific"
-      />
-
-  <browser:page
       for="*"
       name="recent_callouts_view"
       class=".portlets.recent_callouts.RecentCalloutsPortlet"
@@ -135,8 +126,16 @@
       permission="zope2.View"
       allowed_attributes="videos empty parent_url renderers"
       layer=".interfaces.IThemeSpecific"
-
       />
+
+  <browser:page
+      name="video_view"
+      for="plumi.content.interfaces.IPlumiVideo"
+      template="templates/plumi_video_view.pt"
+      permission="zope2.View"
+      layer=".interfaces.IThemeSpecific"
+      />
+<!-- class=".video.VideoView" -->
 
   <browser:page
       for="*"

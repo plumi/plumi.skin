@@ -3,8 +3,8 @@
 # Five & zope3 thingies
 from zope import i18n
 from zope.interface import implements
-from Products.Five  import BrowserView
-
+from Products.Five.browser  import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 # CMF
 from Products.CMFCore.utils import getToolByName
 
@@ -22,6 +22,7 @@ class VideoView( BrowserView ):
     """
     implements( IVideoView, ITopicsProvider )
 
+    #__call__ = ViewPageTemplateFile('templates/plumi_video_view.pt')
 
     def __init__(self, context, request):
         super(VideoView, self).__init__(context, request)
