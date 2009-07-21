@@ -9,13 +9,20 @@ PlumiSkin 0.2.x browser templates::
 workflow scripts from plumi 0.2.x - replace functionality
 
 portlets:
+DONE	publish
+DONE    browse
 	latest news
 	latest events
 	latest call outs
 	latest comments
 	tag cloud
 
-RSS / RSS2 / Transmission syndication templates
+syndication templates::
+DONE	RSS 
+	RSS2 
+	Transmission
+
+New users dont have permissions to see top-level tabs, like "About Us"
 
 review PlumiSkin product from plumi 0.2.x to see if we missed anything
 
