@@ -34,7 +34,7 @@
         <br />
       </div>
 
-<div class="loginOption"><a tal:attributes="href string:${portal/portal_membership/getHomeUrl}/videos/createObject?type_name=ATEngageVideo"><img class="bigbutton" tal:attributes="src string:${portal_url}/publishvideo.gif"></a><b><a class="optionHeader" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/videos/createObject?type_name=ATEngageVideo">Publish Video</a></b><br />
+<div class="loginOption"><a tal:attributes="href string:${portal/portal_membership/getHomeUrl}/videos/createObject?type_name=PlumiVideo"><img class="bigbutton" tal:attributes="src string:${portal_url}/publishvideo.gif"></a><b><a class="optionHeader" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/videos/createObject?type_name=PlumiVideo">Publish Video</a></b><br />
 Share your productions by uploading video to <span tal:replace="portal/Title">EngageMedia</span>. 
 Videos will be automatically submitted for publishing approval. <a tal:attributes="href string:${portal_url}/editorial-policy">View editorial policy</a>. 
 </div>
@@ -44,7 +44,7 @@ List your events such as screenings, film festivals or workshops here.
 <div class="loginOption"><a tal:attributes="href string:${portal/portal_membership/getHomeUrl}/news/createObject?type_name=News Item"><img class="bigbutton" tal:attributes="src string:${portal_url}/mynews.gif"></a><b><a class="optionHeader" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/news/createObject?type_name=News Item">Publish News</a></b><br />
 Tell us news about your past and future productions and promote your work.
 </div>
-<div class="loginOption"><a tal:attributes="href string:${portal/portal_membership/getHomeUrl}/callouts/createObject?type_name=Call%20Out"><img class="bigbutton" tal:attributes="src string:${portal_url}/callouts.gif"></a><b><a class="optionHeader" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/callouts/createObject?type_name=Call%20Out">Call Out!</a></b><br />
+<div class="loginOption"><a tal:attributes="href string:${portal/portal_membership/getHomeUrl}/callouts/createObject?type_name=PlumiCallOut"><img class="bigbutton" tal:attributes="src string:${portal_url}/callouts.gif"></a><b><a class="optionHeader" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/callouts/createObject?type_name=PlumiCallOut">Call Out!</a></b><br />
 Looking for content for a DVD compilation, screening, film festival or crew for a production? Let people know about it by adding a call-out.
 </div>
 <br />
