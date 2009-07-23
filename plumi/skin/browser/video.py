@@ -65,7 +65,7 @@ class VideoView( BrowserView ):
 
     @property
     def country(self):
-        country_id = self.context.getCountry()
+        country_id = self.context.getCountries()
         if country_id:
             return self.get_country_info(country_id)
         return None
