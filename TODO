@@ -5,9 +5,6 @@ PlumiSkin 0.2.x browser templates::
 	DONE 	featured home page
 		video view page
 		author profile templates
-
-workflow scripts from plumi 0.2.x - replace functionality
-
 portlets:
 DONE	publish
 DONE    browse
