@@ -1,4 +1,5 @@
 DONE Debug CSS issues on install
+DONE release egg for plumi 0.3.0 : plumi.skin 0.1 alpha 1 egg
 
 PlumiSkin 0.2.x browser templates::
 	DONE	video listings 
@@ -21,6 +22,5 @@ DONE	RSS
 
 New users dont have permissions to see top-level tabs, like "About Us"
 
-review PlumiSkin product from plumi 0.2.x to see if we missed anything
+Review PlumiSkin product from plumi 0.2.x to see if we missed anything
 
-release egg for plumi 0.3.0 : plumi.skin 0.1 alpha 1 egg
