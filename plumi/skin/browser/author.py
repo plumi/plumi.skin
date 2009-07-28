@@ -6,6 +6,7 @@ from taxonomy import CategoriesProvider
 from zope.component import queryMultiAdapter
 from Products.CMFCore.utils import getToolByName
 from interfaces import IAuthorPage, IPlumiVideoBrain
+import logging
 
 
 class AuthorPage( CategoriesProvider ):
@@ -18,9 +19,17 @@ class AuthorPage( CategoriesProvider ):
         super(AuthorPage, self).__init__(context, request)
         self.catalog = getToolByName(self.context, "portal_catalog")
         self.mtool = getToolByName(self.context, 'portal_membership')
-        self.author = (len(request.traverse_subpath) > 0
-                       and request.traverse_subpath[0]
-                       or request.get('author', None))
+	#old way
+        self.author = (len(request.traverse_subpath) > 0 and request.traverse_subpath[0] or request.get('author', None))
+	#new way
+	#self.author = (len(request.traverse_subpath) > 0 and url_unquote_plus(request.traverse_subpath[0])) or request.get('author', None)	
+	self.logging = logging.getLogger('plumi.skin.browser.author')
+
+    @property
+    def author_city(self):
+	self.logging.info('author_city , %s ' % self.author)
+	self.member = self.context['acl_users'].getUserById(self.author)
+	return self.member.getProperty('city')
 
     @property
     def videos(self):
