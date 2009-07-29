@@ -99,6 +99,16 @@ class IAuthorPage( Interface ):
     portrait = Attribute(u"The portrait of the author")
     member_info = Attribute(u"The full infos about the author.")
     homefolder = Attribute(u"The homefolder, if it exists, of the author.")
+    # custom attributes
+    author_url = Attribute(u" ")
+    author_street = Attribute(u" ")
+    author_phone = Attribute(u" ")
+    author_city = Attribute(u" ")
+    author_postcode = Attribute(u" ")
+    author_genre_interests = Attribute(u" ")
+    author_activities = Attribute(u" ")
+    author_media_formats = Attribute(u" ")
+    author_userbio = Attribute(u" ")
 
 
 class IPlumiVideoBrain( Interface ):

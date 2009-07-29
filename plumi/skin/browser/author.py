@@ -21,20 +21,58 @@ class AuthorPage( CategoriesProvider ):
         self.mtool = getToolByName(self.context, 'portal_membership')
 	#old way
         self.author = (len(request.traverse_subpath) > 0 and request.traverse_subpath[0] or request.get('author', None))
-	#new way
+	#new way. XXX
 	#self.author = (len(request.traverse_subpath) > 0 and url_unquote_plus(request.traverse_subpath[0])) or request.get('author', None)	
 	self.logging = logging.getLogger('plumi.skin.browser.author')
+	self.member = self.context['acl_users'].getUserById(self.author)
+
+    @property
+    def author_url(self):
+    	url=self.member.getProperty('url')
+        if len(url)> 0 and not url[:7]=='http://':
+                return 'http://'+url
+        else:
+                return url
+    @property
+    def author_street(self):
+	return self.member.getProperty('street')
+
+    @property
+    def author_phone(self):
+	return self.member.getProperty('phone')
 
     @property
     def author_city(self):
-	self.logging.info('author_city , %s ' % self.author)
-	self.member = self.context['acl_users'].getUserById(self.author)
 	return self.member.getProperty('city')
+
+    @property
+    def author_postcode(self):
+	return self.member.getProperty('postcode')
+
+    @property
+    def author_genre_interests(self):
+	#XXX make sure its ALWAYS a list
+	return self.member.getProperty('genre_interests')
+
+    @property
+    def author_activities(self):
+	#XXX make sure its ALWAYS a list
+	return self.member.getProperty('activities')
+
+    @property
+    def author_media_formats(self):
+	#XXX make sure its ALWAYS a list
+	return self.member.getProperty('media_formats')
+
+    @property
+    def author_userbio(self):
+	return self.member.getProperty('userbio')
 
     @property
     def videos(self):
         query = dict(portal_type='PlumiVideo',
-                     sort_on='getFirstPublishedTransitionTime',
+		     # XXX re-impl. this 
+                     #sort_on='getFirstPublishedTransitionTime',
                      sort_order='reverse',
                      Creator=self.author,
                      review_state='published')

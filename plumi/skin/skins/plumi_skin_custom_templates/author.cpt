@@ -147,6 +147,108 @@
                i18n:translate="label_author_external_home_page">Author's external home page&hellip;</a>
             </p>
 
+
+	<!-- custom author profile , Plumi Skin implementation -->
+		<tal:url condition="view/author_url"
+				      i18n:translate="text_url">
+			    URL:
+			    <a tal:attributes="href view/author_url"
+			       tal:content="view/author_url"
+				  >
+				Some URL
+			    </a>
+
+			    <br />
+		</tal:url>
+
+                <tal:street condition="view/author_street"
+                              i18n:translate="text_street">
+                    <span class="street_label">Address : </span>
+                    <span tal:content="view/author_street" class="author_street" >
+                        Some street
+                    </span>
+
+                    <br />
+                </tal:street>
+
+
+                <tal:phone condition="view/author_phone"
+                              i18n:translate="text_phone">
+                    <span class="phone_label">Phone : </span>
+                    <span tal:content="view/author_phone" class="author_phone" >
+                        Some phone number
+                    </span>
+
+                    <br />
+                </tal:phone>
+
+
+                <tal:postcode condition="view/author_postcode"
+                              i18n:translate="text_postcode">
+                    <span class="postcode_label">Post Code : </span>
+                    <span tal:content="view/author_postcode" class="author_postcode" >
+                        Some post code 
+                    </span>
+
+                    <br />
+                </tal:postcode>
+
+
+		<tal:genre_interests condition="view/author_genre_interests"
+                              i18n:translate="genre_interests">
+                    <span class="genre_header">Genre Interests : </span>
+                    	<tal:repeat repeat="interest view/author_genre_interests">
+                    		<a class="author_interest" tal:attributes="href string:${portal_url}/taxonomy/genre/${interest/lower}" tal:content="interest"></a>
+                    	</tal:repeat>
+
+                    <br />
+                </tal:genre_interests>
+
+
+		<tal:activities condition="view/author_activities"
+                              i18n:translate="activities">
+                    <span class="activities_header">Activities : </span>
+			<tal:repeat repeat="activity view/author_activities">
+				<span class="author_activity" tal:content="activity"/>
+			</tal:repeat>
+
+                   <br />
+                </tal:activities>
+
+
+		<tal:media_formats condition="view/author_media_formats"
+                              i18n:translate="media_formats">
+                    <span class="media_formats_header">Media Formats : </span>
+			<tal:repeat repeat="format view/author_media_formats">
+				<span class="author_media_formats" tal:content="format"/>
+			</tal:repeat>
+                </tal:media_formats>
+
+                <br />
+
+
+          <!-- END : custom author profile, Plumi Skin impl -->
+
+	<!-- Videos listing -->
+	<div class="featured-block">
+	  <dl class="videos-listing" tal:condition="videos" i18n:domain="plumi" tal:define="videos view/videos">
+	       
+	    <dt class="featuredHeader">
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" /></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/" i18n:translate="">Latest Videos</a>
+	    </dt>
+		<!-- each video item -->
+	    <dd class="featuredItem" tal:repeat="obj videos">
+	      <tal:video replace="structure obj/render_listing" />
+	    </dd>
+	    <!-- end of each video item -->
+
+	  </dl>
+	</div>
+	<!-- end of video listing for user -->
+
+
+
             <div class="formControls" tal:condition="isAnon">
             <form 
               tal:define="pss modules/Products/PythonScripts/standard"
