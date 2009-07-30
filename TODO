@@ -4,8 +4,9 @@ DONE release egg for plumi 0.3.0 : plumi.skin 0.1 alpha 1 egg
 PlumiSkin 0.2.x browser templates::
 	DONE	video listings 
 	DONE 	featured home page
-		author profile templates
+	DONE	author profile templates
 		content views [ video / call out ]
+
 portlets:
 DONE	publish
 DONE    browse

@@ -364,7 +364,7 @@
 
                 <label for="genre_interests" i18n:translate="label_genre_interests">Genre Interests</label>
 
- <div class="formHelp" i18n:translate="help_genre_interests">
+		 <div class="formHelp" i18n:translate="help_genre_interests">
                 You can multiple selected by holding down the control or command key.
                 </div>
 
