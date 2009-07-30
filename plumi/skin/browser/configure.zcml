@@ -131,11 +131,11 @@
   <browser:page
       name="video_view"
       for="plumi.content.interfaces.IPlumiVideo"
+      class=".video.VideoView"
       template="templates/plumi_video_view.pt"
       permission="zope2.View"
       layer=".interfaces.IThemeSpecific"
       />
-<!-- class=".video.VideoView" -->
 
   <browser:page
       for="*"
