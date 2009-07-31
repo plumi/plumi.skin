@@ -29,7 +29,7 @@
         tal:define="
                     objcreators  obj/isPublishableATEngageVideoObj/item_creator_email;
                     objsubjects obj/isPublishableATEngageVideoObj/subject;
-		            thumb_url string:${obj/isPublishableATEngageVideoObj/item_url}/thumbnailImage_small;
+		            thumb_url string:${obj/isPublishableATEngageVideoObj/item_url}/thumbnailImage_thumb;
 		            item_size obj/isPublishableATEngageVideoObj/file_length;
 		            content_type obj/isPublishableATEngageVideoObj/file_type;
 		            item_path obj/isPublishableATEngageVideoObj/file_url;

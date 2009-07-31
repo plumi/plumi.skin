@@ -11,15 +11,11 @@
     <a class="featured-video-image"
        tal:attributes="href string:${view/url}/view;
 		       title view/video_title">
-      <img tal:attributes="src string:${view/url}/thumbnailImage_small;
+      <img tal:attributes="src string:${view/url}/thumbnailImage_thumb;
 			   alt string:${view/video_title}'s thumbnail image" />
     </a>
   </tal:image>
   </span>
-
-
-
-
 
   <h4 tal:condition="options/show_title">
 
@@ -34,10 +30,11 @@
     <tal:date content="view/post_date" />
   </span>
 
+	<!--
   <span class="featured-video-duration">
     Video duration :
-    <!-- <span tal:content="video/getFormattedDuration" /> -->
-  </span>
+     <span tal:content="video/getFormattedDuration" /> 
+  </span> -->
 
   <p class="discreet plumi-nice-description" >
     <tal:desc tal:content="video/Description" />
