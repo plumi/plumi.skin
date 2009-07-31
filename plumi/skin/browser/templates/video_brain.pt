@@ -9,10 +9,8 @@
  <span tal:omit-tag="" tal:condition="not:options/feature_video">
   <tal:image condition="video/hasImageAndCaption">
     <a class="featured-video-image"
-       tal:attributes="href string:${view/url}/view;
-		       title view/video_title">
-      <img tal:attributes="src string:${view/url}/thumbnailImage_thumb;
-			   alt string:${view/video_title}'s thumbnail image" />
+       tal:attributes="href string:${view/url}/view; title view/hasImageAndCaption/caption">
+      <img tal:attributes="src string:${view/url}/thumbnailImage_thumb; alt string:${view/hasImageAndCaption/caption}" />
     </a>
   </tal:image>
   </span>
