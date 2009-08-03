@@ -28,7 +28,9 @@ class VideoView( BrowserView ):
         super(VideoView, self).__init__(context, request)
         self.portal_url = getToolByName(self.context, "portal_url")()
         self.vocab_tool = getToolByName(self.context, "portal_vocabularies")
-        self.use_vpip = "vpip" in context.Subject()
+
+       	#deprecated. will be removed 
+	self.use_vpip = "vpip" in context.Subject()
         
 	# XXX port to plumi.app.blob
         #media_info = context.getFileAttribs()
@@ -183,4 +185,6 @@ class VideoView( BrowserView ):
 		return False
 	imgfield = self.context.getField('thumbnailImage')
 	#XXX test if the field is ok
+	if imgfield is None or imgfield is '':
+		return False
 	return True

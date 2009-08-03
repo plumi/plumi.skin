@@ -1,31 +1,44 @@
-<html  xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:tal="http://xml.zope.org/namespaces/tal"
-       xmlns:metal="http://xml.zope.org/namespaces/metal"
-       metal:use-macro="here/main_template/macros/master"
-       i18n:domain="plone">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
 
-  <body>
-    <div metal:fill-slot="main">
-  	<metal:main_macro define-macro="main">
-		<metal:body define-macro="body_macro">
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+           tal:define="kssClassesView context/@@kss_field_decorator_view;
+                       getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                       templateId template/getId;
+                       fullDescription here/getFullDescription;">
 
-      <div metal:use-macro="here/document_actions/macros/document_actions">
-	Document actions (print, sendto etc)
-      </div>
-        
-      <h1 tal:content="context/title_or_id"
-	  class="documentFirstHeading" />
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-      <div metal:use-macro="here/document_byline/macros/byline">
-	Get the byline - contains details about author and modification date.
-      </div>
+        <h1 class="documentFirstHeading"> 
+            <metal:field use-macro="python:here.widget('title', mode='view')">
+            Title
+            </metal:field>
+        </h1>
 
-      <p class="documentDescriptionVideo discreet"
-	   tal:content="here/Description">
-	description
-      </p>
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
 
-      <div id="video-infos">
+        <p class="documentDescription">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
+            Description
+            </metal:field>
+        </p>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <p tal:condition="python: not fullDescription and is_editable"
+           i18n:translate="no_body_text"
+           class="discreet">
+            This item does not have any body text, click the edit tab to change it.
+        </p>
+
+   	<div id="video-infos">
 	
 	<dl class="videoitemtop plumi-props-listing plumi-genres"
 	    tal:define="genres view/genres"
@@ -34,8 +47,7 @@
 	  <dd>
 	    <ul>
 	      <li tal:repeat="genre genres">
-		<a href="" title="" id=""
-           tal:condition="python: genre['id'] != 'aaa_none'"
+		<a href="" title="" id="" tal:condition="python: genre['id'] != 'aaa_none'"
 		   tal:attributes="href genre/url;
 				   id genre/id;
 				   title genre/title;
@@ -176,31 +188,28 @@
 	</div>
       </div>
 
-      <div id="video-core">
+  	<div id="video-core">
 
 	<div class="hvlog">
 
-	  <a rel="enclosure" 
-	     class="hVlogTarget"
-	     onClick="vPIPPlay(this); return false;"
-	     tal:condition="view/use_vpip"
+	  <a rel="enclosure" class="hVlogTarget" onClick="vPIPPlay(this); return false;" tal:condition="view/use_vpip"
 	     tal:attributes="href here/absolute_url;
 			     title here/title" >
 	    <img tal:condition="view/hasThumbnailImage"
 		 tal:attributes="alt here/thumbnailImageDescription;
-				src string:${here/absolute_url}/thumbnailImage_medium;" />
+				src string:${here/absolute_url}/thumbnailImage_mini;" />
 	    <span class="playvideo"> 
 	      <img tal:replace="structure here/video_icon.png" />
 	      Play video
 	    </span>
 	  </a>
 
-	  <tal:use-vpip condition="not: view/use_vpip">	
+	  <tal:not-use-vpip condition="not: view/use_vpip">	
 	    <tal:failed_transcode condition="not: view/transcoding_ready">
-	      <a id="no-video-player"
-		 tal:condition="view/hasThumbnailImage"
+	      <a id="no-video-player" tal:condition="view/hasThumbnailImage"
 		 tal:attributes="href string:${here/absolute_url}/thumbnailImage/image_view_fullscreen">
-		<img tal:attributes="src string:${here/absolute_url}/thumbnailImage_medium;
+
+		<img tal:attributes="src string:${here/absolute_url}/thumbnailImage_mini;
 					alt here/thumbnailImageDescription;
 				     style string:margin-bottom:5px;" />
 		<span>
@@ -211,6 +220,7 @@
 		</span>
 	      </a>
 	    </tal:failed_transcode>
+
 	    <div id="video-player" 
 		 tal:condition="view/transcoding_ready" 
 		 tal:content="structure here/getIndyTubeHTML" ></div>
@@ -221,9 +231,8 @@
 		    </form>
 	     </div>
 
+	  </tal:not-use-vpip>
 
-
-	  </tal:use-vpip>
 	</div>
 	
 	<a class="download" 
@@ -256,17 +265,21 @@
 	</div>
       </div>
 
-      <h2 id="video-about">Full description</h2>
-      <p tal:define="fulldesc here/FullDescription"
-	 tal:condition="fulldesc"
-	 tal:content="structure fulldesc" />
+        <metal:field use-macro="python:here.widget('FullDescription', mode='view')">
+        Body text
+        </metal:field>
 
-	
-      <div tal:condition="view/transcoding_rights">	
-	<div id="video-transcoding"
-	     tal:define="transcoding view/transcoding_status">
-	  <h2>Transcode Status</h2> 
+        <div metal:use-macro="here/document_relateditems/macros/relatedItems">
+            show related items if they exist
+        </div>
+
+        <div tal:condition="view/transcoding_rights">	
+
+	<div id="video-transcoding" tal:define="transcoding view/transcoding_status">
+
+	  <strong>Transcode Status</strong> 
 	  <p tal:content="transcoding" />
+
 	  <p i18n:translate="restart_transcoding">
 	    You may like to try to
 	    <a tal:attributes="href string:${here/absolute_url}/reTranscode"
@@ -279,15 +292,19 @@
 	       >turn off flowplayer and automatic transcoding.</a>
 	  </p>
 	</div>
-      </div>
+        </div>
+
+      <div tal:replace="structure provider:plone.belowcontentbody" />
 
       <div id="video-licensing">
-	<tal:copyright replace="structure context/copyright_byline_view" />
-	<tal:citation  replace="structure context/citation_view" />
-	<tal:metadata  replace="structure context/metadata_view" />
+        <div tal:replace="structure context/@@copyright_byline_view | nothing" />
+        <div tal:replace="structure context/@@citation_view | nothing" />
       </div>
-	</metal:body>
-      </metal:main_macro>
-  </div>
-  </body>
+
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
 </html>
+
