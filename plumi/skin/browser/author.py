@@ -42,6 +42,10 @@ class AuthorPage( CategoriesProvider ):
 	return self.member.getProperty('phone')
 
     @property
+    def author_userbio(self):
+	    return self.member.getProperty('userbio')
+
+    @property
     def author_city(self):
 	return self.member.getProperty('city')
 
@@ -91,3 +95,4 @@ class AuthorPage( CategoriesProvider ):
     @property
     def homefolder(self):
         return self.mtool.getHomeFolder(id=self.author)
+
