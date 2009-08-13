@@ -98,20 +98,16 @@
             </h1>
 
             <div class="discreet">
-                <tal:location condition="authorinfo/location"
-                              i18n:translate="text_location">
+
+                <tal:location condition="view/author_city" i18n:translate="text_location">
                     Location:
-		 <span tal:content="view/author_city"
-                          tal:omit-tag=""
-			 i18n:name="author_city"
-                          >
+                     <span tal:content="view/author_city" tal:omit-tag="" i18n:name="author_city">
                         Some City
                     </span>
-                    <span tal:content="authorinfo/location"
-                          tal:omit-tag=""
-                          i18n:name="location">
-                        Some location
+                 <span tal:content="authorinfo/location" tal:omit-tag="" i18n:name="location">
+                        Some Country
                     </span>
+
                 </tal:location>
 
                 <tal:language condition="authorinfo/language">
@@ -129,7 +125,7 @@
                  tal:attributes="src portrait/absolute_url" />
                       
 
-            <p class="documentDescription" tal:content="authorinfo/description">
+            <p class="documentDescription" tal:content="view/author_userbio">
                 Author description.
             </p>
 
