@@ -104,6 +104,9 @@
                      <span tal:content="view/author_city" tal:omit-tag="" i18n:name="author_city">
                         Some City
                     </span>
+                </tal:location>
+                <tal:location condition="authorinfo/location" i18n:translate="text_location">
+                    Country:
                  <span tal:content="authorinfo/location" tal:omit-tag="" i18n:name="location">
                         Some Country
                     </span>
