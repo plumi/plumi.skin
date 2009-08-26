@@ -2,7 +2,8 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:cmf="http://namespaces.zope.org/cmf"
-    i18n_domain="plumi.skin">
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="plumi">
 
   <five:registerPackage package="." initialize=".initialize" />
   <include package=".browser" />
