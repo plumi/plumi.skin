@@ -23,7 +23,7 @@
   
   <p class="discreet"
      tal:condition="view/empty"
-     i18n:domain="atcontenttypes"
+     i18n:domain="plumi"
      i18n:translate="description_no_items_in_topic">
     There are currently no results for this search.
   </p>

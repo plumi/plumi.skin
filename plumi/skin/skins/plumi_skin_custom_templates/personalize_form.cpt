@@ -264,15 +264,15 @@
 			-->
 
 			<!-- We dont use 'home_page' either, we use our custom field 'url' -->
-
+            <tal:plumi_domain i18n:domain="plumi">
                         <div class="field"
                              tal:define="error errors/url | nothing;
                                          url python:request.get('url', member.getProperty('url', ''));"
                              tal:attributes="class python:test(error, 'field error', 'field')">
 
-                            <label for="url" i18n:translate="label_url">Website Address</label>
+                            <label for="url" i18n:translate="">Website Address</label>
 
-                            <div class="formHelp" i18n:translate="help_homepage">
+                            <div class="formHelp" i18n:translate="help_external_homepage">
                             The URL for your external home page, if you have one.
                             </div>
 
@@ -294,7 +294,7 @@
 				     street python:request.get('street', member.getProperty('street', ''));"
 			 tal:attributes="class python:test(error, 'field error', 'field')">
 
-			<label for="street" i18n:translate="label_street">Physical Address</label>
+			<label for="street" i18n:translate="">Physical Address</label>
 
 			<div tal:content="error">Validation error output</div>
 
@@ -317,7 +317,7 @@
                              postcode python:request.get('postcode', member.getProperty('postcode', ''));"
                  tal:attributes="class python:test(error, 'field error', 'field')">
 
-                <label for="postcode" i18n:translate="label_postcode">Postcode</label>
+                <label for="postcode" i18n:translate="">Postcode</label>
 
 
                 <div tal:content="error">Validation error output</div>
@@ -339,7 +339,7 @@
                              phone python:request.get('phone', member.getProperty('phone', ''));"
                  tal:attributes="class python:test(error, 'field error', 'field')">
 
-                <label for="phone" i18n:translate="label_phone">Phone Number</label>
+                <label for="phone" i18n:translate="">Phone Number</label>
 
                 <div tal:content="error">Validation error output</div>
 
@@ -362,10 +362,10 @@
                              genre_interests python:request.get('genre_interests', member.getProperty('genre_interests', ''));"
                  tal:attributes="class python:test(error, 'field error', 'field')">
 
-                <label for="genre_interests" i18n:translate="label_genre_interests">Genre Interests</label>
+                <label for="genre_interests" i18n:translate="">Genre Interests</label>
 
-		 <div class="formHelp" i18n:translate="help_genre_interests">
-                You can multiple selected by holding down the control or command key.
+		 <div class="formHelp" i18n:translate="help_multiple_items">
+                You can select multiple items by holding down the control or command key.
                 </div>
 
 
@@ -398,7 +398,7 @@
                              activities python:request.get('activities', member.getProperty('activities', ''));"
                  tal:attributes="class python:test(error, 'field error', 'field')">
 
-                <label for="activities" i18n:translate="label_activities">Activities</label>
+                <label for="activities" i18n:translate="">Activities</label>
 
 
                 <div tal:content="error">Validation error output</div>
@@ -427,7 +427,7 @@
                              media_formats python:request.get('media_formats', member.getProperty('media_formats', ''));"
                  tal:attributes="class python:test(error, 'field error', 'field')">
 
-                <label for="media_formats" i18n:translate="label_media_formats">Your Preferred Media Formats</label>
+                <label for="media_formats" i18n:translate="">Your Preferred Media Formats</label>
 
 
   
@@ -451,7 +451,7 @@
                  </select>
 
             </div>
-
+            </tal:plumi_domain>
 			<!-- end custom fields -->
 
                         <div class="field"

@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+      i18n:domain="plumi">
 <body>
 
 <metal:main fill-slot="main">
@@ -43,7 +43,7 @@
 	<dl class="videoitemtop plumi-props-listing plumi-genres"
 	    tal:define="genres view/genres"
 	    tal:condition="genres">
-	  <dt>Genres</dt>
+	  <dt i18n:translate="">Genres</dt>
 	  <dd>
 	    <ul>
 	      <li tal:repeat="genre genres">
@@ -61,7 +61,7 @@
 	<dl class="videoitemtop plumi-props-listing plumi-categories"
 	    tal:define="categories view/categories"
 	    tal:condition="categories">
-	  <dt>Categories</dt>
+	  <dt i18n:translate="">Categories</dt>
 	  <dd>
 	    <ul>
 	      <li tal:repeat="cat categories">
@@ -79,7 +79,7 @@
 	<dl class="videoitemtop plumi-props-listing plumi-keywords"
 	    tal:define="subjects view/subjects"
 	    tal:condition="subjects">
-	  <dt>Keywords</dt>
+	  <dt i18n:translate="">Keywords</dt>
 	  <dd>
 	    <ul>
 	      <li tal:repeat="kw subjects">
@@ -97,7 +97,7 @@
 	<dl class="videoitemtop plumi-props-listing plumi-keywords"
 	    tal:define="country view/country"
 	    tal:condition="country">
-	  <dt>Country</dt>
+	  <dt i18n:translate="">Country</dt>
 	  <dd>
 	    <ul>
 	      <li>
@@ -113,7 +113,7 @@
 	  <table summary="Event details" class="vertical listing">
 	    <thead>
 	      <tr>
-		<th colspan="2" class="nosort">
+		<th colspan="2" class="nosort" i18n:translate="">
 		  Video information
 		</th>
 	      </tr>
@@ -137,25 +137,26 @@
 	      </tr>
 	      <tr tal:condition="here/ProducerEmail"
 		  tal:define="emailaddy here/ProducerEmail">
-		<th>Contact</th>
+		<th i18n:translate="">Contact</th>
 		<td>
 		  <a href=""
-		     tal:attributes="href string:mailto:$emailaddy">
+		     tal:attributes="href string:mailto:$emailaddy" i18n:translate="">
 		    write the producer
 		  </a>
 		</td>
 	      </tr>
 	      <tr tal:condition="here/WebsiteURL">
-		<th>Home page</th>
+		<th i18n:translate="">Home page</th>
 		<td>
 		  <a href=""
 		     tal:define="url here/WebsiteURL"
-		     tal:attributes="href url">more info</a>
+		     tal:attributes="href url" 
+             i18n:translate="">more info</a>
 		</td>
 	      </tr>
 	      <tr tal:define="language view/language"
 		  tal:condition="language">
-		<th>Language</th>
+		<th i18n:translate="">Language</th>
 		<td tal:content="language/title"
 		    tal:attributes="class string:language-${language/id}">
 		  language
@@ -164,20 +165,20 @@
 
 	      <tr tal:define="dp view/post_date"
 		  tal:condition="dp">
-		<th>Produced</th>
+		<th i18n:translate="">Produced</th>
 		<td tal:content="dp">
 		  date produced.
 		</td>
 	      </tr>
 
 	      <tr tal:condition="here/ProductionCompanyName">
-		<th>Production Company</th>
+		<th i18n:translate="">Production Company</th>
 		<td tal:content="here/ProductionCompanyName">
 		  production company
 		</td>
 	      </tr>
 	      <tr tal:condition="here/Distributor">
-		<th>Distributor</th>
+		<th i18n:translate="">Distributor</th>
 		<td tal:content="here/Distributor">
 		  Distributor
 		</td>
@@ -200,7 +201,7 @@
 				src string:${here/absolute_url}/thumbnailImage_mini;" />
 	    <span class="playvideo"> 
 	      <img tal:replace="structure here/video_icon.png" />
-	      Play video
+          <tal:play_vid i18n:translate="">Play video</tal:play_vid>
 	    </span>
 	  </a>
 
@@ -225,7 +226,9 @@
 		 tal:condition="view/transcoding_ready" 
 		 tal:content="structure here/getIndyTubeHTML" ></div>
 	    <div tal:omit-tag="" tal:condition="view/transcoding_ready">	
-		    <div style="width:320px;margin-top:5px;">Copy the following to embed the movie into another web page:</div>
+		    <div style="width:320px;margin-top:5px;"
+                 i18n:translate="copy_embed_code">
+                 Copy the following to embed the movie into another web page:</div>
 		    <form>
 		    <textarea style="overflow-x:auto;width:320px;" onclick="this.focus();this.select();"><span tal:omit-tag="" tal:content="structure here/getIndyTubeHTMLMarkedUp" /></textarea>
 		    </form>
@@ -240,7 +243,8 @@
 	   tal:condition="bt_info/available"
 	   tal:attributes="href bt_info/url"> 
 	  <img alt="" src=""
-	       tal:replace="structure here/torrent.png" />
+	       tal:replace="structure here/torrent.png" 
+           i18n:translate=""/>
 	  Download via BitTorrent
 	</a>
 
@@ -248,7 +252,7 @@
 	  <p class="download-block">
 	    <a id="download-link"
 	       tal:attributes="href here/getDownloadServerURL"
-	       tal:condition="view/enclosure">
+	       tal:condition="view/enclosure" i18n:translate="">
 	      Download Hi-Res / Screening Version
 	    </a>
 	    <span class="discreet"
@@ -259,7 +263,7 @@
 	  <p class="download-block">
 	    <a id="vlc-link"
 	       href="http://www.videolan.org">
-	      <span>Videos best viewed on VLC player</span>
+	      <span i18n:translate="">Videos best viewed on VLC player</span>
 	    </a>
 	  </p>
 	</div>
@@ -277,7 +281,7 @@
 
 	<div id="video-transcoding" tal:define="transcoding view/transcoding_status">
 
-	  <strong>Transcode Status</strong> 
+	  <strong i18n:translate="">Transcode Status</strong> 
 	  <p tal:content="transcoding" />
 
 	  <p i18n:translate="restart_transcoding">

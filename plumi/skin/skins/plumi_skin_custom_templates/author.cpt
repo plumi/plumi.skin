@@ -148,8 +148,9 @@
 
 
 	<!-- custom author profile , Plumi Skin implementation -->
+    <tal:plumi_domain i18n:domain="plumi">
 		<tal:url condition="view/author_url"
-				      i18n:translate="text_url">
+				      i18n:translate="">
 			    URL:
 			    <a tal:attributes="href view/author_url"
 			       tal:content="view/author_url"
@@ -160,9 +161,8 @@
 			    <br />
 		</tal:url>
 
-                <tal:street condition="view/author_street"
-                              i18n:translate="text_street">
-                    <span class="street_label">Address : </span>
+                <tal:street condition="view/author_street">
+                    <span class="street_label" i18n:translate="">Address : </span>
                     <span tal:content="view/author_street" class="author_street" >
                         Some street
                     </span>
@@ -171,9 +171,8 @@
                 </tal:street>
 
 
-                <tal:phone condition="view/author_phone"
-                              i18n:translate="text_phone">
-                    <span class="phone_label">Phone : </span>
+                <tal:phone condition="view/author_phone">
+                    <span class="phone_label" i18n:translate="">Phone : </span>
                     <span tal:content="view/author_phone" class="author_phone" >
                         Some phone number
                     </span>
@@ -182,9 +181,8 @@
                 </tal:phone>
 
 
-                <tal:postcode condition="view/author_postcode"
-                              i18n:translate="text_postcode">
-                    <span class="postcode_label">Post Code : </span>
+                <tal:postcode condition="view/author_postcode">
+                    <span class="postcode_label" i18n:translate="">Post Code : </span>
                     <span tal:content="view/author_postcode" class="author_postcode" >
                         Some post code 
                     </span>
@@ -193,9 +191,8 @@
                 </tal:postcode>
 
 
-		<tal:genre_interests condition="view/author_genre_interests"
-                              i18n:translate="genre_interests">
-                    <span class="genre_header">Genre Interests : </span>
+		<tal:genre_interests condition="view/author_genre_interests">
+                    <span class="genre_header" i18n:translate="">Genre Interests : </span>
                     	<tal:repeat repeat="interest view/author_genre_interests">
                     		<a class="author_interest" tal:attributes="href string:${portal_url}/taxonomy/genre/${interest/lower}" tal:content="interest"></a>
                     	</tal:repeat>
@@ -204,9 +201,8 @@
                 </tal:genre_interests>
 
 
-		<tal:activities condition="view/author_activities"
-                              i18n:translate="activities">
-                    <span class="activities_header">Activities : </span>
+		<tal:activities condition="view/author_activities">
+                    <span class="activities_header" i18n:translate="">Activities : </span>
 			<tal:repeat repeat="activity view/author_activities">
 				<span class="author_activity" tal:content="activity"/>
 			</tal:repeat>
@@ -215,9 +211,8 @@
                 </tal:activities>
 
 
-		<tal:media_formats condition="view/author_media_formats"
-                              i18n:translate="media_formats">
-                    <span class="media_formats_header">Media Formats : </span>
+		<tal:media_formats condition="view/author_media_formats">
+                    <span class="media_formats_header" i18n:translate="">Media Formats : </span>
 			<tal:repeat repeat="format view/author_media_formats">
 				<span class="author_media_formats" tal:content="format"/>
 			</tal:repeat>
@@ -225,7 +220,7 @@
 
                 <br />
 
-
+          </tal:plumi_domain>
           <!-- END : custom author profile, Plumi Skin impl -->
 
 	<!-- Videos listing -->
@@ -233,7 +228,7 @@
 	  <dl class="videos-listing" tal:condition="videos" i18n:domain="plumi" tal:define="videos view/videos">
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" /></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/" i18n:translate="">Latest Videos</a>
 	    </dt>
 		<!-- each video item -->

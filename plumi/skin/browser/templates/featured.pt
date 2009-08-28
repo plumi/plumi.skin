@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+      i18n:domain="plumi">
 <body>
 
 <metal:main fill-slot="main">
@@ -24,13 +24,14 @@
 	     tal:attributes="src string:${portal_url}/rss2_icon.png"
 	     alt="RSS2 Syndication"
 	     title="RSS2 Syndication"
-	     id="featured-icon-rss2syndication" />
+	     id="featured-icon-rss2syndication" 
+         i18n:attributes="alt title" />
       </a>
 
       <a href="#"
 	 id="featuredVideoBanner"
 	 tal:attributes="href view/featured_video_url;"
-	 i18n:translate="box_featured">Featured Video</a> : 
+	 i18n:translate="">Featured Video</a> : 
 
       <a href=""
 	 id="featuredVideoTitle"
@@ -62,11 +63,13 @@
 	     tal:attributes="src string:${portal_url}/rss.gif"
 	     alt="News and Events RSS Syndication"
 	     title="News and Events RSS Syndication"
-	     id="-featured-icon-rsssyndication" />
+	     id="-featured-icon-rsssyndication" 
+         i18n:attributes="alt title" />
       </a>
       <a href="#"
 	 class="featured-news-events-title"
 	 tal:attributes="href string:$portal_url/news_and_events"
+     i18n:translate=""
 	 >News and Events</a> : 
 
       <a class="featuredItemDetails" href=""
@@ -77,9 +80,10 @@
     </dt>
     <dd>
 
-      <span class="featuredItemDetailsPosted discreet" 
-	    tal:content="python:'Posted: ' + toLocalizedTime(obj.Date)">
-	May 5
+      <span class="featuredItemDetailsPosted discreet" i18n:translate="">
+        Posted:  
+	    <tal:posteddate tal:content="python:toLocalizedTime(obj.Date)"
+              i18n:name="PostedDate">May 5</tal:posteddate>
       </span>
 
       <div class="featured-item-image"
@@ -98,17 +102,15 @@
       
       <span class="documentByLine">
 	<span tal:condition="python: obj.portal_type == 'Event'"
-	      i18n:translate="label_event_byline">
-	  <tal:place i18n:name="location" 
-		     content="string:${obj/location}" />
-	  from	  
+	      i18n:translate="">
+	  <tal:place i18n:name="location" content="string:${obj/location}">
+            Alice Springs</tal:place>, from	  
 	  <tal:from i18n:name="start"
-		    content="python:toLocalizedTime(obj.start,
-			                            long_format=1)" />
-	  to
+		    content="python:toLocalizedTime(obj.start,long_format=1)">
+            Oct 27, 2009 02:45 AM</tal:from> to
 	  <tal:to i18n:name="end"
-		  content="python:toLocalizedTime(obj.end,
-			                          long_format=1)" />
+		    content="python:toLocalizedTime(obj.end,long_format=1)">
+            Oct 29, 2009 03:45 PM</tal:to>
 	</span>
       </span>
     </dd>
@@ -132,11 +134,12 @@
 	     tal:attributes="src string:${portal_url}/rss2_icon.png"
 	     alt="RSS2 Syndication"
 	     title="RSS2 Syndication"
-	     id="featured-icon-rss2syndication" />
+	     id="featured-icon-rss2syndication"
+         i18n:attributes="alt title" />
       </a>
       <a href="#"
 	 tal:attributes="href view/listing_video_url"
-	 i18n:translate="box_featured">Latest Videos</a>
+	 i18n:translate="">Latest Videos</a>
     </dt>
 
     <dd class="featuredItem"
@@ -147,7 +150,7 @@
     <dd class="featuredFooter">
       <a href=""
 	 tal:attributes="href view/listing_video_url"
-	 i18n:translate="box_more_videos_link"
+	 i18n:translate=""
 	 >More Videos&hellip;</a>
     </dd>
   </dl>

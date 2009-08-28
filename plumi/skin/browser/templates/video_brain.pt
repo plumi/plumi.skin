@@ -23,13 +23,13 @@
 		       title video/Description" />
   </h4>
 
-  <span class="featuredItemDetailsPosted discreet">
+  <span class="featuredItemDetailsPosted discreet" i18n:translate="">
     Posted:
-    <tal:date content="view/post_date" />
+    <tal:date content="view/post_date" i18n:name="PostedDate"/>
   </span>
 
 	<!--
-  <span class="featured-video-duration">
+  <span class="featured-video-duration" i18n:translate="">
     Video duration :
      <span tal:content="video/getFormattedDuration" /> 
   </span> -->
@@ -41,6 +41,7 @@
 	 id="featured-video-more"
 	 tal:attributes="href string:${view/url}/view;
 			 title view/video_title"
+     i18n:translate=""
 	 >Read more&hellip;</a>
     </span>
  </p>
@@ -48,7 +49,7 @@
   <dl class="plumi-categories plumi-props-listing"
       tal:define="categories view/categories"
       tal:condition="categories">
-    <dt>Categories</dt>
+    <dt i18n:translate="">Categories</dt>
     <dd>
       <ul>
 	<li tal:repeat="cat categories">
@@ -66,7 +67,7 @@
    <dl class="plumi-categories plumi-props-listing"
       tal:define="country video/country_dict; "
       tal:condition="country">
-    <dt>Country</dt>
+    <dt i18n:translate="">Country</dt>
     <dd><ul><li>
 	  <a href="" title="" id=""
 	     tal:attributes="href country/url ;
