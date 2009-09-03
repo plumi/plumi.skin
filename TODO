@@ -23,5 +23,7 @@ DONE	RSS
 
 New users dont have permissions to see top-level tabs, like "About Us"
 
+Review plumiskin templates, make sure they are upgraded to at least derive from latest Plone 3.2.3 templates
+
 Review PlumiSkin product from plumi 0.2.x to see if we missed anything
 
