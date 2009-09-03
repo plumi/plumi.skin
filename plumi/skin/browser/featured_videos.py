@@ -48,7 +48,7 @@ class FeaturedVideosPage( CategoriesProvider ):
     def featured_items(self):
         filtering = dict(portal_type='PlumiVideo',
                          Subject='featured',
-                         #sort_on='getFirstPublishedTransitionTime',
+                         sort_on='created',
                          sort_order='reverse',
                          review_state='published',
                          limit=self.limit_featured)
@@ -69,7 +69,7 @@ class FeaturedVideosPage( CategoriesProvider ):
     @property
     def latest_videos(self):
         filtering = dict(portal_type='PlumiVideo',
-                         #sort_on='getFirstPublishedTransitionTime',
+                         sort_on='created',
                          sort_order='reverse',
                          review_state='published',
                          limit=self.limit_latest)
