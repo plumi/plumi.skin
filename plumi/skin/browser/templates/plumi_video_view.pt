@@ -200,7 +200,7 @@
 		 tal:attributes="alt here/thumbnailImageDescription;
 				src string:${here/absolute_url}/thumbnailImage_mini;" />
 	    <span class="playvideo"> 
-	      <img tal:replace="structure here/video_icon.png" />
+	      <img tal:replace="structure here/tiny_video_icon.gif" />
           <tal:play_vid i18n:translate="">Play video</tal:play_vid>
 	    </span>
 	  </a>
