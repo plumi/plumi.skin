@@ -249,10 +249,11 @@
 	</a>
 
 	<div id="video-downloads">
-	  <p class="download-block">
+	  <p class="download-block"> 
 	    <a id="download-link"
-	       tal:attributes="href here/getDownloadServerURL"
-	       tal:condition="view/enclosure" i18n:translate="">
+                tal:attributes="href here/video_file" i18n:translate="">
+<!--	       tal:attributes="href here/getDownloadServerURL
+	       tal:condition="view/enclosure" i18n:translate="">-->
 	      Download Hi-Res / Screening Version
 	    </a>
 	    <span class="discreet"
