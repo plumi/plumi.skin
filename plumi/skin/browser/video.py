@@ -29,13 +29,13 @@ class VideoView( BrowserView ):
         self.portal_url = getToolByName(self.context, "portal_url")()
         self.vocab_tool = getToolByName(self.context, "portal_vocabularies")
 
-       	#deprecated. will be removed 
-	self.use_vpip = "vpip" in context.Subject()
+               #deprecated. will be removed 
+        self.use_vpip = "vpip" in context.Subject()
         
-	# XXX port to plumi.app.blob
+        # XXX port to plumi.app.blob
         #media_info = context.getFileAttribs()
         #self.enclosure = media_info[1] > 0
-	self.enclosure = None
+        self.enclosure = None
         
         (self.transcoding_ready,
          self.transcoding_status) = self.get_transcoding_status()
@@ -92,30 +92,30 @@ class VideoView( BrowserView ):
         
         is_manager = 'Manager' in member.getRoles()
         is_owner   = mb_id in self.context.users_with_local_role('Owner')
-	#return is_manager or is_owner
-	#XXX make this an configurable option, ie settable thru a configelet whether or not owner can see 
-	#this template
-	#but for now just make it is_manager
-	return is_manager
+        #return is_manager or is_owner
+        #XXX make this an configurable option, ie settable thru a configelet whether or not owner can see 
+        #this template
+        #but for now just make it is_manager
+        return is_manager
 
     @property
     def bt_availability(self):
-	#XXX fix bittorrent functionality 
+        #XXX fix bittorrent functionality 
 
         #media_tool = getToolByName(self.context, "portal_atmediafiletool")
         #enabled_bt = media_tool.getEnable_bittorrent()
         #enable_ext_bt = media_tool.getEnable_remote_bittorrent()
         #bt_url = self.context.getTorrentURL()
-	bt_url = ''
+        bt_url = ''
         
         #available = self.enclosure and (enabled_bt or enable_ext_bt)
-	available = False
+        available = False
         return dict(available = available,
                     url = bt_url)
 
 
     def get_transcoding_status(self):
-	# XXX fix transcoding support
+        # XXX fix transcoding support
 
         #statuses = TRANSCODING_STATUSES
         #status = str(self.context.getIndyTubeStatus())
@@ -177,14 +177,14 @@ class VideoView( BrowserView ):
 
     @property
     def post_date(self):
-	date = self.context.created
+        date = self.context.created
         return self.context.toLocalizedTime(date)
 
     def hasThumbnailImage(self):
-	if getattr(self.context,'thumbnailImage',None) is None:
-		return False
-	imgfield = self.context.getField('thumbnailImage')
-	#XXX test if the field is ok
-	if imgfield is None or imgfield is '':
-		return False
-	return True
+        if getattr(self.context,'thumbnailImage',None) is None:
+                return False
+        imgfield = self.context.getField('thumbnailImage')
+        #XXX test if the field is ok
+        if imgfield is None or imgfield is '':
+                return False
+        return True
