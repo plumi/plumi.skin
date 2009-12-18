@@ -191,21 +191,7 @@
 
   	<div id="video-core">
 
-	<div class="hvlog">
 
-	  <a rel="enclosure" class="hVlogTarget" onClick="vPIPPlay(this); return false;" tal:condition="view/use_vpip"
-	     tal:attributes="href here/absolute_url;
-			     title here/title" >
-	    <img tal:condition="view/hasThumbnailImage"
-		 tal:attributes="alt here/thumbnailImageDescription;
-				src string:${here/absolute_url}/thumbnailImage_mini;" />
-	    <span class="playvideo"> 
-	      <img tal:replace="structure here/tiny_video_icon.gif" />
-          <tal:play_vid i18n:translate="">Play video</tal:play_vid>
-	    </span>
-	  </a>
-
-	  <tal:not-use-vpip condition="not: view/use_vpip">	
 	    <tal:failed_transcode condition="not: view/transcoding_ready">
 	      <a id="no-video-player" tal:condition="view/hasThumbnailImage"
 		 tal:attributes="href string:${here/absolute_url}/thumbnailImage/image_view_fullscreen">
@@ -234,9 +220,6 @@
 		    </form>
 	     </div>
 
-	  </tal:not-use-vpip>
-
-	</div>
 	
 	<a class="download" 
 	   tal:define="bt_info view/bt_availability"
