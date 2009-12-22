@@ -13,6 +13,13 @@
   <!-- Viewlets registration -->
   <!-- Zope 3 browser resources -->
 
+  <!-- Resource directory for flowplayer -->
+  <browser:resourceDirectory
+      name="plumi.skin.flowplayer"
+      directory="flowplayer"
+      layer=".interfaces.IThemeSpecific"
+      />
+
   <!-- Resource directory for images -->
   <browser:resourceDirectory
       name="plumi.skin.images"
@@ -145,6 +152,13 @@
       allowed_interface=".interfaces.IAuthorPage"
       layer=".interfaces.IThemeSpecific"
 
+      />
+  <browser:page
+      name="flowplayerConfig.js"
+      for="plumi.content.interfaces.IPlumiVideo"
+      class=".video.flowplayerConfig"
+      permission="zope2.View"
+      layer=".interfaces.IThemeSpecific"
       />
 
   <adapter factory=".brain_rendering.PlumiVideoBrain"

@@ -5,11 +5,13 @@ from zope import i18n
 from zope.interface import implements
 from Products.Five.browser  import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.annotation.interfaces import IAnnotations
 # CMF
 from Products.CMFCore.utils import getToolByName
 
 # plumi 0.3 
 from interfaces import IVideoView, ITopicsProvider
+
 
 from plumi.app.config import TOPLEVEL_TAXONOMY_FOLDER, COUNTRIES_FOLDER, GENRE_FOLDER, CATEGORIES_FOLDER
  
@@ -28,6 +30,9 @@ class VideoView( BrowserView ):
         super(VideoView, self).__init__(context, request)
         self.portal_url = getToolByName(self.context, "portal_url")()
         self.vocab_tool = getToolByName(self.context, "portal_vocabularies")
+
+        self.annotations = IAnnotations(self.context, None)
+        self.transcode_profiles = self.annotations['plumi.transcode.profiles']
 
                #deprecated. will be removed 
         self.use_vpip = "vpip" in context.Subject()
@@ -113,10 +118,21 @@ class VideoView( BrowserView ):
         return dict(available = available,
                     url = bt_url)
 
+    def transcoding(self, profile):
+        if self.transcode_profiles.has_key(profile):
+            if self.transcode_profiles[profile]['status'] == 0:
+                return self.transcode_profiles[profile]['URL']
+        return ''
+
+    def can_use_video_tag(self):
+        """Returns true if we have both an mp4 and ogg"""
+        return self.transcoding('mp4') and self.transcoding('ogg')
 
     def get_transcoding_status(self):
+        """Returns true if at least one transcoding has succeeded. 
+        """
         # XXX fix transcoding support
-
+        # will return true if 
         #statuses = TRANSCODING_STATUSES
         #status = str(self.context.getIndyTubeStatus())
         #if status in statuses:
@@ -188,3 +204,34 @@ class VideoView( BrowserView ):
         if imgfield is None or imgfield is '':
                 return False
         return True
+
+class flowplayerConfig( BrowserView ):
+    def transcoding(self, profile):
+        if self.transcode_profiles.has_key(profile):
+            if self.transcode_profiles[profile]['status'] == 0:
+                return self.transcode_profiles[profile]['URL']
+        return ''
+    def __call__(self, request=None, response=None ):
+
+        self.request.response.setHeader("Content-type", "text/javascript")
+
+        self.annotations = IAnnotations(self.context, None)
+        self.transcode_profiles = self.annotations['plumi.transcode.profiles']
+        return """
+{
+    'embedded': 'true',
+	// common clip properties
+	'clip': {
+		'url': '%s', 
+	},
+	'plugins': {
+		// use youtube controlbar
+		'controls': {
+            'url': 'http://192.168.0.10:8080/plumi/%%2B%%2Bresource%%2B%%2Bplumi.skin.flowplayer/flowplayer.controls-3.1.5.swf'
+			'height': 30,
+			'backgroundColor': '#115233'
+		}
+	}
+} 
+        """ % self.transcoding('mp4')
+
