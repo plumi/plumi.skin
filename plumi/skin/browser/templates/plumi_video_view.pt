@@ -16,7 +16,7 @@
     <meta name="title" tal:attributes="content here/title" />
     <meta name="description" tal:attributes="content here/description" />
     <link rel="image_src" tal:condition="view/hasThumbnailImage" tal:attributes="href string:${here/absolute_url}/thumbnailImage_mini" />
-    <link rel="video_src" tal:attributes="href string:${swfplayer}?config={'embedded':'true','clip':'${mp4},'plugins':{'controls':{'url':${swfcontrols}'}}}" /> 
+    <link rel="video_src" tal:attributes="href string:${swfplayer}?config={'embedded':'true','clip':'${mp4}','plugins':{'controls':{'url':'${swfcontrols}'}}}" /> 
     <meta name="video_height" content="320" /> <!-- TODO make these consistent across the board -->
     <meta name="video_width" content="270" />
     <meta name="video_type" content="application/x-shockwave-flash" />
