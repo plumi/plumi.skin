@@ -31,8 +31,10 @@ class VideoView( BrowserView ):
         self.portal_url = getToolByName(self.context, "portal_url")()
         self.vocab_tool = getToolByName(self.context, "portal_vocabularies")
 
-        self.annotations = IAnnotations(self.context, None)
-        self.transcode_profiles = self.annotations['plumi.transcode.profiles']
+        self.annotations = IAnnotations(self.context)
+        self.transcode_profiles = self.annotations.get('plumi.transcode.profiles')
+        if not self.transcode_profiles:
+            self.transcode_profiles = {}
 
                #deprecated. will be removed 
         self.use_vpip = "vpip" in context.Subject()
@@ -215,8 +217,10 @@ class flowplayerConfig( BrowserView ):
 
         self.request.response.setHeader("Content-type", "text/javascript")
 
-        self.annotations = IAnnotations(self.context, None)
-        self.transcode_profiles = self.annotations['plumi.transcode.profiles']
+        self.annotations = IAnnotations(self.context)
+        self.transcode_profiles = self.annotations.get('plumi.transcode.profiles')
+        if not self.transcode_profiles:
+            self.transcode_profiles = {}
         return """
 {
     'embedded': 'true',
