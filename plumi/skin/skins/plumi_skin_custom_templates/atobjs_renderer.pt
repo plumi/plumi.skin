@@ -1,0 +1,32 @@
+<metal:brain define-macro="atobj_renderer">
+  <h4>
+
+    <a class="featuredItemTitle" href=""
+       tal:content="obj/pretty_title_or_id"
+       tal:attributes="href string:${obj/getURL}/view;
+		       title obj/Description" />
+  </h4>
+
+  <span class="featuredItemDetailsPosted discreet" i18n:translate="">
+    Posted:
+    <tal:date content="obj/created" i18n:name="PostedDate"/>
+  </span>
+
+	<!--
+  <span class="featured-video-duration" i18n:translate="">
+    Video duration :
+     <span tal:content="video/getFormattedDuration" /> 
+  </span> -->
+
+  <p class="discreet plumi-nice-description" >
+    <tal:desc tal:content="obj/Description" />
+    <span class="featured-read-more">
+      <a href=""
+	 id="featured-video-more"
+	 tal:attributes="href string:${obj/getURL}/view;
+			 title obj/pretty_title_or_id"
+     i18n:translate=""
+	 >Read more&hellip;</a>
+    </span>
+ </p>
+</metal:brain>

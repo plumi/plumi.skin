@@ -21,7 +21,40 @@
     tabs. This also means that we have to supply things that are normally
     present from main_template.
 </tal:comment>
-
+<metal:javascript_head fill-slot="javascript_head_slot">
+      <script type="text/javascript"
+              charset="iso-8859-1">
+          jQuery(document).ready( function() {
+              jQuery('form').submit(function(){
+                if  (this.name == 'feedback_form'){  //we only want it to work for feedback form
+                  url = 'send_feedback_to_author';
+                  subject = document.getElementById('subject').value;
+                  subject_check = subject.replace(/ /gi, "");
+                  message = document.getElementById('message').value;
+                  message_check = message.replace(/ /gi, "");
+                  author = document.getElementById('author').value;
+                  referer = document.getElementById('referer').value;
+                  if (subject && message &&message_check && subject_check ){
+                  jQuery('#kss-spinner').show();
+                  jQuery.post(url,{'subject':subject,'message':message,'author':author,'referer':referer},function(data){
+                      jQuery('#kss-spinner').hide();       
+                      status_bar = document.getElementById('feedback_form_status');
+                      jQuery(status_bar).html(data);
+                      jQuery(status_bar).addClass('portalMessage info');
+                      jQuery(status_bar).fadeOut(5000);
+                      document.getElementById('subject').value = '';
+                      document.getElementById('message').value = '';
+                  });
+                  }
+                  else{
+                      alert('Please fill required fields')
+                  }
+                  return false;
+                }
+              }); 
+          });
+      </script>
+</metal:javascript_head>
 <metal:main fill-slot="content"
     tal:define="errors options/state/getErrors;
 		view context/author_view;">
@@ -57,9 +90,9 @@
         <h5 class="hiddenStructure"
             tal:condition="isOwner">Views</h5>
         
-        <ul id="content-views"
-            class="contentViews"
-            tal:condition="isOwner">
+        <ul id="content-views" 
+            tal:condition="isOwner"
+            class="contentViews">
           <li class="selected">
             <a href=""
                 tal:define="url_quote_plus python:modules['Products.PythonScripts.standard'].url_quote_plus;
@@ -99,7 +132,7 @@
 
             <div class="discreet">
 
-                <tal:location condition="view/author_city" i18n:translate="text_location">
+                <tal:location condition="view/author_city|nothing" i18n:translate="text_location">
                     Location:
                      <span tal:content="view/author_city" tal:omit-tag="" i18n:name="author_city">
                         Some City
@@ -128,7 +161,7 @@
                  tal:attributes="src portrait/absolute_url" />
                       
 
-            <p class="documentDescription" tal:content="view/author_userbio">
+            <p class="documentDescription" tal:content="view/author_userbio|nothing">
                 Author description.
             </p>
 
@@ -149,7 +182,7 @@
 
 	<!-- custom author profile , Plumi Skin implementation -->
     <tal:plumi_domain i18n:domain="plumi">
-		<tal:url condition="view/author_url"
+		<tal:url condition="view/author_url|nothing"
 				      i18n:translate="">
 			    URL:
 			    <a tal:attributes="href view/author_url"
@@ -161,7 +194,7 @@
 			    <br />
 		</tal:url>
 
-                <tal:street condition="view/author_street">
+                <tal:street condition="view/author_street|nothing">
                     <span class="street_label" i18n:translate="">Address : </span>
                     <span tal:content="view/author_street" class="author_street" >
                         Some street
@@ -171,7 +204,7 @@
                 </tal:street>
 
 
-                <tal:phone condition="view/author_phone">
+                <tal:phone condition="view/author_phone|nothing">
                     <span class="phone_label" i18n:translate="">Phone : </span>
                     <span tal:content="view/author_phone" class="author_phone" >
                         Some phone number
@@ -181,7 +214,7 @@
                 </tal:phone>
 
 
-                <tal:postcode condition="view/author_postcode">
+                <tal:postcode condition="view/author_postcode|nothing">
                     <span class="postcode_label" i18n:translate="">Post Code : </span>
                     <span tal:content="view/author_postcode" class="author_postcode" >
                         Some post code 
@@ -191,7 +224,7 @@
                 </tal:postcode>
 
 
-		<tal:genre_interests condition="view/author_genre_interests">
+		<tal:genre_interests condition="view/author_genre_interests|nothing">
                     <span class="genre_header" i18n:translate="">Genre Interests : </span>
                     	<tal:repeat repeat="interest view/author_genre_interests">
                     		<a class="author_interest" tal:attributes="href string:${portal_url}/taxonomy/genre/${interest/lower}" tal:content="interest"></a>
@@ -201,7 +234,7 @@
                 </tal:genre_interests>
 
 
-		<tal:activities condition="view/author_activities">
+		<tal:activities condition="view/author_activities|nothing">
                     <span class="activities_header" i18n:translate="">Activities : </span>
 			<tal:repeat repeat="activity view/author_activities">
 				<span class="author_activity" tal:content="activity"/>
@@ -211,7 +244,7 @@
                 </tal:activities>
 
 
-		<tal:media_formats condition="view/author_media_formats">
+		<tal:media_formats condition="view/author_media_formats|nothing">
                     <span class="media_formats_header" i18n:translate="">Media Formats : </span>
 			<tal:repeat repeat="format view/author_media_formats">
 				<span class="author_media_formats" tal:content="format"/>
@@ -240,6 +273,49 @@
 	  </dl>
 	</div>
 	<!-- end of video listing for user -->
+
+	<!-- News listing -->
+	<div class="featured-block">
+	  <dl class="videos-listing" tal:condition="newses" i18n:domain="plumi" tal:define="newses view/news">
+	       
+	    <dt class="featuredHeader">
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest News</a>
+	    </dt>
+
+		<!-- each news item -->
+	    <dd class="featuredItem" tal:repeat="obj newses">
+
+	     <metal:macro use-macro="here/atobjs_renderer/macros/atobj_renderer"/>
+
+	    </dd>
+	    <!-- end of each news item -->
+
+	  </dl>
+	</div>
+	<!-- end of news listing for user -->
+
+
+	<!-- News listing -->
+	<div class="featured-block">
+	  <dl class="videos-listing" tal:condition="events" i18n:domain="plumi" tal:define="events view/events">
+	       
+	    <dt class="featuredHeader">
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest Events</a>
+	    </dt>
+
+		<!-- each news item -->
+	    <dd class="featuredItem" tal:repeat="obj events">
+
+	     <metal:macro use-macro="here/atobjs_renderer/macros/atobj_renderer"/>
+
+	    </dd>
+	    <!-- end of each news item -->
+
+	  </dl>
+	</div>
+	<!-- end of news listing for user -->
 
 
 
@@ -275,9 +351,9 @@
                         If you want to contact this author, fill in the form
                         below.
                     </p>
-
+                    <div id="feedback_form_status"></div>
                     <form name="feedback_form"
-                          action=""
+                          action="feedback_form"
                           method="post"
                           tal:attributes="action string:$here_url/$template_id">
 
@@ -336,8 +412,8 @@
 
                     </fieldset>
 
-                    <input type="hidden" name="author" value="" tal:attributes="value author" />
-                    <input type="hidden" name="referer" value="" 
+                    <input type="hidden" name="author" id="author" value="" tal:attributes="value author" />
+                    <input type="hidden" name="referer" value="" id="referer"
                       tal:attributes="value python:request.get('referer', request.get('HTTP_REFERER', 'unknown url') )" />
                     <input type="hidden" name="form.submitted" value="1" />
 
@@ -407,4 +483,3 @@
 
 </body>
 </html>
-

@@ -96,3 +96,25 @@ class AuthorPage( CategoriesProvider ):
     def homefolder(self):
         return self.mtool.getHomeFolder(id=self.author)
 
+
+    @property
+    def news(self):
+        query = dict(portal_type='News Item',
+                     # XXX re-impl. this
+                     #sort_on='getFirstPublishedTransitionTime',
+                     sort_order='reverse',
+                     Creator=self.author,
+                     review_state='published')
+        brains = self.catalog(**query)
+        return brains
+
+    @property
+    def events(self):
+        query = dict(portal_type='Event',
+                     # XXX re-impl. this
+                     #sort_on='getFirstPublishedTransitionTime',
+                     sort_order='reverse',
+                     Creator=self.author,
+                     review_state='published')
+        brains = self.catalog(**query)
+        return brains
