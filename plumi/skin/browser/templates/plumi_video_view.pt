@@ -226,27 +226,42 @@
 		</span>
 	      </a>
 	    </tal:failed_transcode>
-        <video tal:condition="view/can_use_video_tag" controls style="width: 320px; height: 270px;" >
+   <!--     <video tal:condition="view/can_use_video_tag" controls 
+               tal:attributes="poster string:${here/absolute_url}/thumbnailImage"
+               style="width: 320px; height: 270px;" >
             <source tal:condition="ogg" tal:attributes="src ogg" type="video/ogg" />
-            <source tal:condition="mp4" tal:attributes="src mp4" type="video/mp4" />
+            <source tal:condition="mp4" tal:attributes="src mp4" type="video/mp4" />-->
             <!-- fallback for browsers who don't support video tag -->
-            <object id="flowplayer" data="/plumi/%2B%2Bresource%2B%2Bplumi.skin.flowplayer/flowplayer-3.1.5.swf"  
-                type="application/x-shockwave-flash" width="320" height="270"> 
-                    <param name="movie" value="/plumi/%2B%2Bresource%2B%2Bplumi.skin.flowplayer/flowplayer-3.1.5.swf" />  
-                    <param name="allowfullscreen" value="true" /> 
-                    <param name="flashvars" tal:attributes="value string:config={'clip':'${mp4}','autoPlay':'false'}" /> 
-            </object>
+	        <a tal:attributes="href mp4" style="display:block;width:320px;height:270px;" id="player" >
+	        </a>
 
-        </video>
+
+
+<!--        </video>-->
 
 	    <div tal:omit-tag="" tal:condition="transcoded">	
 		    <div style="width:320px;margin-top:5px;"
                  i18n:translate="copy_embed_code">
                  Copy the following to embed the movie into another web page:</div>
-		    <form>
-		    <textarea style="overflow-x:auto;width:320px;" onclick="this.focus();this.select();"><span tal:omit-tag="" /></textarea>
-		    </form>
+		    <textarea id="embedCode" style="overflow-x:auto;width:320px;" onclick="this.focus();this.select();"><span tal:omit-tag="" /></textarea>
 	     </div>
+	        <script language="JavaScript" tal:content="string:  
+	        flowplayer('player','${portal/absolute_url}/%2B%2Bresource%2B%2Bplumi.skin.flowplayer/flowplayer-3.1.5.swf',{
+	           playlist:[
+	                {
+	                    url:'${here/absolute_url}/thumbnailImage',
+	                    type:'image',
+	                },
+	                {
+	                    url:'${mp4}',
+	                    autoPlay:false,
+	                    autoBuffering:false,
+	                }
+	            ]  
+	        });
+            var code = flowplayer().embed().getEmbedCode(); 
+            document.getElementById('embedCode').innerHTML = code; ">
+	        </script>
 
 	
 	<a class="download" 

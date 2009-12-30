@@ -2,5 +2,8 @@
 <object name="portal_javascripts">
  <javascript cacheable="True" compression="none" cookable="True"
      enabled="True" expression=""
-         id="++resource++plumi.skin.flowplayer/example/flowplayer-3.1.4.min.js" inline="False"/>
+         id="++resource++plumi.skin.flowplayer/flowplayer-3.1.4.min.js" inline="False"/>
+ <javascript cacheable="True" compression="none" cookable="True"
+     enabled="True" expression=""
+         id="++resource++plumi.skin.flowplayer/flowplayer.embed-3.0.2.min.js" inline="False"/>
 </object>
