@@ -1,7 +1,7 @@
 <tal:topiccontents define="topicContents view/videos;
 			   batch topicContents;
 			   template_id string:video_listing_view">
-	    
+  <div class="discreet">There are <b tal:content="python:len(topicContents)"></b> videos available</div>
   <tal:listing condition="topicContents">
     <!-- Navigation -->
     <div metal:use-macro="here/batch_macros/macros/navigation" />
@@ -20,12 +20,13 @@
     <div metal:use-macro="here/batch_macros/macros/navigation" />
     
   </tal:listing>
-  
+
+  <!--  
   <p class="discreet"
      tal:condition="view/empty"
      i18n:domain="plumi"
      i18n:translate="description_no_items_in_topic">
     There are currently no results for this search.
-  </p>
+  </p>-->
 	    
 </tal:topiccontents>
