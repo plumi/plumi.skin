@@ -131,15 +131,18 @@ class VideoView( BrowserView ):
         return self.transcoding('mp4') and self.transcoding('ogg')
 
     def get_transcoding_status(self):
-        """Returns true if at least one transcoding has succeeded. 
+        """Returns true if mp4 transcoding has succeeded. 
         """
-        # XXX fix transcoding support
-        # will return true if 
-        #statuses = TRANSCODING_STATUSES
-        #status = str(self.context.getIndyTubeStatus())
-        #if status in statuses:
-        #    return statuses.get(status, (False, u""))
-        return (False, u"")
+        #TODO - check the logic of this is correct
+        profile='mp4'
+        if self.transcode_profiles.has_key(profile):
+            if self.transcode_profiles[profile]['status'] == 0:
+                return (True, _(u"The transcoding has worked successfully."))
+            else:
+                return (False, _(u"The transcoding failed."))
+        else:
+           return (False, _(u"The transcoding has not started."))
+        return ''
    
     def get_categories_dict(self, cats):
         """Uses the portal vocabularies to retrieve the video categories

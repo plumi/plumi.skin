@@ -25,6 +25,7 @@ body {
 /* Left column */
 
 #portal-column-one {
+  width: 160px;
   border-right: 1px solid #ddd;
 }
 
@@ -98,6 +99,7 @@ dt.portletHeader a {
 
 #portal-column-two {
   border-left: 1px solid #ddd;
+  width: 160px;
 }
 
 #portal-column-two .portletHeader {
@@ -187,7 +189,7 @@ dt.portletHeader a {
 
 #video-infos {
   float: left;
-  width: 45%;
+  width: 100%;
 }
 
 #video-infos thead th {
@@ -196,7 +198,7 @@ dt.portletHeader a {
 
 #video-core {
   float: left;
-  width: 55%;
+  width: 100%;
   padding-top: 0.5em;
 }
 
@@ -224,6 +226,21 @@ dt.portletHeader a {
   font-size: 90%;
 }
 
+#player {
+  display: block;
+  width: 640px;
+  height: 510px;
+}
+
+.embed {
+  width: 50%
+}
+#embedDiv {
+  margin-top: 5px;
+}
+#embedCode {
+  overflow-x:auto;
+}
 
 /**************************/
 /* Categories / genres... */
