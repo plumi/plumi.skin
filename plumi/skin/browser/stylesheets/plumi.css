@@ -357,3 +357,6 @@ form div textarea#subject_keywords {
   padding: 0px 3px;
   margin: 0 0 0 0;
 }
+.link-external, .link-mailto {
+cursor:pointer;
+}
