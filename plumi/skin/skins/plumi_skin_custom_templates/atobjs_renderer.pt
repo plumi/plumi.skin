@@ -1,4 +1,10 @@
 <metal:brain define-macro="atobj_renderer">
+  <tal:image condition="obj/hasImageAndCaption/image">
+    <a class="featured-video-image"
+       tal:attributes="href string:${obj/getURL}/view; title obj/hasImageAndCaption/caption">
+      <img tal:attributes="src string:${obj/getURL}/image_thumb; alt string:${obj/hasImageAndCaption/caption}" />
+    </a>
+  </tal:image>
   <h4>
 
     <a class="featuredItemTitle" href=""
@@ -9,14 +15,10 @@
 
   <span class="featuredItemDetailsPosted discreet" i18n:translate="">
     Posted:
-    <tal:date content="obj/created" i18n:name="PostedDate"/>
+    <tal:date content="python:toLocalizedTime(obj.created)" i18n:name="PostedDate"/>
   </span>
 
-	<!--
-  <span class="featured-video-duration" i18n:translate="">
-    Video duration :
-     <span tal:content="video/getFormattedDuration" /> 
-  </span> -->
+
 
   <p class="discreet plumi-nice-description" >
     <tal:desc tal:content="obj/Description" />
@@ -28,5 +30,21 @@
      i18n:translate=""
 	 >Read more&hellip;</a>
     </span>
+    <tal:ifevent tal:define="vcal string:${obj/getURL}/vcs_view;ical string:${obj/getURL}/ics_view"
+                 tal:condition="python:obj.meta_type == 'ATEvent'">
+       <tal:comment replace="nothing">
+         Could not find a better way to check the event. May be we can have custom index for it?
+       </tal:comment>
+       <br/>
+        <a title="Download this event in vCal format" href="" tal:attributes="href vcal">
+            <img height="16" width="16" title="vCal export" alt="" src="icon_export_vcal.png"/>
+            <span>vCal</span>
+       </a>
+       <br/>
+       <a title="Download this event in iCal format" href="" tal:attributes="href ical">
+           <img height="16" width="16" title="iCal export" alt="" src="icon_export_ical.png"/>
+           <span>iCal</span>
+       </a>
+    </tal:ifevent>
  </p>
 </metal:brain>
