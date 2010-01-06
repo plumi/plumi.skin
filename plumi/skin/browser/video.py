@@ -6,7 +6,10 @@ from zope.interface import implements
 from Products.Five.browser  import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.annotation.interfaces import IAnnotations
+from zope.component import getUtility
+
 # CMF
+from Products.CMFCore.interfaces import IPropertiesTool
 from Products.CMFCore.utils import getToolByName
 
 # plumi 0.3 
@@ -36,6 +39,8 @@ class VideoView( BrowserView ):
         if not self.transcode_profiles:
             self.transcode_profiles = {}
 
+        pprop = getUtility(IPropertiesTool)
+        self.config = getattr(pprop, 'plumi_properties', None)
                #deprecated. will be removed 
         self.use_vpip = "vpip" in context.Subject()
         
@@ -123,7 +128,11 @@ class VideoView( BrowserView ):
     def transcoding(self, profile):
         if self.transcode_profiles.has_key(profile):
             if self.transcode_profiles[profile]['status'] == 0:
-                return self.transcode_profiles[profile]['URL']
+                try:
+                    return self.config.videoserver_address + "/" + \
+                           self.transcode_profiles[profile]['path']
+                except:
+                    pass
         return ''
 
     def can_use_video_tag(self):
