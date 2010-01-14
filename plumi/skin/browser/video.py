@@ -215,7 +215,7 @@ class VideoView( BrowserView ):
                 return False
         imgfield = self.context.getField('thumbnailImage')
         #XXX test if the field is ok
-        if imgfield is None or imgfield is '':
+        if imgfield is None or imgfield is '' or imgfield.getSize(self.context) == (0, 0):
                 return False
         return True
 
@@ -243,11 +243,11 @@ class flowplayerConfig( BrowserView ):
 	'plugins': {
 		// use youtube controlbar
 		'controls': {
-            'url': 'http://192.168.0.10:8080/plumi/%%2B%%2Bresource%%2B%%2Bplumi.skin.flowplayer/flowplayer.controls-3.1.5.swf'
+            'url': '%s/%%2B%%2Bresource%%2B%%2Bplumi.skin.flowplayer/flowplayer.controls-3.1.5.swf'
 			'height': 30,
 			'backgroundColor': '#115233'
 		}
 	}
 } 
-        """ % self.transcoding('mp4')
+        """ % (self.transcoding('mp4'), self.portal_url, )
 
