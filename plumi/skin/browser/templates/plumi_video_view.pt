@@ -57,7 +57,7 @@
           <div id="video-core" tal:define="transcoded python:view.transcoding('ogg') and view.transcoding('mp4');
                                      mp4 python:view.transcoding('mp4'); 
                                      ogg python:view.transcoding('ogg');
-                                     thumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage_mini' or view.transcoding('jpeg');
+                                     thumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage_mini' or view.transcoding('jpeg') or '';
                                      fullThumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage/image_view_fullscreen' or ''">
 
 
