@@ -37,8 +37,9 @@ class PlumiVideoBrain( Explicit ):
 
     @property
     def country_dict(self):
-        #return self.__parent__.get_country_info(self.video['getCountries'])
-	return None
+        return self.__parent__.get_country_info(self.video['getCountries'])
+        #14Jan2010,mgogoulos: None gives a "AttributeError: country_dict" in some cases
+	#return None
 
     @property
     def post_date(self):
