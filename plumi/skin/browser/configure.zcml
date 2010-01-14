@@ -146,6 +146,14 @@
 
   <browser:page
       for="*"
+      name="author_listing"
+      class=".authorlisting.AuthorListing"
+      template="templates/authorlist.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="*"
       name="author_view"
       class=".author.AuthorPage"
       permission="zope2.View"
@@ -153,6 +161,7 @@
       layer=".interfaces.IThemeSpecific"
 
       />
+
   <browser:page
       name="flowplayerConfig.js"
       for="plumi.content.interfaces.IPlumiVideo"
