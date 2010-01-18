@@ -12,8 +12,8 @@
     <metal:block fill-slot="column_one_slot" />
     <metal:block fill-slot="column_two_slot" />
   </head>
-  <metal:main fill-slot="content">
-     <body tal:define="intype request/intype|nothing;
+  <metal:main fill-slot="content"
+           tal:define="intype request/intype|nothing;
                        invalue request/invalue|nothing;
                        Batch python:modules['Products.CMFPlone'].Batch;
                        b_size python:12;b_start python:0;b_start request/b_start | b_start;
@@ -58,6 +58,5 @@
 
         <div class="visualClear" id="clear-space-after-navigation"><!-- --></div>
         
-     </body>
   </metal:main>
 </html>
