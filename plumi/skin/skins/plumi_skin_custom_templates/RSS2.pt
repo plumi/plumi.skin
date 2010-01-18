@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<rss version="2.0" 
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"  
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     tal:define="results python:here.getSyndicatableContent();"
+     tal:on-error="nothing">
+<tal:x define="dummy python:request.RESPONSE.setHeader('Content-Type', 'text/xml')" />
+    <channel>
+
+        <title tal:define="portal_title here/portal_properties/title;
+            here_title here/title_or_id;
+            template_title template/title_or_id;
+            here_title python:test(portal_title != here_title, here_title, template_title)"
+            tal:content="string:$portal_title * $here_title">Title of page</title>
+        <link tal:content="here/absolute_url"></link>
+        <description tal:content="here/Description">
+        </description>
+        <language>en-us</language>
+        <generator>Plone 2.0</generator>
+
+        <tal:block repeat="res results">
+            <tal:block define="macros nocall: python:here.getItemMacros(res.portal_type); 
+                               item_path python: res.absolute_url();
+                               item_path python: res.portal_type=='ATAudio' and item_path+'/file_download/'+res.getId() or item_path;">                              
+                  <item>
+                      <title tal:content="res/title_or_id"></title>
+                      <link tal:content="item_path"></link>
+                      <description tal:content="res/Description">
+                      </description>
+                      <author tal:content="res/Creator"></author>
+                      <tal:repeat repeat="subj res/Subject">
+                          <category tal:content="subj">
+                          </category>
+                      </tal:repeat>
+                      <pubDate tal:content="structure python: DateTime(res.Date()).rfc822()"> </pubDate>                      
+                      <metal:block use-macro="macros"/>
+                      <enclosure tal:attributes="url string:${res/absolute_url}/@@download/video_file" />
+                  </item>
+            </tal:block>	   	
+        </tal:block>
+
+    </channel>
+</rss>
+
