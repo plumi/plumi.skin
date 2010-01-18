@@ -227,7 +227,10 @@
 		<tal:genre_interests condition="view/author_genre_interests|nothing">
                     <span class="genre_header" i18n:translate="">Genre Interests : </span>
                     	<tal:repeat repeat="interest view/author_genre_interests">
-                    		<a class="author_interest" tal:attributes="href string:${portal_url}/taxonomy/genre/${interest/lower}" tal:content="interest"></a>
+                    		<!--a class="author_interest" tal:attributes="href string:${portal_url}/taxonomy/genre/${interest/lower}" tal:content="interest"></a-->
+				<a tal:attributes="href string:${portal_url}/@@author_listing?intype=genre&invalue=${interest}">
+                                    <span class="author_activity" tal:content="interest"/>
+                                </a>&nbsp
                     	</tal:repeat>
 
                     <br />
@@ -237,7 +240,9 @@
 		<tal:activities condition="view/author_activities|nothing">
                     <span class="activities_header" i18n:translate="">Activities : </span>
 			<tal:repeat repeat="activity view/author_activities">
-				<span class="author_activity" tal:content="activity"/>
+				<a tal:attributes="href string:${portal_url}/@@author_listing?intype=activities&invalue=${activity}">
+                                    <span class="author_activity" tal:content="activity"/>
+                                </a>&nbsp
 			</tal:repeat>
 
                    <br />
@@ -247,7 +252,10 @@
 		<tal:media_formats condition="view/author_media_formats|nothing">
                     <span class="media_formats_header" i18n:translate="">Media Formats : </span>
 			<tal:repeat repeat="format view/author_media_formats">
-				<span class="author_media_formats" tal:content="format"/>
+				<!--a href="here/author_interests_page"><span class="author_media_formats" tal:content="format"/></a-->
+				<a tal:attributes="href string:${portal_url}/@@author_listing?intype=mediaformats&invalue=${format}">
+                                    <span class="author_activity" tal:content="format"/>
+                                </a>&nbsp
 			</tal:repeat>
                 </tal:media_formats>
 
