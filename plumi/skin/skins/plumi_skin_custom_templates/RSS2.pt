@@ -35,7 +35,7 @@
                       </tal:repeat>
                       <pubDate tal:content="structure python: DateTime(res.Date()).rfc822()"> </pubDate>                      
                       <metal:block use-macro="macros"/>
-                      <enclosure tal:attributes="url string:${res/absolute_url}/@@download/video_file" />
+                      <enclosure tal:attributes="url string:${res/absolute_url}/@@download/video_file/${res/video_file/filename}" />
                   </item>
             </tal:block>	   	
         </tal:block>
