@@ -2,6 +2,7 @@
 <rss version="2.0" 
      xmlns:tal="http://xml.zope.org/namespaces/tal"
      xmlns:metal="http://xml.zope.org/namespaces/metal"  
+     xmlns:itunes="http://www.itunes.com/DTDs/Podcast-1.0.dtd"
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
      tal:define="results python:here.getSyndicatableContent();"
      tal:on-error="nothing">
@@ -16,6 +17,15 @@
         <link tal:content="here/absolute_url"></link>
         <description tal:content="here/Description">
         </description>
+        <itunes:summary tal:content="here/Description"></itunes:summary>
+        <itunes:image tal:attributes="href string:${here/absolute_url}/thumbnailImage_mini" />
+        <image>
+           <link tal:content="string:${here/absolute_url}"></link>
+           <title title="template_title"></title>
+           <url tal:content="string:${here/absolute_url}/thumbnailImage_mini"></url>
+           <height>300</height>
+           <width>300</width>
+        </image>        
         <language>en-us</language>
         <generator>Plone 2.0</generator>
 
@@ -25,10 +35,13 @@
                                item_path python: res.portal_type=='ATAudio' and item_path+'/file_download/'+res.getId() or item_path;">                              
                   <item>
                       <title tal:content="res/title_or_id"></title>
+                      <itunes:subtitle tal:content="res/title_or_id"></itunes:subtitle>
                       <link tal:content="item_path"></link>
                       <description tal:content="res/Description">
                       </description>
+                      <itunes:summary tal:content="res/Description"></itunes:summary>                      
                       <author tal:content="res/Creator"></author>
+                      <itunes:author tal:content="res/Creator"></itunes:author>                      
                       <tal:repeat repeat="subj res/Subject">
                           <category tal:content="subj">
                           </category>
