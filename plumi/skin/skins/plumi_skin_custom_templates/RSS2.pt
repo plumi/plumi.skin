@@ -18,11 +18,11 @@
         <description tal:content="here/Description">
         </description>
         <itunes:summary tal:content="here/Description"></itunes:summary>
-        <itunes:image tal:attributes="href string:${here/absolute_url}/thumbnailImage_mini" />
+        <itunes:image tal:attributes="href string:${here/absolute_url}/logo.gif" />
         <image>
            <link tal:content="string:${here/absolute_url}"></link>
            <title title="template_title"></title>
-           <url tal:content="string:${here/absolute_url}/thumbnailImage_mini"></url>
+           <url tal:content="string:${here/absolute_url}/logo.gif"></url>
            <height>300</height>
            <width>300</width>
         </image>        
@@ -33,7 +33,7 @@
             <tal:block define="macros nocall: python:here.getItemMacros(res.portal_type); 
                                item_path python: res.absolute_url();
                                item_path python: res.portal_type=='ATAudio' and item_path+'/file_download/'+res.getId() or item_path;">                              
-                  <item>
+                  <item>                 
                       <title tal:content="res/title_or_id"></title>
                       <itunes:subtitle tal:content="res/title_or_id"></itunes:subtitle>
                       <link tal:content="item_path"></link>
