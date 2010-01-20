@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<object name="Favorite" meta_type="Factory-based Type Information"
+   i18n:domain="cmf_default" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <property name="title" i18n:translate="">Favorite</property>
+ <property name="description"
+    i18n:translate="">A Favorite is a Link to an intra-portal resource.</property>
+ <property name="content_icon">link_icon.gif</property>
+ <property name="content_meta_type">Favorite</property>
+ <property name="product"></property>
+ <property name="factory">cmf.favorite</property>
+ <property name="immediate_view">metadata_edit_form</property>
+ <property name="global_allow">True</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types"/>
+ <property name="allow_discussion">False</property>
+ <alias from="(Default)" to="favorite_redirect_view"/>
+ <alias from="view" to="favorite_view"/>
+ <action title="View" action_id="view" category="object" condition_expr=""
+    url_expr="string:${object_url}/favorite_view" visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" action_id="edit" category="object" condition_expr=""
+    url_expr="string:${object_url}/link_edit_form" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Metadata" action_id="metadata" category="object"
+    condition_expr="" url_expr="string:${object_url}/metadata_edit_form"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+</object>
