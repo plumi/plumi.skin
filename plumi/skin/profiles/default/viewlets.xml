@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
 <object>
-
+ <hidden manager="plone.belowcontentbody" skinname="Plumi 0.3 Skin">
+   <viewlet name="plone.abovecontenttitle.documentactions"/>
+ </hidden>
 </object>
