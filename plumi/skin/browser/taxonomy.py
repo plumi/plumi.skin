@@ -36,7 +36,7 @@ class CategoriesProvider( BrowserView ):
     def get_country_info(self, country_id):
         """Fake the genres/categories process to return the country infos
         """
-        if country_id is None or len(country_id.strip())==0:
+        if not country_id or len(country_id.strip())==0:
             return None
         country = self.country_tool.getCountryByIsoCode(country_id)
         url = "%s/%s/%s/" % (self.portal_url, TOPLEVEL_TAXONOMY_FOLDER, COUNTRIES_FOLDER)
