@@ -20,7 +20,6 @@
         </description>
         <itunes:summary tal:content="here/Description"></itunes:summary>
         <itunes:image tal:attributes="href string:${here/portal_url}/logo.gif" />
-        <!--itunes:image href="http://www.okaygreat.com/wp-content/uploads/2009/02/clipart.jpg" /-->
         <itunes:link rel="image" type="" tal:attributes="href string:${here/portal_url}/logo.gif"></itunes:link>
         <image>
            <link tal:content="string:${here/portal_url}"></link>

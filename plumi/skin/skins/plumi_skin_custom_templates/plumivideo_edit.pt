@@ -190,7 +190,7 @@
                        value="Next"
                        i18n:attributes="value label_next;"
                        tal:attributes="disabled python:test(isLocked, 'disabled', None);"
-                       />
+                       />                     
                 <tal:con tal:condition="python:fieldset == schematas.keys()[-1]">
                 <input class="context"
                        type="submit"
