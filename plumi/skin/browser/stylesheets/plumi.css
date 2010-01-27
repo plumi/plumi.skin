@@ -62,7 +62,7 @@ dd.portletFooter {
 
 dt.portletHeader,
 dt.portletHeader a {
-  color: #414900;
+  color: #424242;
 }
 
 
@@ -71,22 +71,25 @@ dt.portletHeader a {
 #portlet-publish a,
 #portlet-browse a {
   display: block;
-  text-align: right;
+  text-align: left;
   text-decoration: none;
-  padding: 1.6em 0.5em 0.7em 0;
+  padding: 0.6em 0.5em 0.7em 0;
+  margin-left: 10px;
+
 }
 
 #portlet-browse a {
-  background-color: #a7ba00;
+  background-color: #5edcea;
 }
 
 #portlet-publish a {
-  background-color: #d9ea28;
+
+  background-color: #a7d630;
 }
 
 #portlet-publish a span,
 #portlet-browse a span {
-  background-color: white;
+
   font-weight: bold;
   font-size: 100%;
   padding: 0.2em 0.5em;
@@ -104,7 +107,7 @@ dt.portletHeader a {
 
 #portal-column-two .portletHeader {
   background: transparent url(++resource++plumi.skin.images/menu.gif) top right repeat-x;
-  text-align: right;
+  text-align: left;
   padding-left: 0.5em;
 }
 
