@@ -155,7 +155,7 @@ dt.portletHeader a {
 #portal-globalnav li.selected,
 #portal-globalnav li {
   border-style: none solid none none;
-  border-color: #ddd;
+  border-color: white;
   border-width: 1px;
   height: 30px;
   display: block;
