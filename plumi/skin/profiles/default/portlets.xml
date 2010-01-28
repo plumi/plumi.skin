@@ -32,4 +32,12 @@
   </property>
   <property name="omit_border">True</property>
  </assignment> 
+
+
+<portlet
+      addview="vaporisation.tagcloud"
+      title="Customizable tagcloud portlet"
+      description="A portlet that displays a cloud of tags to browser through"
+      />
+
 </portlets>

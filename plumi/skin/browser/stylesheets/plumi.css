@@ -79,19 +79,20 @@ dt.portletHeader a {
 }
 
 #portlet-browse a {
-  background-color: #5edcea;
+width:177px;
+background: transparent url(++resource++plumi.skin.images/browse.png) no-repeat scroll 0 0;
 }
 
 #portlet-publish a {
-
-  background-color: #a7d630;
+width:177px;
+background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat scroll 0 0;
 }
 
 #portlet-publish a span,
 #portlet-browse a span {
 
   font-weight: bold;
-  font-size: 100%;
+  font-size: 130%;
   padding: 0.2em 0.5em;
   color: black;
   text-transform: uppercase;
