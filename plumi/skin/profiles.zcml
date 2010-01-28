@@ -5,9 +5,9 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="Plumi 0.3 Skin"
+      title="Plumi 3.0 Skin"
       directory="profiles/default"
-      description='Extension profile for the "Plumi 0.3 Skin" Plone theme.'
+      description='Extension profile for the "Plumi 3.0 Skin" Plone theme.'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 

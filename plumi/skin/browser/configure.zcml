@@ -3,11 +3,11 @@
            xmlns:five="http://namespaces.zope.org/five"
  	   i18n_domain="plumi">
 
-  <!-- 'Plumi 0.3 Skin' Zope 3 browser layer -->
+  <!-- 'Plumi 3.0 Skin' Zope 3 browser layer -->
   <interface
       interface=".interfaces.IThemeSpecific"
       type="zope.publisher.interfaces.browser.IBrowserSkinType"
-      name="Plumi 0.3 Skin"
+      name="Plumi 3.0 Skin"
       />
   
   <!-- Viewlets registration -->
