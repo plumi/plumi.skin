@@ -46,3 +46,4 @@ class PlumiVideoBrain( Explicit ):
         #date = self.video.getFirstPublishedTransitionTime
 	date = self.video.created
         return self.context.toLocalizedTime(date)
+        
