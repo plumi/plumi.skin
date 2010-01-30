@@ -40,4 +40,9 @@
       description="A portlet that displays a cloud of tags to browser through"
       />
 
+<assignment name="navigation" category="context" key="/"
+    manager="plone.leftcolumn" type="portlets.Navigation">
+     <property name="topLevel">0</property>
+ </assignment>
+
 </portlets>
