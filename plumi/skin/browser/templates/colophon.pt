@@ -1,0 +1,40 @@
+  <div id="portal-colophon" metal:define-macro="colophon" i18n:domain="plone">
+      <tal:comment replace="nothing">
+
+        Please keep the Plone Powered link (or the plone_powered.gif image) if you use
+        Plone on your site. It's a nice token of gratitude, and we appreciate your
+        help in promoting the Plone brand.
+
+        Plone is powered by the combined forces of Zope and CMF, two absolutely
+        great systems made by Zope Corporation (http://zope.com) and they in turn
+        are based on the best programming language in the world - Python
+        (http://www.python.org). We owe these guys a lot, thanks for making Plone
+        possible!
+
+      </tal:comment>
+
+      <metal:slot define-slot="colophon" />
+
+      <div class="colophonWrapper">
+      <ul>  
+      <li>
+      <a href="http://plone.org" class="colophonIcon"
+         title="This Plone site was built using Plone, the Open Source Content Management System. Click for more information."
+         style="background-image: url(++resource++plumi.skin.images/plone_powered.gif);">
+        Powered by Plone, the Open Source Content Management System
+      </a> 
+    </li>
+
+    <li>
+      <a href="http://plumi.org" class="colophonIcon"
+         title="This site is powered by the free Plumi video-sharing package for Plone."
+         style="background-image: url(++resource++plumi.skin.images/plumi-powered.gif);">
+      This Plone site was designed by Spring In Alaska
+      </a>
+    </li>
+
+
+      </ul>
+      </div>
+
+    </div>
