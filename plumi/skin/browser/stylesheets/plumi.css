@@ -19,6 +19,7 @@ body {
 
 #portal-footer {
   margin-top: 0 !important;
+  display:none;
 }
 
 /***************/
@@ -363,4 +364,29 @@ form div textarea#subject_keywords {
 }
 .link-external, .link-mailto {
 cursor:pointer;
+}
+
+
+#portal-colophon .colophonIcon {
+border:0 none;
+display:inline-block;
+height:0 !important;
+margin:0 auto;
+overflow:hidden;
+padding:15px 0 0;
+text-decoration:none;
+vertical-align:top;
+width:80px;
+}
+#portal-colophon a.colophonIcon {
+cursor:pointer;
+}
+
+
+
+#portal-colophon ul li {
+display:table-cell;
+font-size:85%;
+margin:0 0.0em;
+padding:0.0em 0.0em;
 }

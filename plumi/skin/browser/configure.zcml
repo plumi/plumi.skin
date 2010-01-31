@@ -173,4 +173,14 @@
   <adapter factory=".brain_rendering.PlumiVideoBrain"
 	   provides=".interfaces.IPlumiVideoBrain" />
 
+<browser:viewlet
+    name="plone.colophon"
+    manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+    template="templates/colophon.pt"
+    for="*"
+    layer=".interfaces.IThemeSpecific"
+    permission="zope2.View"
+
+/>
+
 </configure>
