@@ -17,6 +17,11 @@
 
   <h4 tal:condition="options/show_title">
 
+    <a class="video-download" title="View details about this video"
+       tal:attributes="href string:${view/url}/view;">
+       <img height="16" width="16" title="" alt="" src="video_icon.png"/>
+    </a>
+
     <a class="featuredItemTitle" href=""
        tal:content="view/video_title"
        tal:attributes="href string:${view/url}/view;
@@ -34,10 +39,10 @@
      <span tal:content="video/getFormattedDuration" /> 
   </span> -->
 
-  <!--span class="featured-video-duration" i18n:translate="">
+  <span class="featured-video-duration" i18n:translate="">
     Video duration :
      <span class="discreet" tal:content="video/videoDuration" /> 
-  </span-->
+  </span>
 
   <p class="discreet plumi-nice-description" >
     <tal:desc tal:content="video/Description" />
