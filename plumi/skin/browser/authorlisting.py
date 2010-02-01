@@ -16,6 +16,7 @@ class AuthorListing(BrowserView):
         fieldDict = {'genre':'genre_interests',
                      'activities':'activities',
                      'mediaformats':'media_formats',
+                     'location':'location',
                     }
         resultList = []                    
         users = mtool.listMembers()
