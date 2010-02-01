@@ -39,9 +39,11 @@
      <span tal:content="video/getFormattedDuration" /> 
   </span> -->
 
-  <span class="featured-video-duration" i18n:translate="">
+  <span class="featured-video-duration" i18n:translate=""
+        tal:define="duration video/videoDuration|nothing"
+        tal:condition="duration">
     Video duration :
-     <span class="discreet" tal:content="video/videoDuration" /> 
+     <span class="discreet" tal:content="duration" /> 
   </span>
 
   <p class="discreet plumi-nice-description" >
