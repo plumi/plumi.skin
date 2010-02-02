@@ -20,7 +20,7 @@
       <li>
       <a href="http://plone.org" class="colophonIcon"
          title="This Plone site was built using Plone, the Open Source Content Management System. Click for more information."
-         style="background-image: url(++resource++plumi.skin.images/plone_powered.gif);">
+         tal:attributes="style string:background-image: url(${view/context/portal_url}/++resource++plumi.skin.images/plone_powered.gif);">
         Powered by Plone, the Open Source Content Management System
       </a> 
     </li>
@@ -28,7 +28,7 @@
     <li>
       <a href="http://plumi.org" class="colophonIcon"
          title="This site is powered by the free Plumi video-sharing package for Plone."
-         style="background-image: url(++resource++plumi.skin.images/plumi-powered.gif);">
+         tal:attributes="style string:background-image: url(${view/context/portal_url}/++resource++plumi.skin.images/plumi-powered.gif);">
       This Plone site was designed by Spring In Alaska
       </a>
     </li>
