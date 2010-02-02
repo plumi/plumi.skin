@@ -52,36 +52,53 @@
     </div>
    <div metal:define-macro="body"
          tal:condition="not:isLocked"
-         tal:define="portal_type portal_type|string:unknowntype">
-
-
+         tal:define="portal_type portal_type|string:unknowntype;">
+         
       <form name="edit_form"
             method="post"
             enctype="multipart/form-data"
             class="enableUnloadProtection enableAutoFocus atBaseEditForm"
             action=""
             id=""
+            tal:define="fieldsets python:['default','categorization','thumbnail']"
             tal:attributes="action python:here.absolute_url()+'/'+template.id;
                             id string:${portal_type}-base-edit;
                             class python:test(path('allow_tabbing|nothing'), 'enableUnloadProtection enableAutoFocus enableFormTabbing enableUnlockProtection', 'enableUnloadProtection enableAutoFocus enableUnlockProtection');">
+
+
+
           <metal:block define-slot="extra_top" />
 
           <metal:block define-slot="widgets">
             <tal:tabbed tal:condition="allow_tabbing | nothing">
               <fieldset tal:repeat="fieldset fieldsets"
                         tal:attributes="id string:fieldset-${fieldset}">
+                        <strong tal:content="fieldset" />x
+
+                        
                 <legend id=""
                         tal:content="python: view.getTranslatedSchemaLabel(fieldset)"
                         tal:attributes="id string:fieldsetlegend-${fieldset}" />
                 <tal:fields repeat="field python:schematas[fieldset].editableFields(here, visible_only=True)">
                   <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
                 </tal:fields>
-		<tal:licensingfield tal:condition="python:fieldset == 'ownership'">
-		  <div tal:replace="structure context/@@dc_metadata|nothing" />
+		        <tal:licensingfield tal:condition="python:fieldset == 'ownership'">
+		          <div tal:replace="structure context/@@dc_metadata|nothing" />
                 </tal:licensingfield>
               </fieldset>
             </tal:tabbed>
             <tal:nottabbed tal:condition="not: allow_tabbing | nothing">
+      <div id="archetypes-schemata-links" 
+           tal:condition="fieldsets">
+        <tal:block repeat="set fieldsets">
+          <tal:current condition="python:set == fieldset and fieldsets != ['default']">
+		<img tal:attributes="src python:portal_url + '/++resource++plumi.skin.images/step%d' % (1+repeat['set'].index) + '_on.gif'" /> 
+          </tal:current>
+          <tal:others condition="python:set != fieldset">
+		<img tal:attributes="src python:portal_url + '/++resource++plumi.skin.images/step%d' % (1+repeat['set'].index) + '_off.gif'" /> 
+          </tal:others>
+        </tal:block>
+      </div>            
                 <tal:fields repeat="field python:schematas[fieldset].editableFields(here, visible_only=True)">
                   <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
                 </tal:fields>
@@ -191,7 +208,7 @@
                        i18n:attributes="value label_next;"
                        tal:attributes="disabled python:test(isLocked, 'disabled', None);"
                        />                     
-                <tal:con tal:condition="python:fieldset == schematas.keys()[-1]">
+                <tal:con tal:condition="python:fieldset == fieldsets[-1]">
                 <input class="context"
                        type="submit"
                        name="form.button.save"
