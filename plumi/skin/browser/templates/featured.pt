@@ -10,7 +10,7 @@
 
 <!-- featured videos -->
 <div id="featured-item"
-     class="featured-block videos-listing"
+     class="featured-block videos-listing roundborder rounded"
      tal:define="featitems view/featured_items"
      tal:condition="nocall: featitems">
 
@@ -115,13 +115,19 @@
       </span>
     </dd>
   </dl>
+  <script>jq(document).ready( function(){
+
+			  jq('.rounded').corners("60px 60px");
+
+	      });
+  </script>
 </div>
 <!-- end ... news and events -->
 
 
 <!-- Latest videos -->
 <div id="featured-latest-videos"
-     class="featured-block"
+     class="featured-block roundborder rounded"
      tal:define="results view/latest_videos">
 
   <dl id="featured-video"
@@ -154,6 +160,12 @@
 	 >More Videos&hellip;</a>
     </dd>
   </dl>
+    <script>jq(document).ready( function(){
+
+			  jq('.rounded').corners("60px 60px");
+
+	      });
+  </script>
 </div>
 
 </div>

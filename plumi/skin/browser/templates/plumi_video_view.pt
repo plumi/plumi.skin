@@ -30,7 +30,7 @@
                        getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
                        templateId template/getId;
                        fullDescription here/getFullDescription;">
-
+		<div class="roundborder rounded">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <h1 class="documentFirstHeading"> 
@@ -59,7 +59,6 @@
                                      ogg python:view.transcoding('ogg');
                                      thumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage_mini' or view.transcoding('jpeg') or '';
                                      fullThumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage/image_view_fullscreen' or ''">
-
 
             <tal:failed_transcode condition="not: mp4">
               <a id="no-video-player"
@@ -330,6 +329,12 @@
         <div tal:replace="structure context/@@copyright_byline_view | nothing" />
         <div tal:replace="structure context/@@citation_view | nothing" />
       </div>
+	</div>
+	<script>jq(document).ready( function(){
+
+			  jq('.rounded').corners("60px 60px");
+
+		});</script>
 
 
     </tal:main-macro>

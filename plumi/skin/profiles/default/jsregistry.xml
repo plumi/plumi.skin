@@ -6,4 +6,11 @@
  <javascript cacheable="True" compression="none" cookable="True"
      enabled="True" expression=""
          id="++resource++plumi.skin.flowplayer/flowplayer.embed-3.0.2.min.js" inline="False"/>
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression="" id="jquery.corners.js"
+    inline="True"/>
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression="" id="rounded.js"
+    inline="True"/>
+
 </object>
