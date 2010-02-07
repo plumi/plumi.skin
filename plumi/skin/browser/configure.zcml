@@ -67,6 +67,7 @@
       template="templates/RSS2.pt"
       permission="zope2.View"
       />
+
 <!--
  <browser:page
       name="RSS"

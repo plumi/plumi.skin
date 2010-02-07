@@ -118,3 +118,14 @@ class AuthorPage( CategoriesProvider ):
                      review_state='published')
         brains = self.catalog(**query)
         return brains
+
+    @property
+    def callouts(self):
+        query = dict(portal_type='PlumiCallOut',
+                     # XXX re-impl. this
+                     #sort_on='getFirstPublishedTransitionTime',
+                     sort_order='reverse',
+                     Creator=self.author,
+                     review_state='published')
+        brains = self.catalog(**query)
+        return brains        

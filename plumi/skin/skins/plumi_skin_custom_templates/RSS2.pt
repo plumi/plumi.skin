@@ -42,7 +42,7 @@
                       <itunes:subtitle tal:content="res/title_or_id"></itunes:subtitle>
                       <link tal:content="item_path"></link>
                       <description>
-                         <div><img tal:attributes="src string:${item_path}/thumbnailImage_thumb"/><span tal:content="res/Description" /></div>
+                         <div><img tal:condition="res/thumbnailImage" tal:attributes="src string:${item_path}/thumbnailImage_thumb" alt=""/><span tal:content="res/Description" /></div>
                       </description>
                       <itunes:summary tal:content="res/Description"></itunes:summary>                      
                       <author tal:content="res/Creator"></author>

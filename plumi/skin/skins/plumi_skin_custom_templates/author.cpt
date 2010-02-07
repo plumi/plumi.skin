@@ -283,12 +283,34 @@
 	</div>
 	<!-- end of video listing for user -->
 
+	<!-- Callout listing -->
+	<div class="featured-block">
+	  <dl class="videos-listing" tal:condition="not: callouts" i18n:domain="plumi" tal:define="callouts view/callouts">
+	       
+	    <dt class="featuredHeader">
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/" i18n:translate="">Latest Callouts</a>
+	    </dt>
+
+		<!-- each Callout item -->
+	    <dd class="featuredItem" tal:repeat="obj callouts">
+
+	     <metal:macro use-macro="here/atobjs_renderer/macros/atobj_renderer"/>
+
+	    </dd>
+	    <!-- end of each Callout item -->
+
+	  </dl>
+	</div>
+	<!-- end of Callouts listing for user -->
+
+
 	<!-- News listing -->
 	<div class="featured-block">
 	  <dl class="videos-listing" tal:condition="newses" i18n:domain="plumi" tal:define="newses view/news">
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest News</a>
 	    </dt>
 
@@ -305,26 +327,26 @@
 	<!-- end of news listing for user -->
 
 
-	<!-- News listing -->
+	<!-- Events listing -->
 	<div class="featured-block">
 	  <dl class="videos-listing" tal:condition="events" i18n:domain="plumi" tal:define="events view/events">
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest Events</a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/" i18n:translate="">Latest Events</a>
 	    </dt>
 
-		<!-- each news item -->
+		<!-- each Event item -->
 	    <dd class="featuredItem" tal:repeat="obj events">
 
 	     <metal:macro use-macro="here/atobjs_renderer/macros/atobj_renderer"/>
 
 	    </dd>
-	    <!-- end of each news item -->
+	    <!-- end of each Event item -->
 
 	  </dl>
 	</div>
-	<!-- end of news listing for user -->
+	<!-- end of Event listing for user -->
 
 
 
@@ -431,7 +453,8 @@
             </tal:emailsetup>
             </tal:feedbackForm>
             <!-- listing of content created by this user -->
-        
+
+            <!--        
             <tal:authorContent define="author_content python:here.author_find_content(author);"
                                condition="author_content">
         
@@ -447,6 +470,7 @@
                                             type_title python: getTypeInfo(content_type_) or None"
                                     condition="type_title">		
                         <tr>
+                            <td tal:content="content_type_" />
                             <th colspan="2"
                                 i18n:translate=""
                                 tal:define="getTypeInfo nocall:portal_types/getTypeInfo;
@@ -480,7 +504,7 @@
                 </a>
 
             </tal:authorContent>
-
+            -->
         </div>
     </div> <!-- end simulated tabs -->
         

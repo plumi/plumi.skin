@@ -13,7 +13,7 @@
     <channel tal:define="author python:here.getObjectCreator(here.Creator());
                          author_email python:author and author.getProperty('email','') or '';
                          author_fullname python:author and author.getProperty('fullname','') or here.Creator();
-                         		syInfo python: here.getSynProp();
+                         syInfo python: here.getSynProp();
 			             channel_logo python:here.absolute_url() + '/logo02.gif';
                          ">
 	
@@ -22,12 +22,12 @@
             template_title template/title_or_id;"
 		tal:condition="python: author_fullname!='Plumi'"
             tal:content="string:$author_fullname's $portal_title Channel">Title of page</title>
-	<title tal:define="portal_title here/portal_properties/title;
+	<!--title tal:define="portal_title here/portal_properties/title;
             here_title here/title_or_id;
             template_title template/title_or_id;"
 		tal:condition="python: author_fullname=='Plumi'"
-            tal:content="string:$author_fullname $here_title Channel">Title of page</title>
-
+            tal:content="string:$author_fullname $here_title Channel">Title of page</title-->
+        <title>ddddddddddddddd</title>
         <link tal:content="here/absolute_url"></link>
         <description tal:content="here/Description"></description>
         <language>en-us</language>
@@ -52,7 +52,7 @@
                       tal:attributes="href channel_logo"  />
         <itunes:summary tal:condition="here/Description|nothing" tal:content="here/Description"></itunes:summary>
 
-        <tal:block repeat="res results">
+        <!--tal:block repeat="res results">
             <tal:block condition="python: res.isPublishableATEngageVideoObj is not None">
 
             <tal:block define="macros nocall: python:here.getItemMacros(res.portal_type); 
@@ -79,10 +79,10 @@
 
             </tal:block>
             </tal:block>
-	</tal:block>
+	</tal:block-->
         <tal:block repeat="res results">
 
-	    <tal:block condition="python: res.isPublishableATEngageVideoObj is None">
+	    <!--<tal:block condition="python: res.isPublishableATEngageVideoObj is None">-->
 
             <tal:block define="macros nocall: python:here.getItemMacros(res.portal_type); 
 			       res_item res/getObject|nocall:brain;	
@@ -108,9 +108,9 @@
                    </item>
 
             </tal:block>
-            </tal:block>
+           <!-- </tal:block>-->
 
-        </tal:block>
+        </tal:block> 
     </channel>
 </rss>
 
