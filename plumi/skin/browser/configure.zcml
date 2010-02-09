@@ -184,4 +184,15 @@
 
 />
 
+<browser:viewlet
+    name="plone.personal_bar"
+    manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+    template="templates/personal_bar.pt"
+	class="plone.app.layout.viewlets.common.PersonalBarViewlet"
+    for="*"
+    layer=".interfaces.IThemeSpecific"
+    permission="zope2.View"
+
+/>
+
 </configure>
