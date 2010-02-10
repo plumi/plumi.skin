@@ -38,11 +38,27 @@ dl.portlet,
 dd.portletItem,
 dd.portletFooter,
 dt.portletHeader {
-  border: 0;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  padding-right: 5px;
 }
 
 dl.portlet {
   margin-top: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #c8dca8;
+}
+
+#portal-column-one dl.portlet {
+  border-left:none;
+  margin-left: 5px;
+}
+
+#portal-column-two dl.portlet {
+  border-right:none;
+  margin-right: 5px;
 }
 
 dd.portletFooter {
@@ -58,9 +74,7 @@ dd.portletFooter {
   font-weight: bold;
   text-transform: uppercase;
   padding-right: 0.5em;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
+  border-bottom: 1px solid #c8dca8;
 }
 
 dt.portletHeader,

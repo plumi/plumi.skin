@@ -115,12 +115,7 @@
       </span>
     </dd>
   </dl>
-  <script>jq(document).ready( function(){
 
-			  jq('.rounded').corners("60px 60px");
-
-	      });
-  </script>
 </div>
 <!-- end ... news and events -->
 
@@ -160,12 +155,6 @@
 	 >More Videos&hellip;</a>
     </dd>
   </dl>
-    <script>jq(document).ready( function(){
-
-			  jq('.rounded').corners("60px 60px");
-
-	      });
-  </script>
 </div>
 
 </div>

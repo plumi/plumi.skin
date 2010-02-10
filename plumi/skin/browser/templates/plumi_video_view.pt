@@ -329,12 +329,6 @@
         <div tal:replace="structure context/@@citation_view | nothing" />
       </div>
 	</div>
-	<script>jq(document).ready( function(){
-
-			  jq('.rounded').corners("60px 60px");
-
-		});</script>
-
 
     </tal:main-macro>
 </metal:main>

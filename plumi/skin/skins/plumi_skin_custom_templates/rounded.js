@@ -4,6 +4,10 @@ jq(document).ready(function(){
 
   jq('.rounded').corners(); /* test for double rounding */
 
+  jq('.portlet').corners();
+
+  jq('.portlet').corners();
+
   jq('table', jq('#featureTabsContainer .tab')[0]).each(function(){jq('.native').hide();});
 
   jq('#featureTabsContainer').show();
