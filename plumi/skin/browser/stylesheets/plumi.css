@@ -234,60 +234,7 @@ padding: 0em 0em 1em !important;
   background-color: transparent;
 }
 
-#video-infos {
-  float: left;
-  width: 100%;
-}
 
-#video-infos thead th {
-  font-weight: bold;
-}
-
-#video-core {
-  float: left;
-  width: 100%;
-  padding-top: 0.5em;
-}
-
-#video-about {
-  clear: both;
-  padding-top: 1em;
-}
-
-#no-video-player {
-  display: block;
-  margin-top: 2em;
-  width: 320px;
-  text-align: center;
-  text-decoration: none;
-}
-
-#video-player div {
-  padding: 0.4em 0 0.6em 0;
-  font-color: #aaa;
-  font-size: 85%;
-}
-
-#video-player textarea {
-  background: #f4f4f4 url(++resource++plumi.skin.images/homepage_desc.gif) 0 0;
-  font-size: 90%;
-}
-
-#player {
-  display: block;
-  width: 640px;
-  height: 510px;
-}
-
-.embed {
-  width: 50%
-}
-#embedDiv {
-  margin-top: 5px;
-}
-#embedCode {
-  overflow-x:auto;
-}
 
 /**************************/
 /* Categories / genres... */
@@ -408,6 +355,67 @@ form div textarea#subject_keywords {
 cursor:pointer;
 }
 
+#video-infos {
+  float:left;
+}
+
+#video-infos thead th {
+  font-weight: bold;
+}
+
+#full-description {
+  clear:both;
+}
+
+#video-core {
+  float: right;
+  padding-top: 0.5em;
+  width: 400px;
+}
+
+#video-about {
+  clear: both;
+  padding-top: 1em;
+}
+
+#no-video-player {
+  display: block;
+  margin-top: 2em;
+  width: 320px;
+  text-align: center;
+  text-decoration: none;
+}
+
+#video-transcoding {
+  clear: both;
+}
+
+#video-player div {
+  padding: 0.4em 0 0.6em 0;
+  font-color: #aaa;
+  font-size: 85%;
+}
+
+#video-player textarea {
+  background: #f4f4f4 url(++resource++plumi.skin.images/homepage_desc.gif) 0 0;
+  font-size: 90%;
+}
+
+#player {
+  display: block;
+  width: 640px;
+  height: 510px;
+}
+
+.embed {
+  width: 50%
+}
+#embedDiv {
+  margin-top: 5px;
+}
+#embedCode {
+  overflow-x:auto;
+}
 
 /* - plumi_homepage.css - */
 .featured-block {

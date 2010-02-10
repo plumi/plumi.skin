@@ -41,19 +41,19 @@
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
-        <p class="documentDescription">
+        <p class="documentDescription discreet">
             <metal:field use-macro="python:here.widget('description', mode='view')">
             Description
             </metal:field>
         </p>
 
-        <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <p tal:condition="python: not fullDescription and is_editable"
            i18n:translate="no_body_text"
            class="discreet">
             This item does not have any body text, click the edit tab to change it.
         </p>
+
           <div id="video-core" tal:define="transcoded python:view.transcoding('ogg') and view.transcoding('mp4');
                                      mp4 python:view.transcoding('mp4'); 
                                      ogg python:view.transcoding('ogg');
@@ -76,7 +76,7 @@
               </a>
             </tal:failed_transcode>
             
-        <video controls width="440" height="330"
+        <video controls width="400" height="300"
                tal:attributes="poster string:${here/absolute_url}/thumbnailImage">
 
             <source tal:condition="mp4" tal:attributes="src mp4" type="video/mp4" />               
@@ -107,7 +107,6 @@
             var code = flowplayer().embed().getEmbedCode(); 
             document.getElementById('embedCode').innerHTML = code; ">
             </script>
-
 
         <a class="download" 
            tal:define="bt_info view/bt_availability"
@@ -292,20 +291,36 @@
         </div> <!-- class=vcard -->
       </div> <!-- id=video-infos -->
 
-
-        <metal:field use-macro="python:here.widget('FullDescription', mode='view')">
-        Body text
-        </metal:field>
-
         <div metal:use-macro="here/document_relateditems/macros/relatedItems">
             show related items if they exist
         </div>
 
-        <div tal:condition="view/transcoding_rights">        
+
+		
+		<div id="full-description">
+			<h1 class="documentFirstHeading" i18n:translate="full_description"> 
+				Full Description
+			</h1>
+			<metal:field use-macro="python:here.widget('FullDescription', mode='view')">
+				Body text
+			</metal:field>
+		</div>
+
+      <div id="video-licensing">
+        <div tal:replace="structure context/@@copyright_byline_view | nothing" />
+        <div tal:replace="structure context/@@citation_view | nothing" />
+      </div>
+
+	  <div tal:condition="view/transcoding_rights">    
 
         <div id="video-transcoding" tal:define="transcoding view/transcoding_status">
 
-          <strong i18n:translate="">Transcode Status</strong> 
+    	<h1 class="documentFirstHeading" i18n:translate="transcoding"> 
+			Transcoding
+		</h1>    
+
+
+          <strong i18n:translate="transcode_status">Transcode Status</strong> 
           <p tal:content="transcoding" />
 
           <p i18n:translate="restart_transcoding">
@@ -321,13 +336,6 @@
           </p>
         </div> <!-- id=video-transcoding -->
         </div> <!-- transcoding rights tal -->
-
-      <div tal:replace="structure provider:plone.belowcontentbody" />
-
-      <div id="video-licensing">
-        <div tal:replace="structure context/@@copyright_byline_view | nothing" />
-        <div tal:replace="structure context/@@citation_view | nothing" />
-      </div>
 	</div>
 
     </tal:main-macro>
