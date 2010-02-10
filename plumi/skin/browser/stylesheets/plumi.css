@@ -9,17 +9,22 @@
 /** Site and wrapper **/
 
 body {
-  background: white url(++resource++plumi.skin.images/bg.png) 50% 0 repeat-y;
+  background-color: #abbd10;
 }
 
 #visual-portal-wrapper {
   width: 990px;
-  margin: 0 auto;
+  margin: 8px auto;
+  background-color: white;
 }
 
 #portal-footer {
   margin-top: 0 !important;
   display:none;
+}
+
+#portal-searchbox {
+   margin-top: 6.5em; 
 }
 
 /***************/

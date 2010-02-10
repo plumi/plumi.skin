@@ -8,6 +8,10 @@ jq(document).ready(function(){
 
   jq('.portlet').corners();
 
+  jq('#visual-portal-wrapper').corners();
+
+  jq('#visual-portal-wrapper').corners();
+
   jq('table', jq('#featureTabsContainer .tab')[0]).each(function(){jq('.native').hide();});
 
   jq('#featureTabsContainer').show();
