@@ -18,6 +18,7 @@
       tal:repeat="item featitems">
     
     <dt class="featuredHeader">
+	  <img tal:attributes="src string:${portal_url}/plumi-icon32x32.png" />
       <a href="#"
 	 tal:attributes="href string:$portal_url/featured-videos/RSS2">
 	<img class="feedButton"
