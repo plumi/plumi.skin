@@ -129,6 +129,7 @@
       class="featured-front-page videos-listing">
 
     <dt class="featuredHeader">
+	  <img tal:attributes="src string:${portal_url}/plumi-icon32x32.png" />
       <a href="#"
 	 tal:attributes="href string:$portal_url/latestvideos/RSS2">
 	<img class="feedButton"

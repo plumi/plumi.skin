@@ -147,8 +147,17 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
 /** Main content zone **/
 
 #content {
-  margin: 1em 0.3em !important;
+  margin: 0em 0.3em !important;
   padding: 0 ! important;
+}
+
+#portal-column-content {
+  padding: 0 1em 0 ;
+  margin: 0 0 2em;
+}
+
+.documentContent {
+padding: 0em 0em 1em !important;
 }
 
 
@@ -426,11 +435,18 @@ display: block;
 dt.featuredHeader {
 color: black;
 border-width: 0 0 1px 0;
-border-color: #9ba351;
+border-color: #c8dca8;
 border-style: solid;
 font-size: 120%;
-margin-bottom: 0.5em;
+margin-top: -12px;
+margin-left: 10px;
+margin-right: 10px;
 }
+
+.feedButton {
+  margin-top: 8px;
+}
+
 dt.featuredHeader .featuredItemDetails,
 dt.featuredHeader #featuredVideoTitle {
 color: #414900;
