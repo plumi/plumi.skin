@@ -52,15 +52,19 @@ dl.portlet {
   border-color: #c8dca8;
 }
 
+.even {
+  background-color: transparent;
+}
+
+.portletItem {
+  border-bottom: 1px solid #c8dca8;
+}
+
 #portal-column-one dl.portlet {
   border-left:none;
   margin-left: 5px;
 }
 
-#portal-column-two dl.portlet {
-  border-right:none;
-  margin-right: 5px;
-}
 
 dd.portletFooter {
   background-color: transparent;
@@ -123,6 +127,12 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
   border-left: 0px solid #ddd;
   width: 160px;
 }
+
+#portal-column-two dl.portlet {
+  border-right:none;
+  margin-right: 5px;
+}
+
 
 #portal-column-two .portletHeader {
   background: transparent url(++resource++plumi.skin.images/menu.gif) top right repeat-x;
