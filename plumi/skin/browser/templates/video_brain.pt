@@ -48,13 +48,6 @@
     <tal:date content="view/post_date" i18n:name="PostedDate"/>
   </span>
 
-  <span class="featured-video-duration" i18n:translate=""
-        tal:define="duration video/videoDuration|nothing"
-        tal:condition="duration">
-    Video duration :
-     <span class="discreet" tal:content="duration" /> 
-  </span>
-
   <p class="discreet plumi-nice-description" tal:condition="not:options/feature_video">
     <tal:desc tal:content="video/Description" />
     <span class="featured-read-more">
@@ -79,6 +72,13 @@
     </span>
  </p>
 
+  <dl class="featured-video-duration plumi-props-listing"
+        tal:define="duration video/videoDuration|nothing"
+        tal:condition="duration">
+     <dt i18n:translate="">Video duration</dt>
+     <dd class="discreet" tal:content="duration" /> 
+  </dl>
+  
   <dl class="plumi-categories plumi-props-listing"
       tal:define="categories view/categories"
       tal:condition="categories">
