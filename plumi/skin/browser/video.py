@@ -236,18 +236,18 @@ class flowplayerConfig( BrowserView ):
         return """
 {
     'embedded': 'true',
-	// common clip properties
-	'clip': {
-		'url': '%s', 
-	},
-	'plugins': {
-		// use youtube controlbar
-		'controls': {
+    // common clip properties
+    'clip': {
+        'url': '%s', 
+    },
+    'plugins': {
+        // use youtube controlbar
+        'controls': {
             'url': '%s/%%2B%%2Bresource%%2B%%2Bplumi.skin.flowplayer/flowplayer.controls-3.1.5.swf'
-			'height': 30,
-			'backgroundColor': '#115233'
-		}
-	}
+            'height': 30,
+            'backgroundColor': '#115233'
+        }
+    }
 } 
         """ % (self.transcoding('mp4'), self.portal_url, )
 

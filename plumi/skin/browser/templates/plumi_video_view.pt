@@ -55,7 +55,7 @@
         </p>
 
           <div id="video-core" tal:define="transcoded python:view.transcoding('ogg') and view.transcoding('mp4');
-                                     mp4 python:view.transcoding('mp4'); 
+                                     mp4 python:view.transcoding('mp4').replace('+','%2B'); 
                                      ogg python:view.transcoding('ogg');
                                      thumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage_mini' or view.transcoding('jpeg') or '';
                                      fullThumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage/image_view_fullscreen' or ''">
@@ -75,22 +75,21 @@
                 </span>
               </a>
             </tal:failed_transcode>
-            
-        <video controls width="400" height="300"
-               tal:attributes="poster string:${here/absolute_url}/thumbnailImage">
 
+            <!-- fallback for browsers who don't support video tag -->
+               <a tal:attributes="href mp4" id="player" tal:condition="mp4" >
+               </a>             
+            
+        <video controls width="400" height="300" tal:condition="nothing"
+               tal:attributes="poster string:${here/absolute_url}/thumbnailImage">
             <source tal:condition="mp4" tal:attributes="src mp4" type="video/mp4" />               
             <source tal:condition="ogg" tal:attributes="src ogg" type="video/ogg" />
-            <!-- fallback for browsers who don't support video tag -->
-           <!--    <a tal:attributes="href mp4" id="player" tal:condition="mp4" >
-                </a> -->
-
          </video>        
 
             <div tal:omit-tag="" tal:condition="mp4">        
                     <div class="embed" id="embedDiv" i18n:translate="copy_embed_code">
                  Copy the following to embed the movie into another web page:</div>
-                    <textarea class="embed" id="embedCode" onclick="this.focus();this.select();"><span tal:omit-tag="" /></textarea>
+                    <textarea class="embed" id="embedCode" rows="1" onclick="this.focus();this.select();"><span tal:omit-tag="" /></textarea>
              </div>
              <script language="JavaScript" tal:define="thumbstr python: thumb and ('{url: \'%s\',type:\'image\'},'%thumb) or ''"
                 tal:content="string:  

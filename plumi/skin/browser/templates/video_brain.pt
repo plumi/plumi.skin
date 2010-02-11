@@ -1,20 +1,33 @@
-<tal:video define="video nocall: view/video">
-
-  <span tal:omit-tag="" tal:condition="options/feature_video">
-	 <div class="featured-video-image"
-		tal:condition="video/isTranscodedPlumiVideoObj/transcoding_status"
-	             tal:content="structure video/isTranscodedPlumiVideoObj/indytube_html" />
- </span>
+<tal:video define="video nocall: view/video;
+                    hasThumb video/hasImageAndCaption/image;
+                    thumb string:${view/url}/thumbnailImage_thumb;
+                    thumbCaption view/hasImageAndCaption/caption;">
 
  <span tal:omit-tag="" tal:condition="not:options/feature_video">
-  <tal:image condition="video/hasImageAndCaption/image">
+  <tal:image condition="hasThumb">
     <a class="featured-video-image"
-       tal:attributes="href string:${view/url}/view; title view/hasImageAndCaption/caption">
-      <img tal:attributes="src string:${view/url}/thumbnailImage_thumb; alt string:${view/hasImageAndCaption/caption}" />
+       tal:attributes="href string:${view/url}/view; title thumbCaption">
+      <img tal:attributes="src thumb; alt thumbCaption" />
     </a>
   </tal:image>
   </span>
+ <span tal:omit-tag="" tal:condition="options/feature_video" 
+        tal:define="mp4 video/isTranscodedPlumiVideoObj/mp4|nothing;
+                    thumbstr python: hasThumb and ('{url: \'%s\',type:\'image\'},'%thumb) or '';
+                    swfplayer string:${here/absolute_url}/%2B%2Bresource%2B%2Bplumi.skin.flowplayer/flowplayer-3.1.5.swf;
+                    swfcontrols string:${here/absolute_url}/%2B%2Bresource%2B%2Bplumi.skin.flowplayer/flowplayer.controls-3.1.5.swf">
+               <a class="featured-video-image" tal:attributes="href string:${view/videoserver}/${mp4/path}" id="player" tal:condition="mp4" >
+               </a>   
+         <script language="JavaScript" tal:content='string:flowplayer("player", "$swfplayer", 
+                                                                        { playlist:[$thumbstr
+                                                                                        {
+                                                                                            url:"${view/videoserver}/${mp4/path}",
+                                                                                            autoPlay:false,
+                                                                                            autoBuffering:false,
+                                                                                        }
+                                                                                    ]}  );'> </script>
 
+  </span>
   <h4 tal:condition="options/show_title">
 
     <a class="video-download" title="View details about this video"
@@ -33,12 +46,6 @@
     <tal:date content="view/post_date" i18n:name="PostedDate"/>
   </span>
 
-	<!--
-  <span class="featured-video-duration" i18n:translate="">
-    Video duration :
-     <span tal:content="video/getFormattedDuration" /> 
-  </span> -->
-
   <span class="featured-video-duration" i18n:translate=""
         tal:define="duration video/videoDuration|nothing"
         tal:condition="duration">
@@ -46,7 +53,19 @@
      <span class="discreet" tal:content="duration" /> 
   </span>
 
-  <p class="discreet plumi-nice-description" >
+  <p class="discreet plumi-nice-description" tal:condition="not:options/feature_video">
+    <tal:desc tal:content="video/Description" />
+    <span class="featured-read-more">
+      <a href=""
+	 id="featured-video-more"
+	 tal:attributes="href string:${view/url}/view;
+			 title view/video_title"
+     i18n:translate=""
+	 >Read more&hellip;</a>
+    </span>
+ </p>
+
+  <p class="feature discreet plumi-nice-description" tal:condition="options/feature_video">
     <tal:desc tal:content="video/Description" />
     <span class="featured-read-more">
       <a href=""
