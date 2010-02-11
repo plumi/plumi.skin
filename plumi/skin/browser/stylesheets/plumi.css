@@ -358,6 +358,7 @@ cursor:pointer;
 
 #video-infos {
   float:left;
+  width:360px;
 }
 
 #video-infos thead th {
@@ -407,6 +408,12 @@ cursor:pointer;
   display: block;
   width: 320px;
   height: 263px;
+}
+
+#player-videoview {
+display: block;
+  width: 400px;
+  height: 300px;
 }
 
 .embed {
