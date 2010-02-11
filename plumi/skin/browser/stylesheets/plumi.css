@@ -390,6 +390,7 @@ cursor:pointer;
   clear: both;
 }
 
+
 #video-player div {
   padding: 0.4em 0 0.6em 0;
   font-color: #aaa;
@@ -462,7 +463,7 @@ margin-right: 10px;
 
 dt.featuredHeader .featuredItemDetails,
 dt.featuredHeader #featuredVideoTitle {
-color: #414900;
+color: #abbd10;
 }
 dt.featuredHeader a {
 color: black;
