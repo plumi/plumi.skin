@@ -372,6 +372,7 @@ cursor:pointer;
   float: right;
   padding-top: 0.5em;
   width: 400px;
+  clear:right;
 }
 
 #video-about {
@@ -416,19 +417,23 @@ display: block;
 }
 
 .embed {
-  width: 50%
+
 }
 #embedDiv {
-  margin-top: 5px;
+  margin-top: 10px;
 }
 #embedCode {
-  overflow-x:auto;
+  width:380px;
+  height:40px;
+  padding:.5em;
+  background-color:#F4F4F4;
+  overflow-x:auto;  
 }
 
 /* - plumi_homepage.css - */
 
 .feature {
-    width:200px;
+
 }
 
 .featured-block {
