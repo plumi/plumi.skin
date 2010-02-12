@@ -406,7 +406,7 @@ cursor:pointer;
 #player {
   display: block;
   width: 320px;
-  height: 263px;
+  height: 240px;
 }
 
 #player-videoview {
@@ -564,5 +564,9 @@ div.RatingViewlet {
 
 dl.portletCalendar{
     width:90% !important;
+}
+
+textarea#subject {
+    width: 50%;
 }
 

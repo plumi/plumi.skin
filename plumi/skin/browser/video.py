@@ -147,6 +147,8 @@ class VideoView( BrowserView ):
         if self.transcode_profiles.has_key(profile):
             if self.transcode_profiles[profile]['status'] == 0:
                 return (True, _(u"The transcoding has worked successfully."))
+            elif self.transcode_profiles[profile]['status'] == 1:
+                return (False, _(u"The transcoding is in progress."))
             else:
                 return (False, _(u"The transcoding failed."))
         else:
