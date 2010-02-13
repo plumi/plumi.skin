@@ -80,11 +80,12 @@
                         tal:content="python: view.getTranslatedSchemaLabel(fieldset)"
                         tal:attributes="id string:fieldsetlegend-${fieldset}" />
                 <tal:fields repeat="field python:schematas[fieldset].editableFields(here, visible_only=True)">
+		        <tal:licensingfield tal:condition="python:fieldset == 'categorization' and field.repeat.last">
+		          <div tal:replace="structure context/@@dc_metadata|nothing" />
+                </tal:licensingfield>                
                   <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
                 </tal:fields>
-		        <tal:licensingfield tal:condition="python:fieldset == 'ownership'">
-		          <div tal:replace="structure context/@@dc_metadata|nothing" />
-                </tal:licensingfield>
+
               </fieldset>
             </tal:tabbed>
             <tal:nottabbed tal:condition="not: allow_tabbing | nothing">
@@ -99,12 +100,16 @@
           </tal:others>
         </tal:block>
       </div>            
-                <tal:fields repeat="field python:schematas[fieldset].editableFields(here, visible_only=True)">
-                  <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
+                <tal:fields repeat="field python:schematas[fieldset].editableFields(here, visible_only=True)"> 
+                    <tal:norel condition="python:field.getName()!='relatedItems'">    
+                      <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
+                    </tal:norel>  
+            		<tal:licensingfield tal:condition="python:fieldset == 'categorization' and repeat['field'].end">
+            		  <div tal:replace="structure context/@@dc_metadata|nothing" />
+            		  <metal:fieldMacro use-macro="python:here.widget('relatedItems', mode='edit')" />
+                    </tal:licensingfield>                      
                 </tal:fields>
-		<tal:licensingfield tal:condition="python:fieldset == 'ownership'">
-		  <div tal:replace="structure context/@@dc_metadata|nothing" />
-                </tal:licensingfield>
+
             </tal:nottabbed>
           </metal:block>
 
