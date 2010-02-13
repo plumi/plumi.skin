@@ -87,7 +87,7 @@
          </video>        
 
             <div tal:omit-tag="" tal:condition="mp4">        
-                    <div class="embed discreet" id="embedDiv" i18n:translate="copy_embed_code">
+                    <div class="embed" id="embedDiv" i18n:translate="copy_embed_code">
                  Copy the following to embed the movie into another web page:</div>
                     <textarea class="embed" id="embedCode" rows="2" onclick="this.focus();this.select();"><span tal:omit-tag="" /></textarea>
              </div>
