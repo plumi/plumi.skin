@@ -41,7 +41,7 @@
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
-        <p class="documentDescription discreet">
+        <p class="documentDescription">
             <metal:field use-macro="python:here.widget('description', mode='view')">
             Description
             </metal:field>
@@ -296,7 +296,7 @@
 
 
 		
-		<div id="full-description">
+		<div id="full-description" tal:condition="here/FullDescription">
 			<h1 class="documentFirstHeading" i18n:translate="full_description"> 
 				Full Description
 			</h1>

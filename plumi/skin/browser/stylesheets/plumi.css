@@ -357,7 +357,8 @@ cursor:pointer;
 
 #video-infos {
   float:left;
-  width:360px;
+  width:40%;
+  font-size:110%;
 }
 
 #video-infos thead th {
@@ -365,7 +366,7 @@ cursor:pointer;
 }
 
 #full-description {
-  clear:both;
+  clear:left;
 }
 
 #video-core {
@@ -373,6 +374,7 @@ cursor:pointer;
   padding-top: 0.5em;
   width: 400px;
   clear:right;
+  margin-left: 1.9em;
 }
 
 #video-about {
@@ -442,7 +444,7 @@ display: block;
 }
 
 .featured-block dd {
-    margin-left: 1em;
+    margin-left: 0.3em;
 }
 
 .featuredItem {
@@ -509,9 +511,9 @@ a#featured-video-more {
 }
 
 #featured-item {
-    padding-top: 0;
     min-height:320px;
     margin-bottom: 1em;
+    padding: .3em 0 !important;
 }
 
 #featured-item .plumi-props-listing {
@@ -538,6 +540,11 @@ a#featured-video-more {
     border-color: #c8dca8;
     border-style: solid;
     border-width:1px;
+    padding:.7em .9em;
+}
+
+div.reply {
+    padding:1em;
 }
 
 #portal-colophon .colophonIcon {
@@ -565,6 +572,7 @@ a#featured-video-more {
 
 div.RatingViewlet {
     padding-right: 1em;
+    margin-left: 1em;
 }
 
 dl.portletCalendar{
@@ -575,3 +583,11 @@ textarea#subject {
     width: 50%;
 }
 
+div#video-licensing {
+    clear:both;
+}
+
+p.documentDescription { 
+    color: #444444;
+    margin-top:.8em;
+}

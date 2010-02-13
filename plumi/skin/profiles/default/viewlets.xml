@@ -3,5 +3,8 @@
  <hidden manager="plone.belowcontentbody" skinname="Plumi 3.0 Skin">
    <viewlet name="plone.abovecontenttitle.documentactions"/>
  </hidden>
+ <hidden manager="plone.belowcontenttitle" skinname="Plumi 3.0 Skin">
+   <viewlet name="plone.belowcontenttitle.keywords"/>
+ </hidden> 
 </object>
 
