@@ -48,7 +48,7 @@
     <tal:date content="view/post_date" i18n:name="PostedDate"/>
   </span>
 
-  <p class="discreet plumi-nice-description" tal:condition="not:options/feature_video">
+  <p class="discreet plumi-nice-description rounded" tal:condition="not:options/feature_video">
     <tal:desc tal:content="video/Description" />
     <span class="featured-read-more">
       <a href=""
@@ -60,7 +60,7 @@
     </span>
  </p>
 
-  <p class="feature discreet plumi-nice-description" tal:condition="options/feature_video">
+  <p class="feature discreet plumi-nice-description rounded" tal:condition="options/feature_video">
     <tal:desc tal:content="video/Description" />
     <span class="featured-read-more">
       <a href=""

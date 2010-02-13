@@ -121,8 +121,6 @@
           <p class="download-block"> 
             <a id="download-link"
                 tal:attributes="href string:${here/absolute_url}/@@download/video_file/${context/video_file/filename}" i18n:translate="">
-<!--               tal:attributes="href here/getDownloadServerURL
-               tal:condition="view/enclosure" i18n:translate="">-->
               Download Hi-Res / Screening Version
             </a>
             <span class="discreet"

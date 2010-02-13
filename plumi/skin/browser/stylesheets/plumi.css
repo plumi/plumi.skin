@@ -334,7 +334,7 @@ padding: 0em 0em 1em !important;
 }
 
 .videos-listing .plumi-nice-description {
-  margin: 1em 185px 0.2em 0.6em;
+  margin: 1em 160px 0em 0em;
 }
 
 .videos-listing .plumi-props-listing {
@@ -435,12 +435,12 @@ display: block;
 /* - plumi_homepage.css - */
 
 .feature {
-
+    width: 230px;
 }
 
 .featured-block {
     clear: both;
-    padding: 0.3em 0;
+    padding: 0.3em 0 !important;
 }
 
 .featured-block dd {
@@ -455,7 +455,7 @@ display: block;
 .featured-video-image,
 .featured-item-image {
     float: right;
-    margin: 0.1em;
+    margin: 1.2em 0.1em;
     padding: 2px;
     border: 1px solid #ccc;
 }
