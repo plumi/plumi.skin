@@ -366,7 +366,7 @@ cursor:pointer;
 }
 
 #full-description {
-  clear:left;
+  clear:both;
 }
 
 #video-core {
