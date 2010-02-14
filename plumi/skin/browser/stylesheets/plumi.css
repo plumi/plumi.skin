@@ -462,7 +462,8 @@ display: block;
 }
 
 .featured-video-duration {
-    font-size: 90%;
+    float: right;
+    margin: 0 3em;    
 }
 
 .featured-video-duration span {

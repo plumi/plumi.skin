@@ -31,6 +31,7 @@
                                                                                     ]}  );'> </script>
 
   </span>
+  
   <h4 tal:condition="options/show_title">
 
     <a class="video-download" title="View details about this video"
@@ -43,6 +44,12 @@
        tal:attributes="href string:${view/url}/view;
 		       title video/Description" />
   </h4>
+  <div class="featured-video-duration"
+        tal:define="duration video/videoDuration|nothing"
+        tal:condition="duration">
+     <img src="" tal:attributes="src string:clock.gif">
+     <span class="discreet" tal:content="duration" /> 
+  </div>		       
 
   <span class="featuredItemDetailsPosted discreet" i18n:translate="">
     Posted:
@@ -72,13 +79,6 @@
 	 >Read more&hellip;</a>
     </span>
  </p>
-
-  <dl class="featured-video-duration plumi-props-listing"
-        tal:define="duration video/videoDuration|nothing"
-        tal:condition="duration">
-     <dt i18n:translate=""><img src="" tal:attributes="src string:clock.gif"></dt>
-     <dd class="discreet" tal:content="duration" /> 
-  </dl>
   
   <dl class="plumi-categories plumi-props-listing"
       tal:define="categories view/categories"

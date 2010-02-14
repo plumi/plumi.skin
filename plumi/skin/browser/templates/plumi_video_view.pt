@@ -138,7 +138,12 @@
       </div> <!-- id=video-core -->
 
            <div id="video-infos">
-        
+           <div 
+                tal:define="duration context/plumiVideoDuration"
+                tal:condition="duration">
+             <img src="" tal:attributes="src string:clock.gif">
+             <span class="discreet" tal:content="duration" /> 
+          </div>	
         <dl class="videoitemtop plumi-props-listing plumi-genres"
             tal:define="genres view/genres"
             tal:condition="genres">

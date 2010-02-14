@@ -10,9 +10,9 @@
 >
 <tal:x define="dummy python:request.RESPONSE.setHeader('Content-Type', 'text/xml');" />
     <channel tal:define="author python:here.Creator();
-                         author_email python:author or author.getProperty('email','') or '';
+                         author_email view/emailFromAdress;
                          author_fullname python:author or author.getProperty('fullname','') or here.Creator();                         
-			             channel_logo python:here.absolute_url() + '/logo02.gif';
+			             channel_logo python:here.absolute_url() + '/logo.gif';
                          ">
 	
         <title tal:define="portal_title here/portal_properties/title;
@@ -33,7 +33,7 @@
 		<link tal:content="here/absolute_url"></link>
 	</image>
 
-	<copyright>Copyright 2007</copyright>
+	<copyright tal:define="defaultLicense view/defaultLicense" tal:content="defaultLicense" tal:condition="defaultLicense">Copyright 2007</copyright>
         <ttl>240</ttl>
    	<itunes:author tal:condition="author_fullname" tal:content="author_fullname"></itunes:author>
         <itunes:owner tal:condition="author">
@@ -44,40 +44,9 @@
                       tal:attributes="href channel_logo"  />
         <itunes:summary tal:condition="here/Description|nothing" tal:content="here/Description"></itunes:summary>
 
-        <!--tal:block repeat="res results">
-            <tal:block condition="python: res.isPublishableATEngageVideoObj is not None">
+        <tal:block repeat="res results">
 
-            <tal:block define="macros nocall: python:here.getItemMacros(res.portal_type); 
-                               item_url res/isPublishableATEngageVideoObj/item_url;
-			                   item_link python:item_url+'/view';
-  			                   "
-                               >
-                  <item>
-                       <title tal:content="res/isPublishableATEngageVideoObj/item_title"></title>
-                       <link tal:content="item_link"></link>
-                       <description tal:content="res/Description">
-                       </description>
-			<itunes:summary tal:condition="res/Description|nothing" tal:content="res/Description"></itunes:summary>
-
-                       <author tal:condition="res/isPublishableATEngageVideoObj/item_creator_email"
-                               tal:content="res/isPublishableATEngageVideoObj/item_creator_email"></author>
-                            <tal:repeat repeat="subj res/isPublishableATEngageVideoObj/subject">
-                                    <category tal:content="subj">
-                                    </category>
-                            </tal:repeat>
-                       <pubDate tal:content="res/isPublishableATEngageVideoObj/item_rfc822_datetime"> </pubDate>
-                       <metal:block use-macro="macros"/>
-                   </item>
-
-            </tal:block>
-            </tal:block>
-	</tal:block-->
-        <tal:block repeat="res results" tal:content="res">
-
-	    <!--<tal:block condition="python: res.isPublishableATEngageVideoObj is None">-->
-
-            <tal:block define="macros nocall: python:here.getItemMacros(res.portal_type); 
-			       res_item res/getObject|nocall:brain;	
+            <tal:block define="res_item res/getObject|nocall:brain;	
                                item_link python:res_item.absolute_url();
 			       item_creator python:here.portal_membership.getMemberById(res_item.Creator());"
                                >
@@ -96,11 +65,9 @@
                                     </category>
                             </tal:repeat>
                        <pubDate tal:content="python: res_item.modified().HTML4()"> </pubDate>
-                       <metal:block use-macro="macros"/>
                    </item>
 
             </tal:block>
-           <!-- </tal:block>-->
 
         </tal:block> 
     </channel>

@@ -70,3 +70,14 @@ class RSSView(DefaultRSSView):
                 #
                 bb.append(b)
         return bb
+        
+    def defaultLicense(self):
+        """ get default site license """
+        pprops = getToolByName(self, 'portal_properties')
+        return pprops.content_licensing_properties.getProperty('DefaultSiteLicense', None)
+
+    def emailFromAdress(self):        
+        urltool = getToolByName(self.context, 'portal_url')
+        portal = urltool.getPortalObject()
+        return portal.getProperty('email_from_address', None)        
+        
