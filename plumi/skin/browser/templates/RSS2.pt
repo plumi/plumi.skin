@@ -6,31 +6,23 @@
      xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:cc="http://web.resource.org/cc/"
-
      tal:define="results view/getRSSObjects;"
 >
 <tal:x define="dummy python:request.RESPONSE.setHeader('Content-Type', 'text/xml');" />
-    <channel tal:define="author python:here.getObjectCreator(here.Creator());
-                         author_email python:author and author.getProperty('email','') or '';
-                         author_fullname python:author and author.getProperty('fullname','') or here.Creator();
-                         syInfo python: here.getSynProp();
+    <channel tal:define="author python:here.Creator();
+                         author_email python:author or author.getProperty('email','') or '';
+                         author_fullname python:author or author.getProperty('fullname','') or here.Creator();                         
 			             channel_logo python:here.absolute_url() + '/logo02.gif';
                          ">
 	
         <title tal:define="portal_title here/portal_properties/title;
             here_title here/title_or_id;
             template_title template/title_or_id;"
-		tal:condition="python: author_fullname!='Plumi'"
-            tal:content="string:$author_fullname's $portal_title Channel">Title of page</title>
-	<!--title tal:define="portal_title here/portal_properties/title;
-            here_title here/title_or_id;
-            template_title template/title_or_id;"
-		tal:condition="python: author_fullname=='Plumi'"
-            tal:content="string:$author_fullname $here_title Channel">Title of page</title-->
-        <title>ddddddddddddddd</title>
+            tal:content="string:${here/title} at $portal_title Channel">Title of page</title>
+    
         <link tal:content="here/absolute_url"></link>
         <description tal:content="here/Description"></description>
-        <language>en-us</language>
+        <language tal:content="here/language" tal:omit-tag="not:here/language">en-us</language>
         <generator>Plone + Plumi (www.plumi.org)</generator>
         <managingEditor tal:condition="author_email" 
                 tal:content="author_email"></managingEditor>
@@ -80,7 +72,7 @@
             </tal:block>
             </tal:block>
 	</tal:block-->
-        <tal:block repeat="res results">
+        <tal:block repeat="res results" tal:content="res">
 
 	    <!--<tal:block condition="python: res.isPublishableATEngageVideoObj is None">-->
 

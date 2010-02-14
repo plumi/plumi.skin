@@ -62,7 +62,7 @@
 
   <browser:page
       name="RSS2"
-      for="collective.contentlicensing.DublinCoreExtensions.interfaces.ILicensable"
+      for="OFS.interfaces.IFolder"
       class=".rssview.RSSView"
       template="templates/RSS2.pt"
       permission="zope2.View"

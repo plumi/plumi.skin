@@ -53,9 +53,7 @@ class RSSView(DefaultRSSView):
                     limit = syinfo.max_items
                 else:
                     limit = 10
-                    brains = self.aq_parent.queryCatalog(sort_limit=limit)[:limit]
-                    #no limit
-                    #brains = self.aq_parent.queryCatalog()
+                brains = self.aq_parent.queryCatalog(sort_limit=limit)[:limit]
             else:
                 #XXX what other containers do we support for RSS views?
                 brains = []
