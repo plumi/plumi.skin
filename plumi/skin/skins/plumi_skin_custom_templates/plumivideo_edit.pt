@@ -107,6 +107,7 @@
             		<tal:licensingfield tal:condition="python:fieldset == 'categorization' and repeat['field'].end">
             		  <div tal:replace="structure context/@@dc_metadata|nothing" />
             		  <metal:fieldMacro use-macro="python:here.widget('relatedItems', mode='edit')" />
+					  <br />
                     </tal:licensingfield>                      
                 </tal:fields>
 
