@@ -76,7 +76,7 @@
   <dl class="featured-video-duration plumi-props-listing"
         tal:define="duration video/videoDuration|nothing"
         tal:condition="duration">
-     <dt i18n:translate="">Video duration</dt>
+     <dt i18n:translate=""><img src="" tal:attributes="src string:clock.gif"></dt>
      <dd class="discreet" tal:content="duration" /> 
   </dl>
   
