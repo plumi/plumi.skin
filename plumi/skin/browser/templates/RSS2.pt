@@ -57,8 +57,20 @@
                   <item>
                        <title tal:content="res/Title"></title>
                        <link tal:content="item_link"></link>
-                       <description tal:content="res/Description">
-                       </description>
+                       <tal:con tal:condition="python:res.portal_type == 'PlumiVideo'">
+                          <description>
+                              <div>
+                                 <a tal:attributes="href string:${res_item/absolute_url}">
+                                    <img tal:condition="res_item/thumbnailImage" tal:attributes="src string:${res_item/absolute_url}/thumbnailImage_thumb" alt=""/>
+                                 </a>
+                                 <span tal:content="res/Description" />
+                              </div>
+                          </description>
+                          <enclosure tal:attributes="url string:${res_item/absolute_url}/@@download/video_file/${res_item/video_file/filename}" />
+                       </tal:con>
+                       <tal:con tal:condition="python:res.portal_type != 'PlumiVideo'">
+                          <description tal:content="res/Description"></description>
+                       </tal:con>                       
 			<itunes:summary tal:condition="res/Description|nothing" tal:content="res/Description"></itunes:summary>
 
                        <author tal:condition="item_creator"
