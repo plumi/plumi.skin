@@ -81,3 +81,9 @@ class RSSView(DefaultRSSView):
         portal = urltool.getPortalObject()
         return portal.getProperty('email_from_address', None)        
         
+    def videoserver(self):
+        pprops = getToolByName(self, 'portal_properties')
+        config = getattr(pprops, 'plumi_properties', None)
+        if config:
+            return config.videoserver_address            
+        return None

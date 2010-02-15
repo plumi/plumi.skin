@@ -47,7 +47,11 @@
         <tal:block repeat="res results">
 
             <tal:block define="res_item res/getObject|nocall:brain;	
-                               item_link python:res_item.absolute_url();
+                                mp4 res/isTranscodedPlumiVideoObj/mp4|nothing;
+		                        path python:mp4 and mp4.get('path',None);
+		                        path python:path and path.replace('+','%2B');            
+		                        path python: path and '%s/%s' % (view.videoserver(),path) or res_item.video_file.filename and '%s/@@download/video_file/%s' % (res_item.absolute_url(), res_item.video_file.filename)  or res_item.absolute_url();
+                               item_link path;
 			       item_creator python:here.portal_membership.getMemberById(res_item.Creator());"
                                >
                   <item>
