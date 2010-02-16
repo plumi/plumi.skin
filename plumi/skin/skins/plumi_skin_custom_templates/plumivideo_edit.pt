@@ -7,7 +7,7 @@
 	      i18n:domain="plone">
 	  <head><title></title></head>
 	  <body>
-    <div metal:define-macro="header">
+    <div metal:define-macro="header" style="padding-left:10px;">
       <metal:block define-slot="title">
         <h1 i18n:translate="heading_add_item" class="documentFirstHeading"
             tal:condition="python:context.checkCreationFlag()">
@@ -51,6 +51,7 @@
 
     </div>
    <div metal:define-macro="body"
+         style="padding-left:10px;"
          tal:condition="not:isLocked"
          tal:define="portal_type portal_type|string:unknowntype;">
          
