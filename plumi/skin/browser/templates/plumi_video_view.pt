@@ -314,7 +314,12 @@
       </div>
 
 	  <div tal:condition="view/transcoding_rights">    
-
+        <script type="text/javascript">
+           function showNotification(){
+               jq("#notificationDiv").show();
+               setTimeout(function(){jq("#notificationDiv").fadeOut(500);},5000)
+           }
+        </script>
         <div id="video-transcoding" tal:define="transcoding view/transcoding_status">
 
     	<h1 class="documentFirstHeading" i18n:translate="transcoding"> 
@@ -328,8 +333,12 @@
           <p i18n:translate="restart_transcoding">
             You may like to try to
             <a tal:attributes="href string:${here/absolute_url}/reTranscode"
-               >re-start transcoding.</a>
+               onclick="showNotification()"
+               >re-start transcoding.</a>              
           </p>
+          <div id="notificationDiv">
+              reTranscoding...
+          </div>
           <p i18n:translate="cancel_transcoding">
             If the automatically transcoded movie is corrupted,
             or poor quality etc. , you may like to

@@ -271,6 +271,7 @@
 	       
 	    <dt class="featuredHeader">
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/" i18n:translate="">Latest Videos</a>
 	    </dt>
 		<!-- each video item -->
@@ -288,7 +289,7 @@
 	  <dl class="videos-listing" tal:condition="not: callouts" i18n:domain="plumi" tal:define="callouts view/callouts">
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS2"><img class="feedButton" style="padding-left:3px" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/" i18n:translate="">Latest Callouts</a>
 	    </dt>
 
@@ -311,6 +312,7 @@
 	       
 	    <dt class="featuredHeader">
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest News</a>
 	    </dt>
 
@@ -333,6 +335,7 @@
 	       
 	    <dt class="featuredHeader">
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/" i18n:translate="">Latest Events</a>
 	    </dt>
 

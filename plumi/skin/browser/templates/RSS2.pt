@@ -25,67 +25,61 @@
         <language tal:content="here/language" tal:omit-tag="not:here/language">en-us</language>
         <generator>Plone + Plumi (www.plumi.org)</generator>
         <managingEditor tal:condition="author_email" 
-                tal:content="author_email"></managingEditor>
-
+                        tal:content="author_email">
+        </managingEditor>
         <image> 
-		<url tal:content="channel_logo"></url> 
-		<title>Plumi Logo</title> 
-		<link tal:content="here/absolute_url"></link>
-	</image>
-
-	<copyright tal:define="defaultLicense view/defaultLicense" tal:content="defaultLicense" tal:condition="defaultLicense">Copyright 2007</copyright>
+            <url tal:content="channel_logo"></url> 
+            <title>Plumi Logo</title> 
+            <link tal:content="here/absolute_url"></link>
+        </image>
+        <copyright tal:define="defaultLicense view/defaultLicense" tal:content="defaultLicense" tal:condition="defaultLicense">Copyright 2007</copyright>
         <ttl>240</ttl>
-   	<itunes:author tal:condition="author_fullname" tal:content="author_fullname"></itunes:author>
+        <itunes:author tal:condition="author_fullname" tal:content="author_fullname"></itunes:author>
         <itunes:owner tal:condition="author">
            <itunes:name tal:condition="author_fullname" tal:content="author_fullname"></itunes:name>
            <itunes:email tal:condition="author_email" tal:content="author_email"></itunes:email>
         </itunes:owner>
-        <itunes:image href="" 
-                      tal:attributes="href channel_logo"  />
+        <itunes:image href="" tal:attributes="href channel_logo"  />
         <itunes:summary tal:condition="here/Description|nothing" tal:content="here/Description"></itunes:summary>
-
         <tal:block repeat="res results">
-
             <tal:block define="res_item res/getObject|nocall:brain;	
-                                mp4 res/isTranscodedPlumiVideoObj/mp4|nothing;
-		                        path python:mp4 and mp4.get('path',None);
-		                        path python:path and path.replace('+','%2B');            
-		                        path python: path and '%s/%s' % (view.videoserver(),path) or res_item.video_file.filename and '%s/@@download/video_file/%s' % (res_item.absolute_url(), res_item.video_file.filename)  or res_item.absolute_url();
+                               mp4 res/isTranscodedPlumiVideoObj/mp4|nothing;
+                               path python:mp4 and mp4.get('path',None);
+		                       path python:path and path.replace('+','%2B');            
+		                       path python: path and '%s/%s' % (view.videoserver(),path) or res_item.video_file.filename and '%s/@@download/video_file/%s' % (res_item.absolute_url(), res_item.video_file.filename)  or res_item.absolute_url();
                                item_link path;
-			       item_creator python:here.portal_membership.getMemberById(res_item.Creator());"
+			                   item_creator python:here.portal_membership.getMemberById(res_item.Creator());"
                                >
-                  <item>
-                       <title tal:content="res/Title"></title>
-                       <link tal:content="item_link"></link>
-                       <tal:con tal:condition="python:res.portal_type == 'PlumiVideo'">
-                          <description>
-                              <div>
-                                 <a tal:attributes="href string:${res_item/absolute_url}">
-                                    <img tal:condition="res_item/thumbnailImage" tal:attributes="src string:${res_item/absolute_url}/thumbnailImage_thumb" alt=""/>
-                                 </a>
-                                 <span tal:content="res/Description" />
-                              </div>
-                          </description>
-                          <enclosure tal:attributes="url string:${res_item/absolute_url}/@@download/video_file/${res_item/video_file/filename}" />
-                       </tal:con>
-                       <tal:con tal:condition="python:res.portal_type != 'PlumiVideo'">
-                          <description tal:content="res/Description"></description>
-                       </tal:con>                       
-			<itunes:summary tal:condition="res/Description|nothing" tal:content="res/Description"></itunes:summary>
-
-                       <author tal:condition="item_creator"
-                               tal:content="python:item_creator.getProperty('email','')"></author>
-
-                            <tal:repeat repeat="subj res_item/Subject">
-                                    <category tal:content="subj">
-                                    </category>
-                            </tal:repeat>
-                       <pubDate tal:content="python: res_item.modified().HTML4()"> </pubDate>
-                   </item>
-
+                <item>
+                    <title tal:content="res/Title"></title>
+                    <link tal:content="string:${res_item/absolute_url}"></link>
+                    <tal:con tal:condition="python:res.portal_type == 'PlumiVideo'">
+                        <description>
+                            <div>
+                                <a tal:attributes="href string:${res_item/absolute_url}">
+                                   <img tal:condition="res_item/thumbnailImage" tal:attributes="src string:${res_item/absolute_url}/thumbnailImage_thumb;title res/Title" alt="" />
+                                </a>
+                                <span tal:content="res/Description" />
+                            </div>
+                        </description>
+                        <enclosure tal:attributes="url string:${res_item/absolute_url}/@@download/video_file/${res_item/video_file/filename}" />
+                    </tal:con>
+                    <tal:con tal:condition="python:res.portal_type != 'PlumiVideo'">
+                        <description tal:content="res/Description"></description>
+                    </tal:con>                       
+                    <itunes:summary tal:condition="res/Description|nothing" tal:content="res/Description"></itunes:summary>
+                    <author tal:condition="item_creator"
+                            tal:content="python:item_creator.getProperty('email','')"></author>
+                    <itunes:author tal:condition="item_creator"
+                            tal:content="python:item_creator.getProperty('email','')"></itunes:author>
+                    <tal:repeat repeat="subj res_item/Subject">
+                        <category tal:content="subj">
+                        </category>
+                    </tal:repeat>
+                    <pubDate tal:content="python: res_item.modified().HTML4()"> </pubDate>
+                </item>
             </tal:block>
-
-        </tal:block> 
+        </tal:block>
     </channel>
 </rss>
 

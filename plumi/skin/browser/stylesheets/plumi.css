@@ -487,6 +487,7 @@ dt.featuredHeader {
 
 .feedButton {
   margin-top: 8px;
+  padding-left: 3px;
 }
 
 dt.featuredHeader .featuredItemDetails,
@@ -592,4 +593,16 @@ div#video-licensing {
 p.documentDescription { 
     color: #444444;
     margin-top:.8em;
+}
+#notificationDiv{
+    width:100px;
+    height:20px;
+    padding:4px;
+    font-weight:bold;
+    background-color:#ffff00;
+    position:fixed;
+    top:0px;
+    z-index:500;
+    margin-left:200px;
+    display:none;
 }
