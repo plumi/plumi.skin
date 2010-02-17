@@ -599,10 +599,12 @@ p.documentDescription {
     height:20px;
     padding:4px;
     font-weight:bold;
-    background-color:#ffff00;
+    font-size:.9em;
+    font-family:sans-serif;
+    background-color:#FFFF66;
     position:fixed;
     top:0px;
     z-index:500;
     margin-left:200px;
-    display:none;
+    display:none;    
 }
