@@ -22,7 +22,7 @@ long_description = (
 
 setup(name='plumi.skin',
       version=version,
-      description="A Plumi 0.3 Skin Product",
+      description="A Plumi 3.0 Skin Product",
       long_description=long_description,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
