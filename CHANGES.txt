@@ -1,12 +1,8 @@
-trunk (2010-02-18)
-==================
-
-  - xxx [Andy Nicholson]
 
 0.3 (2010-02-18)
 ================
 
-  - xxx [Andy Nicholson]
+   - Release for Plumi 3.0 beta 2 [Andy Nicholson]
 
 0.2 (2009-09-03)
 ==================
