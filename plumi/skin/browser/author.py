@@ -85,6 +85,15 @@ class AuthorPage( CategoriesProvider ):
                 for brain in brains]
 
     @property
+    def callouts(self):
+        query = dict(portal_type='PlumiCallOut',
+                     sort_order='reverse',
+                     Creator=self.author,
+                     review_state='published')
+        brains = self.catalog(**query)
+        return brains
+        
+    @property
     def portrait(self):
         return self.mtool.getPersonalPortrait(self.author)
 
@@ -95,7 +104,6 @@ class AuthorPage( CategoriesProvider ):
     @property
     def homefolder(self):
         return self.mtool.getHomeFolder(id=self.author)
-
 
     @property
     def news(self):
@@ -119,13 +127,3 @@ class AuthorPage( CategoriesProvider ):
         brains = self.catalog(**query)
         return brains
 
-    @property
-    def callouts(self):
-        query = dict(portal_type='PlumiCallOut',
-                     # XXX re-impl. this
-                     #sort_on='getFirstPublishedTransitionTime',
-                     sort_order='reverse',
-                     Creator=self.author,
-                     review_state='published')
-        brains = self.catalog(**query)
-        return brains        
