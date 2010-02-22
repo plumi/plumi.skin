@@ -37,21 +37,19 @@
 			        creatorEmail python:item_creator.getProperty('email','')
 		            ">        
 
-    <title tal:content="obj/Title">Title</title>        
+    <title tal:content="obj/Title">Title</title>
+    <author>
+        <name tal:content="obj/Creator">name</name>
+        <uri tal:content="string:${here/portal_url}/author/${obj/Creator}"></uri>
+        <email tal:content="creatorEmail"></email>
+    </author>    
+    <published tal:content="obj/effective">2000-01-01T12:00+00:00</published>    
+    <updated tal:content="obj/created">2000-01-01T12:00+00:00</updated>    
     <content type="text" tal:content="obj/Description">Description</content>        
-    <updated tal:content="obj/created">2000-01-01T12:00+00:00</updated>
-
-    <published tal:content="obj/effective">2000-01-01T12:00+00:00</published>
-
     <link rel="alternate" tal:attributes="href item_url"/>        
     <id tal:content="item_url">Identifier</id>        
     <link rel="enclosure" tal:attributes="type content_type; href item_link;" />
-    <media:thumbnail tal:attributes="url string:${item_url}/thumbnailImage_thumb;title obj/Title" alt="" />
-
-    	<author>
-      		<name tal:content="creatorEmail">name</name>
-        </author>
-
+    <media:thumbnail tal:attributes="url string:${item_url}/thumbnailImage_thumb;title obj/Title" alt="" />    
     <!--
     <tal:block tal:condition="python: len(objsubjects) > 1" tal:repeat="item objsubjects" >
           <category tal:attributes="term item; label item"/>

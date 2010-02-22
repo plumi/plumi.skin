@@ -47,14 +47,14 @@
 
  <browser:page
           name="transmission.xml"
-      for="collective.contentlicensing.DublinCoreExtensions.interfaces.ILicensable"
+      for="OFS.interfaces.IFolder"
       class=".rssview.RSSView"
       template="templates/transmission.pt"
       permission="zope2.View"
       />
   <browser:page
           name="transmission_template"
-      for="collective.contentlicensing.DublinCoreExtensions.interfaces.ILicensable"
+      for="OFS.interfaces.IFolder"
       class=".rssview.RSSView"
       template="templates/transmission_template.pt"
       permission="zope2.View"
