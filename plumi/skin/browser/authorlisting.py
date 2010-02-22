@@ -17,12 +17,16 @@ class AuthorListing(BrowserView):
                      'activities':'activities',
                      'mediaformats':'media_formats',
                      'location':'location',
+                     'language':'language',
                     }
         resultList = []                    
         users = mtool.listMembers()
         for user in users:
             category = fieldDict[intype]
-            categoryValues = user.getProperty(category)
+            if category == 'language':
+                categoryValues = mtool.getMemberInfo(user.getId())['language']
+            else:
+                categoryValues = user.getProperty(category)
             if invalue in categoryValues:
                 resultDict = {}
                 user_id = user.getId()

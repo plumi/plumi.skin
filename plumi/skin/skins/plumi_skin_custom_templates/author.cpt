@@ -150,7 +150,9 @@
                 <tal:language condition="authorinfo/language">
                 &mdash;
                 <span i18n:translate="label_main_language">Main Language:</span>
-                <span tal:replace="authorinfo/language">Some language</span>
+                  <a tal:attributes="href string:${portal_url}/@@author_listing?intype=language&invalue=${authorinfo/language}">                
+                     <span tal:replace="authorinfo/language">Some language</span>
+                  </a>
                 </tal:language>
             </div>
 
