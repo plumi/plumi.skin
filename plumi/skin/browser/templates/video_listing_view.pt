@@ -13,9 +13,13 @@
 
 	  <h1 class="documentFirstHeading">
           <span tal:content="here/title_or_id"/>
-          <a href="#" tal:attributes="href string:${here/absolute_url}/RSS">
+	      <a href="#" tal:attributes="href string:${here/absolute_url}/RSS2">
+	          <img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/>
+	      </a>	          
+          <a href="#" tal:attributes="href string:${here/absolute_url}/RSS">          
 	          <img class="feedButton" style="margin-bottom:10px;margin-right:3px;" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/>
 	      </a>
+      
 	  </h1>
 
 	  <a href=""
