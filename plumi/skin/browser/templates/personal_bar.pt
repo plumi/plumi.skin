@@ -16,6 +16,14 @@
                 John
            </span
        ></a></li>
+       <li><a 
+           id="user-name"
+           tal:attributes="href view/homelink_url"
+          ><span class="visualCaseSensitive"
+                 tal:content="string:dashboard">
+                John
+           </span
+       ></a></li>
    </tal:block>
 
     <tal:actions tal:repeat="action view/user_actions">
