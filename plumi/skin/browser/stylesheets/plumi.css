@@ -433,6 +433,17 @@ display: block;
   overflow-x:auto;  
 }
 
+.formHelp {
+    font-size: 90%;
+    color: gray;
+    margin: 0 0 0.2em 0;
+}
+
+.formHelp:hover {
+    color: gray;
+    cursor: default;
+}
+
 /* - plumi_homepage.css - */
 
 .feature {
