@@ -37,12 +37,6 @@
           <metal:field use-macro="python:here.widget('title', mode='view')">
             Title
           </metal:field>
-          <a href="#" tal:attributes="href string:${here/absolute_url}/addtoFavorites">          
-	          <img class="feedButton" style="margin-bottom:10px;margin-right:3px;" src="favorite_icon.gif" alt="Add to favorites" title="Add to favorites" id="addtofavorites" i18n:attributes="alt title"/>
-	      </a>
-          <a href="#" tal:attributes="href string:${here/absolute_url}/sendto_form">          
-	          <img class="feedButton" style="margin-bottom:10px;margin-right:3px;" src="mail_icon.gif" alt="Send this page to somebody" title="Send this page" id="sendto" i18n:attributes="alt title"/>
-	      </a>
         </h1>
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
@@ -315,6 +309,7 @@
 		</div>
 
       <div id="video-licensing">
+      
         <div tal:replace="structure context/@@copyright_byline_view | nothing" />
         <div tal:replace="structure context/@@citation_view | nothing" />
       </div>
@@ -353,6 +348,8 @@
           </p>
         </div> <!-- id=video-transcoding -->
         </div> <!-- transcoding rights tal -->
+        
+      
 	</div>
 
     </tal:main-macro>

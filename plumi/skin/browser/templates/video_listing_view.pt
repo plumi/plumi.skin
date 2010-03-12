@@ -9,36 +9,23 @@
 	<metal:body define-macro="body_macro">
 
 
-	  <h1 class="documentFirstHeading">
-          <span tal:content="here/title_or_id"/>
-	      <a href="#" tal:attributes="href string:${here/absolute_url}/RSS2">
-	          <img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/>
-	      </a>	          
-          <a href="#" tal:attributes="href string:${here/absolute_url}/RSS">          
-	          <img class="feedButton" style="margin-bottom:10px;margin-right:3px;" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/>
-	      </a>
-          <a href="#" tal:condition="python: portal.portal_membership.getHomeFolder() is not None" tal:attributes="href string:${here/absolute_url}/addtoFavorites">          
-	          <img class="feedButton" style="margin-bottom:10px;margin-right:3px;" src="favorite_icon.gif" alt="Add to favorites" title="Add to favorites" id="addtofavorites" i18n:attributes="alt title"/>
-	      </a>
-          <a href="#" tal:attributes="href string:${here/absolute_url}/sendto_form">          
-	          <img class="feedButton" style="margin-bottom:10px;margin-right:3px;" src="mail_icon.gif" alt="Send this page to somebody" title="Send this page" id="sendto" i18n:attributes="alt title"/>
-	      </a>
-      
-	  </h1>
-
-	  <a href=""
-	     class="link-parent"
-	     tal:define="parent_url python: context.navigationParent(here, template_id)"
-	     tal:condition="parent_url"
-	     tal:attributes="href parent_url"
-	     i18n:translate="go_to_parent_url">
-	    Up one level
-	  </a>
+        <h1 class="documentFirstHeading" tal:content="here/title_or_id">
+            Title
+        </h1>
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+        <a href=""
+         class="link-parent"
+         tal:define="parent_url python: context.navigationParent(here, template_id)"
+         tal:condition="parent_url"
+         tal:attributes="href parent_url"
+         i18n:translate="go_to_parent_url">
+        Up one level
+        </a>
 
 	  <div class="documentDescription"
 	       tal:content="structure here/Description" />
 
-
+    <div tal:content="structure here/getText|nothing" />
 	  <tal:listing tal:define="template_id string:'video_listing_view'" replace="structure context/@@video_listing" />
 
 	</metal:body>

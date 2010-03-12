@@ -1,5 +1,14 @@
 jq(document).ready(function(){
 
+  jq('#toggleBookmarks').click(function() {
+    if (jq('#toggledBookmarks').is(":hidden"))
+ 	{
+   	     	    jq('#toggledBookmarks').fadeIn("slow");
+  	} else {
+     	    jq('#toggledBookmarks').fadeOut("slow");
+ 	}
+  });
+	         	
   jq('.rounded').corners();
 
   jq('.rounded').corners(); /* test for double rounding */
@@ -31,3 +40,6 @@ function tab(n) {
   jq(jq('#featureElementsContainer .feature')[n]).show();
 
 }
+
+
+    

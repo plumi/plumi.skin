@@ -53,7 +53,8 @@
    <div metal:define-macro="body"
          style="padding-left:10px;"
          tal:condition="not:isLocked"
-         tal:define="portal_type portal_type|string:unknowntype;">
+         tal:define="lang_name nocall:here/portal_languages/getNameForLanguageCode;
+                     portal_type portal_type|string:unknowntype;">
          
       <form name="edit_form"
             method="post"
@@ -68,13 +69,48 @@
 
 
 
-          <metal:block define-slot="extra_top" />
-
+          <metal:block define-slot="extra_top" />                          
+                                <p class="documentDescription"                                 
+                                   tal:define="lp_translating_from request/lp_translating_from | here/getCanonicalLanguage;
+                                               lp_translating_to request/lp_translating_to | here/getLanguage;
+                                               langs here/getUntranslatedLanguages"
+                                   i18n:translate="description_translating_from_to"
+                                   tal:condition="python: lp_translating_from != lp_translating_to">
+                                    Translating from
+                                    <span i18n:name="from">
+                                        <select name="lp_translating_from">
+                                            <option selected="selected"
+                                                    tal:define="code here/getCanonicalLanguage"
+                                                    tal:content="python:lang_name(code)"
+                                                    tal:attributes="selected python:lp_translating_from == code;
+                                                                    value code">Language</option>
+                                            <option tal:repeat="lang langs"
+                                                    tal:content="python:lang[1]"
+                                                    tal:attributes="selected python:lp_translating_from == lang[0];
+                                                                    value python:lang[0]">Language</option>
+                                        </select>
+                                    </span>
+                                    to
+                                    <span i18n:name="to">
+                                        <select name="lp_translating_to">
+                                            <option selected="selected"
+                                                    tal:define="code here/getLanguage"
+                                                    tal:content="python:lang_name(code)"
+                                                    tal:attributes="selected python:lp_translating_to == code;
+                                                                    value code">Language</option>
+                                            <option tal:repeat="lang langs"
+                                                    tal:content="python:lang[1]"
+                                                    tal:attributes="selected python:lp_translating_to == lang[0];
+                                                                    value python:lang[0]">Language</option>
+                                        </select>
+                                    </span>
+                                    <input type="hidden" name="form_next" value="True" tal:condition="python:fieldset != fieldsets[-1]"/>
+                                </p>
           <metal:block define-slot="widgets">
             <tal:tabbed tal:condition="allow_tabbing | nothing">
               <fieldset tal:repeat="fieldset fieldsets"
                         tal:attributes="id string:fieldset-${fieldset}">
-                        <strong tal:content="fieldset" />x
+                        <strong tal:content="fieldset" />
 
                         
                 <legend id=""
