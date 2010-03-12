@@ -7,9 +7,7 @@
     <div metal:fill-slot="main">
       <metal:main_macro define-macro="main">
 	<metal:body define-macro="body_macro">
-	  <div metal:use-macro="here/document_actions/macros/document_actions">
-	    Document actions (print, sendto etc)
-	  </div>
+
 
 	  <h1 class="documentFirstHeading">
           <span tal:content="here/title_or_id"/>
@@ -18,6 +16,12 @@
 	      </a>	          
           <a href="#" tal:attributes="href string:${here/absolute_url}/RSS">          
 	          <img class="feedButton" style="margin-bottom:10px;margin-right:3px;" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/>
+	      </a>
+          <a href="#" tal:condition="python: portal.portal_membership.getHomeFolder() is not None" tal:attributes="href string:${here/absolute_url}/addtoFavorites">          
+	          <img class="feedButton" style="margin-bottom:10px;margin-right:3px;" src="favorite_icon.gif" alt="Add to favorites" title="Add to favorites" id="addtofavorites" i18n:attributes="alt title"/>
+	      </a>
+          <a href="#" tal:attributes="href string:${here/absolute_url}/sendto_form">          
+	          <img class="feedButton" style="margin-bottom:10px;margin-right:3px;" src="mail_icon.gif" alt="Send this page to somebody" title="Send this page" id="sendto" i18n:attributes="alt title"/>
 	      </a>
       
 	  </h1>
