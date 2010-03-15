@@ -603,17 +603,13 @@ p.documentDescription {
     margin-top:.8em;
 }
 #notificationDiv{
-    width:100px;
-    height:20px;
-    padding:4px;
-    font-weight:bold;
-    font-size:.9em;
-    font-family:sans-serif;
+    width:150px;
+    height:120px;
+    padding:1em;
     background-color:#FFFF66;
     position:fixed;
-    top:0px;
-    z-index:500;
-    margin-left:200px;
+    top:0%;
+    z-index:1000;
     display:none;    
 }
 

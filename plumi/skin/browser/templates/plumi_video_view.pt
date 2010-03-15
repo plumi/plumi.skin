@@ -338,7 +338,7 @@
                >re-start transcoding.</a>              
           </p>
           <div id="notificationDiv">
-              reTranscoding...
+              <strong>reTranscoding...</strong> <p> please refresh the page in 5-15 minutes (the larger your video the longer it will take) to see the retranscoded file)</p>
           </div>
           <p i18n:translate="cancel_transcoding">
             If the automatically transcoded movie is corrupted,
