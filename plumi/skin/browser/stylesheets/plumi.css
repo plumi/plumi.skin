@@ -157,13 +157,10 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
 }
 
 #portal-column-content {
-  padding: 0 1em 0 ;
-  margin: 0 0 2em;
+  padding: 0 0em 0 ;
+  margin: 0 0 0em;
 }
 
-.documentContent {
-padding: 0em 0em 1em !important;
-}
 
 
 /***************/
