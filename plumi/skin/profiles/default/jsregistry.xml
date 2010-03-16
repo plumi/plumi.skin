@@ -12,7 +12,4 @@
  <javascript cacheable="True" compression="safe" cookable="True"
     enabled="True" expression="" id="rounded.js"
     inline="True"/>
- <javascript cacheable="True" compression="safe" cookable="True"
-    enabled="True" expression="" id="upload_form_spinner.js"
-    inline="True"/>
 </object>
