@@ -318,7 +318,7 @@
         <script type="text/javascript">
            function showNotification(){
                jq("#notificationDiv").show();
-               setTimeout(function(){jq("#notificationDiv").fadeOut(500);},5000)
+               setTimeout(function(){jq("#notificationDiv").fadeOut(500);},15000)
            }
         </script>
         <div id="video-transcoding" tal:define="transcoding view/transcoding_status">
