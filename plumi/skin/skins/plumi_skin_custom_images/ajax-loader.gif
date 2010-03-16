@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-type" content="text/html; charset=utf-8" /><title>
+      /ATVideo/branches/plumi-0.2.x/skins/ATEngageVideo/ajax-loader.gif –
+      Plone Collective
+    </title><link rel="alternate" type="application/rss+xml" href="http://feeds.plone.org/plonenews" title="Plone News" /><link rel="alternate" type="application/rss+xml" href="http://feeds.plone.org/plonereleases" title="Plone Releases" /><link rel="alternate" type="application/rss+xml" href="http://feeds.plone.org/ploneevents" title="Upcoming Plone Events" /><link rel="alternate" type="application/rss+xml" href="http://feeds.plone.org/ploneaddons" title="Latest Plone &amp; Add-on Releases" /><link rel="alternate" type="application/rss+xml" href="http://feeds.plone.org/plonetraining" title="Upcoming Plone Training" /><link rel="alternate" type="application/rss+xml" href="http://feeds.plone.org/ploneblogs" title="Plone Blogs" /><link rel="stylesheet" href="http://plone.org/plone.css" type="text/css" media="screen" /><!--[if IE]>
+        <style type="text/css" media="all">@import url(/ie.css);</style>
+    <![endif]--><link rel="stylesheet" href="http://dev.plone.org/plone/chrome/common/css/diff.css" type="text/css" /><link rel="stylesheet" href="http://dev.plone.org/plone/chrome/common/css/code.css" type="text/css" /><link rel="stylesheet" href="http://dev.plone.org/plone-trac.css" type="text/css" /><!--[if IE]><style type="text/css" media="all">@import url(/ie.css);</style><![endif]--><!--[if lte IE 6]><script src="/ie6warn.js" type="text/javascript"></script><![endif]--><script type="text/javascript" src="/collective/chrome/common/js/jquery.js"></script><script type="text/javascript" src="/collective/chrome/common/js/trac.js"></script><script type="text/javascript" src="/collective/chrome/common/js/search.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#jumploc input").hide();
+        $("#jumploc select").change(function () {
+          this.parentNode.parentNode.submit();
+        })
+      });
+    </script><link rel="alternate" href="/collective/export/74743/ATVideo/branches/plumi-0.2.x/skins/ATEngageVideo/ajax-loader.gif" type="image/gif; charset=iso-8859-15" title="Original Format" /><link rel="shortcut icon" href="/collective/chrome/common/trac.ico" type="image/x-icon" /><link rel="icon" href="/collective/chrome/common/trac.ico" type="image/x-icon" /><link type="application/opensearchdescription+xml" rel="search" href="/collective/search/opensearch" title="Search Plone Collective" /></head><body><div id="outer-wrapper"><div id="inner-wrapper"><div id="nav"><form id="search" name="searchform" action="http://dev.plone.org/plone/search" method="get"><input id="search-site" name="q" type="text" title="Search this site…" accesskey="4" class="inputLabel" size="15" /></form><div id="user"><li class="first"><a href="/collective/login">Login</a></li></div><ul id="main-nav" class="navigation"><li><a href="http://plone.org">Home</a></li><li><a href="http://plone.org/products">Downloads</a></li><li><a href="http://plone.org/documentation">Documentation</a></li><li class="selected"><a href="http://dev.plone.org/plone">Get Involved</a></li><li><a href="http://plone.org/foundation">Plone Foundation</a></li><li><a href="http://plone.org/support">Support</a></li></ul><ul id="sub-nav" class="navigation"><ul><li class="first"><a href="/collective/wiki">Wiki</a></li><li><a href="/collective/timeline">Timeline</a></li><li class="active"><a href="/collective/browser">Browse Source</a></li><li class="last"><a href="/collective/search">Search</a></li>
+    </ul></ul></div><div id="content-wrapper"><div id="ctxtnav"><ul><li class="first "><a href="http://svn.plone.org/svn/collective/ATVideo/branches/plumi-0.2.x/skins/ATEngageVideo/ajax-loader.gif" title="This location in the Subversion repository">Subversion Location</a></li><li><a href="/collective/changeset/74743/ATVideo/branches/plumi-0.2.x/skins/ATEngageVideo/ajax-loader.gif">Last Change</a></li><li><a href="/collective/browser/ATVideo/branches/plumi-0.2.x/skins/ATEngageVideo/ajax-loader.gif?annotate=blame&amp;rev=74743" title="Annotate each line with the last changed revision (this can be time consuming...)">Annotate</a></li><li class="last"><a href="/collective/log/ATVideo/branches/plumi-0.2.x/skins/ATEngageVideo/ajax-loader.gif?rev=74743">Revision Log</a></li>
+          </ul></div><div id="content" class="browser">
+      <h1>
+    <a class="pathentry first" title="Go to root directory" href="/collective/browser?rev=74743">root</a><span class="pathentry sep">/</span><a class="pathentry" title="View ATVideo" href="/collective/browser/ATVideo?rev=74743">ATVideo</a><span class="pathentry sep">/</span><a class="pathentry" title="View branches" href="/collective/browser/ATVideo/branches?rev=74743">branches</a><span class="pathentry sep">/</span><a class="pathentry" title="View plumi-0.2.x" href="/collective/browser/ATVideo/branches/plumi-0.2.x?rev=74743">plumi-0.2.x</a><span class="pathentry sep">/</span><a class="pathentry" title="View skins" href="/collective/browser/ATVideo/branches/plumi-0.2.x/skins?rev=74743">skins</a><span class="pathentry sep">/</span><a class="pathentry" title="View ATEngageVideo" href="/collective/browser/ATVideo/branches/plumi-0.2.x/skins/ATEngageVideo?rev=74743">ATEngageVideo</a><span class="pathentry sep">/</span><a class="pathentry" title="View ajax-loader.gif" href="/collective/browser/ATVideo/branches/plumi-0.2.x/skins/ATEngageVideo/ajax-loader.gif?rev=74743">ajax-loader.gif</a>
+    <span class="pathentry sep">@</span>
+      <a class="pathentry" href="/collective/changeset/74743" title="View changeset 74743">74743</a>
+    <br style="clear: both" /></h1>
+      <div id="jumprev">
+        <form action="" method="get">
+          <div>
+            <label for="rev" title="Hint: clear the field to view latest revision">
+              View revision:</label>
+            <input type="text" id="rev" name="rev" value="74743" size="6" /></div>
+        </form>
+      </div>
+      <div id="jumploc">
+        <form action="" method="get">
+          <div class="buttons">
+            <label for="preselected">Visit:</label>
+            <select id="preselected" name="preselected"><option selected="selected"></option><optgroup label="branches"><option value="/collective/browser/trunk">trunk</option></optgroup></select><input type="submit" value="Go!" title="Jump to the chosen preselected path" /></div>
+        </form>
+      </div>
+      <table id="info" summary="Revision info"><tr><th scope="col">
+            Revision <a href="/collective/changeset/74743">74743</a>, <span title="3951 bytes">3.9 kB</span>
+            (checked in by andycat, <a class="timeline" href="/collective/timeline?from=2008-10-31T05%3A38%3A30Z%2B0000&amp;precision=second" title="2008-10-31T05:38:30Z+0000 in Timeline">17 months</a> ago)
+          </th>
+        </tr><tr><td class="message searchable">
+              <p>
+Add in new JS file to load the (fake) progress bar, and text , upon uploading video file<br /></p>
+          </td>
+        </tr><tr><td colspan="2">
+            <ul class="props"><li>
+                  Property <strong>svn:mime-type</strong> set to
+                    <em><code>application/octet-stream</code></em>
+              </li>
+            </ul></td>
+        </tr></table><div id="preview" class="searchable">
+    <div class="image-file"><img src="/collective/export/74743/ATVideo/branches/plumi-0.2.x/skins/ATEngageVideo/ajax-loader.gif" alt="ATVideo/branches/plumi-0.2.x/skins/ATEngageVideo/ajax-loader.gif" /></div>
+      </div>
+      <div id="help">
+        <strong>Note:</strong> See <a href="/collective/wiki/TracBrowser">TracBrowser</a>
+        for help on using the browser.
+      </div>
+      <div id="anydiff">
+        <form action="/collective/diff" method="get">
+          <div class="buttons">
+            <input type="hidden" name="new_path" value="/ATVideo/branches/plumi-0.2.x/skins/ATEngageVideo/ajax-loader.gif" /><input type="hidden" name="old_path" value="/ATVideo/branches/plumi-0.2.x/skins/ATEngageVideo/ajax-loader.gif" /><input type="hidden" name="new_rev" value="74743" /><input type="hidden" name="old_rev" value="74743" /><input type="submit" value="View changes..." title="Select paths and revs for Diff" /></div>
+        </form>
+      </div>
+    </div></div></div><!-- end inner-wrapper --><div id="push"></div></div><!-- end outer-wrapper --><div id="footer-wrapper"><div id="footer-gradient"></div><div id="footer"><a id="footer-logo" href="http://plone.org" title="Plone CMS, the open source content management system"></a><p>The Plone<sup>®</sup> CMS/WCM is © 2000–2009 the Plone Foundation and friends. Hosted by <a href="http://osuosl.org/" style="color: white">OSU Open Source Lab</a>.</p><p>Plone<sup>®</sup> and the Plone logo are registered trademarks of the Plone Foundation. You’re looking good today.</p><div id="sitemap"><!-- <dl>
+				<dt><a href="">Plone for…</a></dt>
+				<dd><a href="">Small/Medium Business </a></dd>
+				<dd><a href="">Enterprise            </a></dd>
+				<dd><a href="">Non-profits           </a></dd>
+				<dd><a href="">Government            </a></dd>
+				<dd><a href="">Education             </a></dd>
+				<dd><a href="">Science               </a></dd>
+				<dd><a href="">Media &amp; Publishing</a></dd>
+			</dl> --><dl><dt><a href="http://plone.org/products">Downloads</a></dt><dd><a href="http://plone.org/download">Get Plone</a></dd><dd><a href="http://plone.org/products?getCategories=themes">Themes</a></dd><dd><a href="http://plone.org/products?getCategories=dev">Development tools</a></dd><dd><a href="http://plone.org/products?getCategories=auth">Authentication</a></dd><dd><a href="http://plone.org/products">…and more.</a></dd></dl><dl><dt><a href="http://plone.org/documentation">Documentation</a></dt><dd><a href="http://plone.org/documentation/faq/">FAQs</a></dd><dd><a href="http://plone.org/documentation/movies/">Tutorial videos</a></dd><dd><a href="http://plone.org/documentation/manual">Manuals</a></dd><dd><a href="http://plone.org/documentation/books">Books</a></dd><!-- <dd><a href="">Knowledge Base</a></dd> --><dd><a href="http://plone.org/documentation/error">Error Reference</a></dd><!-- <dd><a href="">Module documentation</a></dd> --><dd><a href="http://plone.net/sites">Sites using Plone</a></dd></dl><dl><dt><a href="http://dev.plone.org/plone">Developers</a></dt><dd><a href="http://dev.plone.org/plone/roadmap">Roadmap</a></dd><dd><a href="http://dev.plone.org/plone">Report bugs in Plone</a></dd><dd><a href="http://dev.plone.org/plone.org">Report website issues</a></dd><dd><a href="http://dev.plone.org/plone/timeline">Latest changes</a></dd><dd><a href="http://dev.plone.org/plone/browser">Browse source</a></dd><dd><a href="http://dev.plone.org/plone">Contribute to Plone</a></dd><dd><a href="http://planet.plone.org">Community blogs</a></dd></dl><dl><dt><a href="http://plone.org/foundation">Plone Foundation</a></dt><dd><a href="http://plone.org/foundation/foundation-donations">Donate</a></dd><dd><a href="http://plone.org/foundation/donors">Sponsors</a></dd><dd><a href="http://plone.org/foundation/meetings/minutes">Meeting minutes</a></dd><dd><a href="http://plone.org/team/FoundationBoard">Current board</a></dd><dd><a href="http://plone.org/foundation/members">Foundation members</a></dd><dd><a href="http://plone.org/foundation/membership">Apply for membership</a></dd><dd><a href="http://plone.org/foundation#contact">Contact</a></dd></dl><dl><dt><a href="http://plone.org/support">Support</a></dt><dd><a href="http://plone.net/providers">Commercial services</a></dd><dd><a href="http://plone.org/support/chat">Chat room</a></dd><dd><a href="http://plone.org/support/forums">Forums</a></dd><dd><a href="http://plone.org/support/for">Sector-specific forums</a></dd><dd><a href="http://plone.org/support/region">Region-specific forums</a></dd><dd><a href="http://plone.org/support/local-user-groups">Local user groups</a></dd><dd><a href="http://plone.org/events/training">Training</a></dd></dl></div></div></div><script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript"> 
+var pageTracker = _gat._getTracker("UA-1907133-2");
+pageTracker._trackPageview();
+</script></body></html>
