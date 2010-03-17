@@ -80,7 +80,7 @@
                <a tal:attributes="href mp4" id="player-videoview" tal:condition="mp4" >
                </a>             
             
-        <video controls width="400" height="300" tal:condition="nothing"
+        <video controls width="400" height="323" tal:condition="nothing"
                tal:attributes="poster string:${here/absolute_url}/thumbnailImage">
             <source tal:condition="mp4" tal:attributes="src mp4" type="video/mp4" />               
             <source tal:condition="ogg" tal:attributes="src ogg" type="video/ogg" />
