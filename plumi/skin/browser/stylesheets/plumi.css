@@ -441,6 +441,10 @@ display: block;
     cursor: default;
 }
 
+span.link-external {
+cursor: pointer;
+}
+
 /* - plumi_homepage.css - */
 
 .feature {
