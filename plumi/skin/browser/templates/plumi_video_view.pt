@@ -21,7 +21,9 @@
     <meta name="video_width" content="270" />
     <meta name="video_type" content="application/x-shockwave-flash" />
 </tal:block>
-
+<head>
+    <metal:block fill-slot="column_two_slot" />
+</head>
 <body>
 
 <metal:main fill-slot="main">
