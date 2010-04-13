@@ -1,5 +1,5 @@
 <tal:video define="video nocall: view/video;
-                    hasThumb video/hasImageAndCaption/image;
+                    hasThumb video/hasImageAndCaption;
                     thumb string:${view/url}/thumbnailImage_thumb;
                     fullThumb string:${view/url}/thumbnailImage;
                     thumbCaption view/hasImageAndCaption/caption;">
