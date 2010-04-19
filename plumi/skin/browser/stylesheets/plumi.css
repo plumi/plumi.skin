@@ -276,6 +276,7 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
 
 #video-downloads {
   padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .download-block {

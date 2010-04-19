@@ -130,6 +130,12 @@
                   tal:define="fsiz here/getObjSize"
                   tal:content="string:($fsiz)" />
           </p>
+          <p class="download-block" tal:condition="ogg">
+            <a id="ogg-link"
+                tal:attributes="href ogg" i18n:translate="">
+              Download Ogg Theora Version
+            </a>
+          </p>
 
           <p class="download-block">
             <a id="vlc-link"
@@ -334,8 +340,8 @@
           <strong i18n:translate="transcode_status">Transcode Status</strong> 
           <p tal:content="transcoding" />
 
-          <p i18n:translate="restart_transcoding">
-            You may like to try to
+          <p><span tal:omit-tag="" i18n:translate="restart_transcoding">
+            You may like to try to</span>
             <a tal:attributes="href string:${here/absolute_url}/reTranscode"
                onclick="showNotification()"
                >re-start transcoding.</a>              
@@ -343,9 +349,9 @@
           <div id="notificationDiv">
               <strong>reTranscoding...</strong> <p> Please refresh the page in 5-15 minutes (the larger your video the longer it will take) to see the retranscoded file.</p>
           </div>
-          <p i18n:translate="cancel_transcoding">
+          <p> <span tal:omit-tag="" i18n:translate="cancel_transcoding">
             If the automatically transcoded movie is corrupted,
-            or poor quality etc. , you may like to
+            or poor quality etc., you may like to</span>
             <a tal:attributes="href string:${here/absolute_url}/stopTranscode"
                >turn off flowplayer and automatic transcoding.</a>
           </p>
