@@ -134,9 +134,10 @@ class VideoView( BrowserView ):
                 except:
                     pass
 
-        ctype = self.context.video_file.getContentType()
-        if 'mp4' in ctype or 'flv' in ctype:
-            return self.context.absolute_url() + '/download/video_file/%s' % self.context.video_file.getFilename()
+	if profile == 'mp4':
+            ctype = self.context.video_file.getContentType()
+            if 'mp4' in ctype or 'flv' in ctype:
+                return self.context.absolute_url() + '/download/video_file/%s' % self.context.video_file.getFilename()
 
         return ''
 
