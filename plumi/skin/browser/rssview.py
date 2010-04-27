@@ -39,7 +39,7 @@ class RSSView(DefaultRSSView):
         #constrain the videos selected to be the path of the view context
         if self.aq_parent.portal_type == 'Plumi Video Folder':
             path = "/".join(self.aq_parent.getPhysicalPath())
-            brains = portal_catalog.searchResults(path=path, portal_type='PlumiVideo', sort_on='effective', sort_order='reverse', review_state='published' )
+            brains = portal_catalog.searchResults(path=path, portal_type='PlumiVideo', sort_on='created', sort_order='reverse', review_state='published' )
         else:
             syn_tool = getToolByName( self, 'portal_syndication' )
             #assume its a topic, self.aq_parent

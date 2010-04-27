@@ -33,7 +33,7 @@ class OrderedFolderVideosProvider( object ):
 		content_filter = dict()	
 		content_filter['path'] = path 
 		content_filter['portal_type']='PlumiVideo'
-		#content_filter['sort_on'] = 'getFirstPublishedTransitionTime'
+		content_filter['sort_on'] = 'created'
 		content_filter['sort_order'] = 'reverse'
 		self.videos = context.getFolderContents(batch=True,contentFilter=content_filter)
 
