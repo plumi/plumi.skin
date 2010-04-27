@@ -1,12 +1,17 @@
+0.7 (2010-04-27)
+================
+ 
+  - Release for Plumi 3.0 final [Dimitris Moraitis]
+
 0.6 (2010-04-13)
 ================
 
-  - Release for Plumi 3.0-rc3
+  - Release for Plumi 3.0-rc3 [Dimitris Moraitis]
 
 0.5 (2010-04-11)
 ================
   
-  - Release for Plumi 3.0-rc2 (Mike Muzurakis)
+  - Release for Plumi 3.0-rc2 [Mike Muzurakis]
 
 0.4 (2010-03-25)
 ================
