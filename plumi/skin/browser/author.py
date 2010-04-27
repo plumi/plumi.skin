@@ -75,8 +75,7 @@ class AuthorPage( CategoriesProvider ):
     @property
     def videos(self):
         query = dict(portal_type='PlumiVideo',
-		     # XXX re-impl. this 
-                     #sort_on='getFirstPublishedTransitionTime',
+                     sort_on='getObjPositionInParent',
                      sort_order='reverse',
                      Creator=self.author,
                      review_state='published')
@@ -87,6 +86,7 @@ class AuthorPage( CategoriesProvider ):
     @property
     def callouts(self):
         query = dict(portal_type='PlumiCallOut',
+                     sort_on='getObjPositionInParent',
                      sort_order='reverse',
                      Creator=self.author,
                      review_state='published')
@@ -108,8 +108,7 @@ class AuthorPage( CategoriesProvider ):
     @property
     def news(self):
         query = dict(portal_type='News Item',
-                     # XXX re-impl. this
-                     #sort_on='getFirstPublishedTransitionTime',
+                     sort_on='getObjPositionInParent',
                      sort_order='reverse',
                      Creator=self.author,
                      review_state='published')
@@ -119,8 +118,7 @@ class AuthorPage( CategoriesProvider ):
     @property
     def events(self):
         query = dict(portal_type='Event',
-                     # XXX re-impl. this
-                     #sort_on='getFirstPublishedTransitionTime',
+                     sort_on='getObjPositionInParent',
                      sort_order='reverse',
                      Creator=self.author,
                      review_state='published')
