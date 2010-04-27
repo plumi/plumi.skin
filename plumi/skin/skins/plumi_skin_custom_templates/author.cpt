@@ -281,6 +281,11 @@
 	    </dd>
 	    <!-- end of each video item -->
 
+            <p tal:condition="python:mtool.getHomeFolder(id=author)">
+              <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/videos')"
+                 i18n:translate="label_author_internal_video_page">All videos from this author&hellip;</a>
+            </p>
+
 	  </dl>
 	</div>
 	<!-- end of video listing for user -->
@@ -301,6 +306,11 @@
 
 	    </dd>
 	    <!-- end of each Callout item -->
+
+            <p tal:condition="python:mtool.getHomeFolder(id=author)">
+              <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/callouts')"
+                 i18n:translate="label_author_internal_video_page">All callouts from this author&hellip;</a>
+            </p>
 
 	  </dl>
 	</div>
@@ -324,6 +334,11 @@
 	    </dd>
 	    <!-- end of each news item -->
 
+          <p tal:condition="python:mtool.getHomeFolder(id=author)">
+               <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/news')"
+                  i18n:translate="label_author_internal_news_page">All news from this author&hellip;</a>
+          </p>
+
 	  </dl>
 	</div>
 	<!-- end of news listing for user -->
@@ -346,6 +361,11 @@
 
 	    </dd>
 	    <!-- end of each Event item -->
+
+         <p tal:condition="python:mtool.getHomeFolder(id=author)">
+              <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/events')"
+                 i18n:translate="label_author_internal_events_page">All events from this author&hellip;</a>
+         </p>
 
 	  </dl>
 	</div>
