@@ -46,7 +46,7 @@
                                mp4 res/isTranscodedPlumiVideoObj/mp4|nothing;
                                path python:mp4 and mp4.get('path',None);
 		                       path python:path and path.replace('+','%2B');            
-		                       path python: path and '%s/%s' % (view.videoserver(),path) or res_item.portal_type=='News Item' and res_item.absolute_url() or res_item.video_file.filename and '%s/@@download/video_file/%s' % (res_item.absolute_url(), res_item.video_file.filename)  or res_item.absolute_url();
+		                       path python: path and '%s/%s' % (view.videoserver(),path) or res_item.portal_type=='News Item' and res_item.absolute_url() or res_item.get('video_file', None) and res_item.video_file.filename and '%s/@@download/video_file/%s' % (res_item.absolute_url(), res_item.video_file.filename)  or res_item.absolute_url();
                                item_link path;
 			                   item_creator python:here.portal_membership.getMemberById(res_item.Creator());"
                                >
@@ -63,15 +63,7 @@
                           <media:description><span tal:content="res/Description" /></media:description>
                           <media:thumbnail tal:condition="res_item/thumbnailImage" tal:attributes="url string:${res_item/absolute_url}/thumbnailImage_thumb;title res/Title" />
                         <!--End of media specific namespace item attributes-->
-<!--
-                        <description>
-                            <div>
-                                <a tal:attributes="href string:${res_item/absolute_url}">
-                                   <media:thumbnail tal:condition="res_item/thumbnailImage" tal:attributes="src string:${res_item/absolute_url}/thumbnailImage_thumb;title res/Title" alt="" />
-                                </a>
-                                <span tal:content="res/Description" />
-                            </div>
-                        </description> -->
+                        
                     </tal:con>
                     <tal:con tal:condition="python:res.portal_type != 'PlumiVideo'">
                         <description tal:content="res/Description"></description>
