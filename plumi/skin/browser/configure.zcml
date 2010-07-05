@@ -144,6 +144,15 @@
       permission="zope2.View"
       layer=".interfaces.IThemeSpecific"
       />
+
+  <browser:page
+      name="callout_view"
+      for="plumi.content.interfaces.IPlumiCallOut"
+      class=".callout.CalloutView"
+      template="templates/plumi_callout_view.pt"
+      permission="zope2.View"
+      layer=".interfaces.IThemeSpecific"
+      />
    
   <browser:page
       for="*"

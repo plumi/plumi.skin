@@ -622,3 +622,7 @@ div.documentActions {
     border: none;
     margin-top: -17px;
 }
+
+.CalloutImageDiv {
+    float:right;
+}

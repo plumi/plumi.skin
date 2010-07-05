@@ -37,6 +37,10 @@ class IVideoView( Interface ):
     bt_availability = Attribute("A dict giving info about the BT status of the"
                                 " file. It's a dict with two keys.")
 
+class ICalloutView( Interface ):
+    u"""Callout view
+    """
+
 class IVideosProvider( Interface ):
     u"""This interface defines a content types able to generate a list of
     videos.

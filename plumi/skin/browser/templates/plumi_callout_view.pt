@@ -1,0 +1,120 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plumi">
+
+<!-- meta and link tags for facebook integration -->
+<tal:block metal:fill-slot="head_slot" >
+    <meta name="title" tal:attributes="content here/title" />
+    <meta name="description" tal:attributes="content here/description" />
+    <link rel="image_src" tal:condition="view/hasThumbnailImage" tal:attributes="href string:${here/absolute_url}/calloutImage_mini" />
+</tal:block>
+<head>
+    <metal:block fill-slot="column_two_slot" />
+</head>
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+           tal:define="kssClassesView context/@@kss_field_decorator_view;
+                       getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                       templateId template/getId;
+                       fullDescription here/bodyText;">
+		<div class="roundborder rounded">
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading"> 
+          <metal:field use-macro="python:here.widget('title', mode='view')">
+            Title
+          </metal:field>
+        </h1>
+
+        <div>
+            <div class="CalloutImageDiv">
+                <img tal:attributes="src string:${here/absolute_url}/calloutImage_preview;
+                                     alt here/calloutImageCaption;
+                                     class string:CalloutImage"
+                     tal:condition="python:view.hasThumbnailImage()" />
+                <div>
+                    <span tal:content="here/calloutImageCaption"></span>
+                </div>
+            </div>
+            <p>
+                <a href=""
+                   tal:define="url here/websiteURL"
+                   tal:attributes="href url"
+                   tal:content="url" 
+                   i18n:translate="">more info</a>
+            </p>
+
+            <dl class="callout-categories"
+                tal:define="categories view/categories"
+                tal:condition="categories">
+              <dt i18n:translate="">Categories</dt>
+              <dd>
+                <ul>
+                  <li tal:repeat="cat categories">
+                    <a href="" title="" id=""
+                       tal:attributes="href cat/url;
+                                       id cat/id;
+                                       title cat/title;
+                                       class string:category-${cat/id};"
+                       tal:content="cat/title" />
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+
+            <dl class="callout-location"
+                tal:define="location here/location"
+                tal:condition="location">
+              <dt i18n:translate="">Location</dt>
+              <dd>
+                  <span tal:content="location"></span>
+              </dd>
+            </dl>
+
+            <dl class="callout-time"
+                tal:define="location view/closing_date"
+                tal:condition="location">
+              <dt i18n:translate="">Closing Date</dt>
+              <dd>
+                  <span tal:content="location"></span>
+              </dd>
+            </dl>
+            <p class="documentDescription">
+                <metal:field use-macro="python:here.widget('description', mode='view')">
+                Description
+                </metal:field>
+            </p>
+            
+            <p tal:content="structure here/bodyText">
+				    Body text
+		    </p>
+
+        </div>
+
+
+
+        <p tal:condition="python: not fullDescription and is_editable"
+           i18n:translate="no_body_text"
+           class="discreet">
+            This item does not have any body text, click the edit tab to change it.
+        </p>
+
+
+        <div metal:use-macro="here/document_relateditems/macros/relatedItems">
+            show related items if they exist
+        </div>
+     
+	</div>
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
+
