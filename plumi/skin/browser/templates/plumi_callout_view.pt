@@ -34,7 +34,7 @@
 
         <div>
             <div class="CalloutImageDiv">
-                <img tal:attributes="src string:${here/absolute_url}/calloutImage_preview;
+                <img tal:attributes="src string:${here/absolute_url}/calloutImage_mini;
                                      alt here/calloutImageCaption;
                                      class string:CalloutImage"
                      tal:condition="python:view.hasThumbnailImage()" />
