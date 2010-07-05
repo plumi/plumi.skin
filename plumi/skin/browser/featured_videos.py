@@ -47,10 +47,9 @@ class FeaturedVideosPage( CategoriesProvider ):
     @property
     def featured_items(self):
         filtering = dict(portal_type='PlumiVideo',
-                         Subject='featured',
                          sort_on='created',
                          sort_order='reverse',
-                         review_state='published',
+                         review_state='featured',
                          limit=self.limit_featured)
         brains = self.catalog(filtering)[:self.limit_featured]
         return [queryMultiAdapter((brain, self), IPlumiVideoBrain)
@@ -60,9 +59,8 @@ class FeaturedVideosPage( CategoriesProvider ):
     def news_and_events(self):
         filtering = dict(portal_type=['News Item','Event'],
                          sort_on='Date',
-                         Subject='featured',
                          sort_order='reverse',
-                         review_state='published',
+                         review_state='featured',
                          limit=1)
         return self.catalog(filtering)[:1]
 
