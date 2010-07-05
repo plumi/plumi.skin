@@ -69,7 +69,7 @@ class FeaturedVideosPage( CategoriesProvider ):
         filtering = dict(portal_type='PlumiVideo',
                          sort_on='created',
                          sort_order='reverse',
-                         review_state='published',
+                         review_state=['published','featured'],
                          limit=self.limit_latest)
         brains = self.catalog(filtering)[:self.limit_latest]
         return [queryMultiAdapter((brain, self), IPlumiVideoBrain)
