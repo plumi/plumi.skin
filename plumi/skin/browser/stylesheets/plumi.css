@@ -298,12 +298,12 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
 
 .download-block a#ogg-link {
   background: transparent url(++resource++plumi.skin.images/ogg_icon.png) 0 2px no-repeat;
-  font-size: 130%;
+  font-size: 120%;
 }
 
 
 .download-block a#download-link {
-  font-size: 130%;
+  font-size: 120%;
 }
 
 
