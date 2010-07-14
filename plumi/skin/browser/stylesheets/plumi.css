@@ -280,8 +280,13 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
 }
 
 .download-block {
-  font-size: 90%;
+  font-size: 120%;
 }
+
+.download-block span.discreet{
+  font-size: 60%;
+}
+
 
 .download-block a {
   background: transparent url(++resource++plumi.skin.images/downloads.png) 0 2px no-repeat;
