@@ -133,7 +133,7 @@
           <p class="download-block" tal:condition="ogg">
             <a id="ogg-link"
                 tal:attributes="href ogg" i18n:translate="">
-              Download Ogg Theora Version
+              Download / Watch Ogg Theora Version 
             </a>
           </p>
 
