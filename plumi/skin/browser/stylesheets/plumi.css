@@ -280,7 +280,7 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
 }
 
 .download-block {
-  font-size: 130%;
+
 }
 
 .download-block span.discreet{
@@ -298,7 +298,14 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
 
 .download-block a#ogg-link {
   background: transparent url(++resource++plumi.skin.images/ogg_icon.png) 0 2px no-repeat;
+  font-size: 130%;
 }
+
+
+.download-block a#download-link {
+  font-size: 130%;
+}
+
 
 .download-block a#vlc-link {
   background-image: url(++resource++plumi.skin.images/vlc_icon.gif);
