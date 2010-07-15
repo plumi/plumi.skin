@@ -88,7 +88,7 @@
       </span>
 
       <div class="featured-item-image"
-	   tal:define="image_infos obj/hasImageAndCaption"
+	   tal:define="image_infos obj/hasImageAndCaption/image"
 	   tal:condition="image_infos">
 	<a tal:attributes="href string:${obj/getURL}/view;
 			   title obj/Title">
@@ -100,6 +100,17 @@
       
       <p class="featured-item-description"
 	 tal:content="obj/Description"/>
+
+
+     <span class="featured-read-more">
+      <a href=""
+	 id="featured-video-more"
+	 tal:attributes="href string:${obj/getURL}/view;
+			 title obj/Title"
+     i18n:translate=""
+	 >Read more&hellip;</a>
+    </span>      
+
       
       <span class="documentByLine">
 	<span tal:condition="python: obj.portal_type == 'Event'"
