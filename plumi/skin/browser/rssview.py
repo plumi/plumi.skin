@@ -35,27 +35,23 @@ class RSSView(DefaultRSSView):
 
     def getRSSObjects(self):
         """ Get RSS objects. """
-        portal_catalog = getToolByName( self, 'portal_catalog' )
-        #constrain the videos selected to be the path of the view context
-        if self.aq_parent.portal_type == 'Plumi Video Folder':
-            path = "/".join(self.aq_parent.getPhysicalPath())
-            brains = portal_catalog.searchResults(path=path, portal_type='PlumiVideo', sort_on='created', sort_order='reverse', review_state='published' )
-        else:
-            syn_tool = getToolByName( self, 'portal_syndication' )
-            #assume its a topic, self.aq_parent
-            if self.aq_parent.portal_type == 'Topic':
-                #limit = int(syn_tool.getMaxItems(self))
-                #use qRSS2Syndication.utils to get the 'syndication_information' tool, for now, since we
-                #have set this up for all the folders/topics in the ATVideo installer
-                syinfo = getattr(self.aq_parent, 'syndication_information', None)
-                if syinfo is not None:
-                    limit = syinfo.max_items
-                else:
-                    limit = 10
-                brains = self.aq_parent.queryCatalog(sort_limit=limit)[:limit]
+        syn_tool = getToolByName( self, 'portal_syndication' )
+        #assume its a topic, self.aq_parent
+        if self.aq_parent.portal_type == 'Topic':
+            #use qRSS2Syndication.utils to get the 'syndication_information' tool, for now, since we
+            #have set this up for all the folders/topics in the ATVideo installer
+            syinfo = getattr(self.aq_parent, 'syndication_information', None)
+            if syinfo is not None:
+                limit = syinfo.max_items
             else:
-                #XXX what other containers do we support for RSS views?
-                brains = []
+                limit = 10
+            brains = self.aq_parent.queryCatalog(sort_limit=limit)[:limit]
+        else:
+            portal_catalog = getToolByName( self, 'portal_catalog' )
+            #constrain the videos selected to be the path of the view context
+            path = "/".join(self.aq_parent.getPhysicalPath())
+            brains = portal_catalog.searchResults(path=path, portal_type='PlumiVideo', sort_on='created', sort_order='reverse', review_state=['published', 'featured'] )
+
         #ONLY RETURN BRAINS!!
         bb = []
         for b in brains: 

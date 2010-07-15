@@ -11,7 +11,8 @@
 <tal:x define="dummy python:request.RESPONSE.setHeader('Content-Type', 'text/xml');" />
     <channel tal:define="author python:here.Creator();
                          author_email view/emailFromAdress;
-                         author_fullname python:author or author.getProperty('fullname','') or here.Creator();                         
+                         auth_prop nocall:author/getProperty|nothing;
+                         author_fullname python:auth_prop and author.getProperty('fullname','') or here.Creator();                         
 			             channel_logo python:here.absolute_url() + '/logo.gif';
                          ">
 	
@@ -31,7 +32,8 @@
             <url tal:content="channel_logo"></url> 
             <title>Plumi Logo</title> 
             <link tal:content="here/absolute_url"></link>
-        </image>
+        </image>
+
         <copyright tal:define="defaultLicense view/defaultLicense" tal:content="defaultLicense" tal:condition="defaultLicense">Copyright 2007</copyright>
         <ttl>240</ttl>
         <itunes:author tal:condition="author_fullname" tal:content="author_fullname"></itunes:author>

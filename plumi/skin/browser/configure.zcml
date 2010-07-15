@@ -68,6 +68,14 @@
       permission="zope2.View"
       />
 
+  <browser:page
+      name="RSS"
+      for="plumi.content.interfaces.plumivideofolder.IPlumiVideoFolder"
+      class=".rssview.RSSView"
+      template="templates/RSS.pt"
+      permission="zope2.View"
+      />
+
 <!--
  <browser:page
       name="RSS"
