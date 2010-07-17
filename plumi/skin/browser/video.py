@@ -17,6 +17,7 @@ from interfaces import IVideoView, ITopicsProvider
 
 
 from plumi.app.config import TOPLEVEL_TAXONOMY_FOLDER, COUNTRIES_FOLDER, GENRE_FOLDER, CATEGORIES_FOLDER
+from collective.transcode.interfaces import ITranscodeTool
  
 
 # Internationalization
@@ -126,6 +127,13 @@ class VideoView( BrowserView ):
                     url = bt_url)
 
     def transcoding(self, profile):
+        try:
+            tt = getUtility(ITranscodeTool)
+            entry = tt[self.context.UID()]['video_file'][profile]
+            return entry['address'] + '/' + entry['path']
+        except Exception,e:
+            pass
+
         if self.transcode_profiles.has_key(profile):
             if self.transcode_profiles[profile]['status'] == 0:
                 try:
