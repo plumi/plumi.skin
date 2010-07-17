@@ -134,14 +134,6 @@ class VideoView( BrowserView ):
         except Exception,e:
             pass
 
-        if self.transcode_profiles.has_key(profile):
-            if self.transcode_profiles[profile]['status'] == 0:
-                try:
-                    return self.config.videoserver_address + "/" + \
-                           self.transcode_profiles[profile]['path']
-                except:
-                    pass
-
 	if profile == 'mp4':
             ctype = self.context.video_file.getContentType()
             if 'mp4' in ctype or 'flv' in ctype:

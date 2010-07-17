@@ -7,6 +7,7 @@ from plumi.skin.browser.interfaces import IAbstractCatalogBrain
 from interfaces import IPlumiVideoBrain, ITopicsProvider
 from zope.component import getUtility
 from Products.CMFCore.interfaces import IPropertiesTool
+from collective.transcode.interfaces import ITranscodeTool
 
 class PlumiVideoBrain( Explicit ):
     u"""Basic Plumi implementation of a video brain renderer.
@@ -27,6 +28,7 @@ class PlumiVideoBrain( Explicit ):
         self.categories = provider.get_categories_info(context['getCategories'])
         self.countries = None
         pprop = getUtility(IPropertiesTool)
+        self.tt = getUtility(ITranscodeTool)
         self.config = getattr(pprop, 'plumi_properties', None)
 
     def render_listing(self):
@@ -47,7 +49,9 @@ class PlumiVideoBrain( Explicit ):
         date = self.video.created
         return self.context.toLocalizedTime(date)
         
-    @property
-    def videoserver(self):
-        return self.config.videoserver_address        
-        
+    def transcoded(self, uid, profile):
+        try:
+            entry = self.tt[uid]['video_file'][profile]
+            return '%s/%s' % (entry['address'], entry['path'])
+        except:
+            return False

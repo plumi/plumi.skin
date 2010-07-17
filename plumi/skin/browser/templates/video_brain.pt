@@ -15,16 +15,17 @@
  <span tal:omit-tag="" tal:condition="options/feature_video" 
         tal:define="mp4 video/isTranscodedPlumiVideoObj/mp4|nothing;
 		    path mp4/path|nothing;
+                    address mp4/address|nothing;
 		    path python:path and path.replace('+','%2B');
                     thumbstr python: hasThumb and ('{url: \'%s\',type:\'image\'},'%fullThumb) or '';
                     swfplayer string:${here/absolute_url}/%2B%2Bresource%2B%2Bplumi.skin.flowplayer/flowplayer-3.1.5.swf;
                     swfcontrols string:${here/absolute_url}/%2B%2Bresource%2B%2Bplumi.skin.flowplayer/flowplayer.controls-3.1.5.swf">
-               <a class="featured-video-image" tal:attributes="href string:${view/videoserver}/$path" id="player" tal:condition="mp4" >
+               <a class="featured-video-image" tal:attributes="href string:$address/$path" id="player" tal:condition="mp4" >
                </a>   
          <script language="JavaScript" tal:content='string:flowplayer("player", "$swfplayer", 
                                                                         { playlist:[$thumbstr
                                                                                         {
-                                                                                            url:"${view/videoserver}/$path",
+                                                                                            url:"$address/$path",
                                                                                             autoPlay:false,
                                                                                             autoBuffering:false,
                                                                                         }
