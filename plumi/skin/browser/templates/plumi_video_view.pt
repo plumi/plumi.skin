@@ -349,12 +349,6 @@
           <div id="notificationDiv">
               <strong>reTranscoding...</strong> <p> Please refresh the page in 5-15 minutes (the larger your video the longer it will take) to see the retranscoded file.</p>
           </div>
-          <p> <span tal:omit-tag="" i18n:translate="cancel_transcoding">
-            If the automatically transcoded movie is corrupted,
-            or poor quality etc., you may like to</span>
-            <a tal:attributes="href string:${here/absolute_url}/stopTranscode"
-               >turn off flowplayer and automatic transcoding.</a>
-          </p>
         </div> <!-- id=video-transcoding -->
         </div> <!-- transcoding rights tal -->
         

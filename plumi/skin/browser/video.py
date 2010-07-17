@@ -156,18 +156,23 @@ class VideoView( BrowserView ):
     def get_transcoding_status(self):
         """Returns true if mp4 transcoding has succeeded. 
         """
-        #TODO - check the logic of this is correct
-        profile='mp4'
-        if self.transcode_profiles.has_key(profile):
-            if self.transcode_profiles[profile]['status'] == 0:
-                return (True, _(u"The transcoding has worked successfully."))
-            elif self.transcode_profiles[profile]['status'] == 1:
-                return (False, _(u"The transcoding is in progress."))
-            else:
-                return (False, _(u"The transcoding failed."))
-        else:
+        profile = 'mp4'
+        tt = getUtility(ITranscodeTool)
+        status = None
+  
+        try:
+            status = tt[self.context.UID()]['video_file'][profile]['status']
+        except Exception, e:
+            pass
+
+        if not status:
            return (False, _(u"The transcoding has not started."))
-        return ''
+        elif status == 'ok':
+            return (True, _(u"The transcoding has worked successfully."))
+        elif status == 'pending':
+            return (False, _(u"The transcoding is in progress."))
+        else:
+            return (False, _(u"The transcoding failed. %s" % status))
    
     def get_categories_dict(self, cats):
         """Uses the portal vocabularies to retrieve the video categories
