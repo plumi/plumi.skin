@@ -41,7 +41,7 @@ Share your productions by uploading video to
 Videos will be automatically submitted for publishing approval.
 </tal:publish_video_blurb>
 <a tal:attributes="href string:${portal_url}/editorial-policy"
-   i18n:translate="">View editorial policy</a>. 
+   i18n:translate="view_editorial_policy" i18n:domain="plumi">View editorial policy</a>. 
 </div>
 <div class="loginOption"><a tal:attributes="href string:${portal/portal_membership/getHomeUrl}/events/createObject?type_name=Event"><img class="bigbutton" tal:attributes="src string:${portal_url}/myevents.gif"></a><b><a class="optionHeader" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/events/createObject?type_name=Event" i18n:translate="">Publish Event</a></b><br />
 <tal:publish_event_blurb i18n:translate="publish_event_blurb">
