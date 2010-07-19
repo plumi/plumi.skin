@@ -17,7 +17,7 @@ from interfaces import IVideoView, ITopicsProvider
 
 
 from plumi.app.config import TOPLEVEL_TAXONOMY_FOLDER, COUNTRIES_FOLDER, GENRE_FOLDER, CATEGORIES_FOLDER
-from collective.transcode.interfaces import ITranscodeTool
+from collective.transcode.star.interfaces import ITranscodeTool
  
 
 # Internationalization

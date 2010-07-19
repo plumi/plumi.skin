@@ -7,7 +7,7 @@ from plumi.skin.browser.interfaces import IAbstractCatalogBrain
 from interfaces import IPlumiVideoBrain, ITopicsProvider
 from zope.component import getUtility
 from Products.CMFCore.interfaces import IPropertiesTool
-from collective.transcode.interfaces import ITranscodeTool
+from collective.transcode.star.interfaces import ITranscodeTool
 
 class PlumiVideoBrain( Explicit ):
     u"""Basic Plumi implementation of a video brain renderer.
