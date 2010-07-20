@@ -280,7 +280,7 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
 }
 
 .download-block {
-
+  padding-bottom: 0.4em;
 }
 
 .download-block span.discreet{
@@ -290,7 +290,7 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
 
 .download-block a {
   background: transparent url(++resource++plumi.skin.images/downloads.png) 0 2px no-repeat;
-  padding: 4px 0 4px 19px;
+  padding: 0px 0 4px 25px;
   border: 0 !important;
   text-transform: none;
   font-weight: bold;
@@ -528,6 +528,7 @@ dt.featuredHeader a {
 span.featured-read-more {
     text-align: right;
     display: block;
+    clear: both;
 }
 
 a#featured-video-more {
