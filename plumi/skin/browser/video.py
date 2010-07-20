@@ -256,7 +256,7 @@ class flowplayerConfig( BrowserView ):
     'plugins': {
         // use youtube controlbar
         'controls': {
-            'url': '%s/%%2B%%2Bresource%%2B%%2Bplumi.skin.flowplayer/flowplayer.controls-3.1.5.swf'
+            'url': '%s/%%2B%%2Bresource%%2B%%2Bplumi.skin.flowplayer/flowplayer.controls-3.2.1.swf'
             'height': 30,
             'backgroundColor': '#115233'
         }
