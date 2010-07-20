@@ -46,7 +46,7 @@ class PlumiVideoBrain( Explicit ):
 
     @property
     def post_date(self):
-        date = self.video.created
+        date = self.video.effective or self.video.created
         return self.context.toLocalizedTime(date)
         
     def transcoded(self, uid, profile):
