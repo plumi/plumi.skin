@@ -639,3 +639,13 @@ div.documentActions {
 .CalloutImageDiv {
     float:right;
 }
+
+dl.callout-categories li {
+    display:inline;    
+    border-bottom:1px solid #CCCCCC;
+}
+
+dl.callout-categories ul {
+    margin-left: 0em !important;
+}
+

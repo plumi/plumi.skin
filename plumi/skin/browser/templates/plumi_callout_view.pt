@@ -50,7 +50,7 @@
                    i18n:translate="">more info</a>
             </p>
 
-            <dl class="callout-categories"
+        <dl class="callout-categories"
                 tal:define="categories view/categories"
                 tal:condition="categories">
               <dt i18n:translate="">Categories</dt>
