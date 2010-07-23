@@ -46,7 +46,7 @@
         <tal:block repeat="res results">
             <tal:block define="res_item res/getObject|nocall:brain;	
                                mp4 res/isTranscodedPlumiVideoObj/mp4|nothing;
-                               address mp4/address;
+                               address mp4/address|nothing;
                                path python: mp4 and mp4.get('path',None);
 		               path python: path and path.replace('+','%2B');            
 		               path python: path and '%s/%s' % (address,path) or res_item.portal_type=='News Item' and res_item.absolute_url() or res_item.get('video_file', None) and res_item.video_file.filename and '%s/@@download/video_file/%s' % (res_item.absolute_url(), res_item.video_file.filename)  or res_item.absolute_url();
