@@ -34,7 +34,7 @@
       layer=".interfaces.IThemeSpecific"
       />
 
-  <!-- old Plumi 0.2.x Plumi Skin zcml -->
+ <!-- old Plumi 0.2.x Plumi Skin zcml -->
  <five:implements
       class="Products.ZCatalog.CatalogBrains.AbstractCatalogBrain"
       interface=".interfaces.IAbstractCatalogBrain"
@@ -42,7 +42,8 @@
 
  <adapter factory=".adapters.TopicVideosProvider"
            provides=".interfaces.IVideosProvider" />
-  <adapter factory=".adapters.OrderedFolderVideosProvider"
+
+ <adapter factory=".adapters.OrderedFolderVideosProvider"
            provides=".interfaces.IVideosProvider" />
 
  <browser:page

@@ -83,7 +83,7 @@
 
       <span class="featuredItemDetailsPosted discreet" i18n:translate="">
         Posted:  
-	    <tal:posteddate tal:content="python:toLocalizedTime(obj.Date)"
+	    <tal:posteddate tal:content="python:toLocalizedTime(obj.effective)"
               i18n:name="PostedDate">May 5</tal:posteddate>
       </span>
 
@@ -130,6 +130,73 @@
 
 </div>
 <!-- end ... news and events -->
+
+<!-- Callouts -->
+<div id="featured-callouts"
+     class="featured-block"
+     tal:define="results view/callouts">
+
+  <dl tal:repeat="obj results">
+    <dt class="featuredHeader">
+      <a href="#"
+         tal:attributes="href string:$portal_url/callouts/RSS">
+        <img class="feedButton"
+             tal:attributes="src string:${portal_url}/rss.gif"
+             alt="Callouts RSS Syndication"
+             title="Callouts RSS Syndication"
+             id="-featured-icon-rsssyndication" 
+         i18n:attributes="alt title" />
+      </a>
+      <a href="#"
+         class="featured-callouts-title"
+         tal:attributes="href string:$portal_url/callouts"
+     i18n:translate=""
+         >Callouts</a> :
+
+      <a class="featuredItemDetails" href=""
+         tal:content="obj/pretty_title_or_id"
+         tal:attributes="href string:${obj/getURL}/view;
+                         title obj/Description"
+         >Callout Title</a>
+    </dt>
+    <dd>
+
+      <span class="featuredItemDetailsPosted discreet" i18n:translate="">
+        Posted:
+            <tal:posteddate tal:content="python:toLocalizedTime(obj.effective)"
+              i18n:name="PostedDate">May 5</tal:posteddate>
+      </span>
+
+      <div class="featured-item-image">
+        <a tal:attributes="href string:${obj/getURL}/view;
+                           title obj/Title">
+          <img tal:attributes="src string:${obj/getURL}/calloutImage_mini;
+                               alt obj/Title;
+                               title obj/Title;" />
+        </a>
+      </div>
+
+      <p class="featured-item-description"
+         tal:content="obj/Description"/>
+
+
+     <span class="featured-read-more">
+      <a href=""
+         id="featured-video-more"
+         tal:attributes="href string:${obj/getURL}/view;
+                         title obj/Title"
+     i18n:translate=""
+         >Read more&hellip;</a>
+    </span>
+
+    </dd>
+  </dl>
+
+</div>
+<!-- end ... callouts -->
+
+
+
 
 
 <!-- Latest videos -->

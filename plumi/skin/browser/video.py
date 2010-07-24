@@ -149,10 +149,9 @@ class VideoView( BrowserView ):
         """Returns true if mp4 transcoding has succeeded. 
         """
         profile = 'mp4'
-        tt = getUtility(ITranscodeTool)
         status = None
-  
         try:
+            tt = getUtility(ITranscodeTool)
             status = tt[self.context.UID()]['video_file'][profile]['status']
         except Exception, e:
             pass
