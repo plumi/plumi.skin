@@ -29,7 +29,6 @@ class PlumiVideoBrain( Explicit ):
         self.countries = None
         pprop = getUtility(IPropertiesTool)
         self.tt = getUtility(ITranscodeTool)
-        self.config = getattr(pprop, 'plumi_properties', None)
 
     def render_listing(self):
         return self.template.__of__(self.context)(show_title=True,feature_video=False)

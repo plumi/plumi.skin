@@ -33,10 +33,6 @@ class CalloutView( BrowserView ):
         self.vocab_tool = getToolByName(self.context, "portal_vocabularies")
 
         pprop = getUtility(IPropertiesTool)
-        self.config = getattr(pprop, 'plumi_properties', None)
-               #deprecated. will be removed 
-        self.use_vpip = "vpip" in context.Subject()
-        self.enclosure = None
 
     @property
     def categories(self):

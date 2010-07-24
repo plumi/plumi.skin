@@ -41,14 +41,6 @@ class VideoView( BrowserView ):
             self.transcode_profiles = {}
 
         pprop = getUtility(IPropertiesTool)
-        self.config = getattr(pprop, 'plumi_properties', None)
-               #deprecated. will be removed 
-        self.use_vpip = "vpip" in context.Subject()
-        
-        # XXX port to plumi.app.blob
-        #media_info = context.getFileAttribs()
-        #self.enclosure = media_info[1] > 0
-        self.enclosure = None
         
         (self.transcoding_ready,
          self.transcoding_status) = self.get_transcoding_status()
@@ -121,7 +113,6 @@ class VideoView( BrowserView ):
         #bt_url = self.context.getTorrentURL()
         bt_url = ''
         
-        #available = self.enclosure and (enabled_bt or enable_ext_bt)
         available = False
         return dict(available = available,
                     url = bt_url)
