@@ -48,7 +48,7 @@ class CalloutView( BrowserView ):
 
     @property
     def closing_date(self):
-        date = self.context.closingDate
+        date = self.context.expires()
         return self.context.toLocalizedTime(date)
 
     def hasThumbnailImage(self):
