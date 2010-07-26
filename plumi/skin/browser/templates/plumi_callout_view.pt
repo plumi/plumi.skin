@@ -32,6 +32,12 @@
           </metal:field>
         </h1>
 
+        <p class="documentDescription">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
+            Description
+            </metal:field>
+        </p>
+
         <div>
             <div class="CalloutImageDiv">
                 <img tal:attributes="src string:${here/absolute_url}/calloutImage_mini;
@@ -85,12 +91,6 @@
                   <span tal:content="location"></span>
               </dd>
             </dl>
-            <p class="documentDescription">
-                <metal:field use-macro="python:here.widget('description', mode='view')">
-                Description
-                </metal:field>
-            </p>
-            
             <p tal:content="structure here/bodyText">
 				    Body text
 		    </p>
