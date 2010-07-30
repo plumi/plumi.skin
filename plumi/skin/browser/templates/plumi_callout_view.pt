@@ -32,11 +32,11 @@
           </metal:field>
         </h1>
 
-        <p class="documentDescription">
+        <h4 class="documentDescription">
             <metal:field use-macro="python:here.widget('description', mode='view')">
             Description
             </metal:field>
-        </p>
+        </h4>
 
         <div>
             <div class="CalloutImageDiv">
