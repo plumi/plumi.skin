@@ -511,7 +511,7 @@ dt.featuredHeader {
 }
 
 .feedButton {
-  margin-top: 8px;
+  margin-top: 6px;
   padding-left: 3px;
 }
 
@@ -649,3 +649,6 @@ dl.callout-categories ul {
     margin-left: 0em !important;
 }
 
+div#featured-news-events .featuredHeader, div#featured-callouts .featuredHeader {
+    margin-left: 3px !important;
+}
