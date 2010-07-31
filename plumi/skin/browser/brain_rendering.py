@@ -45,9 +45,11 @@ class PlumiVideoBrain( Explicit ):
 
     @property
     def post_date(self):
-        date = self.video.effective or self.video.created
+        date = self.video.effective
+        if not date or date.year() == 1000:
+            date = self.video.created
         return self.context.toLocalizedTime(date)
-        
+
     def transcoded(self, uid, profile):
         try:
             entry = self.tt[uid]['video_file'][profile]

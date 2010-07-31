@@ -210,7 +210,9 @@ class VideoView( BrowserView ):
 
     @property
     def post_date(self):
-        date = self.context.created
+        date = self.context.effective()
+        if not date or date.year() == 1000:
+            date = self.context.created()
         return self.context.toLocalizedTime(date)
 
     def hasThumbnailImage(self):
