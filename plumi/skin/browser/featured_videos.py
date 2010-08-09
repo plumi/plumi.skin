@@ -47,7 +47,7 @@ class FeaturedVideosPage( CategoriesProvider ):
     @property
     def featured_items(self):
         filtering = dict(portal_type='PlumiVideo',
-                         sort_on='effective',
+                         sort_on='modified',
                          sort_order='reverse',
                          review_state='featured',
                          limit=self.limit_featured)
@@ -58,7 +58,7 @@ class FeaturedVideosPage( CategoriesProvider ):
     @property
     def news_and_events(self):
         filtering = dict(portal_type=['News Item','Event'],
-                         sort_on='effective',
+                         sort_on='modified',
                          sort_order='reverse',
                          review_state='featured',
                          limit=1)
@@ -67,7 +67,7 @@ class FeaturedVideosPage( CategoriesProvider ):
     @property
     def latest_videos(self):
         filtering = dict(portal_type='PlumiVideo',
-                         sort_on='effective',
+                         sort_on='modified',
                          sort_order='reverse',
                          review_state=['published','featured'],
                          limit=self.limit_latest)
@@ -78,7 +78,7 @@ class FeaturedVideosPage( CategoriesProvider ):
     @property
     def callouts(self):
         filtering = dict(portal_type=['PlumiCallOut'],
-                         sort_on='effective',
+                         sort_on='modified',
                          sort_order='reverse',
                          review_state='featured',
                          limit=1)
