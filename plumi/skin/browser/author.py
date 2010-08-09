@@ -78,7 +78,7 @@ class AuthorPage( CategoriesProvider ):
                      sort_on='effective',
                      sort_order='reverse',
                      Creator=self.author,
-                     review_state='published')
+                     review_state=['published','featured'])
         brains = self.catalog(**query)[:5]
         return [queryMultiAdapter((brain, self), IPlumiVideoBrain)
                 for brain in brains]
@@ -89,7 +89,7 @@ class AuthorPage( CategoriesProvider ):
                      sort_on='effective',
                      sort_order='reverse',
                      Creator=self.author,
-                     review_state='published')
+                     review_state=['published','featured'])
         brains = self.catalog(**query)[:5]
         return brains
         
@@ -111,7 +111,7 @@ class AuthorPage( CategoriesProvider ):
                      sort_on='effective',
                      sort_order='reverse',
                      Creator=self.author,
-                     review_state='published')
+                     review_state=['published','featured'])
         brains = self.catalog(**query)[:5]
         return brains
 
@@ -121,7 +121,7 @@ class AuthorPage( CategoriesProvider ):
                      sort_on='effective',
                      sort_order='reverse',
                      Creator=self.author,
-                     review_state='published')
+                     review_state=['published','featured'])
         brains = self.catalog(**query)[:5]
         return brains
 
