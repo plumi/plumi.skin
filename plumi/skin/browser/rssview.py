@@ -50,7 +50,7 @@ class RSSView(DefaultRSSView):
             portal_catalog = getToolByName( self, 'portal_catalog' )
             #constrain the videos selected to be the path of the view context
             path = "/".join(self.aq_parent.getPhysicalPath())
-            brains = portal_catalog.searchResults(path=path, portal_type='PlumiVideo', sort_on='created', sort_order='reverse', review_state=['published', 'featured'] )
+            brains = portal_catalog.searchResults(path=path, portal_type='PlumiVideo', sort_on='effective', sort_order='reverse', review_state=['published', 'featured'] )
 
         #ONLY RETURN BRAINS!!
         bb = []

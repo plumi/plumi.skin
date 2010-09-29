@@ -5,7 +5,7 @@ from zope.interface import implements
 from Products.CMFPlone import utils
 
 
-class RecentCalloutsPortlet(utils.BrowserView):
+class RecentNewsPortlet(utils.BrowserView):
     implements(IRecentPortlet)
 
     def results(self):
@@ -13,7 +13,7 @@ class RecentCalloutsPortlet(utils.BrowserView):
         context = utils.context(self)
         putils = getToolByName(context, 'plone_utils')
         portal_catalog = getToolByName(context, 'portal_catalog')
-        typesToShow = 'Plumi Call Out'
+        typesToShow = 'News Item'
         return self.request.get(
             'items',
             portal_catalog.searchResults(sort_on='effective',

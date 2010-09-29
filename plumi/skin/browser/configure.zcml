@@ -1,5 +1,6 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:plone="http://namespaces.plone.org/plone"
            xmlns:five="http://namespaces.zope.org/five"
  	   i18n_domain="plumi">
 
@@ -93,6 +94,16 @@
       class=".rssview.RSSView"
       template="templates/rss_template.pt"
       permission="zope2.View"
+      />
+
+  <browser:page
+      for="*"
+      name="recent_news_view"
+      class=".portlets.recent_news.RecentNewsPortlet"
+      permission="zope.Public"
+      allowed_interface="Products.CMFPlone.browser.interfaces.IRecentPortlet"
+      layer=".interfaces.IThemeSpecific"
+
       />
 
   <browser:page
