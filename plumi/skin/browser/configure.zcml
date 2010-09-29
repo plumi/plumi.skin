@@ -166,6 +166,15 @@
       />
 
   <browser:page
+      name="embed_view"
+      for="plumi.content.interfaces.IPlumiVideo"
+      class=".video.VideoView"
+      template="templates/plumi_embed_view.pt"
+      permission="zope2.View"
+      layer=".interfaces.IThemeSpecific"
+      />
+
+  <browser:page
       name="callout_view"
       for="plumi.content.interfaces.IPlumiCallOut"
       class=".callout.CalloutView"

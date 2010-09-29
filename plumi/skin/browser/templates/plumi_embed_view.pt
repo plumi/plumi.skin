@@ -1,0 +1,94 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="plumi">
+
+<!-- meta and link tags for facebook integration -->
+
+<head>
+    <script tal:attributes="src string:${view/portal_url}/%2B%2Bresource%2B%2Bplumi.skin.flowplayer/flowplayer-3.2.2.min.js">
+    </script>
+    <tal:block
+               condition="python:view.transcoding('mp4')" 
+               define="mp4 python:view.transcoding('mp4');
+                       swfplayer string:${view/portal_url}/%2B%2Bresource%2B%2Bplumi.skin.flowplayer/flowplayer-3.2.2.swf;
+                       swfcontrols string:${view/portal_url}/%2B%2Bresource%2B%2Bplumi.skin.flowplayer/flowplayer.controls-3.2.1.swf">
+        <meta name="medium" content="video" />
+        <meta name="title" tal:attributes="content here/title" />
+        <meta name="description" tal:attributes="content here/description" />
+        <link rel="image_src" tal:condition="view/hasThumbnailImage" tal:attributes="href string:${here/absolute_url}/thumbnailImage_mini" />
+        <link rel="video_src" tal:attributes="href string:${swfplayer}?config={'embedded':'true','clip':'${mp4}','plugins':{'controls':{'url':'${swfcontrols}'}}}" /> 
+        <meta name="video_height" content="300" /> <!-- TODO make these consistent across the board -->
+        <meta name="video_width" content="400" />
+        <meta name="video_type" content="application/x-shockwave-flash" />
+    </tal:block>
+</head>
+<body>
+
+<metal:main>
+    <tal:main-macro metal:define-macro="main"
+           tal:define="kssClassesView context/@@kss_field_decorator_view;
+                       getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                       templateId template/getId;
+                       fullDescription here/getFullDescription;">
+		<div class="roundborder rounded">
+
+          <div id="video-core" tal:define="transcoded python:view.transcoding('ogg') and view.transcoding('mp4');
+                                     mp4 python:view.transcoding('mp4').replace('+','%2B'); 
+                                     ogg python:view.transcoding('ogg');
+                                     thumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage_mini' or '';
+                                     fullThumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage' or ''">
+
+            <tal:failed_transcode condition="not: mp4">
+              <a id="no-video-player"
+                 tal:attributes="href string:$fullThumb">
+
+                <img tal:attributes="src thumb;
+                                        alt here/thumbnailImageDescription;
+                                     style string:margin-bottom:5px;" />
+                <span>
+                  <img tal:replace="structure here/search_icon.gif" />
+                  <tal:larger i18n:translate="thumbnail_click_to_enlarge">
+                    View larger image
+                  </tal:larger>
+                </span>
+              </a>
+            </tal:failed_transcode>
+
+            <!-- fallback for browsers who don't support video tag -->
+               <a tal:attributes="href mp4" id="player-videoview" tal:condition="mp4" >
+               </a>             
+            
+        <video controls width="400" height="300" tal:condition="nothing"
+               tal:attributes="poster string:${here/absolute_url}/thumbnailImage">
+            <source tal:condition="mp4" tal:attributes="src mp4" type="video/mp4" />               
+            <source tal:condition="ogg" tal:attributes="src ogg" type="video/ogg" />
+         </video>        
+             <script language="JavaScript" tal:define="thumbstr python: thumb and ('{url: \'%s\',type:\'image\'},'%fullThumb) or ''"
+                tal:content="string:  
+                flowplayer('player-videoview','${view/portal_url}/%2B%2Bresource%2B%2Bplumi.skin.flowplayer/flowplayer-3.2.2.swf',{
+                   playlist:[
+                            $thumbstr
+                        {
+                            url:'${mp4}',
+                            autoPlay:false,
+                            autoBuffering:false,
+                            bufferLength:5
+                        }
+                    ]  
+                });
+            var code = flowplayer().embed().getEmbedCode(); 
+            document.getElementById('embedCode').innerHTML = code; ">
+            </script>
+      </div> <!-- id=video-core -->
+      
+	</div>
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
+

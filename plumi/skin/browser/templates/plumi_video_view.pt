@@ -17,8 +17,8 @@
     <meta name="description" tal:attributes="content here/description" />
     <link rel="image_src" tal:condition="view/hasThumbnailImage" tal:attributes="href string:${here/absolute_url}/thumbnailImage_mini" />
     <link rel="video_src" tal:attributes="href string:${swfplayer}?config={'embedded':'true','clip':'${mp4}','plugins':{'controls':{'url':'${swfcontrols}'}}}" /> 
-    <meta name="video_height" content="320" /> <!-- TODO make these consistent across the board -->
-    <meta name="video_width" content="270" />
+    <meta name="video_height" content="300" /> <!-- TODO make these consistent across the board -->
+    <meta name="video_width" content="400" />
     <meta name="video_type" content="application/x-shockwave-flash" />
 </tal:block>
 <head>
@@ -91,7 +91,7 @@
             <div tal:omit-tag="" tal:condition="mp4">        
                     <div class="embed" id="embedDiv" i18n:translate="copy_embed_code">
                  Copy the following to embed the movie into another web page:</div>
-                    <textarea class="embed" id="embedCode" rows="2" onclick="this.focus();this.select();"><span tal:omit-tag="" /></textarea>
+                    <textarea rows="2" onclick="this.focus();this.select();"><span tal:replace="string:<iframe src='${here/absolute_url}/embed_view' frameborder='0' width='400' height='300'></iframe>" /></textarea>
              </div>
              <script language="JavaScript" tal:define="thumbstr python: thumb and ('{url: \'%s\',type:\'image\'},'%fullThumb) or ''"
                 tal:content="string:  
@@ -360,4 +360,3 @@
 
 </body>
 </html>
-
