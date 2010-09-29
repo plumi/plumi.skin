@@ -1,0 +1,5 @@
+# use glob syntax.
+syntax: glob
+
+plumi.skin.egg-info
+*.pyc
