@@ -25,7 +25,7 @@
         <meta name="video_type" content="application/x-shockwave-flash" />
     </tal:block>
 </head>
-<body>
+<body bottommargin="0" leftmargin="0" marginheight="0" marginwidth="0" rightmargin="0" topmargin="0">
 
 <metal:main>
     <tal:main-macro metal:define-macro="main"
