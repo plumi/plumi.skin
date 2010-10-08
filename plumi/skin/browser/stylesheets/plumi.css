@@ -656,3 +656,7 @@ div#featured-news-events .featuredHeader, div#featured-callouts .featuredHeader 
 #archetypes-fieldname-language {
     display:none;
 }
+
+div.documentActions {
+margin-top:-21px;
+}
