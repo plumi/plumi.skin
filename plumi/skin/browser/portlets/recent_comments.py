@@ -16,7 +16,7 @@ class RecentCommentPortlet(utils.BrowserView):
         typesToShow = 'Discussion Item'
         return self.request.get(
             'items',
-            portal_catalog.searchResults(sort_on='effective',
+            portal_catalog.searchResults(sort_on='modified',
                                          portal_type=typesToShow,
                                          sort_order='reverse',
                                          sort_limit=5)[:5])
