@@ -116,14 +116,12 @@
 
       />
 
-  <browser:page
-      for="*"
-      name="recent_comment_view"
-      class=".portlets.recent_comments.RecentCommentPortlet"
-      permission="zope2.View"
-      allowed_interface="Products.CMFPlone.browser.interfaces.IRecentPortlet"
-      layer=".interfaces.IThemeSpecific"
+  <include package="plone.portlet.collection"/>
 
+  <plone:portletRenderer
+      portlet="plone.portlet.collection.collection.ICollectionPortlet"
+      template="templates/collection.pt"
+      layer=".interfaces.IThemeSpecific"
       />
 
   <browser:page
