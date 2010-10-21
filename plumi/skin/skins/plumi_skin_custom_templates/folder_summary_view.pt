@@ -62,6 +62,7 @@
                                        item_type_class python: 'contenttype-' + normalizeString(item_type);
                                        item_modified item/ModificationDate;
                                        item_created item/CreationDate;
+                                       item_effective item/EffectiveDate|item/effective|item_created;
                                        item_wf_state        item/review_state|python: wtool.getInfoFor(item, 'review_state', '');
                                        item_wf_state_class python:'state-' + normalizeString(item_wf_state);
                                        item_creator item/Creator;
@@ -138,7 +139,7 @@
                           </span>
                         </tal:name>
                         &mdash;
-                        <span tal:replace="python:toLocalizedTime(item_modified,long_format=1)">
+                        <span tal:replace="python:toLocalizedTime(item_effective,long_format=1)">
                         August 16, 2001 at 23:35:59
                         </span>
                     </tal:newsitem>
