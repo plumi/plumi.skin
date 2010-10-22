@@ -10,7 +10,7 @@
 <tal:block metal:fill-slot="head_slot" >
     <meta name="title" tal:attributes="content here/title" />
     <meta name="description" tal:attributes="content here/description" />
-    <link rel="image_src" tal:condition="view/hasThumbnailImage" tal:attributes="href string:${here/absolute_url}/calloutImage_mini" />
+    <link rel="image_src" tal:condition="view/hasThumbnailImage" tal:attributes="href string:${here/absolute_url}/calloutImage" />
 </tal:block>
 <head>
     <metal:block fill-slot="column_two_slot" />
@@ -40,7 +40,7 @@
 
         <div>
             <div class="CalloutImageDiv">
-                <img tal:attributes="src string:${here/absolute_url}/calloutImage_mini;
+                <img tal:attributes="src string:${here/absolute_url}/calloutImage;
                                      alt here/calloutImageCaption;
                                      class string:CalloutImage"
                      tal:condition="python:view.hasThumbnailImage()" />

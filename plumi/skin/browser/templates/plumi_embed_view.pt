@@ -18,7 +18,7 @@
         <meta name="medium" content="video" />
         <meta name="title" tal:attributes="content here/title" />
         <meta name="description" tal:attributes="content here/description" />
-        <link rel="image_src" tal:condition="view/hasThumbnailImage" tal:attributes="href string:${here/absolute_url}/thumbnailImage_mini" />
+        <link rel="image_src" tal:condition="view/hasThumbnailImage" tal:attributes="href string:${here/absolute_url}/thumbnailImage_thumb" />
         <link rel="video_src" tal:attributes="href string:${swfplayer}?config={'embedded':'true','clip':'${mp4}','plugins':{'controls':{'url':'${swfcontrols}'}}}" /> 
         <meta name="video_height" content="300" /> <!-- TODO make these consistent across the board -->
         <meta name="video_width" content="400" />
@@ -38,7 +38,7 @@
           <div id="video-core" tal:define="transcoded python:view.transcoding('ogg') and view.transcoding('mp4');
                                      mp4 python:view.transcoding('mp4').replace('+','%2B'); 
                                      ogg python:view.transcoding('ogg');
-                                     thumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage_mini' or '';
+                                     thumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage_thumb' or '';
                                      fullThumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage' or ''">
 
             <tal:failed_transcode condition="not: mp4">
@@ -78,9 +78,7 @@
                             bufferLength:5
                         }
                     ]  
-                });
-            var code = flowplayer().embed().getEmbedCode(); 
-            document.getElementById('embedCode').innerHTML = code; ">
+                });">
             </script>
       </div> <!-- id=video-core -->
       

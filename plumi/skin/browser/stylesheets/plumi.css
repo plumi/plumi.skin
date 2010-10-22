@@ -640,6 +640,10 @@ div.documentActions {
     float:right;
 }
 
+.CalloutImage {
+    max-width: 150px;
+}
+
 dl.callout-categories li {
     display:inline;    
     border-bottom:1px solid #CCCCCC;
