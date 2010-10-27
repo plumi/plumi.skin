@@ -32,6 +32,8 @@
           </metal:field>
         </h1>
 
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
         <h4 class="documentDescription">
             <metal:field use-macro="python:here.widget('description', mode='view')">
             Description
