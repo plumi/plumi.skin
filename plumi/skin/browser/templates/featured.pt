@@ -54,7 +54,8 @@
 <!-- News and events -->
 <div id="featured-news-events"
      class="featured-block"
-     tal:define="results view/news_and_events">
+     tal:define="results view/news_and_events;
+                 toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
   <dl tal:repeat="obj results">
     <dt class="featuredHeader">

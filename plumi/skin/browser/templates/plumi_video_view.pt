@@ -10,6 +10,7 @@
 <tal:block metal:fill-slot="head_slot" 
            condition="python:view.transcoding('mp4')" 
            define="mp4 python:view.transcoding('mp4');
+                   portal context/@@plone_portal_state/portal;
                    swfplayer string:${portal/absolute_url}/%2B%2Bresource%2B%2Bplumi.skin.flowplayer/flowplayer-3.2.2.swf;
                    swfcontrols string:${portal/absolute_url}/%2B%2Bresource%2B%2Bplumi.skin.flowplayer/flowplayer.controls-3.2.1.swf">
     <meta name="medium" content="video" />
@@ -31,7 +32,9 @@
            tal:define="kssClassesView context/@@kss_field_decorator_view;
                        getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
                        templateId template/getId;
-                       fullDescription here/getFullDescription;">
+                       fullDescription here/getFullDescription;
+                       is_editable context/@@plone_context_state/is_editable;
+                       portal context/@@plone_portal_state/portal;">
 		<div class="roundborder rounded">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 

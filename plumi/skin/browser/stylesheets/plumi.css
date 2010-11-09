@@ -77,7 +77,6 @@ dd.portletFooter {
 }
 
 .portletHeader {
-  background: transparent url(++resource++plumi.skin.images/menu.gif) 0 0 repeat-x;
   line-height: 30px;
   display: block;
   height: 30px;
@@ -633,7 +632,8 @@ p.documentDescription {
 
 div.documentActions {
     border: none;
-    margin-top: -17px;
+    margin-top:-41px;
+    float:right;
 }
 
 .CalloutImageDiv {
@@ -661,6 +661,33 @@ div#featured-news-events .featuredHeader, div#featured-callouts .featuredHeader 
     display:none;
 }
 
-div.documentActions {
-margin-top:-21px;
+
+
+#category {
+display:none;
+}
+
+.portletNavigationTree .portletHeader {
+overflow:visible;
+width:165px;
+}
+
+#portal-siteactions {
+display:none;
+}
+
+#viewlet-above-content {
+display:none;
+}
+
+#portal-header #portal-personaltools-wrapper {
+display:none;
+}
+
+#portal-header #portal-languageselector {
+display:none;
+}
+
+#portal-header #portal-siteactions {
+display:inline;
 }

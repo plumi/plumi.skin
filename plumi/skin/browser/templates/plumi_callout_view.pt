@@ -22,7 +22,8 @@
            tal:define="kssClassesView context/@@kss_field_decorator_view;
                        getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
                        templateId template/getId;
-                       fullDescription here/bodyText;">
+                       fullDescription here/bodyText;
+                       is_editable context/@@plone_context_state/is_editable;">
 		<div class="roundborder rounded">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 

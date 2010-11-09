@@ -12,7 +12,7 @@
     meta_type="Filesystem Directory View"
     directory="plumi.skin:skins/plumi_skin_styles"/>
 
- <skin-path name="Plumi 3.0 Skin" based-on="Plone Default">
+ <skin-path name="Plumi 3.0 Skin" based-on="Plone Classic Theme">
   <layer name="plumi_skin_custom_images"
      insert-after="custom"/>
   <layer name="plumi_skin_custom_templates"

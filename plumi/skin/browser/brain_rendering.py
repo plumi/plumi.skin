@@ -27,17 +27,18 @@ class PlumiVideoBrain( Explicit ):
         self.__parent__ = provider
         self.categories = provider.get_categories_info(context['getCategories'])
         self.countries = None
+        self.request = getattr(self.context, "REQUEST", None)
         pprop = getUtility(IPropertiesTool)
         self.tt = getUtility(ITranscodeTool)
 
     def render_listing(self):
-        return self.template.__of__(self.context)(show_title=True,feature_video=False)
+        return self.template.__of__(self.request)(show_title=True,feature_video=False)
     
     def render(self):
-        return self.template.__of__(self.context)(show_title=False,feature_video=False)
+        return self.template.__of__(self.request)(show_title=False,feature_video=False)
 
     def render_feature_video(self):
-        return self.template.__of__(self.context)(show_title=False,feature_video=True)
+        return self.template.__of__(self.request)(show_title=False,feature_video=True)
 
     @property
     def country_dict(self):

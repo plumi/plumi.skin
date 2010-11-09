@@ -2,10 +2,10 @@ from Products.CMFPlone.browser.interfaces import IRecentPortlet
 from Products.CMFCore.utils import getToolByName
 
 from zope.interface import implements
-from Products.CMFPlone import utils
+from Products.Five import BrowserView
 
 
-class RecentCommentPortlet(utils.BrowserView):
+class RecentCommentPortlet(BrowserView):
     implements(IRecentPortlet)
 
     def results(self):

@@ -58,7 +58,10 @@
     tal:define="errors options/state/getErrors;
 		view context/author_view;">
     <tal:main-macro metal:define-macro="main"
-                    tal:define="url_unquote_plus python:modules['Products.PythonScripts.standard'].url_unquote_plus;
+                    tal:define="mtool context/portal_membership;
+                                portal context/@@plone_portal_state/portal;
+                                member context/@@plone_portal_state/member;
+                                url_unquote_plus python:modules['Products.PythonScripts.standard'].url_unquote_plus;
                                 author python:(len(request.traverse_subpath) > 0 and url_unquote_plus(request.traverse_subpath[0])) or request.get('author', None);
                                 portrait python: mtool.getPersonalPortrait(author);
                                 portal_types portal/portal_types;
