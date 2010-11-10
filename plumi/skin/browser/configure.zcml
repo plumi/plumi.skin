@@ -231,12 +231,5 @@
 
 />
 
-  <browser:viewlet
-     name="plonebookmarklets.documentactions"
-     manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
-     permission="zope2.View"
-     class=".viewlets.BookmarkletsActionsViewlet"
-     layer=".interfaces.IThemeSpecific"
-     />
 
 </configure>
