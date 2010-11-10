@@ -5,7 +5,7 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="Plumi Skin"
+      title="Plumi skin"
       directory="profiles/default"
       description='Automatically installed by the Plumi package. No need to install manually.'
       provides="Products.GenericSetup.interfaces.EXTENSION"
