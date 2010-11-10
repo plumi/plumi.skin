@@ -19,11 +19,10 @@ class CategoriesProvider( BrowserView ):
         
         # Categories and genres utils
         vocabulary_tool = getToolByName(context, "portal_vocabularies")
+        self.countries_voc = vocabulary_tool.getVocabularyByName('video_countries')
         self.cats_voc = vocabulary_tool.getVocabularyByName('video_categories')
         self.cats_url = "%s/%s/%s/" % (self.portal_url, TOPLEVEL_TAXONOMY_FOLDER, 
                                        CATEGORIES_FOLDER)
-
-        self.country_tool = getToolByName(context, "portal_countryutils")
 
     def get_categories_info(self, cats):
         #make a check its a tuple        
@@ -38,7 +37,7 @@ class CategoriesProvider( BrowserView ):
         """
         if not country_id or len(country_id.strip())==0:
             return None
-        country = self.country_tool.getCountryByIsoCode(country_id)
+        country = self.countries_voc[country_id]
         url = "%s/%s/%s/" % (self.portal_url, TOPLEVEL_TAXONOMY_FOLDER, COUNTRIES_FOLDER)
         return dict(id = country_id, url = url + country_id, 
-                    title = country.name)
+                    title = country.Title())
