@@ -190,13 +190,13 @@ class VideoView( BrowserView ):
     def get_country_info(self, country_id):
         """Fake the genres/categories process to return the country infos
         """
-        country_tool = getToolByName(self.context, "portal_countryutils")
-        country = country_tool.getCountryByIsoCode(country_id)
+        voc = self.vocab_tool.getVocabularyByName('video_countries')
+        country = voc[country_id]
         url = "%s/%s/%s/" % (self.portal_url,
                              TOPLEVEL_TAXONOMY_FOLDER, COUNTRIES_FOLDER)
         return dict(id = country_id,
                     url = url + country_id,
-                    title = country.name)
+                    title = country.Title())
 
 
     def get_language_info(self, lang_id):

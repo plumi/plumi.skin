@@ -3,7 +3,7 @@
   <import-step id="plumi.skin.various"
                version="20090505-01"
                handler="plumi.skin.setuphandlers.setupVarious"
-               title="Plumi 0.3 Skin: miscellaneous import steps">
+               title="Plumi skin: miscellaneous import steps">
     <dependency step="skins" />
     Various import steps that are not handled by GS import/export
     handlers.
