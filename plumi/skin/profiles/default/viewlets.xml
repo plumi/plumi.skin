@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <object>
- <hidden manager="plone.belowcontentbody" skinname="Plumi 3.0 Skin">
-   <viewlet name="plone.abovecontenttitle.documentactions"/>
-   <viewlet name="plonebookmarklets.documentactions" />
- </hidden>
- <hidden manager="plone.belowcontenttitle" skinname="Plumi 3.0 Skin">
-   <viewlet name="plone.belowcontenttitle.keywords"/>
- </hidden> 
+  <hidden manager="plone.abovecontent" skinname="Plumi 3.0 Skin">
+    <viewlet name="plone.path_bar" />
+  </hidden>
+  <order manager="plone.abovecontent" skinname="*">
+    <viewlet name="plone.abovecontenttitle.documentactions" />
+  </order>
 </object>
 

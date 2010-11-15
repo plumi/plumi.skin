@@ -231,5 +231,13 @@
 
 />
 
+<browser:viewlet
+    name="plone.abovecontenttitle.documentactions"
+    manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+    template="templates/document_actions.pt"
+    class="plone.app.layout.viewlets.content.DocumentActionsViewlet"
+    permission="zope2.View"
+    layer=".interfaces.IThemeSpecific"
+    />
 
 </configure>

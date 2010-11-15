@@ -632,7 +632,7 @@ p.documentDescription {
 
 div.documentActions {
     border: none;
-    margin-top:-41px;
+    margin-top:0px;
     float:right;
 }
 
