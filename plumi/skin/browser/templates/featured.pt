@@ -6,12 +6,12 @@
 
 <metal:main fill-slot="main">
 
-<div id="featured-front-page">
+<div id="featured-front-page" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
 <!-- featured videos -->
 <div id="featured-item"
      class="featured-block videos-listing roundborder rounded"
-     tal:define="featitems view/featured_items"
+     tal:define="featitems view/featured_items;"
      tal:condition="nocall: featitems">
 
   <dl id="featured-video"
@@ -54,8 +54,7 @@
 <!-- News and events -->
 <div id="featured-news-events"
      class="featured-block"
-     tal:define="results view/news_and_events;
-                 toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+     tal:define="results view/news_and_events;">
 
   <dl tal:repeat="obj results">
     <dt class="featuredHeader">
