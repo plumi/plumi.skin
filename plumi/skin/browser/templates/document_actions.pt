@@ -7,7 +7,6 @@
 
     <ul tal:define="normalizeString nocall: context/@@plone/normalizeString">
     <tal:actions repeat="daction view/actions">
-        <tal:condition tal:condition="python:daction['id'] != 'bookmarklets'">
         <li tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
             <a href=""
                tal:define="icon daction/icon|nothing"
@@ -19,21 +18,6 @@
                     </tal:action>	                       
             </a>
         </li>
-	</tal:condition>
-        <tal:condition tal:condition="python:daction['id'] == 'bookmarklets'">
-
-     	    <li i18n:domain="PloneBookmarklets" id="document-action-bookmarklets">
-            	<a style="cursor:pointer;"
-                   href="javascript:void(0);" id="toggleBookmarks"
-               	   tal:define="title daction/title; icon daction/icon|nothing">
-               	   <img tal:condition="icon" tal:attributes="src icon; alt daction/title; title daction/title"/>
-               	</a>
-            	   <div id="toggledBookmarks"> 
-              	       <div tal:replace="structure here/@@bookmarklets" />
-            	   </div>
-            </li>
-
-	</tal:condition>
     </tal:actions>
 
 
