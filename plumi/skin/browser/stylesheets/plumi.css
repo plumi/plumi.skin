@@ -151,7 +151,7 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
 /** Main content zone **/
 
 #content {
-  margin: 0em !important;
+  margin: 0 10px !important;
   padding: 0 ! important;
 }
 
@@ -160,7 +160,9 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
   margin: 0 0 0em;
 }
 
-
+#edit-bar {
+  margin: 0 10px !important;
+}
 
 /***************/
 /* Site Header */
@@ -690,4 +692,8 @@ display:none;
 
 #portal-header #portal-siteactions {
 display:inline;
+}
+
+#form-widgets-text {
+height:150px;
 }
