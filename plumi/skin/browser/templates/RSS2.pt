@@ -17,8 +17,7 @@
                          ">
 	
         <title tal:define="portal_title here/portal_properties/title;
-            here_title here/title_or_id;
-            template_title template/title_or_id;"
+            here_title here/title_or_id;"
             tal:content="string:${here/title} at $portal_title Channel">Title of page</title>
     
         <link tal:content="here/absolute_url"></link>
