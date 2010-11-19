@@ -27,22 +27,6 @@
       layer=".interfaces.IThemeSpecific"
       />
 
- <browser:page
-          name="transmission.xml"
-      for="OFS.interfaces.IFolder"
-      class=".rssview.RSSView"
-      template="templates/transmission.pt"
-      permission="zope2.View"
-      />
-
-  <browser:page
-          name="transmission_template"
-      for="OFS.interfaces.IFolder"
-      class=".rssview.RSSView"
-      template="templates/transmission_template.pt"
-      permission="zope2.View"
-      />
-
   <include package="plone.portlet.collection"/>
 
   <plone:portletRenderer
