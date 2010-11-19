@@ -44,13 +44,5 @@
     manager="plone.leftcolumn" type="portlets.Navigation">
  </assignment>
 
-<assignment
-     remove="True"
-     manager="plone.rightcolumn"
-     category="context"
-     key="/"
-     type="portlets.News"
-     name="news"
-     />
 
 </portlets>

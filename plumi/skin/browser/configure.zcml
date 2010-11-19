@@ -1,7 +1,6 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser"
            xmlns:plone="http://namespaces.plone.org/plone"
-           xmlns:five="http://namespaces.zope.org/five"
  	   i18n_domain="plumi">
 
   <!-- 'Plumi 3.0 Skin' Zope 3 browser layer -->
@@ -13,13 +12,6 @@
   
   <!-- Viewlets registration -->
   <!-- Zope 3 browser resources -->
-
-  <!-- Resource directory for flowplayer -->
-  <browser:resourceDirectory
-      name="plumi.skin.flowplayer"
-      directory="flowplayer"
-      layer=".interfaces.IThemeSpecific"
-      />
 
   <!-- Resource directory for images -->
   <browser:resourceDirectory
@@ -35,18 +27,6 @@
       layer=".interfaces.IThemeSpecific"
       />
 
- <!-- old Plumi 0.2.x Plumi Skin zcml -->
- <five:implements
-      class="Products.ZCatalog.CatalogBrains.AbstractCatalogBrain"
-      interface=".interfaces.IAbstractCatalogBrain"
-      />
-
- <adapter factory=".adapters.TopicVideosProvider"
-           provides=".interfaces.IVideosProvider" />
-
- <adapter factory=".adapters.OrderedFolderVideosProvider"
-           provides=".interfaces.IVideosProvider" />
-
  <browser:page
           name="transmission.xml"
       for="OFS.interfaces.IFolder"
@@ -54,66 +34,13 @@
       template="templates/transmission.pt"
       permission="zope2.View"
       />
+
   <browser:page
           name="transmission_template"
       for="OFS.interfaces.IFolder"
       class=".rssview.RSSView"
       template="templates/transmission_template.pt"
       permission="zope2.View"
-      />
-
-  <browser:page
-      name="RSS2"
-      for="OFS.interfaces.IFolder"
-      class=".rssview.RSSView"
-      template="templates/RSS2.pt"
-      permission="zope2.View"
-      />
-
-  <browser:page
-      name="RSS"
-      for="plumi.content.interfaces.plumivideofolder.IPlumiVideoFolder"
-      class=".rssview.RSSView"
-      template="templates/RSS.pt"
-      permission="zope2.View"
-      />
-
-<!--
- <browser:page
-      name="RSS"
-      for="Products.ContentLicensing.DublinCoreExtensions.interfaces.ILicensable"
-      class=".rssview.RSSView"
-      template="../../ContentLicensing/browser/rss.pt"
-      permission="zope2.View"
-      />
--->
-
-  <browser:page
-      name="rss_template"
-      for="collective.contentlicensing.DublinCoreExtensions.interfaces.ILicensable"
-      class=".rssview.RSSView"
-      template="templates/rss_template.pt"
-      permission="zope2.View"
-      />
-
-  <browser:page
-      for="*"
-      name="recent_news_view"
-      class=".portlets.recent_news.RecentNewsPortlet"
-      permission="zope.Public"
-      allowed_interface="Products.CMFPlone.browser.interfaces.IRecentPortlet"
-      layer=".interfaces.IThemeSpecific"
-
-      />
-
-  <browser:page
-      for="*"
-      name="recent_callouts_view"
-      class=".portlets.recent_callouts.RecentCalloutsPortlet"
-      permission="zope.Public"
-      allowed_interface="Products.CMFPlone.browser.interfaces.IRecentPortlet"
-      layer=".interfaces.IThemeSpecific"
-
       />
 
   <include package="plone.portlet.collection"/>
@@ -125,90 +52,12 @@
       />
 
   <browser:page
-      for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
-      name="featured_videos_homepage"
-      class=".featured_videos.FeaturedVideosPage"
-      template="templates/featured.pt"
-      permission="zope2.View"
-      allowed_interface=".interfaces.ITopicsProvider"
-      layer=".interfaces.IThemeSpecific"
-
-      />
-
-  <browser:page
-      for="zope.app.container.interfaces.IContainer"
-      name="video_listing_view"
-      template="templates/video_listing_view.pt"
-      permission="zope2.View"
-      layer=".interfaces.IThemeSpecific"
-
-      />
-
-  <browser:page
-      for="zope.app.container.interfaces.IContainer"
-      name="video_listing"
-      class=".videos_listing.VideosListing"
-      template="templates/video_listing.pt"
-      permission="zope2.View"
-      allowed_attributes="videos empty parent_url renderers"
-      layer=".interfaces.IThemeSpecific"
-      />
-
-  <browser:page
-      name="video_view"
-      for="plumi.content.interfaces.IPlumiVideo"
-      class=".video.VideoView"
-      template="templates/plumi_video_view.pt"
-      permission="zope2.View"
-      layer=".interfaces.IThemeSpecific"
-      />
-
-  <browser:page
-      name="embed_view"
-      for="plumi.content.interfaces.IPlumiVideo"
-      class=".video.VideoView"
-      template="templates/plumi_embed_view.pt"
-      permission="zope2.View"
-      layer=".interfaces.IThemeSpecific"
-      />
-
-  <browser:page
-      name="callout_view"
-      for="plumi.content.interfaces.IPlumiCallOut"
-      class=".callout.CalloutView"
-      template="templates/plumi_callout_view.pt"
-      permission="zope2.View"
-      layer=".interfaces.IThemeSpecific"
-      />
-   
-  <browser:page
       for="*"
       name="author_listing"
       class=".authorlisting.AuthorListing"
       template="templates/authorlist.pt"
       permission="zope2.View"
       />
-
-  <browser:page
-      for="*"
-      name="author_view"
-      class=".author.AuthorPage"
-      permission="zope2.View"
-      allowed_interface=".interfaces.IAuthorPage"
-      layer=".interfaces.IThemeSpecific"
-
-      />
-
-  <browser:page
-      name="flowplayerConfig.js"
-      for="plumi.content.interfaces.IPlumiVideo"
-      class=".video.flowplayerConfig"
-      permission="zope2.View"
-      layer=".interfaces.IThemeSpecific"
-      />
-
-  <adapter factory=".brain_rendering.PlumiVideoBrain"
-	   provides=".interfaces.IPlumiVideoBrain" />
 
 <browser:viewlet
     name="plone.colophon"
