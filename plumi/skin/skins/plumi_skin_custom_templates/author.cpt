@@ -315,7 +315,7 @@
 
             <p tal:condition="python:mtool.getHomeFolder(id=author)">
               <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/callouts')"
-                 i18n:translate="label_author_internal_video_page">All callouts from this author&hellip;</a>
+                 i18n:translate="label_author_internal_callout_page">All callouts from this author&hellip;</a>
             </p>
 
 	  </dl>

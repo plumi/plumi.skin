@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.13'
+version = '4.0beta'
 
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
@@ -22,7 +22,7 @@ long_description = (
 
 setup(name='plumi.skin',
       version=version,
-      description="A Plumi 3.1 Skin Product",
+      description="Plumi 4.0 Skin Product",
       long_description=long_description,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[

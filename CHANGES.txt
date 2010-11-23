@@ -1,3 +1,13 @@
+4.0beta (2010-11-23)
+=====================
+
+Release for Plumi 4.0beta [Dimitris Moraitis]
+
+ - Plone 4 compatibility [dimo, clopy]
+ - Most Plumi specific UI elements were moved to plumi.content [clopy]
+ - Dropped dependencies on ATCountryWidget and plone.bookmarklets [dimo]
+
+
 0.13 (2010-10-27)
 =================
 
