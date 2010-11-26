@@ -23,7 +23,7 @@
         </a>
 
 	  <div class="documentDescription"
-	       tal:content="structure here/Description" />
+	       tal:content="here/Description" />
 
     <div tal:content="structure here/getText|nothing" />
 	  <tal:listing tal:define="template_id string:'video_listing_view'" replace="structure context/@@video_listing" />
