@@ -678,12 +678,8 @@ width:165px;
 display:none;
 }
 
-#viewlet-above-content {
-display:none;
-}
-
-#portal-header #portal-personaltools-wrapper {
-display:none;
+#content ul {
+    margin: 1px 0 0 1.5em;
 }
 
 #portal-header #portal-languageselector {

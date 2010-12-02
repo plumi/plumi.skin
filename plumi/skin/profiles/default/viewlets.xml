@@ -24,8 +24,14 @@
   <hidden manager="plone.abovecontent" skinname="Plumi 3.0 Skin">
     <viewlet name="plone.path_bar" />
   </hidden>
-  <order manager="plone.abovecontent" skinname="*">
+  <hidden manager="plone.belowcontentbody" skinname="*">
     <viewlet name="plone.abovecontenttitle.documentactions" />
+  </hidden>
+  <hidden manager="plone.portalheader" skinname="Plumi 3.0 Skin">
+    <viewlet name="plone.personal_bar"/>
+  </hidden>
+  <order manager="plone.abovecontenttitle" skinname="Plumi 3.0 Skin">
+    <viewlet name="plone.abovecontenttitle.documentactions" insert-before="*" />
   </order>
 </object>
 
