@@ -663,8 +663,6 @@ div#featured-news-events .featuredHeader, div#featured-callouts .featuredHeader 
     display:none;
 }
 
-
-
 #category {
 display:none;
 }
@@ -692,4 +690,8 @@ display:inline;
 
 #form-widgets-text {
 height:150px;
+}
+
+#login-form {
+    width: 20em;
 }
