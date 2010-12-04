@@ -537,7 +537,7 @@ a#featured-video-more {
     border: 0;
     padding-right: 0.2em;
     padding-left: 16px;
-    background: transparent url(++resource++plumi.skin.images/link_ico.gif) left 50% no-repeat;
+    background: transparent url(/link_ico.gif) left 50% no-repeat;
 }
 
 #featured-item {
@@ -553,7 +553,7 @@ a#featured-video-more {
 
 .featuredFooter a:visited,
 .featuredFooter a {
-    background: transparent url(++resource++plumi.skin.images/tiny_video_icon.gif) 5px 50% no-repeat;
+    background: transparent url(/tiny_video_icon.gif) 5px 50% no-repeat;
     color: #444 !important;
     border: 1px solid #ddd !important;
     padding: 0.3em 0.4em 0.3em 22px;
