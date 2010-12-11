@@ -7,7 +7,7 @@
       name="default"
       title="Plumi skin"
       directory="profiles/default"
-      description='Automatically installed by the Plumi package. No need to install manually.'
+      description='Install this if you want to use the default Plumi skin'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
