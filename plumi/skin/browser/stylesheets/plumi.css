@@ -99,7 +99,7 @@ dt.portletHeader a {
   display: block;
   text-align: left;
   text-decoration: none;
-  padding: 0.6em 0.5em 0.7em 0;
+  padding: 0.4em 0.5em 0.7em 0;
   margin-left: 10px;
 
 }
@@ -153,6 +153,14 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
 #content {
   margin: 0 10px !important;
   padding: 0 ! important;
+}
+
+.documentEditable #content {
+  border: none;
+}
+
+dl.portalMessage {
+    margin: 1em 1em 1.5em 2em;
 }
 
 #portal-column-content {
@@ -472,6 +480,7 @@ cursor: pointer;
 
 .featured-block dd {
     margin-left: 0.3em;
+    margin-top: .5em;
 }
 
 .featuredItem {

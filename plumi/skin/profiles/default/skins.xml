@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <object name="portal_skins" allow_any="False" cookie_persistence="False"
-   default_skin="Plumi 3.0 Skin">
+   default_skin="Plumi Skin">
 
  <object name="plumi_skin_custom_images"
     meta_type="Filesystem Directory View"
@@ -12,7 +12,7 @@
     meta_type="Filesystem Directory View"
     directory="plumi.skin:skins/plumi_skin_styles"/>
 
- <skin-path name="Plumi 3.0 Skin" based-on="Plone Classic Theme">
+ <skin-path name="Plumi Skin" based-on="Plone Classic Theme">
   <layer name="plumi_skin_custom_images"
      insert-after="custom"/>
   <layer name="plumi_skin_custom_templates"

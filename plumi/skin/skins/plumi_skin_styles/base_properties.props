@@ -1,6 +1,6 @@
-title:string=Plumi 3.0 Skin's color, font, logo and border defaults
+title:string=Plumi Skin's color, font, logo and border defaults
 
-plone_skin:string=Plumi 3.0 Skin
+plone_skin:string=Plumi Skin
 
 logoName:string=logo.gif
 
