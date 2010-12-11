@@ -173,7 +173,7 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
 #portal-personaltools {
   border: 0;
   margin: 0pt;
-  padding: 0em 3em;
+  padding: 0em 2.2em;
   background-color: transparent;
   position: relative;
   top: 0;
@@ -680,10 +680,6 @@ display:none;
     margin: 1px 0 0 1.5em;
 }
 
-#portal-header #portal-languageselector {
-display:none;
-}
-
 #portal-header #portal-siteactions {
 display:inline;
 }
@@ -694,4 +690,9 @@ height:150px;
 
 #login-form {
     width: 20em;
+}
+
+#portal-languageselector {
+    float: right;
+    margin: -2.2em 2.3em;
 }

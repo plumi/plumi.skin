@@ -14,7 +14,6 @@
  <order manager="plone.portaltop" skinname="Plumi 3.0 Skin">
   <viewlet name="plone.header"/>
   <viewlet name="plone.personal_bar"/>
-  <viewlet name="plone.app.i18n.locales.languageselector"/>
   <viewlet name="plone.path_bar"/>
  </order>
  <order manager="plone.contentviews" skinname="Plumi 3.0 Skin">
