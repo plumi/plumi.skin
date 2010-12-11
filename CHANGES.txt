@@ -1,5 +1,19 @@
+4.0rc1 (2010-12-11)
+===================
+
+Release for Plumi 4.0rc1 [Dimitris Moraitis]
+
+ - fix login form alignment [clopy]
+ - fix broken links on css [clopy]
+ - fix javascript bug [clopy]
+ - clean up viewlets [clopy]
+ - reposition language selector [dimo]
+ - drop version number from skin name [dimo]
+ - minor css adjustments [dimo]
+
+
 4.0b1 (2010-11-23)
-=====================
+==================
 
 Release for Plumi 4.0b1 [Dimitris Moraitis]
 
