@@ -707,7 +707,7 @@ height:150px;
 }
 
 .contenttype-plumi-video-folder, .contenttype-plumi-callout-folder {
-    background: url(++resource++plumi.skin.images/folder_icon.gif) no-repeat scroll 0 0 transparent;
+    background: url("++resource++plumi.skin.images/contenttypes-sprite.png") no-repeat scroll 0 -644px transparent;
     display: inline-block;
     line-height: 2em;
     padding-left: 20px !important;

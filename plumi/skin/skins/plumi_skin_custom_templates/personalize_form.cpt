@@ -16,7 +16,9 @@
 <body>
 
 <metal:main fill-slot="content"
-            tal:define="errors options/state/getErrors;">
+            tal:define="errors options/state/getErrors;
+                        member context/@@plone_portal_state/member;
+                        template_id template/getId;">
     <tal:main-macro metal:define-macro="main">
 
      <div id="region-content" class="documentEditable">
