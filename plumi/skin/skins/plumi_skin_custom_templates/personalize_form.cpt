@@ -18,7 +18,9 @@
 <metal:main fill-slot="content"
             tal:define="errors options/state/getErrors;
                         member context/@@plone_portal_state/member;
-                        template_id template/getId;">
+                        template_id template/getId;
+			portal context/@@plone_portal_state/portal;
+                        mtool context/portal_membership;">
     <tal:main-macro metal:define-macro="main">
 
      <div id="region-content" class="documentEditable">
@@ -163,25 +165,27 @@
 
                         </div>
 
-			  <div class="field"
-				 tal:define="error errors/location | nothing;
-					     location python:request.get('location', member.getProperty('location', ''));"
+
+			    <div class="field"
+				 tal:define="error errors/countries | nothing;
+					     countries_selection python:context.portal_memberdata.getProperty('countries_selection', '');
+					     countries python:request.get('countries', member.getProperty('countries', ''));"
 				 tal:attributes="class python:test(error, 'field error', 'field')">
 
-				<label for="location" i18n:translate="label_location">Country</label>
+				<label for="countries" i18n:translate="">Country</label>
 
 				<div tal:content="error">Validation error output</div>
 
-				  <select id="location" name="location" tabindex="">
-				     <option tal:content="location" />
-				    <optgroup tal:repeat="area here/portal_countryutils/listAreas"
-					      tal:attributes="label area/name">
-				     <option tal:repeat="country area/countries"
-					     tal:content="country/name">Erksinville, Australia
-				     </option>
-				    </optgroup>
-				  </select>
-
+				<select 
+					name="countries:list:string" 
+					id="countries">
+				    <tal:block tal:repeat="country countries_selection">
+					<option 
+					    tal:content="country"
+					    tal:attributes="selected python:test(country in countries, 'selected', None);">
+					</option>
+				    </tal:block>
+				 </select>
 			    </div>
 
 
@@ -304,10 +308,8 @@
 			       id="street"
 			       name="street"
 			       size="50"
-			       tabindex=""
 			       value="member.street html_quote"
-			       tal:attributes="value street;
-					       tabindex tabindex/next;"
+			       tal:attributes="value street;"
 			       />
 
 
@@ -328,10 +330,8 @@
                        id="postcode"
                        name="postcode"
                        size="25"
-                       tabindex=""
                        value="member.postcode html_quote"
-                       tal:attributes="value postcode;
-                                       tabindex tabindex/next;"
+                       tal:attributes="value postcode;"
                        />
 
             </div>
@@ -349,10 +349,8 @@
                        id="phone"
                        name="phone"
                        size="25"
-                       tabindex=""
                        value="member.phone html_quote"
-                       tal:attributes="value phone;
-                                       tabindex tabindex/next;"
+                       tal:attributes="value phone;"
                        />
 
             </div>
@@ -377,9 +375,7 @@
                         name="genre_interests:list:string" 
                         multiple="multiple" 
                         size="5"
-                        id="genre_interests"
-                        tabindex=""
-                        tal:attributes="tabindex tabindex/next;">
+                        id="genre_interests">
                     <tal:block tal:repeat="genre genre_interests_selection">
                         <option 
                             tal:content="genre"
@@ -410,9 +406,7 @@
                         name="activities:list:string" 
                         multiple="multiple" 
                         size="5"
-                        id="activities"
-                        tabindex=""
-                        tal:attributes="tabindex tabindex/next;">
+                        id="activities">
                     <tal:block tal:repeat="activity activities_selection">
                         <option
                             tal:content="activity"
@@ -441,9 +435,7 @@
                         name="media_formats:list:string" 
                         multiple="multiple" 
                         size="5"
-                        id="media_formats"
-                        tabindex=""
-                        tal:attributes="tabindex tabindex/next;">
+                        id="media_formats">
                     <tal:block tal:repeat="media_format media_formats_selection">
                         <option 
                             tal:content="media_format"
