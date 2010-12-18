@@ -202,6 +202,19 @@
 			    <br />
 		</tal:url>
 
+		<tal:homepages condition="view/author_homepages|nothing"
+				      i18n:translate="">
+			    URLS:
+			    <div tal:repeat="homepage view/author_homepages_display">
+			       <a tal:attributes="href homepage"
+                      tal:content="homepage">
+				Some URL
+			    </a>
+                </div>
+
+			    <br />
+		</tal:homepages>
+
                 <tal:street condition="view/author_street|nothing">
                     <span class="street_label" i18n:translate="">Address : </span>
                     <span tal:content="view/author_street" class="author_street" >
