@@ -202,11 +202,12 @@
 			    <br />
 		</tal:url>
 
-		<tal:homepages condition="view/author_homepages|nothing"
+		<tal:homepages condition="view/author_homepages_display|nothing"
 				      i18n:translate="">
-			    URLS:
-			    <div tal:repeat="homepage view/author_homepages_display">
-			       <a tal:attributes="href homepage"
+			    <div id="other-homepages"
+                     tal:repeat="homepage view/author_homepages_display">
+			       <a tal:attributes="href homepage;
+                                      class python:context.isSocialNetworkURL(homepage)"
                       tal:content="homepage">
 				Some URL
 			    </a>
