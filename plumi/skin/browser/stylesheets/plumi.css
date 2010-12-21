@@ -722,25 +722,25 @@ height:150px;
 }
 
 .myspace-link {
-    background: url(myspace_icon.gif) no-repeat left 3px;
+    background: url("++resource++plumi.skin.images/myspace_icon.gif") no-repeat left 3px;
 }
 
 .facebook-link {
-    background: url(facebook_icon.gif) no-repeat left 3px;
+    background: url("++resource++plumi.skin.images/facebook_icon.gif") no-repeat left 3px;
 }
 
 .twitter-link {
-    background: url(twitter_icon.gif) no-repeat left 3px;
+    background: url("++resource++plumi.skin.images/twitter_icon.gif") no-repeat left 3px;
 }
 
 .orkut-link {
-    background: url(orkut_icon.gif) no-repeat left 3px;
+    background: url("++resource++plumi.skin.images/orkut_icon.gif") no-repeat left 3px;
 }
 
 .delicious-link {
-    background: url(delicious_icon.gif) no-repeat left 3px;
+    background: url("++resource++plumi.skin.images/delicious_icon.gif") no-repeat left 3px;
 }
 
 .homepage-link {
-    background: url(homepage_icon.gif) no-repeat left 3px;
+    background: url("++resource++plumi.skin.images/homepage_icon.gif") no-repeat left 3px;
 }
