@@ -1,3 +1,16 @@
+4.0rc2 (2010-12-23)
+===================
+
+Release for Plumi 4.0rc1 [Dimitris Moraitis]
+
+ - fix missing definitions [clopy]
+ - Added homepages as a lines field to memberdata, which is aimed at containing URL's of members other homepages, for example Facebook, Myspace, Twitter, Kaskus [axxs]
+ - fix login form allignment issue on safari [clopy]
+ - update personalize form for plone 4 [clopy]
+ - added default plone folder icon for custom folderish types [clopy]
+ - add custom folders icon to stylesheet [clopy]
+
+
 4.0rc1 (2010-12-11)
 ===================
 
