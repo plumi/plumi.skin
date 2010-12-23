@@ -712,3 +712,7 @@ height:150px;
     line-height: 2em;
     padding-left: 20px !important;
 }
+
+.icons-on .contenttype-event, .icons-on .contenttype-news-item {
+    background: none;
+}
