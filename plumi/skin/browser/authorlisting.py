@@ -33,7 +33,13 @@ class AuthorListing(BrowserView):
                 resultDict['userid'] = user_id
                 resultDict['city'] = user.getProperty('city')
                 resultDict['location'] = user.getProperty('location')           
-                resultDict['home_folder'] = mtool.getHomeFolder(id=user_id).absolute_url()
-                resultDict['user_portrait'] = mtool.getPersonalPortrait(user_id).absolute_url()
+                if mtool.getHomeFolder(id=user_id):
+                    resultDict['home_folder'] = mtool.getHomeFolder(id=user_id).absolute_url()
+                else:
+                    resultDict['home_folder'] =''
+                if mtool.getPersonalPortrait(user_id):
+                    resultDict['user_portrait'] = mtool.getPersonalPortrait(user_id).absolute_url()
+                else:
+                    resultDict['user_portrait'] = ''
                 resultList.append(resultDict)
         return resultList
