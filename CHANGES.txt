@@ -1,7 +1,16 @@
+4.0rc3 (2010-12-23)
+===================
+
+Release for Plumi 4.0rc2 [Dimitris Moraitis]
+
+ - fix authorlisting error if a user didn't have a member folder [clopy]
+ - remove duplicate icons for news and events [clopy]
+
+
 4.0rc2 (2010-12-23)
 ===================
 
-Release for Plumi 4.0rc1 [Dimitris Moraitis]
+Release for Plumi 4.0rc2 [Dimitris Moraitis]
 
  - fix missing definitions [clopy]
  - Added homepages as a lines field to memberdata, which is aimed at containing URL's of members other homepages, for example Facebook, Myspace, Twitter, Kaskus [axxs]
