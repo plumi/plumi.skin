@@ -199,11 +199,13 @@
 				Some URL
 			    </a>
 
-			    <br />
+			    <p />
 		</tal:url>
-
+                
 		<tal:homepages condition="view/author_homepages_display|nothing"
 				      i18n:translate="">
+                <div id="other-homepages-title">Website</div>
+                <div id="other-homepages-blurb">Social Networking and Blogs</div>
 			    <div id="other-homepages"
                      tal:repeat="homepage view/author_homepages_display">
 			       <a tal:attributes="href homepage;

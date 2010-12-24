@@ -300,10 +300,10 @@
                                          homepages python:request.get('homepages', member.getProperty('homepages', ''));"
                              tal:attributes="class python:test(error, 'field error', 'field')">
 
-                            <label for="homepages" i18n:translate="label_homepages">Homepages</label>
+                            <label for="homepages" i18n:translate="label_homepages">Social Networks and Blogs</label>
 
                             <div class="formHelp" i18n:translate="help_homepages">
-                        List of homepages you may have, for example Twitter, Facebook and Myspace.
+                            Enter URLs for your websites, blogs and social networks such as Facebook and Twitter
                             </div>
 
                             <div tal:content="error">Validation error output</div>
