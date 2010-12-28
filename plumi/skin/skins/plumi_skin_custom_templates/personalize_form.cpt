@@ -296,63 +296,6 @@
 
                         </div>
 
-            <div class="field"
-                             tal:define="error errors/homepages | nothing;
-                                         homepages python:request.get('homepages', member.getProperty('homepages', ''));"
-                             tal:attributes="class python:test(error, 'field error', 'field')">
-
-                            <label for="homepages" i18n:translate="label_homepages">Homepages</label>
-
-                            <div class="formHelp" i18n:translate="help_homepages">
-                        List of homepages you may have, for example Twitter, Facebook and Myspace.
-                            </div>
-
-                            <div tal:content="error">Validation error output</div>
-
-                            <script type="text/javascript">
-
-                                function addInput() {
-                                    var ni = document.getElementById('homepage-inputs');
-                                    var numi = document.getElementById('theValue');
-                                    var num = (document.getElementById("theValue").value -1)+ 2;
-                                    numi.value = num;
-                                    var divIdName = "my"+num+"Div";
-                                    var newdiv = document.createElement('div');
-                                    newdiv.setAttribute("id",divIdName);
-                                    newdiv.innerHTML = "<input type=\"text\" name=\"homepages:string:lines\"/> <a href=\"javascript:;\" onclick=\"removeElement(\'"+divIdName+"\')\">x<" + "/a>";
-                                    ni.appendChild(newdiv);
-                                    }
- 
-                                function removeElement(divNum) {
-                                    var d = document.getElementById('homepage-inputs');
-                                    var olddiv = document.getElementById(divNum);
-                                    d.removeChild(olddiv);
-                                    }
-
-                            </script>
-
-                                    <div id="homepage-inputs"> 
-                                    <div tal:repeat="url homepages"
-                                         tal:attributes="id string:${repeat/url/index}-homepage-button">
-                                        <input type="text" 
-                                               name="homepages:string:lines" 
-                                               tal:attributes="value url"/>
-                                               <a href="javascript:;" 
-                                                  tal:condition="not:repeat/url/start"
-                                                  tal:attributes="onclick string:removeElement('${repeat/url/index}-homepage-button');">
-                                                   x 
-                                               </a>
-                                    </div>
-                                    </div>
-
-                            <div id="homepages-add-field">
-                                    <input type="hidden" value="0" id="theValue" /> 
-                                    <a href="javascript:addInput();" >add</a>
-                            </div>
-
-
-                        </div>
-
 			<div class="field"
 			 tal:define="error errors/street | nothing;
 				     street python:request.get('street', member.getProperty('street', ''));"
