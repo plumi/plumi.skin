@@ -1,9 +1,18 @@
+4.0.1 (2011-1-13)
+=================
+
+Release for Plumi 4.0 [Dimitris Moraitis]
+
+ - fixed author contact form [clopy]
+
+
 4.0 (2010-12-23)
-===================
+================
 
 Release for Plumi 4.0 [Dimitris Moraitis]
 
  - reverted accidental commit [clopy]
+
 
 4.0rc3 (2010-12-23)
 ===================
