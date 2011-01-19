@@ -716,3 +716,35 @@ height:150px;
 .icons-on .contenttype-event, .icons-on .contenttype-news-item {
     background: none;
 }
+
+/****************************/
+/* Author page styling      */
+
+.myspace-link, .facebook-link, .twitter-link, .orkut-link, .delicious-link, .homepage-link {
+    margin: 0 0 0 10px;
+    padding: 0 0 0 15px;
+}
+
+.myspace-link {
+    background: url("++resource++plumi.skin.images/myspace_icon.gif") no-repeat left 3px;
+}
+
+.facebook-link {
+    background: url("++resource++plumi.skin.images/facebook_icon.gif") no-repeat left 3px;
+}
+
+.twitter-link {
+    background: url("++resource++plumi.skin.images/twitter_icon.gif") no-repeat left 3px;
+}
+
+.orkut-link {
+    background: url("++resource++plumi.skin.images/orkut_icon.gif") no-repeat left 3px;
+}
+
+.delicious-link {
+    background: url("++resource++plumi.skin.images/delicious_icon.gif") no-repeat left 3px;
+}
+
+.homepage-link {
+    background: url("++resource++plumi.skin.images/homepage_icon.gif") no-repeat left 3px;
+}

@@ -175,6 +175,19 @@
             </p>
 
             <div class="visualClear"><!-- --></div>
+
+            <p class="paypal-donate" tal:define="paypalcode view/author_paypal|nothing"
+                                     tal:condition="paypalcode">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="encrypted"
+                       tal:attributes="value paypalcode"> 
+                <input type="image" src="https://www.paypal.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+                <img alt="" border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </p>
+
+            <div class="visualClear"><!-- --></div>
             
             <p tal:condition="python:mtool.getHomeFolder(id=author)">
             <a href="#" tal:attributes="href python:mtool.getHomeFolder(id=author).absolute_url()"
@@ -193,16 +206,27 @@
     <tal:plumi_domain i18n:domain="plumi">
 		<tal:url condition="view/author_url|nothing"
 				      i18n:translate="">
-			    URL:
+			    Website:
 			    <a tal:attributes="href view/author_url"
 			       tal:content="view/author_url"
 				  >
 				Some URL
 			    </a>
 
-			    <br />
+			    <p />
 		</tal:url>
-
+                
+		<tal:homepages condition="view/author_homepages_display|nothing"
+				      i18n:translate="">
+                <div id="other-homepages-title">Social Networking and Blogs</div>
+			    <div id="other-homepages"
+                     tal:repeat="homepage view/author_homepages_display">
+			       <a tal:attributes="href homepage;
+                                      class python:context.isSocialNetworkURL(homepage)"
+                      tal:content="homepage">
+				Some URL
+			    </a>
+                </div>
 
                 <tal:street condition="view/author_street|nothing">
                     <span class="street_label" i18n:translate="">Address : </span>

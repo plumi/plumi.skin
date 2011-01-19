@@ -296,6 +296,41 @@
 
                         </div>
 
+            <div class="field"
+                             tal:define="error errors/homepages | nothing;
+                                         homepages python:request.get('homepages', member.getProperty('homepages', ''));"
+                             tal:attributes="class python:test(error, 'field error', 'field')">
+
+                            <label for="homepages" i18n:translate="label_homepages">Social Networks and Blogs</label>
+
+                            <div class="formHelp" i18n:translate="help_homepages">
+                            Enter URLs for your websites, blogs and social networks such as Facebook and Twitter
+                            </div>
+
+                            <div tal:content="error">Validation error output</div>
+
+                                    <div id="homepage-inputs"> 
+                                    <div tal:repeat="url homepages"
+                                         tal:attributes="id string:${repeat/url/index}-homepage-button">
+                                        <input type="text" 
+                                               name="homepages:string:lines" 
+                                               tal:attributes="value url"/>
+                                               <a href="javascript:;" 
+                                                  tal:condition="not:repeat/url/start"
+                                                  tal:attributes="onclick string:removeElement('${repeat/url/index}-homepage-button');">
+                                                   x 
+                                               </a>
+                                    </div>
+                                    </div>
+
+                            <div id="homepages-add-field">
+                                    <input type="hidden" value="0" id="theValue" /> 
+                                    <a href="javascript:addInput();" >add</a>
+                            </div>
+
+
+                        </div>
+
 			<div class="field"
 			 tal:define="error errors/street | nothing;
 				     street python:request.get('street', member.getProperty('street', ''));"
@@ -612,6 +647,33 @@
                                 name="delete_portrait"
                                 />
                             <label for="pdelete" i18n:translate="label_delete_portrait">Delete Portrait</label>
+
+                        </div>
+
+			<div class="field"
+                             tal:define="error errors/paypal| nothing;
+                                         paypal python:request.get('paypal', member.getProperty('paypal', ''));"
+                             tal:attributes="class python:test(error, 'field error', 'field')">
+
+                            <label for="userbio" i18n:translate="label_paypal">Paypal PKCS7 Customer ID</label>
+
+                            <div class="formHelp" i18n:translate="help_paypal">
+                                If you wish to display a Paypal DONATE button on your author page.<br />
+                                1/ login to your Paypal account<br />
+                                2/ Merchant Services<br />
+                                3/ Website Payments Right Column click Donations<br />
+                                4/ Create button making sure Merchant account IDs has 'Use my secure merchant account ID' selected<br />
+                                5/ Copy and paste from generated code, the complete PKCS7 wrapper into the field below.
+                            </div>
+
+                            <div tal:content="error">Validation error output</div>
+
+                            <textarea type="text"
+                                   id="paypal"
+                                   name="paypal"
+                                   rows="5"
+                                   tal:content="paypal"
+                                   />
 
                         </div>
                         
