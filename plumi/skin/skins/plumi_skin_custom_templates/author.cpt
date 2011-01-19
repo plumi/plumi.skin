@@ -205,7 +205,7 @@
     <tal:plumi_domain i18n:domain="plumi">
 		<tal:url condition="view/author_url|nothing"
 				      i18n:translate="">
-			    URL:
+			    Website:
 			    <a tal:attributes="href view/author_url"
 			       tal:content="view/author_url"
 				  >
@@ -217,8 +217,7 @@
                 
 		<tal:homepages condition="view/author_homepages_display|nothing"
 				      i18n:translate="">
-                <div id="other-homepages-title">Website</div>
-                <div id="other-homepages-blurb">Social Networking and Blogs</div>
+                <div id="other-homepages-title">Social Networking and Blogs</div>
 			    <div id="other-homepages"
                      tal:repeat="homepage view/author_homepages_display">
 			       <a tal:attributes="href homepage;
