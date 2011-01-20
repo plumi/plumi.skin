@@ -69,7 +69,8 @@
                                 here_url context/@@plone_context_state/object_url;
                                 template_id template/getId;
                                 authorinfo python: mtool.getMemberInfo(author);
-                                email_from_address portal/email_from_address">
+                                email_from_address portal/email_from_address;
+                                toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
         <tal:noAuthor condition="not: authorinfo">
         <div id="region-content">
@@ -551,6 +552,17 @@
 
             </tal:authorContent>
             -->
+            <tal:authorComments define="author_comments python:here.getAuthorsComments(author=author);">
+                <div tal:repeat="comment author_comments">
+                    <a href="" tal:attributes="href comment/getURL"
+                               tal:content="comment/Title">Comment title</a> 
+                    <div tal:define="obj comment/getObject">
+                         On <span tal:replace="python:toLocalizedTime(obj.creation_date,long_format=1)"/>
+                            <div tal:content="obj/text"/>
+                    </div>
+                </div>
+            </tal:authorComments>
+
         </div>
     </div> <!-- end simulated tabs -->
         
