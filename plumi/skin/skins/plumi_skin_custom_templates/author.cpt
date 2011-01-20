@@ -407,6 +407,21 @@
 	</div>
 	<!-- end of Event listing for user -->
 
+        <!-- start of comments listing for user -->
+            <tal:authorComments define="fullname authorinfo/fullname;
+                                        author_comments python:here.getAuthorsComments(author=(author,fullname));">
+                Comments listing for <span tal:replace="author"/> : <br/>
+                <div tal:repeat="comment author_comments">
+                    <a href="" tal:attributes="href comment/getURL"
+                               tal:content="comment/Title">Comment title</a>
+                    <div tal:define="obj comment/getObject">
+                         On <span tal:replace="python:toLocalizedTime(obj.creation_date,long_format=1)"/>
+                            <div tal:content="obj/text"/>
+                    </div>
+                </div>
+            </tal:authorComments>
+        <!-- end of comments listing for user -->
+
  <tal:mailsetup tal:condition="python:email_from_address and authorinfo['has_email']">
 
                         <div class="formControls" tal:condition="isAnon">
@@ -552,16 +567,6 @@
 
             </tal:authorContent>
             -->
-            <tal:authorComments define="author_comments python:here.getAuthorsComments(author=author);">
-                <div tal:repeat="comment author_comments">
-                    <a href="" tal:attributes="href comment/getURL"
-                               tal:content="comment/Title">Comment title</a> 
-                    <div tal:define="obj comment/getObject">
-                         On <span tal:replace="python:toLocalizedTime(obj.creation_date,long_format=1)"/>
-                            <div tal:content="obj/text"/>
-                    </div>
-                </div>
-            </tal:authorComments>
 
         </div>
     </div> <!-- end simulated tabs -->
