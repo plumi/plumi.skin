@@ -191,7 +191,7 @@
             
             <p tal:condition="python:mtool.getHomeFolder(id=author)">
             <a href="#" tal:attributes="href python:mtool.getHomeFolder(id=author).absolute_url()"
-               i18n:translate="label_author_internal_home_page">Author's home page in this site&hellip;</a>
+               i18n:translate="label_author_internal_home_page">This Member's folder&hellip;</a>
             </p>
 
             <p tal:condition="python: not mtool.getHomeFolder(id=author) and authorinfo['home_page']">
@@ -227,6 +227,9 @@
 				Some URL
 			    </a>
                 </div>
+
+                <br />
+        </tal:homepages>
 
                 <tal:street condition="view/author_street|nothing">
                     <span class="street_label" i18n:translate="">Address : </span>
