@@ -717,6 +717,13 @@ height:150px;
     background: none;
 }
 
+#torrent-link {
+  background: url("torrent.png") no-repeat scroll 0 2px transparent;
+  padding:0;
+  font-size: 120%;
+}
+
+
 /****************************/
 /* Author page styling      */
 
