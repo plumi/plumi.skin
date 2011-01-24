@@ -15,3 +15,12 @@ function removeElement(divNum) {
     var olddiv = document.getElementById(divNum);
     d.removeChild(olddiv);
     }
+
+jq(document).ready(function(){
+	jq('.formHelp a')
+    		.prepOverlay({
+            subtype: 'ajax',
+            filter: '.popup-formHelp'
+	});
+});
+

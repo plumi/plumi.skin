@@ -655,15 +655,9 @@
                                          paypal python:request.get('paypal', member.getProperty('paypal', ''));"
                              tal:attributes="class python:test(error, 'field error', 'field')">
 
-                            <label for="userbio" i18n:translate="label_paypal">Paypal PKCS7 Customer ID</label>
-
+                            <label for="userbio" i18n:translate="label_paypal">Donations via PayPal</label>
                             <div class="formHelp" i18n:translate="help_paypal">
-                                If you wish to display a Paypal DONATE button on your author page.<br />
-                                1/ login to your Paypal account<br />
-                                2/ Merchant Services<br />
-                                3/ Website Payments Right Column click Donations<br />
-                                4/ Create button making sure Merchant account IDs has 'Use my secure merchant account ID' selected<br />
-                                5/ Copy and paste from generated code, the complete PKCS7 wrapper into the field below.
+                            If you wish to gather donations for your video work via a Paypal DONATE button on your author page, click <a href="formHelp-paypal">here</a> for instructions and enter code below.
                             </div>
 
                             <div tal:content="error">Validation error output</div>

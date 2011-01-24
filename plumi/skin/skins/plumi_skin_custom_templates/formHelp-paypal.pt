@@ -1,0 +1,10 @@
+                            <div class="popup-formHelp" i18n:translate="help_paypal">
+                                If you wish to display a Paypal DONATE button on your author page.<br />
+                                1/ Login to your Paypal account.<br />
+                                2/ Click Merchant Services.<br />
+                                3/ Click Website Payments Standard.<br />
+                                4/ Choose the donate button - click "create one now" for "Accept donations from anyone, anywhere on the web"<br />
+                                5/ Create button making sure Merchant account IDs has 'Use my secure merchant account ID' selected.<br />
+                                6/ Copy and paste the generated code, the complete PKCS7 wrapper, into the field below.
+                            </div>
+
