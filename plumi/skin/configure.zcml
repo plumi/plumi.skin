@@ -12,11 +12,4 @@
   <include file="skins.zcml" />
   <include file="profiles.zcml" />
 
-  <browser:page
-      name="plumi-settings"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      permission="cmf.ManagePortal"
-      class=".controlpanel.PlumiSettingsControlPanel"
-       />
-
 </configure>
