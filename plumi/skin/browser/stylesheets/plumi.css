@@ -754,3 +754,15 @@ height:150px;
 .homepage-link {
     background: url("++resource++plumi.skin.images/homepage_icon.gif") no-repeat left 3px;
 }
+
+div.commentHeader {
+    color: black;
+    font-weight:bold;
+    border-width: 0 0 1px 0;
+    border-color: #c8dca8;
+    border-style: solid;
+    font-size: 120%;
+    margin-top: -12px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

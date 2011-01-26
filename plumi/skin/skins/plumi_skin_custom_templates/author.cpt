@@ -397,16 +397,44 @@
         <!-- start of comments listing for user -->
             <tal:authorComments define="fullname authorinfo/fullname;
                                         author_comments python:here.getAuthorsComments(author=(author,fullname));">
-                Comments listing for <span tal:replace="author"/> : <br/>
-                <div tal:repeat="comment author_comments">
-                    <a href="" tal:attributes="href comment/getURL"
-                               tal:content="comment/Title">Comment title</a>
-                    <div tal:define="obj comment/getObject">
-                         On <span tal:replace="python:toLocalizedTime(obj.creation_date,long_format=1)"/>
-                            <div tal:content="obj/text"/>
+
+      <div class="commentHeader">Latest Comments</div>
+
+    <div class="discussion" class="discussion showCommenterImage" tal:repeat="comment author_comments">
+
+            <div class="comment" tal:define="obj comment/getObject">
+
+                <div class="commentImage">
+                         <img src="defaultUser.gif"
+                              alt=""
+                              border="0"
+                              height="32"
+                              tal:attributes="src python:here.portal_membership.getPersonalPortrait(author).absolute_url();
+                                              alt author" />
+                </div>
+
+                <div class="documentByLine" i18n:domain="plone.app.discussion">
+
+                        <a href="" tal:attributes="href comment/getURL"
+                                   tal:content="comment/Title">Comment title</a>
+
+                    <tal:posted i18n:translate="label_says">says:</tal:posted>
+
+                    <div class="commentDate"
+                         tal:content="python:toLocalizedTime(obj.creation_date,long_format=1)">
+                         8/23/2001 12:40:44 PM
                     </div>
                 </div>
+
+                <div class="commentBody">
+
+                    <span tal:replace="structure obj/text" />
+
+                </div>
+           </div>
+    </div>
             </tal:authorComments>
+
         <!-- end of comments listing for user -->
 
             <div class="visualClear"><!-- --></div>
