@@ -284,16 +284,16 @@
 			</tal:repeat>
                 </tal:media_formats>
              
-                <br />
+                <p />
 
             <div class="visualClear"><!-- --></div>
 
-            <div id="paypal-donation">
+            <div id="paypal-donation" tal:define="paypalcode view/author_paypal|nothing"
+                                         tal:condition="paypalcode">
                 <p class="discreet">
                     If you enjoyed this member's videos, you can donate via PayPal towards their filmmaking, distribution or other media projects. 100% of funds are received by this member directly.
                 </p>
-                <p class="paypal-donate" tal:define="paypalcode view/author_paypal|nothing"
-                                         tal:condition="paypalcode">
+                <p class="paypal-donate"> 
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_s-xclick">
                     <input type="hidden" name="encrypted"
@@ -416,7 +416,7 @@
             <tal:authorComments define="fullname authorinfo/fullname;
                                         author_comments python:here.getAuthorsComments(author=(author,fullname));">
 
-      <div class="commentHeader">Latest Comments</div>
+      <div class="commentHeader" tal:condition="author_comments">Latest Comments</div>
 
     <div class="discussion" class="discussion showCommenterImage" tal:repeat="comment author_comments">
 
