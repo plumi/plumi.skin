@@ -286,6 +286,24 @@
              
                 <br />
 
+            <div class="visualClear"><!-- --></div>
+
+            <div id="paypal-donation">
+                <p class="discreet">
+                    If you enjoyed this member's videos, you can donate via PayPal towards their filmmaking, distribution or other media projects. 100% of funds are received by this member directly.
+                </p>
+                <p class="paypal-donate" tal:define="paypalcode view/author_paypal|nothing"
+                                         tal:condition="paypalcode">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="encrypted"
+                           tal:attributes="value paypalcode"> 
+                    <input type="image" src="https://www.paypal.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+                    <img alt="" border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </p>
+            </div>
+
           </tal:plumi_domain>
           <!-- END : custom author profile, Plumi Skin impl -->
 
@@ -436,24 +454,6 @@
             </tal:authorComments>
 
         <!-- end of comments listing for user -->
-
-            <div class="visualClear"><!-- --></div>
-
-            <div id="paypal-donation">
-                <p class="discreet">
-                    If you enjoyed this member's videos, you can donate via PayPal? towards their filmmaking, distribution or other media projects. 100% of funds are received by this member directly.
-                </p>
-                <p class="paypal-donate" tal:define="paypalcode view/author_paypal|nothing"
-                                         tal:condition="paypalcode">
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="encrypted"
-                           tal:attributes="value paypalcode"> 
-                    <input type="image" src="https://www.paypal.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
-                    <img alt="" border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1">
-                    </form>
-                </p>
-            </div>
 
             <div class="visualClear"><!-- --></div>
 
