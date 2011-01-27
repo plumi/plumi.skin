@@ -84,6 +84,7 @@ dd.portletFooter {
   text-transform: uppercase;
   padding-right: 0.5em;
   border-bottom: 1px solid #c8dca8;
+  background:none;
 }
 
 dt.portletHeader,
