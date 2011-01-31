@@ -467,6 +467,66 @@ span.link-external {
 cursor: pointer;
 }
 
+/* - Authors latest video's on a video view - */
+
+#authors_latest {
+   float:left;
+   width:100%;
+   background:#fff;
+   overflow:hidden;
+   position:relative;
+}
+
+#authors_latest ul {
+   clear:left;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   left:50%;
+   text-align:center;
+}
+
+#authors_latest ul li img {
+   height:100px;
+   width:130px;
+}
+
+#authors_latest ul li {
+   display:block;
+   width:150px;
+   height:200px;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   right:50%;
+}
+
+#authors_latest ul li a {
+   display:block;
+   margin:0 0 0 1px;
+   padding:3px 10px;
+   background:#ddd;
+   color:#000;
+   text-decoration:none;
+   line-height:1.3em;
+}
+
+#authors_latest ul li a:hover {
+   background:#369;
+   color:#fff;
+}
+
+#authors_latest ul li a.active,
+#authors_latest ul li a.active:hover {
+   color:#fff;
+   background:#000;
+   font-weight:bold;
+}
+
 /* - plumi_homepage.css - */
 
 .feature {
