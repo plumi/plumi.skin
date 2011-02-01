@@ -1,5 +1,28 @@
-4.0.1 (2011-1-13)
-=================
+4.1b1 (2011-02-01)
+==================
+
+Release for Plumi 4.1b1 [Dimitris Moraitis]
+
+ - fix padding on author page [ clopy]
+ - remove background from portlet header [clopy]
+ - remove bottom border from portlets [clopy]
+ - Updated help for the Paypal donation mechanism [axxs]
+ - author page layouts and check to see data entered before display of the donate button [axxs]
+ - metadata file so authors comments show on getAuthorsComments [axxs]
+ - Moved paypal donations button back to just on top of the video listing [axxs]
+ - css and styling for latest comments listing as per ticket 469 [axxs]
+ - Removed configlet for the moment as per ticket 222 [axxs]
+ - update torrent details [clopy]
+ - fix torrent download link display [clopy]
+ - Moved donation button to bottom of listings, and added explanatory text [axss]
+ - System for making popups from formHelp sections on edit forms, including a first formHelp popup for information on Paypal donation setup for members [axxs]
+ - fullname is added to the comment search, as it is stored in the catalog either as the login OR full name [axxs]
+ - Start of addition of Members latest comments side wide to their author page [axxs]
+ - fixed issue with merge that broke the template and added change to text for linking to the authors member folder [axxs]
+
+
+4.0.1 (2011-01-13)
+==================
 
 Release for Plumi 4.0 [Dimitris Moraitis]
 
