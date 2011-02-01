@@ -159,12 +159,20 @@ background: transparent url(++resource++plumi.skin.images/publish.png) no-repeat
   border: none;
 }
 
+.documentEditable {
+  padding: 0 !important;
+}
+
+#region-content-container {
+  padding : 0 1em 1em !important;
+}
+
 dl.portalMessage {
     margin: 1em 1em 1.5em 2em;
 }
 
 #portal-column-content {
-  padding: 0 0em 0 ;
+  padding: 0 1em 1em !important ;
   margin: 0 0 0em;
 }
 
