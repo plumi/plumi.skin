@@ -33,8 +33,7 @@ def pastmonthdate(d):
 now = context.ZopeTime()
 portal_catalog = getToolByName(context,'portal_catalog')
 brains = portal_catalog.uniqueValuesFor('Creator')
-results = portal_catalog(portal_type='PlumiVideo',
-                         created={ 'query' : [now - 30, now], 'range':'minmax'}
+results = portal_catalog(created={ 'query' : [now - 30, now], 'range':'minmax'}
                          )
 creators = []
 thelist = []
