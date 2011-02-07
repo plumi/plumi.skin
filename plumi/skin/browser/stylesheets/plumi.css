@@ -834,3 +834,48 @@ div.commentHeader {
     margin-left: 10px;
     margin-right: 10px;
 }
+
+/****************************/
+/* Active Member page styling      */
+
+div.active-member-float {
+    margin: 0;
+    padding: 0
+}
+
+div.active-member-float dl {
+    text-align: center;
+    margin-top: 25px;
+}
+
+div.active-member-float dt,
+div.active-member-float dd {
+    width: 10.5em;
+    float: left;
+}
+
+div.active-member-float dt {
+    margin-bottom: 5.5em;
+}
+
+div.active-member-float dd {
+    margin: 120px 0 0 -10.5em;
+}
+
+div.active-member-float img {
+    vertical-align: bottom;
+    border: 1px solid #999;
+    padding: 2px;
+    background: #fff;
+}
+
+div.active-member-float dd span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;}
+
+div.active-member-float dl a:hover img,
+div.active-member-float dl a:active img,
+div.active-member-float dl a:focus img {
+    background: #369;
+}
