@@ -13,6 +13,7 @@
 <body>
 
 <metal:main fill-slot="main">
+<h1>Active Members for the past month.</h1>
 
     <tal:items tal:repeat="obj here/getActiveMembers">
     <div class="active-member-float" tal:define="oddrow repeat/obj/odd">

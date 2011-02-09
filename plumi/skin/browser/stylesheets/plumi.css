@@ -835,8 +835,8 @@ div.commentHeader {
     margin-right: 10px;
 }
 
-/****************************/
-/* Active Member page styling      */
+/******************************/
+/* Active Member page styling */
 
 div.active-member-float {
     margin: 0;
@@ -859,7 +859,7 @@ div.active-member-float dt {
 }
 
 div.active-member-float dd {
-    margin: 120px 0 0 -10.5em;
+    margin: 105px 0 0 -10em;
 }
 
 div.active-member-float img {
@@ -878,4 +878,62 @@ div.active-member-float dl a:hover img,
 div.active-member-float dl a:active img,
 div.active-member-float dl a:focus img {
     background: #369;
+}
+
+/*********************************/
+/* Active Member portlet styling */
+
+.portletActiveMembers:after { 
+    content: "."; 
+    display: block; 
+    height: 0; 
+    font-size:0; 
+    clear: both; 
+    visibility:hidden; 
+} 
+
+.active-members {
+    margin: 0;
+    padding: 0
+}
+
+.active-members dl {
+    text-align: center;
+
+}
+
+.active-members dt,
+.active-members dd {
+    width: 5.5em;
+    float: left;
+}
+
+.active-members dt {
+    margin-bottom: 2.5em;
+}
+
+.active-members dd {
+    margin: 55px 0 0 -5em;
+}
+
+.active-members img {
+    vertical-align: bottom;
+    border: 1px solid #999;
+    padding: 2px;
+    background: #fff;
+}
+
+.active-members dd span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;}
+
+.active-members dl a:hover img,
+.active-members dl a:active img,
+.active-members dl a:focus img {
+    background: #369;
+}
+
+.portletActiveMembers .portletFooter {
+    clear:both;
 }
