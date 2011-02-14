@@ -68,7 +68,9 @@
                                 portal_types portal/portal_types;
                                 here_url context/@@plone_context_state/object_url;
                                 template_id template/getId;
-                                authorinfo python: mtool.getMemberInfo(author);">
+                                authorinfo python: mtool.getMemberInfo(author);
+                                email_from_address portal/email_from_address;
+                                toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
         <tal:noAuthor condition="not: authorinfo">
         <div id="region-content">
@@ -88,7 +90,7 @@
 
         <tal:haveAuthor condition="authorinfo">
  
-    <div id="region-content" class="documentEditable"
+    <div id="region-content-container" class="documentEditable"
          tal:define="isOwner python:member.getId()==author"
          tal:attributes="class python: test(isOwner, 'documentEditable', '')">
 
@@ -227,8 +229,8 @@
 			    </a>
                 </div>
 
-			    <br />
-		</tal:homepages>
+                <br />
+        </tal:homepages>
 
                 <tal:street condition="view/author_street|nothing">
                     <span class="street_label" i18n:translate="">Address : </span>
@@ -295,7 +297,25 @@
 			</tal:repeat>
                 </tal:media_formats>
              
-                <br />
+                <p />
+
+            <div class="visualClear"><!-- --></div>
+
+            <div id="paypal-donation" tal:define="paypalcode view/author_paypal|nothing"
+                                         tal:condition="paypalcode">
+                <p class="discreet">
+                    If you enjoyed this member's videos, you can donate via PayPal towards their filmmaking, distribution or other media projects. 100% of funds are received by this member directly.
+                </p>
+                <p class="paypal-donate"> 
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="encrypted"
+                           tal:attributes="value paypalcode"> 
+                    <input type="image" src="https://www.paypal.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+                    <img alt="" border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </p>
+            </div>
 
           </tal:plumi_domain>
           <!-- END : custom author profile, Plumi Skin impl -->
@@ -405,110 +425,143 @@
 	</div>
 	<!-- end of Event listing for user -->
 
+        <!-- start of comments listing for user -->
+            <tal:authorComments define="fullname authorinfo/fullname;
+                                        author_comments python:here.getAuthorsComments(author=(author,fullname));">
 
+      <div class="commentHeader" tal:condition="author_comments">Latest Comments</div>
 
-            <div class="formControls" tal:condition="isAnon">
-            <form 
-              tal:define="pss modules/Products/PythonScripts/standard"
-              tal:attributes="action string:$portal_url/login_form">
-               <input class="standalone"
-                   type="submit"
-                   value="Log in to send feedback"
-                   i18n:attributes="value label_login_to_send_feedback;"
-                   />
-            </form>
-            </div>
+    <div class="discussion" class="discussion showCommenterImage" tal:repeat="comment author_comments">
 
-            <!-- feedback form -->        
-            <tal:feedbackForm
-                tal:condition="not:isAnon"
-                tal:define="email_from_address portal/email_from_address">
+            <div class="comment" tal:define="obj comment/getObject">
 
-            <tal:noemailsetup tal:condition="not:email_from_address">
-                <p class="discreet"
-                   i18n:translate="text_no_email_setup">
-                    This site doesn't have a valid email setup, so you cannot use
-                    any contact forms. 
-                </p>
-            </tal:noemailsetup>
+                <div class="commentImage">
+                         <img src="defaultUser.gif"
+                              alt=""
+                              border="0"
+                              height="32"
+                              tal:attributes="src python:here.portal_membership.getPersonalPortrait(author).absolute_url();
+                                              alt author" />
+                </div>
 
-            <tal:emailsetup tal:condition="email_from_address">
-                <tal:owner tal:condition="not:isOwner">
-                    <p class="discreet"
-                       i18n:translate="description_author_feedback">
-                        If you want to contact this author, fill in the form
-                        below.
-                    </p>
-                    <div id="feedback_form_status"></div>
-                    <form name="feedback_form"
-                          action="feedback_form"
-                          method="post"
-                          tal:attributes="action string:$here_url/$template_id">
+                <div class="documentByLine" i18n:domain="plone.app.discussion">
 
-                    <fieldset>
+                        <a href="" tal:attributes="href comment/getURL"
+                                   tal:content="comment/Title">Comment title</a>
 
-                    <legend i18n:translate="legend_feedback_for_author">Feedback for author</legend>
+                    <tal:posted i18n:translate="label_says">says:</tal:posted>
 
-                    <div class="field"
-                      tal:define="error errors/subject|nothing"
-                      tal:attributes="class python:test(error, 'field error', 'field')">
-                      <label for="subject" i18n:translate="label_subject">
-                        Subject
-                      </label>
-
-                      <span class="fieldRequired" title="Required"
-                              i18n:attributes="title title_required;"
-                              i18n:translate="label_required">(Required)</span>
-
-                      <br />
-                      <input type="text" 
-                             id="subject" 
-                             name="subject" 
-                             size="25" 
-                             value="" 
-                             tal:attributes="value request/subject|nothing"
-                             />
+                    <div class="commentDate"
+                         tal:content="python:toLocalizedTime(obj.creation_date,long_format=1)">
+                         8/23/2001 12:40:44 PM
                     </div>
-                    <div class="field"
-                      tal:define="error errors/message|nothing"
-                      tal:attributes="class python:test(error, 'field error', 'field')">
-                      <label for="message" i18n:translate="label_message">
-                        Message
-                      </label>
-        
-                      <span class="fieldRequired" title="Required"
-                              i18n:attributes="title title_required;"
-                              i18n:translate="label_required">(Required)</span>
+                </div>
 
-                      <textarea name="message"
-                                id="message"
-                                rows="5"
-                                cols="25"
-                                tal:content="request/message|nothing"
-                                ></textarea>
-                    </div>
-        
-                    <div class="formControls">
+                <div class="commentBody">
 
-                        <input class="context"
+                    <span tal:replace="structure obj/text" />
+
+                </div>
+           </div>
+    </div>
+            </tal:authorComments>
+
+        <!-- end of comments listing for user -->
+
+            <div class="visualClear"><!-- --></div>
+
+ <tal:mailsetup tal:condition="python:email_from_address and authorinfo['has_email']">
+
+                        <div class="formControls" tal:condition="isAnon">
+                        <form
+                          tal:define="pss modules/Products/PythonScripts/standard"
+                          tal:attributes="action string:$portal_url/login_form">
+                           <input class="standalone"
                                type="submit"
-                               name="form.button.Send"
-                               value="Send"
-                               i18n:attributes="value label_send;" />
+                               value="Log in to send feedback"
+                               i18n:attributes="value label_login_to_send_feedback;"
+                               />
+                        </form>
+                        </div>
 
-                    </div>
+                        <!-- feedback form -->
 
-                    </fieldset>
 
-                    <input type="hidden" name="author" id="author" value="" tal:attributes="value author" />
-                    <input type="hidden" name="referer" value="" id="referer"
-                      tal:attributes="value python:request.get('referer', request.get('HTTP_REFERER', 'unknown url') )" />
-                    <input type="hidden" name="form.submitted" value="1" />
+                        <tal:owner tal:condition="python: not isOwner and not isAnon">
+                            <p class="discreet"
+                               i18n:translate="description_author_feedback">
+                                If you want to contact this author, fill in the form
+                                below.
+                            </p>
 
-                    </form>
-                </tal:owner>
-            </tal:emailsetup>
-            </tal:feedbackForm>
+                            <form name="feedback_form"
+                                  action=""
+                                  method="post"
+                                  tal:attributes="action string:$here_url/${template/getId}">
+
+                            <fieldset>
+
+                            <legend i18n:translate="legend_feedback_for_author">Feedback for author</legend>
+
+                            <div class="field"
+                              tal:define="error errors/subject|nothing"
+                              tal:attributes="class python:test(error, 'field error', 'field')">
+                              <label for="subject" i18n:translate="label_subject">
+                                Subject
+                              </label>
+
+                              <span class="fieldRequired" title="Required"
+                                      i18n:attributes="title title_required;"
+                                      i18n:translate="label_required">(Required)</span>
+
+                              <br />
+                              <input type="text"
+                                     id="subject"
+                                     name="subject"
+                                     size="25"
+                                     value=""
+                                     tal:attributes="value request/subject|nothing"
+                                     />
+                            </div>
+                            <div class="field"
+                              tal:define="error errors/message|nothing"
+                              tal:attributes="class python:test(error, 'field error', 'field')">
+                              <label for="message" i18n:translate="label_message">
+                                Message
+                              </label>
+
+                              <span class="fieldRequired" title="Required"
+                                      i18n:attributes="title title_required;"
+                                      i18n:translate="label_required">(Required)</span>
+
+                              <textarea name="message"
+                                        id="message"
+                                        rows="5"
+                                        cols="25"
+                                        tal:content="request/message|nothing"
+                                        ></textarea>
+                            </div>
+
+                            <div class="formControls">
+
+                                <input class="context"
+                                       type="submit"
+                                       name="form.button.Send"
+                                       value="Send"
+                                       i18n:attributes="value label_send;" />
+
+                            </div>
+
+                            </fieldset>
+
+                            <input type="hidden" name="author" value="" tal:attributes="value author" />
+                            <input type="hidden" name="referer" value=""
+                              tal:attributes="value python:request.get('referer', request.get('HTTP_REFERER', 'unknown url') )" />
+                            <input type="hidden" name="form.submitted" value="1" />
+
+                            </form>
+                        </tal:owner>
+                    </tal:mailsetup>
             <!-- listing of content created by this user -->
 
             <!--        
@@ -562,6 +615,7 @@
 
             </tal:authorContent>
             -->
+
         </div>
     </div> <!-- end simulated tabs -->
         

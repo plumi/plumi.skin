@@ -368,7 +368,8 @@ jQuery.fn.corners = function(options) {
     if (top && !s.tr) x.style.marginRight = 0;
     if (!top && !s.bl) x.style.marginLeft = 0;
     if (!top && !s.br) x.style.marginRight = 0;
-    x.style.backgroundColor = color;
+    if (color != '#aNaNaN')
+      x.style.backgroundColor = color;
     if (top)
       y.appendChild(x);
     else

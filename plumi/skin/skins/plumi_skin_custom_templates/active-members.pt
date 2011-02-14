@@ -1,0 +1,41 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<metal:block fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border', 1)" />
+
+<body>
+
+<metal:main fill-slot="main">
+<h1>Active Members for the past month.</h1>
+
+    <tal:items tal:repeat="obj here/getActiveMembers">
+    <div class="active-member-float" tal:define="oddrow repeat/obj/odd">
+        <dl>
+            <dt>
+                <a href="" tal:attributes="href string:${here/portal_url}/author/$obj;
+                                       title obj;
+                                       class string:visualIconPadding tile"
+                       tal:define="portrait python: here.portal_membership.getPersonalPortrait(obj);
+                                       p_width python:portrait.width;
+                                       p_height python:portrait.height;">
+                <img src="#" alt="" tal:replace="structure python:portrait.tag(p_height,p_width, border=0)" />
+                </a>
+            </dt>
+            <dd>
+            <span tal:content="obj">Active Member</span> 
+            </dd>
+        </dl>
+    </div>
+    </tal:items>
+
+</metal:main>
+</body>
+
+</html>

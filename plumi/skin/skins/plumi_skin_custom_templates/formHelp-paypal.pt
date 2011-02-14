@@ -1,0 +1,13 @@
+<div class="popup-formHelp" i18n:translate="help_paypal">
+    <p><strong>If you wish to display a Paypal DONATE button on your author page:</strong></p>
+    <p>1/ Login to your <strong><i>Paypal account</i></strong> e.g. <a class="external-link" href="http://www.paypal.com">www.paypal.com</a></p>
+    <p>2/ Click <strong><i>Merchant Services</i></strong>.</p>
+    <p><img alt="PayPal5" class="image-inline" src="paypal-1.jpg" /><br />3/ Click <strong><i>Website Payments Standard</i></strong>.</p>
+    <p><img class="image-inline" src="paypal-2.jpg" /></p>
+    <p>4/ Choose the donate button - click "<strong><i>create one now</i></strong>" for "Accept donations from anyone, anywhere on the web"</p>
+    <p><img alt="PayPal3" class="image-inline" src="paypal-3.jpg" /><br />5/ Create button making sure Merchant account IDs has '<strong><i>Use my secure merchant account ID</i></strong>' selected.</p>
+    <p><img alt="PayPal4" class="image-inline" src="paypal-4.jpg" /></p>
+    <p>6/ <strong><i>Copy and paste</i></strong> the generated code, the complete PKCS7 wrapper, into the <strong><i>Donations via PayPal</i></strong> field (once you've closed this help box by clicking the <img alt="X-symbol" class="image-inline" src="pb_close.png" /> symbol).</p>
+    <p><img alt="Copy and Paste" class="image-inline" src="paypal-5.png" /></p>
+</div>
+

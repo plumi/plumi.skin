@@ -1,3 +1,78 @@
+4.1rc1 (2011-02-11)
+===================
+
+Release for Plumi 4.1rc1 [Dimitris Moraitis]
+
+ - IE compatibility fixes [dimo]
+ - added missing layer interface [clopy]
+ - small css fix to center active member images in the portlet [axxs]
+ - styles for active members portlet & page [axxs]
+ - Removed restriction to PlumiVideo for active member content lookups [axxs]
+ - boxed styles for active members page [axxs]
+ - Display page listing top 20 users active over the past month with video contributions [axxs]
+ 
+
+4.1b1 (2011-02-01)
+==================
+
+Release for Plumi 4.1b1 [Dimitris Moraitis]
+
+ - fix padding on author page [clopy]
+ - remove background from portlet header [clopy]
+ - remove bottom border from portlets [clopy]
+ - Updated help for the Paypal donation mechanism [axxs]
+ - author page layouts and check to see data entered before display of the donate button [axxs]
+ - metadata file so authors comments show on getAuthorsComments [axxs]
+ - Moved paypal donations button back to just on top of the video listing [axxs]
+ - css and styling for latest comments listing as per ticket 469 [axxs]
+ - Removed configlet for the moment as per ticket 222 [axxs]
+ - update torrent details [clopy]
+ - fix torrent download link display [clopy]
+ - Moved donation button to bottom of listings, and added explanatory text [axss]
+ - System for making popups from formHelp sections on edit forms, including a first formHelp popup for information on Paypal donation setup for members [axxs]
+ - fullname is added to the comment search, as it is stored in the catalog either as the login OR full name [axxs]
+ - Start of addition of Members latest comments side wide to their author page [axxs]
+ - fixed issue with merge that broke the template and added change to text for linking to the authors member folder [axxs]
+
+
+4.0.1 (2011-01-13)
+==================
+
+Release for Plumi 4.0 [Dimitris Moraitis]
+
+ - fixed author contact form [clopy]
+
+
+4.0 (2010-12-23)
+================
+
+Release for Plumi 4.0 [Dimitris Moraitis]
+
+ - reverted accidental commit [clopy]
+
+
+4.0rc3 (2010-12-23)
+===================
+
+Release for Plumi 4.0rc2 [Dimitris Moraitis]
+
+ - fix authorlisting error if a user didn't have a member folder [clopy]
+ - remove duplicate icons for news and events [clopy]
+
+
+4.0rc2 (2010-12-23)
+===================
+
+Release for Plumi 4.0rc2 [Dimitris Moraitis]
+
+ - fix missing definitions [clopy]
+ - Added homepages as a lines field to memberdata, which is aimed at containing URL's of members other homepages, for example Facebook, Myspace, Twitter, Kaskus [axxs]
+ - fix login form allignment issue on safari [clopy]
+ - update personalize form for plone 4 [clopy]
+ - added default plone folder icon for custom folderish types [clopy]
+ - add custom folders icon to stylesheet [clopy]
+
+
 4.0rc1 (2010-12-11)
 ===================
 
