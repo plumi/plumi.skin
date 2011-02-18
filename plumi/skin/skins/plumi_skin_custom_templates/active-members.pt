@@ -19,10 +19,10 @@
     <div class="active-member-float" tal:define="oddrow repeat/obj/odd">
         <dl>
             <dt>
-                <a href="" tal:attributes="href string:${here/portal_url}/author/$obj;
+                <a href="" tal:attributes="href string:${here/portal_url}/author/${obj/getId};
                                        title obj;
                                        class string:visualIconPadding tile"
-                       tal:define="portrait python: here.portal_membership.getPersonalPortrait(obj);
+                       tal:define="portrait python: here.portal_membership.getPersonalPortrait(obj.getId());
                                        p_width python:portrait.width;
                                        p_height python:portrait.height;">
                 <img src="#" alt="" tal:replace="structure python:portrait.tag(p_height,p_width, border=0)" />

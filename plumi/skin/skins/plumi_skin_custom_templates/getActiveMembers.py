@@ -19,27 +19,17 @@ def sortedDictValues(adict):
     keys.reverse()
     return map(adict.get, keys)
 
-def pastmonthdate(d):
-    year, month= d.year(), d.month()
-    if month == 1:
-        year-= 1; month= 12
-    else:
-        month-= 1
-    try:
-        return d.replace(year=year, month=month)
-    except ValueError:
-        return d.replace(day=1) - DateTime.timedelta(1)
-
 now = context.ZopeTime()
 portal_catalog = getToolByName(context,'portal_catalog')
-brains = portal_catalog.uniqueValuesFor('Creator')
+mtool = getToolByName(context,'portal_membership')
+members = [member for member in mtool.listMembers() if not member.has_role(['Manager','Reviewer',])]
 results = portal_catalog(created={ 'query' : [now - 30, now], 'range':'minmax'}
                          )
 creators = []
 thelist = []
 for creator in results:
     creators.append(creator.Creator)
-for item in brains:
+for item in members:
    thelist.append((creators.count(item), item))
 adict = dict(thelist)
 return sortedDictValues(adict)[:20]
