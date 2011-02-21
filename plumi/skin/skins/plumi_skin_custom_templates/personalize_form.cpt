@@ -313,7 +313,7 @@
                                     <div tal:repeat="url homepages"
                                          tal:attributes="id string:${repeat/url/index}-homepage-button">
                                         <input type="text" 
-                                               name="homepages:string:lines" 
+                                               name="homepages:list" 
                                                tal:attributes="value url"/>
                                                <a href="javascript:;" 
                                                   tal:condition="not:repeat/url/start"

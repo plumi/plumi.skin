@@ -6,7 +6,7 @@ function addInput() {
     var divIdName = "my"+num+"Div";
     var newdiv = document.createElement('div');
     newdiv.setAttribute("id",divIdName);
-    newdiv.innerHTML = "<input type=\"text\" name=\"homepages:string:lines\"/> <a href=\"javascript:;\" onclick=\"removeElement(\'"+divIdName+"\')\">x<" + "/a>";
+    newdiv.innerHTML = "<input type=\"text\" name=\"homepages:list\"/> <a href=\"javascript:;\" onclick=\"removeElement(\'"+divIdName+"\')\">x<" + "/a>";
     ni.appendChild(newdiv);
     }
 
