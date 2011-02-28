@@ -1,3 +1,11 @@
+4.1 (2011-02-28)
+===================
+
+Release for Plumi 4.1 [unweb.me]
+
+ - center authors latest videos listing under the video view  [dave]
+ - allow anonymous viewers to see the active members list page [dave]
+
 4.1rc1 (2011-02-11)
 ===================
 
