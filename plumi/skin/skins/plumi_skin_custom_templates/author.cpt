@@ -401,7 +401,7 @@
 	    <!-- end of each Event item -->
 
          <p tal:condition="python:mtool.getHomeFolder(id=author)">
-              <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/events')"
+              <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/events')"
                  i18n:translate="label_author_internal_events_page">All events from this author&hellip;</a>
          </p>
 
