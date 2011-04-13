@@ -186,7 +186,7 @@
             <a href="#" 
                rel="nofollow"
                tal:attributes="href authorinfo/home_page"
-               i18n:translate="label_author_external_home_page">Author's external home page&hellip;</a>
+               i18n:translate="label_home_page">homepage&hellip;</a>
             </p>
 
 
@@ -290,9 +290,6 @@
 
             <div id="paypal-donation" tal:define="paypalcode view/author_paypal|nothing"
                                          tal:condition="paypalcode">
-                <p class="discreet">
-                    If you enjoyed this member's videos, you can donate via PayPal towards their filmmaking, distribution or other media projects. 100% of funds are received by this member directly.
-                </p>
                 <p class="paypal-donate"> 
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_s-xclick">
@@ -302,6 +299,9 @@
                     <img alt="" border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1">
                     </form>
                 </p>
+                <p class="discreet">
+                    If you enjoyed this member's videos, you can donate via PayPal towards their filmmaking, distribution or other media projects. 100% of funds are received by this member directly.
+                </p>				
             </div>
 
           </tal:plumi_domain>
@@ -309,7 +309,7 @@
 
 	<!-- Videos listing -->
 	<div class="featured-block">
-	  <dl class="videos-listing" tal:condition="videos" i18n:domain="plumi" tal:define="videos view/videos">
+	  <dl class="videos-listing" tal:condition="videos" i18n:domain="plumi" tal:define="videos view/videos|nothing">
 	       
 	    <dt class="featuredHeader">
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
@@ -323,7 +323,7 @@
 	    <!-- end of each video item -->
 
             <p tal:condition="python:mtool.getHomeFolder(id=author)">
-              <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/videos')"
+               <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/videos')"
                  i18n:translate="label_author_internal_video_page">All videos from this author&hellip;</a>
             </p>
 
@@ -333,10 +333,10 @@
 
 	<!-- Callout listing -->
 	<div class="featured-block">
-	  <dl class="videos-listing" tal:condition="callouts" i18n:domain="plumi" tal:define="callouts view/callouts">
+	  <dl class="callouts-listing" tal:condition="callouts" i18n:domain="plumi" tal:define="callouts view/callouts|nothing">
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS2"><img class="feedButton" style="padding-left:3px" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/" i18n:translate="">Latest Callouts</a>
 	    </dt>
 
@@ -349,7 +349,7 @@
 	    <!-- end of each Callout item -->
 
             <p tal:condition="python:mtool.getHomeFolder(id=author)">
-              <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/callouts')"
+              <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/callouts')"
                  i18n:translate="label_author_internal_callout_page">All callouts from this author&hellip;</a>
             </p>
 
@@ -359,11 +359,10 @@
 
 	<!-- News listing -->
 	<div class="featured-block">
-	  <dl class="videos-listing" tal:condition="newses" i18n:domain="plumi" tal:define="newses view/news">
+	  <dl class="news-listing" tal:condition="newses" i18n:domain="plumi" tal:define="newses view/news|nothing">
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest News</a>
 	    </dt>
 
@@ -376,7 +375,7 @@
 	    <!-- end of each news item -->
 
           <p tal:condition="python:mtool.getHomeFolder(id=author)">
-               <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/news')"
+               <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/news')"
                   i18n:translate="label_author_internal_news_page">All news from this author&hellip;</a>
           </p>
 
@@ -387,17 +386,15 @@
 
 	<!-- Events listing -->
 	<div class="featured-block">
-	  <dl class="videos-listing" tal:condition="events" i18n:domain="plumi" tal:define="events view/events">
+	  <dl class="events-listing" tal:condition="events" i18n:domain="plumi" tal:define="events view/events|nothing">
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/" i18n:translate="">Latest Events</a>
 	    </dt>
 
 		<!-- each Event item -->
 	    <dd class="featuredItem" tal:repeat="obj events">
-
 	     <metal:macro use-macro="here/atobjs_renderer/macros/atobj_renderer"/>
 
 	    </dd>

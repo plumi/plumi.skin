@@ -937,3 +937,44 @@ div.active-member-float dl a:focus img {
 .portletActiveMembers .portletFooter {
     clear:both;
 }
+
+#paypal-donation input {
+  border: none;
+}
+
+.template-author .featured-block {
+  margin-top:20px;
+}
+
+.template-author  .feedButton {
+  margin-top: 2px;
+}
+
+.template-author  #icon-rss2syndication {
+  margin-top: -2px;
+}
+
+.events-listing dd h4 a {
+  background: url("++resource++plumi.skin.images/contenttypes-sprite.png") no-repeat scroll 0 -216px transparent;
+  padding-left: 20px;
+  padding-bottom: 4px;
+  vertical-align: bottom;
+}
+
+.news-listing dd h4 a {
+  background: url("++resource++plumi.skin.images/contenttypes-sprite.png") no-repeat scroll 0 -1296px transparent;
+  padding-left: 20px;
+  padding-bottom: 4px;
+  vertical-align: bottom;
+}
+
+.callouts-listing dd h4 a {
+  background: url("++resource++plumi.skin.images/contenttypes-sprite.png") no-repeat scroll 0 -1px transparent;
+  padding-left: 20px;
+  padding-bottom: 4px;
+  vertical-align: bottom;
+}
+
+.all-link {
+  padding-left: 10px;
+}
