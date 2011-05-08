@@ -192,119 +192,117 @@
 
 	<!-- custom author profile , Plumi Skin implementation -->
     <tal:plumi_domain i18n:domain="plumi">
-		<tal:url condition="view/author_url|nothing">
-			    <tal:website 
-				      i18n:translate="website">Website:</tal:website>
-			    <a tal:attributes="href view/author_url"
-			       tal:content="view/author_url"
-				  >
-				Some URL
-			    </a>
+        <div class="author-details">
+		    <tal:url condition="view/author_url|nothing">
+			        <tal:website 
+				          i18n:translate="website">Website:</tal:website>
+			        <a tal:attributes="href view/author_url"
+			           tal:content="view/author_url"
+				      >
+				    Some URL
+			        </a>
 
-			    <p />
-		</tal:url>
-                
-		<tal:homepages condition="view/author_homepages_display|nothing">
-                <div id="other-homepages-title" i18n:translate="social_networking_blogs">Social Networking and Blogs</div>
-			    <div id="other-homepages"
-                     tal:repeat="homepage view/author_homepages_display">
-			       <a tal:attributes="href homepage;
-                                      class python:context.isSocialNetworkURL(homepage)"
-                      tal:content="homepage">
-				Some URL
-			    </a>
-                </div>
-
-                <br />
-        </tal:homepages>
-
-                <tal:street condition="view/author_street|nothing">
-                    <span class="street_label" i18n:translate="">Address : </span>
-                    <span tal:content="view/author_street" class="author_street" >
-                        Some street
-                    </span>
+			        <p />
+		    </tal:url>
+                    
+		    <tal:homepages condition="view/author_homepages_display|nothing">
+                    <div id="other-homepages-title" i18n:translate="social_networking_blogs">Social Networking and Blogs</div>
+			        <div id="other-homepages"
+                         tal:repeat="homepage view/author_homepages_display">
+			           <a tal:attributes="href homepage;
+                                          class python:context.isSocialNetworkURL(homepage)"
+                          tal:content="homepage">
+				    Some URL
+			        </a>
+                    </div>
 
                     <br />
-                </tal:street>
+            </tal:homepages>
+
+                    <tal:street condition="view/author_street|nothing">
+                        <span class="street_label" i18n:translate="">Address : </span>
+                        <span tal:content="view/author_street" class="author_street" >
+                            Some street
+                        </span>
+
+                        <br />
+                    </tal:street>
 
 
-                <tal:phone condition="view/author_phone|nothing">
-                    <span class="phone_label" i18n:translate="">Phone : </span>
-                    <span tal:content="view/author_phone" class="author_phone" >
-                        Some phone number
-                    </span>
+                    <tal:phone condition="view/author_phone|nothing">
+                        <span class="phone_label" i18n:translate="">Phone : </span>
+                        <span tal:content="view/author_phone" class="author_phone" >
+                            Some phone number
+                        </span>
 
-                    <br />
-                </tal:phone>
-
-
-                <tal:postcode condition="view/author_postcode|nothing">
-                    <span class="postcode_label" i18n:translate="">Post Code : </span>
-                    <span tal:content="view/author_postcode" class="author_postcode" >
-                        Some post code 
-                    </span>
-
-                    <br />
-                </tal:postcode>
+                        <br />
+                    </tal:phone>
 
 
-		<tal:genre_interests condition="view/author_genre_interests|nothing">
-                    <span class="genre_header" i18n:translate="">Genre Interests : </span>
-                    	<tal:repeat repeat="interest view/author_genre_interests">
-                    		<!--a class="author_interest" tal:attributes="href string:${portal_url}/taxonomy/genre/${interest/lower}" tal:content="interest"></a-->
-				<a tal:attributes="href string:${portal_url}/@@author_listing?intype=genre&invalue=${interest}">
-                                    <span class="author_activity" tal:content="interest"/>
-                                </a>&nbsp
-                    	</tal:repeat>
+                    <tal:postcode condition="view/author_postcode|nothing">
+                        <span class="postcode_label" i18n:translate="">Post Code : </span>
+                        <span tal:content="view/author_postcode" class="author_postcode" >
+                            Some post code 
+                        </span>
 
-                    <br />
-                </tal:genre_interests>
+                        <br />
+                    </tal:postcode>
 
 
-		<tal:activities condition="view/author_activities|nothing">
-                    <span class="activities_header" i18n:translate="">Activities : </span>
-			<tal:repeat repeat="activity view/author_activities">
-				<a tal:attributes="href string:${portal_url}/@@author_listing?intype=activities&invalue=${activity}">
-                                    <span class="author_activity" tal:content="activity"/>
-                                </a>&nbsp
-			</tal:repeat>
+		    <tal:genre_interests condition="view/author_genre_interests|nothing">
+                        <span class="genre_header" i18n:translate="">Genre Interests : </span>
+                        	<tal:repeat repeat="interest view/author_genre_interests">
+                        		<!--a class="author_interest" tal:attributes="href string:${portal_url}/taxonomy/genre/${interest/lower}" tal:content="interest"></a-->
+				    <a tal:attributes="href string:${portal_url}/@@author_listing?intype=genre&invalue=${interest}">
+                                        <span class="author_activity" tal:content="interest"/>
+                                    </a>&nbsp
+                        	</tal:repeat>
 
-                   <br />
-                </tal:activities>
+                        <br />
+                    </tal:genre_interests>
 
 
-		<tal:media_formats condition="view/author_media_formats|nothing">
-                    <span class="media_formats_header" i18n:translate="">Media Formats : </span>
-			<tal:repeat repeat="format view/author_media_formats">
-				<!--a href="here/author_interests_page"><span class="author_media_formats" tal:content="format"/></a-->
-				<a tal:attributes="href string:${portal_url}/@@author_listing?intype=mediaformats&invalue=${format}">
-                                    <span class="author_activity" tal:content="format"/>
-                                </a>&nbsp
-			</tal:repeat>
-                </tal:media_formats>
-             
-                <p />
+		    <tal:activities condition="view/author_activities|nothing">
+                        <span class="activities_header" i18n:translate="">Activities : </span>
+			    <tal:repeat repeat="activity view/author_activities">
+				    <a tal:attributes="href string:${portal_url}/@@author_listing?intype=activities&invalue=${activity}">
+                                        <span class="author_activity" tal:content="activity"/>
+                                    </a>&nbsp
+			    </tal:repeat>
 
-            <div class="visualClear"><!-- --></div>
+                       <br />
+                    </tal:activities>
 
-            <div id="paypal-donation" tal:define="paypalcode view/author_paypal|nothing"
-                                         tal:condition="paypalcode">
-                <p class="paypal-donate"> 
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="encrypted"
-                           tal:attributes="value paypalcode"> 
-                    <input type="image" src="https://www.paypal.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
-                    <img alt="" border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1">
-                    </form>
-                </p>
-                <p class="discreet">
+
+		    <tal:media_formats condition="view/author_media_formats|nothing">
+                        <span class="media_formats_header" i18n:translate="">Media Formats : </span>
+			    <tal:repeat repeat="format view/author_media_formats">
+				    <!--a href="here/author_interests_page"><span class="author_media_formats" tal:content="format"/></a-->
+				    <a tal:attributes="href string:${portal_url}/@@author_listing?intype=mediaformats&invalue=${format}">
+                                        <span class="author_activity" tal:content="format"/>
+                                    </a>&nbsp
+			    </tal:repeat>
+                    </tal:media_formats>
+
+        </div>
+
+        <div id="paypal-donation" tal:define="paypalcode view/author_paypal|nothing"
+                                     tal:condition="paypalcode">
+            <p class="paypal-donate"> 
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="encrypted"
+                       tal:attributes="value paypalcode"> 
+                <input type="image" id="paypalImage" src="https://www.paypal.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+                <span class="discreet">
                     If you enjoyed this member's videos, you can donate via PayPal towards their filmmaking, distribution or other media projects. 100% of funds are received by this member directly.
-                </p>				
-            </div>
+                </span>
+                </form>
+            </p>
+        </div>
 
-          </tal:plumi_domain>
-          <!-- END : custom author profile, Plumi Skin impl -->
+  </tal:plumi_domain>
+  <!-- END : custom author profile, Plumi Skin impl -->
 
 	<!-- Videos listing -->
 	<div class="featured-block">

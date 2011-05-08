@@ -942,6 +942,10 @@ div.active-member-float dl a:focus img {
   border: none;
 }
 
+.author-details {
+    float:left;
+    margin-right: 20px;
+}
 .template-author .featured-block {
   margin-top:20px;
 }
