@@ -27,6 +27,13 @@
       layer=".interfaces.IThemeSpecific"
       />
 
+  <!-- Resource directory for old flowplayer (for backwards compatibility) -->
+  <browser:resourceDirectory
+      name="plumi.skin.flowplayer"
+      directory="flowplayer"
+      layer=".interfaces.IThemeSpecific"
+      />
+
   <include package="plone.portlet.collection"/>
 
   <plone:portletRenderer
