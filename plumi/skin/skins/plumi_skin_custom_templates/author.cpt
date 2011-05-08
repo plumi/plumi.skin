@@ -294,8 +294,8 @@
                 <input type="hidden" name="encrypted"
                        tal:attributes="value paypalcode"> 
                 <input type="image" id="paypalImage" src="https://www.paypal.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
-                <span class="discreet">
-                    If you enjoyed this member's videos, you can donate via PayPal towards their filmmaking, distribution or other media projects. 100% of funds are received by this member directly.
+                <span class="discreet" i18n:translate="paypal_donate">
+                    If you enjoyed this member's videos, you can support them via PayPal.
                 </span>
                 </form>
             </p>
@@ -305,8 +305,8 @@
   <!-- END : custom author profile, Plumi Skin impl -->
 
 	<!-- Videos listing -->
-	<div class="featured-block">
-	  <dl class="videos-listing" tal:condition="videos" i18n:domain="plumi" tal:define="videos view/videos|nothing">
+	<div class="featured-block" tal:condition="videos">
+	  <dl class="videos-listing" i18n:domain="plumi" tal:define="videos view/videos|nothing">
 	       
 	    <dt class="featuredHeader">
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
@@ -329,8 +329,8 @@
 	<!-- end of video listing for user -->
 
 	<!-- Callout listing -->
-	<div class="featured-block">
-	  <dl class="callouts-listing" tal:condition="callouts" i18n:domain="plumi" tal:define="callouts view/callouts|nothing">
+	<div class="featured-block" tal:condition="callouts">
+	  <dl class="callouts-listing" i18n:domain="plumi" tal:define="callouts view/callouts|nothing">
 	       
 	    <dt class="featuredHeader">
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
@@ -355,8 +355,8 @@
 	<!-- end of Callouts listing for user -->
 
 	<!-- News listing -->
-	<div class="featured-block">
-	  <dl class="news-listing" tal:condition="newses" i18n:domain="plumi" tal:define="newses view/news|nothing">
+	<div class="featured-block" tal:condition="newses">
+	  <dl class="news-listing" i18n:domain="plumi" tal:define="newses view/news|nothing">
 	       
 	    <dt class="featuredHeader">
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
@@ -382,8 +382,8 @@
 
 
 	<!-- Events listing -->
-	<div class="featured-block">
-	  <dl class="events-listing" tal:condition="events" i18n:domain="plumi" tal:define="events view/events|nothing">
+	<div class="featured-block" tal:condition="events">
+	  <dl class="events-listing" i18n:domain="plumi" tal:define="events view/events|nothing">
 	       
 	    <dt class="featuredHeader">
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
