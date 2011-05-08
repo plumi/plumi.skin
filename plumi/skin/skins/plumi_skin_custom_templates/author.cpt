@@ -305,8 +305,8 @@
   <!-- END : custom author profile, Plumi Skin impl -->
 
 	<!-- Videos listing -->
-	<div class="featured-block" tal:condition="videos">
-	  <dl class="videos-listing" i18n:domain="plumi" tal:define="videos view/videos|nothing">
+	<div class="featured-block" tal:condition="videos" tal:define="videos view/videos|nothing">
+	  <dl class="videos-listing" i18n:domain="plumi">
 	       
 	    <dt class="featuredHeader">
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
