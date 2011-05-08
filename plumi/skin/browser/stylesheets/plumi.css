@@ -941,12 +941,14 @@ div.active-member-float dl a:focus img {
 #paypal-donation input {
   border: none;
   margin-top: 10px;
+  float: left;
 }
 
 #paypal-donation span {
   float: left;
   clear: left;
   margin-top:5px;
+  margin-bottom: 20px;
 }
 
 .author-details {
