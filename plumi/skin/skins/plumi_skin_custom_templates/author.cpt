@@ -294,7 +294,7 @@
                 <input type="hidden" name="encrypted"
                        tal:attributes="value paypalcode"> 
                 <input type="image" id="paypalImage" src="https://www.paypal.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
-                <span class="discreet" i18n:translate="paypal_donate">
+                <span i18n:translate="paypal_donate">
                     If you enjoyed this member's videos, you can support them via PayPal.
                 </span>
                 </form>
@@ -329,8 +329,8 @@
 	<!-- end of video listing for user -->
 
 	<!-- Callout listing -->
-	<div class="featured-block" tal:condition="callouts">
-	  <dl class="callouts-listing" i18n:domain="plumi" tal:define="callouts view/callouts|nothing">
+	<div class="featured-block" tal:condition="callouts" tal:define="callouts view/callouts|nothing">
+	  <dl class="callouts-listing" i18n:domain="plumi">
 	       
 	    <dt class="featuredHeader">
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
@@ -355,8 +355,8 @@
 	<!-- end of Callouts listing for user -->
 
 	<!-- News listing -->
-	<div class="featured-block" tal:condition="newses">
-	  <dl class="news-listing" i18n:domain="plumi" tal:define="newses view/news|nothing">
+	<div class="featured-block" tal:define="newses view/news|nothing" tal:condition="newses">
+	  <dl class="news-listing" i18n:domain="plumi">
 	       
 	    <dt class="featuredHeader">
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
@@ -382,8 +382,8 @@
 
 
 	<!-- Events listing -->
-	<div class="featured-block" tal:condition="events">
-	  <dl class="events-listing" i18n:domain="plumi" tal:define="events view/events|nothing">
+	<div class="featured-block" tal:condition="events" tal:define="events view/events|nothing">
+	  <dl class="events-listing" i18n:domain="plumi">
 	       
 	    <dt class="featuredHeader">
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
