@@ -1,3 +1,12 @@
+4.2rc1 (2011-05-10)
+====================
+
+Release for Plumi 4.2rc1 [unweb.me]
+
+ - minor changes in author page [dimo, clopy]
+ - update i18n tags [dimo]
+ - align "All events.." link [dimo]
+
 4.1 (2011-02-28)
 ===================
 
