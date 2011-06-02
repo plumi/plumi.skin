@@ -1,3 +1,11 @@
+4.2 (2011-06-02)
+================
+
+Release for Plumi 4.2 [unweb.me]
+
+No changes since plumi.skin 4.2rc1
+
+
 4.2rc1 (2011-05-10)
 ====================
 
