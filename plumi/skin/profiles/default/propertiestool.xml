@@ -10,13 +10,6 @@
    <element value="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"/>
   </property>
  </object>
- <object name="navtree_properties" meta_type="Plone Property Sheet">
-  <property name="includeTop" type="boolean">False</property>
-  <property name="idsNotToList" type="lines">
-   <element value="portal_atmediafiletool"/>
-   <element value="default_member_content"/>
-  </property>
- </object>
  <object name="site_properties" meta_type="Plone Property Sheet">
   <property name="default_language" type="string">en-au</property>
   <property name="allowAnonymousViewAbout" type="boolean">True</property>
