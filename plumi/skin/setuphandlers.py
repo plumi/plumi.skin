@@ -1,3 +1,10 @@
+import logging
+
+def setupHome(portal, out):
+    """ set default homepage 
+    """
+    portal.setLayout('featured_videos_homepage')
+
 def setupVarious(context):
 
     # Ordinarily, GenericSetup handlers check for the existence of XML files.
@@ -8,4 +15,8 @@ def setupVarious(context):
     if context.readDataFile('plumi.skin_various.txt') is None:
         return
 
+    portal = context.getSite()
+    logger = logging.getLogger('plumi.skin')
+
+    setupHome(portal, logger)
     # Add additional setup code here

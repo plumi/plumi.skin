@@ -1,0 +1,245 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plumi">
+<body>
+
+<metal:main fill-slot="main">
+
+<div id="featured-front-page" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+<!-- featured videos -->
+<div id="featured-item"
+     class="featured-block videos-listing roundborder rounded"
+     tal:define="featitems view/featured_items;"
+     tal:condition="nocall: featitems">
+
+  <dl id="featured-video"
+      tal:repeat="item featitems">
+    
+    <dt class="featuredHeader">
+	  <img tal:attributes="src string:${portal_url}/plumi-icon32x32b.png" />
+      <a href="#"
+	 tal:attributes="href string:$portal_url/featured-videos/RSS2">
+	<img class="feedButton"
+	     tal:attributes="src string:${portal_url}/rss2_icon.png"
+	     alt="RSS2 Syndication"
+	     title="RSS2 Syndication"
+	     id="featured-icon-rss2syndication" 
+         i18n:attributes="alt title" />
+      </a>
+
+      <a href="#"
+	 id="featuredVideoBanner"
+	 tal:attributes="href view/featured_video_url;"
+	 i18n:translate="">Featured Video</a> : 
+
+      <a href=""
+	 id="featuredVideoTitle"
+	 tal:attributes="href string:${item/url}/view;
+			 title item/video/Description;">
+	<span tal:replace="item/video_title">
+	  Featured Article Title
+	</span>
+	
+      </a>
+    </dt>
+    
+    <dd class="featuredItem"
+	tal:content="structure item/render_feature_video" />
+  </dl>
+</div>
+
+
+<!-- News and events -->
+<div id="featured-news-events"
+     class="featured-block"
+     tal:define="results view/news_and_events;">
+
+  <dl tal:repeat="obj results">
+    <dt class="featuredHeader">
+      <a href="#"
+	 tal:attributes="href string:$portal_url/news_and_events/RSS">
+	<img class="feedButton"
+	     tal:attributes="src string:${portal_url}/rss.gif"
+	     alt="News and Events RSS Syndication"
+	     title="News and Events RSS Syndication"
+	     id="-featured-icon-rsssyndication" 
+         i18n:attributes="alt title" />
+      </a>
+      <a href="#"
+	 class="featured-news-events-title"
+	 tal:attributes="href string:$portal_url/news_and_events"
+     i18n:translate=""
+	 >News and Events</a> : 
+
+      <a class="featuredItemDetails" href=""
+	 tal:content="obj/pretty_title_or_id"
+	 tal:attributes="href string:${obj/getURL}/view;
+			 title obj/Description"
+	 >Featured News or Event Title</a>
+    </dt>
+    <dd>
+
+      <span class="featuredItemDetailsPosted discreet" i18n:translate="">
+        Posted:  
+	    <tal:posteddate tal:content="python:toLocalizedTime(obj.effective)"
+              i18n:name="PostedDate">May 5</tal:posteddate>
+      </span>
+
+      <div class="featured-item-image"
+	   tal:define="image_infos obj/hasImageAndCaption/image"
+	   tal:condition="image_infos">
+	<a tal:attributes="href string:${obj/getURL}/view;
+			   title obj/Title">
+	  <img tal:attributes="src string:${obj/getURL}/image_thumb;
+			       alt obj/Title;
+			       title obj/Title;" />
+	</a>
+      </div>
+      
+      <p class="featured-item-description"
+	 tal:content="obj/Description"/>
+
+
+     <span class="featured-read-more">
+      <a href=""
+	 id="featured-video-more"
+	 tal:attributes="href string:${obj/getURL}/view;
+			 title obj/Title"
+     i18n:translate=""
+	 >Read more&hellip;</a>
+    </span>      
+
+      
+      <span class="documentByLine">
+	<span tal:condition="python: obj.portal_type == 'Event'"
+	      i18n:translate="">
+	  <tal:place i18n:name="location" content="string:${obj/location}">
+            Alice Springs</tal:place>, from	  
+	  <tal:from i18n:name="start"
+		    content="python:toLocalizedTime(obj.start,long_format=1)">
+            Oct 27, 2009 02:45 AM</tal:from> to
+	  <tal:to i18n:name="end"
+		    content="python:toLocalizedTime(obj.end,long_format=1)">
+            Oct 29, 2009 03:45 PM</tal:to>
+	</span>
+      </span>
+    </dd>
+  </dl>
+
+</div>
+<!-- end ... news and events -->
+
+<!-- Callouts -->
+<div id="featured-callouts"
+     class="featured-block"
+     tal:condition="view/callouts">
+
+  <dl tal:define="obj view/callouts">
+    <dt class="featuredHeader">
+      <a href="#"
+         tal:attributes="href string:$portal_url/callouts/RSS">
+        <img class="feedButton"
+             tal:attributes="src string:${portal_url}/rss.gif"
+             alt="Callouts RSS Syndication"
+             title="Callouts RSS Syndication"
+             id="-featured-icon-rsssyndication" 
+         i18n:attributes="alt title" />
+      </a>
+      <a href="#"
+         class="featured-callouts-title"
+         tal:attributes="href string:$portal_url/callouts"
+     i18n:translate=""
+         >Callouts</a> :
+
+      <a class="featuredItemDetails" href=""
+         tal:content="obj/pretty_title_or_id"
+         tal:attributes="href string:${obj/getURL}/view;
+                         title obj/Description"
+         >Callout Title</a>
+    </dt>
+    <dd>
+
+      <span class="featuredItemDetailsPosted discreet" i18n:translate="">
+        Posted:
+            <tal:posteddate tal:content="python:toLocalizedTime(obj.effective)"
+              i18n:name="PostedDate">May 5</tal:posteddate>
+      </span>
+
+      <div class="featured-item-image">
+        <a tal:attributes="href string:${obj/getURL}/view;
+                           title obj/Title">
+          <img tal:attributes="src string:${obj/getURL}/calloutImage_mini;
+                               alt obj/Title;
+                               title obj/Title;" />
+        </a>
+      </div>
+
+      <p class="featured-item-description"
+         tal:content="obj/Description"/>
+
+
+     <span class="featured-read-more">
+      <a href=""
+         id="featured-video-more"
+         tal:attributes="href string:${obj/getURL}/view;
+                         title obj/Title"
+     i18n:translate=""
+         >Read more&hellip;</a>
+    </span>
+
+    </dd>
+  </dl>
+
+</div>
+<!-- end ... callouts -->
+
+
+
+
+
+<!-- Latest videos -->
+<div id="featured-latest-videos"
+     class="featured-block roundborder rounded"
+     tal:define="results view/latest_videos">
+
+  <dl id="featured-video"
+      class="featured-front-page videos-listing">
+
+    <dt class="featuredHeader">
+	  <img tal:attributes="src string:${portal_url}/plumi-icon32x32.png" />
+      <a href="#"
+	 tal:attributes="href string:$portal_url/latestvideos/RSS2">
+	<img class="feedButton"
+	     tal:attributes="src string:${portal_url}/rss2_icon.png"
+	     alt="RSS2 Syndication"
+	     title="RSS2 Syndication"
+	     id="featured-icon-rss2syndication"
+         i18n:attributes="alt title" />
+      </a>
+      <a href="#"
+	 tal:attributes="href view/listing_video_url"
+	 i18n:translate="">Latest Videos</a>
+    </dt>
+
+    <dd class="featuredItem"
+	tal:repeat="obj results">
+      <tal:video replace="structure obj/render_listing" />
+    </dd>
+
+    <dd class="featuredFooter">
+      <a href=""
+	 tal:attributes="href view/listing_video_url"
+	 i18n:translate=""
+	 >More Videos&hellip;</a>
+    </dd>
+  </dl>
+</div>
+
+</div>
+</metal:main>
+
+</body>
+</html>
+
