@@ -3,13 +3,13 @@
 # Five & zope3 thingies
 from zope.interface import implements
 from zope.component import queryMultiAdapter
-from taxonomy import CategoriesProvider
+from plumi.content.browser.taxonomy import CategoriesProvider
 
 # CMF
 from Products.CMFCore.utils import getToolByName
 
 # Locally
-from interfaces import IFeaturedVideosRetriever, IPlumiVideoBrain
+from plumi.content.browser.interfaces import IFeaturedVideosRetriever, IPlumiVideoBrain
 from DateTime.DateTime import DateTime
 
 
