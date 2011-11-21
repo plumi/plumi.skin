@@ -384,8 +384,8 @@ cursor:pointer;
 
 #video-infos {
   float:left;
-  width:40%;
   font-size:110%;
+  width: 200px;
 }
 
 #video-infos thead th {
@@ -450,7 +450,7 @@ display: block;
 }
 
 #embedDiv {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 #embedCode {
   width:385px;
@@ -989,4 +989,8 @@ div.active-member-float dl a:focus img {
 
 .all-link {
   padding-left: 10px;
+}
+
+.unisubs-videoTab {
+  left: 1045px !important;
 }
