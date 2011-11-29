@@ -366,6 +366,7 @@ dl.portalMessage {
 
 .videos-listing .plumi-props-listing {
   padding-top: 1em;
+  float: left;
 }
 
 .videos-listing .plumi-props-listing {
@@ -554,6 +555,11 @@ cursor: pointer;
 .featuredItem {
     clear: both;
     padding: 0.5em;
+}
+
+.featuredFooter {
+    clear:both;
+    padding-top: 0.5em !important;
 }
 
 .featured-video-image,
@@ -993,4 +999,8 @@ div.active-member-float dl a:focus img {
 
 .unisubs-videoTab {
   left: 1045px !important;
+}
+
+.plumi-videolanguage {
+    margin-left: 1.5em;
 }
