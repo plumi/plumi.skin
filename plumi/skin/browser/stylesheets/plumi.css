@@ -451,8 +451,9 @@ display: block;
 }
 
 #embedDiv {
-  margin-top: 30px;
+  margin-top: 45px;
 }
+
 #embedCode {
   width:385px;
   height:40px;
@@ -997,10 +998,10 @@ div.active-member-float dl a:focus img {
   padding-left: 10px;
 }
 
-.unisubs-videoTab {
-  left: 1045px !important;
-}
-
 .plumi-videolanguage {
     margin-left: 1.5em;
+}
+
+a#player-low, a#player-high {
+    float: right;
 }
