@@ -451,7 +451,7 @@ display: block;
 }
 
 #embedDiv {
-  margin-top: 45px;
+  margin-top: 80px;
 }
 
 #embedCode {
@@ -1003,5 +1003,6 @@ div.active-member-float dl a:focus img {
 }
 
 a#player-low, a#player-high {
-    float: right;
+    float: left;
+    margin-top: 45px;
 }
