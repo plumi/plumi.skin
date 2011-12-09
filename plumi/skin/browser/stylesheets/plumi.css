@@ -366,12 +366,19 @@ dl.portalMessage {
 
 .videos-listing .plumi-props-listing {
   padding-top: 1em;
-  float: left;
 }
 
 .videos-listing .plumi-props-listing {
   border-bottom: 1px dashed #ddd;
   padding-bottom: 0.5em;
+}
+
+.plumi-country {
+    float:left;
+    margin-right: 0.8em;
+}
+
+.plumi-videolanguage {
 }
 
 form div textarea#subject_keywords {
@@ -996,10 +1003,6 @@ div.active-member-float dl a:focus img {
 
 .all-link {
   padding-left: 10px;
-}
-
-.plumi-videolanguage {
-    margin-left: 1.5em;
 }
 
 a#player-low, a#player-high {
