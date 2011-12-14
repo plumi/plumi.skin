@@ -144,10 +144,10 @@
                         Some City
                     </span>
                 </tal:location>
-                <tal:location condition="authorinfo/location" i18n:translate="text_location">
+                <tal:location condition="authorinfo/location" i18n:translate="text_country">
                     Country:
                  <a tal:attributes="href string:${portal_url}/@@author_listing?intype=location&invalue=${authorinfo/location}">
-                    <span tal:content="authorinfo/location" tal:omit-tag="" i18n:name="location">
+                    <span tal:content="authorinfo/location" tal:omit-tag="" i18n:name="country">
                         Some Country
                     </span>
                  </a>
@@ -309,8 +309,8 @@
 	  <dl class="videos-listing" i18n:domain="plumi">
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt; title"/></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt; title"/></a>	      
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/" i18n:translate="">Latest Videos</a>
 	    </dt>
 		<!-- each video item -->
@@ -333,7 +333,7 @@
 	  <dl class="callouts-listing" i18n:domain="plumi">
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt; title"/></a>	      	      
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/" i18n:translate="">Latest Callouts</a>
 	    </dt>
 
@@ -359,7 +359,7 @@
 	  <dl class="news-listing" i18n:domain="plumi">
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt; title"/></a>	      	      
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest News</a>
 	    </dt>
 
@@ -386,7 +386,7 @@
 	  <dl class="events-listing" i18n:domain="plumi">
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt title"/></a>	      	      
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt; title"/></a>	      	      
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/" i18n:translate="">Latest Events</a>
 	    </dt>
 

@@ -65,7 +65,7 @@
 	     alt="News and Events RSS Syndication"
 	     title="News and Events RSS Syndication"
 	     id="-featured-icon-rsssyndication" 
-         i18n:attributes="alt title" />
+         i18n:attributes="alt; title" />
       </a>
       <a href="#"
 	 class="featured-news-events-title"
@@ -145,7 +145,7 @@
              alt="Callouts RSS Syndication"
              title="Callouts RSS Syndication"
              id="-featured-icon-rsssyndication" 
-         i18n:attributes="alt title" />
+         i18n:attributes="alt; title" />
       </a>
       <a href="#"
          class="featured-callouts-title"
