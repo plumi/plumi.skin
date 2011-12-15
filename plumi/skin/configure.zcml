@@ -7,6 +7,12 @@
     i18n_domain="plumi">
 
   <five:registerPackage package="." initialize=".initialize" />
+  
+  
+  <adapter
+    name="hasImageAndCaption"
+    factory=".indexes.hasImageAndCaptionForNews" />
+    
   <include package=".browser" />
   <include package="plone.app.registry" />
   <include file="skins.zcml" />
