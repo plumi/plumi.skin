@@ -2,6 +2,7 @@
 """
 import logging
 from Products.ATContentTypes.interface.news import IATNewsItem
+from plone.indexer.decorator import indexer
 
 @indexer(IATNewsItem)
 def hasImageAndCaptionForNews(object,**kw):
