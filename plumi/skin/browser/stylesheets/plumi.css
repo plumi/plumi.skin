@@ -374,7 +374,6 @@ dl.portalMessage {
 }
 
 .plumi-country {
-    float:left;
     margin-right: 0.8em;
 }
 
@@ -1009,3 +1008,5 @@ a#player-low, a#player-high {
     float: left;
     margin-top: 45px;
 }
+
+div.me-cannotplay {overflow:hidden;}
