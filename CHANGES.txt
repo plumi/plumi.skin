@@ -1,17 +1,22 @@
+4.3rc2 (2011-12-21)
+===================
+
+ - minor css changes [dimo]
+
 4.3rc1 (2011-12-18)
 ===================
 
 Release for Plumi 4.3rc1 [unweb.me]
 
  - moved repo to github [garbas]
- - moved declarations of languages, relevant parts in propertiestool  & featured_videos_homepage from plumi.app [garbas]
+ - moved declarations of languages from plumi.app [garbas]
+ - moved propertiestool parts & featured_videos_homepage from plumi.app [garbas]
  - move publish and notifyMemberAreaCreated to plumi.app [garbas]
  - added missing video icon [clopy]
  - removed broken rounded corners [clopy]
  - universal subs support [dimo]
  - add css for video language in listings [clopy]
  - update code repository info & package url in README [cpsaltis]
- 
 
 4.2 (2011-06-02)
 ================
@@ -19,7 +24,6 @@ Release for Plumi 4.3rc1 [unweb.me]
 Release for Plumi 4.2 [unweb.me]
 
 No changes since plumi.skin 4.2rc1
-
 
 4.2rc1 (2011-05-10)
 ====================
