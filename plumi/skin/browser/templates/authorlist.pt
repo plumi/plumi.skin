@@ -33,7 +33,7 @@
         
         <tal:rep tal:repeat="user batch">
             <div class="card">
-                <a href="#" tal:attributes="href user/home_folder">
+                <a href="#" tal:attributes="href string:author/${user/userid}">
                     <img src="defaultUser.gif"
                          alt=""
                          border="0"
