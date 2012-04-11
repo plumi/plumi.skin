@@ -2,6 +2,8 @@
 ===================
 
  - show author page (instead of Member folder) on member search [mgogoulos]
+ - dont hide language fields when not in plumivideo edit form [dimo]
+ - fix css typos [dimo]
 
 
 4.3rc2 (2011-12-21)

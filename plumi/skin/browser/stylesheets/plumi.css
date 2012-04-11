@@ -270,7 +270,6 @@ dl.portalMessage {
 .plumi-props-listing ul,
 .plumi-props-listing li {
   list-style: none;
-  list-image-style: none;
   display: inline;
   margin: 0;
   padding: 0;
@@ -352,7 +351,7 @@ dl.portalMessage {
 
 .link-external,
 .link-mailto {
-  padding-left: 18p;x
+  padding-left: 18px;
 }
 
 .videos-listing .plumi-props-listing dt,
@@ -430,7 +429,6 @@ cursor:pointer;
 
 #video-player div {
   padding: 0.4em 0 0.6em 0;
-  font-color: #aaa;
   font-size: 85%;
 }
 
