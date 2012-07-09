@@ -405,7 +405,6 @@ cursor:pointer;
 #video-core {
   float: right;
   padding-top: 0.5em;
-  width: 400px;
   clear:right;
 }
 
@@ -1007,3 +1006,9 @@ a#player-low, a#player-high {
 }
 
 div.me-cannotplay {overflow:hidden;}
+
+div.field span.required:after {
+    color: Red;
+    content: "■";
+    font-size: 110%;
+}
