@@ -1,3 +1,10 @@
+4.4 (2012-07-12)
+=================
+
+ - fix video width and required field indicator [dimo]
+ - fix css typos, update changelog, bump version [dimo]
+ - dont hide language fields when not in plumivideo edit form [dimo]
+
 4.3.1 (2012-03-28)
 ===================
 
