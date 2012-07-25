@@ -1,4 +1,4 @@
-4.4 (2012-07-12)
+4.4 (2012-07-25)
 =================
 
  - fix video width and required field indicator [dimo]
