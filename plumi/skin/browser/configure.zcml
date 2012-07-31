@@ -50,16 +50,6 @@
       permission="zope2.View"
       />
 
-  <browser:page
-    for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
-    name="featured_videos_homepage"
-    class=".featured_videos.FeaturedVideosPage"
-    template="templates/featured.pt"
-    permission="zope2.View"
-    allowed_interface=".interfaces.ITopicsProvider"
-    />
-
-
   <browser:viewlet
     name="plone.colophon"
     manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
