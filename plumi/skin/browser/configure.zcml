@@ -1,83 +1,106 @@
-<configure xmlns="http://namespaces.zope.org/zope"
-           xmlns:browser="http://namespaces.zope.org/browser"
-           xmlns:plone="http://namespaces.plone.org/plone"
- 	   i18n_domain="plumi">
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="plumi.skin">
 
-  <!-- 'Plumi Skin' Zope 3 browser layer -->
-  <interface
-      interface=".interfaces.IThemeSpecific"
-      type="zope.publisher.interfaces.browser.IBrowserSkinType"
-      name="Plumi Skin"
-      />
-  
-  <!-- Viewlets registration -->
-  <!-- Zope 3 browser resources -->
+    <plone:portlet
+        name="plumi.skin.browser.portlets.projects.ProjectsPortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.projects.Renderer"
+        assignment=".portlets.projects.Assignment"
+        addview=".portlets.projects.AddForm"
+        editview=".portlets.projects.EditForm"
+        interface=".portlets.projects.IProjectsPortlet"
+        />
 
-  <!-- Resource directory for images -->
-  <browser:resourceDirectory
-      name="plumi.skin.images"
-      directory="images"
-      layer=".interfaces.IThemeSpecific"
-      />
+    <plone:portlet
+        name="plumi.skin.browser.portlets.PublishPortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.publishportlet.Renderer"
+        assignment=".portlets.publishportlet.Assignment"
+        addview=".portlets.publishportlet.AddForm"
+        editview=".portlets.publishportlet.EditForm"
+        interface=".portlets.publishportlet.IPublishPortlet"
+        />
 
-  <!-- Resource directory for stylesheets -->
-  <browser:resourceDirectory
-      name="plumi.skin.stylesheets"
-      directory="stylesheets"
-      layer=".interfaces.IThemeSpecific"
-      />
+    <plone:portlet
+        name="plumi.skin.browser.portlets.BrowsePortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.browseportlet.Renderer"
+        assignment=".portlets.browseportlet.Assignment"
+        addview=".portlets.browseportlet.AddForm"
+        editview=".portlets.browseportlet.EditForm"
+        interface=".portlets.browseportlet.IBrowsePortlet"
+        />
 
-  <!-- Resource directory for old flowplayer (for backwards compatibility) -->
-  <browser:resourceDirectory
-      name="plumi.skin.flowplayer"
-      directory="flowplayer"
-      layer=".interfaces.IThemeSpecific"
-      />
+    <plone:portlet
+        name="plumi.skin.browser.portlets.NewsletterPortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.newsletter.Renderer"
+        assignment=".portlets.newsletter.Assignment"
+        addview=".portlets.newsletter.AddForm"
+        editview=".portlets.newsletter.EditForm"
+        interface=".portlets.newsletter.INewsletterPortlet"
+        />
 
-  <include package="plone.portlet.collection"/>
+    <plone:portlet
+        name="plumi.skin.browser.portlets.SocialNetworksPortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.socialnetworks.Renderer"
+        assignment=".portlets.socialnetworks.Assignment"
+        addview=".portlets.socialnetworks.AddForm"
+        editview=".portlets.socialnetworks.EditForm"
+        interface=".portlets.socialnetworks.ISocialNetworksPortlet"
+        />
 
-  <plone:portletRenderer
-      portlet="plone.portlet.collection.collection.ICollectionPortlet"
-      template="templates/collection.pt"
-      layer=".interfaces.IThemeSpecific"
-      />
+    <plone:portlet
+        name="plumi.skin.browser.portlets.FeaturedTopPortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.featuredtop.Renderer"
+        assignment=".portlets.featuredtop.Assignment"
+        addview=".portlets.featuredtop.AddForm"
+        editview=".portlets.featuredtop.EditForm"
+        interface=".portlets.featuredtop.IFeaturedTopPortlet"
+        />
 
-  <browser:page
-      for="*"
-      name="author_listing"
-      class=".authorlisting.AuthorListing"
-      template="templates/authorlist.pt"
-      permission="zope2.View"
-      />
+    <plone:portlet
+        name="plumi.skin.browser.portlets.FeaturedLeftPortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.featuredleft.Renderer"
+        assignment=".portlets.featuredleft.Assignment"
+        addview=".portlets.featuredleft.AddForm"
+        editview=".portlets.featuredleft.EditForm"
+        interface=".portlets.featuredleft.IFeaturedLeftPortlet"
+        />
 
-  <browser:viewlet
-    name="plone.colophon"
-    manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-    template="templates/colophon.pt"
-    for="*"
-    layer=".interfaces.IThemeSpecific"
-    permission="zope2.View"
+    <plone:portlet
+        name="plumi.skin.browser.portlets.FeaturedRightPortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.featuredright.Renderer"
+        assignment=".portlets.featuredright.Assignment"
+        addview=".portlets.featuredright.AddForm"
+        editview=".portlets.featuredright.EditForm"
+        interface=".portlets.featuredright.IFeaturedRightPortlet"
+        />
 
-/>
-
-<browser:viewlet
-    name="plone.personal_bar"
-    manager="plone.app.layout.viewlets.interfaces.IPortalTop"
-    template="templates/personal_bar.pt"
-	class="plone.app.layout.viewlets.common.PersonalBarViewlet"
-    for="*"
-    layer=".interfaces.IThemeSpecific"
-    permission="zope2.View"
-
-/>
-
-<browser:viewlet
-    name="plone.abovecontenttitle.documentactions"
-    manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
-    template="templates/document_actions.pt"
-    class="plone.app.layout.viewlets.content.DocumentActionsViewlet"
-    permission="zope2.View"
-    layer=".interfaces.IThemeSpecific"
-    />
+    <plone:portlet
+        name="plumi.skin.browser.portlets.NewsAndEventsPortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.newsandevents.Renderer"
+        assignment=".portlets.newsandevents.Assignment"
+        addview=".portlets.newsandevents.AddForm"
+        editview=".portlets.newsandevents.EditForm"
+        interface=".portlets.newsandevents.INewsAndEventsPortlet"
+        />
 
 </configure>

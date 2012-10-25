@@ -1,28 +1,18 @@
 <?xml version="1.0"?>
-<object name="portal_skins" meta_type="Plone Skins Tool"
-    allow_any="False" cookie_persistence="False" request_varname="plone_skin"
-    default_skin="Plumi Skin">
+<object name="portal_skins">
+ <object name="plumi_skin_custom_templates"
+    meta_type="Filesystem Directory View"
+    directory="plumi.skin:skins/plumi_skin_custom_templates"/>
 
  <object name="plumi_skin_custom_images"
     meta_type="Filesystem Directory View"
     directory="plumi.skin:skins/plumi_skin_custom_images"/>
- <object name="plumi_skin_custom_templates"
-    meta_type="Filesystem Directory View"
-    directory="plumi.skin:skins/plumi_skin_custom_templates"/>
- <object name="plumi_skin_styles"
-    meta_type="Filesystem Directory View"
-    directory="plumi.skin:skins/plumi_skin_styles"/>
 
- <skin-path name="Plumi Skin" based-on="Plone Classic Theme">
+
+ <skin-path name="*">
+  <layer name="plumi_skin_custom_templates"
+     insert-after="custom"/>
   <layer name="plumi_skin_custom_images"
      insert-after="custom"/>
-  <layer name="plumi_skin_custom_templates"
-     insert-after="plumi_skin_custom_images"/>
-  <layer name="plumi_skin_styles"
-     insert-after="plumi_skin_custom_templates"/>
-<layer name="ATVocabularyManager"
-     insert-after="cmf_legacy"/>
-
  </skin-path>
-
 </object>

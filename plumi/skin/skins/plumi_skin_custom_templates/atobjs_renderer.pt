@@ -37,13 +37,13 @@
              Could not find a better way to check the event. May be we can have custom index for it?
            </tal:comment>
            <br/>
-            <a title="Download this event in vCal format" href="" tal:attributes="href vcal">
-                <img height="16" width="16" title="vCal export" alt="" src="icon_export_vcal.png"/>
+            <a title="Download this event in vCal format" href="" tal:attributes="href vcal" style="clear:both;">
+                <img height="16" width="16" title="vCal export" alt="" src="../icon_export_vcal.png" style="float:left;margin-top:2px; margin-bottom:0;" />
                 <span>vCal</span>
            </a>
            <br/>
-           <a title="Download this event in iCal format" href="" tal:attributes="href ical">
-               <img height="16" width="16" title="iCal export" alt="" src="icon_export_ical.png"/>
+           <a title="Download this event in iCal format" href="" tal:attributes="href ical" style="clear:both;">
+               <img height="16" width="16" title="iCal export" alt="" src="../icon_export_ical.png" style="float:left;margin-top:2px; margin-bottom:0;" />
                <span>iCal</span>
            </a>
         </tal:ifevent>

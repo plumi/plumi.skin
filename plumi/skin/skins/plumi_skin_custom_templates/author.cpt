@@ -58,19 +58,18 @@
     tal:define="errors options/state/getErrors;
 		view context/author_view;">
     <tal:main-macro metal:define-macro="main"
-                    tal:define="mtool context/portal_membership;
+                    tal:define="url_unquote_plus python:modules['Products.PythonScripts.standard'].url_unquote_plus;
+                                mtool context/portal_membership;
                                 portal context/@@plone_portal_state/portal;
-                                isAnon context/@@plone_portal_state/anonymous;
                                 member context/@@plone_portal_state/member;
-                                url_unquote_plus python:modules['Products.PythonScripts.standard'].url_unquote_plus;
+                                isAnon context/@@plone_portal_state/anonymous;
+                                here_url context/@@plone_context_state/object_url;
+                                template_id template/getId;
                                 author python:(len(request.traverse_subpath) > 0 and url_unquote_plus(request.traverse_subpath[0])) or request.get('author', None);
                                 portrait python: mtool.getPersonalPortrait(author);
                                 portal_types portal/portal_types;
-                                here_url context/@@plone_context_state/object_url;
-                                template_id template/getId;
                                 authorinfo python: mtool.getMemberInfo(author);
-                                email_from_address portal/email_from_address;
-                                toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+                                email_from_address portal/email_from_address">
 
         <tal:noAuthor condition="not: authorinfo">
         <div id="region-content">
@@ -90,7 +89,7 @@
 
         <tal:haveAuthor condition="authorinfo">
  
-    <div id="region-content-container" class="documentEditable"
+    <div id="region-content" class="documentEditable"
          tal:define="isOwner python:member.getId()==author"
          tal:attributes="class python: test(isOwner, 'documentEditable', '')">
 
@@ -137,17 +136,25 @@
                 Author ID
             </h1>
 
+            <div id="author-full-details">
+
+           <img src=""
+                 alt=""
+                 class="portraitPhoto"
+                 width="75"
+                 style="float: left; margin: 0 1em 1em;"
+                 tal:attributes="src portrait/absolute_url" />
+
+
             <div class="discreet">
                 <tal:location condition="view/author_city|nothing" i18n:translate="text_location">
-                    Location:
                      <span tal:content="view/author_city" tal:omit-tag="" i18n:name="author_city">
                         Some City
-                    </span>
+                    </span>,
                 </tal:location>
-                <tal:location condition="authorinfo/location" i18n:translate="text_country">
-                    Country:
+                <tal:location condition="authorinfo/location" i18n:translate="text_location">
                  <a tal:attributes="href string:${portal_url}/@@author_listing?intype=location&invalue=${authorinfo/location}">
-                    <span tal:content="authorinfo/location" tal:omit-tag="" i18n:name="country">
+                    <span tal:content="authorinfo/location" tal:omit-tag="" i18n:name="location">
                         Some Country
                     </span>
                  </a>
@@ -163,12 +170,6 @@
                 </tal:language>
             </div>
 
-            <img src=""
-                 alt=""
-                 class="portraitPhoto"
-                 width="75"
-                 style="float: left; margin: 1em;"
-                 tal:attributes="src portrait/absolute_url" />
                       
 
             <p class="documentDescription" tal:content="view/author_userbio|nothing">
@@ -179,45 +180,32 @@
             
             <p tal:condition="python:mtool.getHomeFolder(id=author)">
             <a href="#" tal:attributes="href python:mtool.getHomeFolder(id=author).absolute_url()"
-               i18n:translate="label_author_internal_home_page">This Member's folder&hellip;</a>
+               i18n:translate="label_author_internal_home_page">Author's home page in this site&hellip;</a>
             </p>
 
             <p tal:condition="python: not mtool.getHomeFolder(id=author) and authorinfo['home_page']">
             <a href="#" 
                rel="nofollow"
                tal:attributes="href authorinfo/home_page"
-               i18n:translate="label_home_page">homepage&hellip;</a>
+               i18n:translate="label_author_external_home_page">Author's external home page&hellip;</a>
             </p>
 
 
 	<!-- custom author profile , Plumi Skin implementation -->
     <tal:plumi_domain i18n:domain="plumi">
         <div class="author-details">
-		    <tal:url condition="view/author_url|nothing">
-			        <tal:website 
-				          i18n:translate="website">Website:</tal:website>
+		    <tal:url condition="view/author_url|nothing"
+				          i18n:translate="">
+			        Homepage:
 			        <a tal:attributes="href view/author_url"
 			           tal:content="view/author_url"
 				      >
 				    Some URL
 			        </a>
 
-			        <p />
+			        <br />
 		    </tal:url>
-                    
-		    <tal:homepages condition="view/author_homepages_display|nothing">
-                    <div id="other-homepages-title" i18n:translate="social_networking_blogs">Social Networking and Blogs</div>
-			        <div id="other-homepages"
-                         tal:repeat="homepage view/author_homepages_display">
-			           <a tal:attributes="href homepage;
-                                          class python:context.isSocialNetworkURL(homepage)"
-                          tal:content="homepage">
-				    Some URL
-			        </a>
-                    </div>
 
-                    <br />
-            </tal:homepages>
 
                     <tal:street condition="view/author_street|nothing">
                         <span class="street_label" i18n:translate="">Address : </span>
@@ -283,35 +271,51 @@
                                     </a>&nbsp
 			    </tal:repeat>
                     </tal:media_formats>
+            </div>
 
-        </div>
+            <div id="paypal-donation" tal:define="paypalcode view/author_paypal|nothing"
+                                         tal:condition="paypalcode">
+                <p class="paypal-donate"> 
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="encrypted"
+                           tal:attributes="value paypalcode"> 
+                    <input type="image" id="paypalImage" src="https://www.paypal.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+                    <span class="discreet">
+                        If you enjoyed this member's videos, you can donate via PayPal towards their filmmaking, distribution or other media projects. 100% of funds are received by this member directly.
+                    </span>
+                    </form>
+                </p>
+                <br />
 
-        <div id="paypal-donation" tal:define="paypalcode view/author_paypal|nothing"
-                                     tal:condition="paypalcode">
-            <p class="paypal-donate"> 
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="encrypted"
-                       tal:attributes="value paypalcode"> 
-                <input type="image" id="paypalImage" src="https://www.paypal.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
-                <span i18n:translate="paypal_donate">
-                    If you enjoyed this member's videos, you can support them via PayPal.
-                </span>
-                </form>
-            </p>
-        </div>
+            </div>
 
-  </tal:plumi_domain>
-  <!-- END : custom author profile, Plumi Skin impl -->
+          </tal:plumi_domain>
+          <!-- END : custom author profile, Plumi Skin impl -->
+
+       <tal:videos define="videos view/videos|nothing" condition="videos">
+        <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/" i18n:translate="" >Videos</a></h2>
+       <a href="#" class="video-rss-syndicate" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2">
+           <img tal:attributes="src string:${portal_url}/rss.gif; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
+       </a>
+        <br />
+        <br />
+       </tal:videos>
+
+        </div> <!--author-full-details -->
 
 	<!-- Videos listing -->
-	<div class="featured-block" tal:condition="videos" tal:define="videos view/videos|nothing">
-	  <dl class="videos-listing" i18n:domain="plumi">
+        <tal:videos define="videos view/videos|nothing" condition="videos">
+	<div class="featured-block">
+
+
+	  <dl class="videos-listing-only" i18n:domain="plumi" >
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt; title"/></a>
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt; title"/></a>	      
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/" i18n:translate="">Latest Videos</a>
+	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/" i18n:translate="">Latest Videos</a></h2>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2">
+                  <img tal:attributes="src string:${portal_url}/rss.gif; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
+              </a>
 	    </dt>
 		<!-- each video item -->
 	    <dd class="featuredItem" tal:repeat="obj videos">
@@ -319,22 +323,27 @@
 	    </dd>
 	    <!-- end of each video item -->
 
-            <p tal:condition="python:mtool.getHomeFolder(id=author)">
-               <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/videos')"
-                 i18n:translate="label_author_internal_video_page">All videos from this author&hellip;</a>
+
+            <p id="all-videos" tal:condition="python:mtool.getHomeFolder(id=author)">
+              <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/videos')"
+                 i18n:translate="label_author_internal_video_page">All videos afrom this author&hellip;</a>
             </p>
 
 	  </dl>
 	</div>
+        </tal:videos>
 	<!-- end of video listing for user -->
+        <div id="other-published-stuff">
+
+<tal:comment replace="nothing">
 
 	<!-- Callout listing -->
-	<div class="featured-block" tal:condition="callouts" tal:define="callouts view/callouts|nothing">
-	  <dl class="callouts-listing" i18n:domain="plumi">
+	<div class="featured-block" tal:define="callouts view/callouts|nothing" tal:condition="callouts">
+	  <dl class="videos-listing"  i18n:domain="plumi" >
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt; title"/></a>	      	      
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/" i18n:translate="">Latest Callouts</a>
+	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/" i18n:translate="">Latest Callouts</a></h2>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS2"><img class="feedButton" style="padding-left:3px" src="../rss.gif" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
 	    </dt>
 
 		<!-- each Callout item -->
@@ -346,21 +355,25 @@
 	    <!-- end of each Callout item -->
 
             <p tal:condition="python:mtool.getHomeFolder(id=author)">
-              <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/callouts')"
-                 i18n:translate="label_author_internal_callout_page">All callouts from this author&hellip;</a>
+              <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/callouts')"
+                 i18n:translate="label_author_internal_video_page">All callouts from this author&hellip;</a>
             </p>
 
 	  </dl>
 	</div>
 	<!-- end of Callouts listing for user -->
 
+</tal:comment>
+
 	<!-- News listing -->
 	<div class="featured-block" tal:define="newses view/news|nothing" tal:condition="newses">
-	  <dl class="news-listing" i18n:domain="plumi">
+	  <dl class="videos-listing" i18n:domain="plumi">
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt; title"/></a>	      	      
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest News</a>
+	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest News</a></h2>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS2">
+           <img tal:attributes="src string:${portal_url}/rss.gif; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
+              </a>
 	    </dt>
 
 		<!-- each news item -->
@@ -372,7 +385,7 @@
 	    <!-- end of each news item -->
 
           <p tal:condition="python:mtool.getHomeFolder(id=author)">
-               <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/news')"
+               <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/news')"
                   i18n:translate="label_author_internal_news_page">All news from this author&hellip;</a>
           </p>
 
@@ -382,23 +395,26 @@
 
 
 	<!-- Events listing -->
-	<div class="featured-block" tal:condition="events" tal:define="events view/events|nothing">
-	  <dl class="events-listing" i18n:domain="plumi">
+	<div class="featured-block" tal:define="events view/events|nothing" tal:condition="events">
+	  <dl class="videos-listing" i18n:domain="plumi">
 	       
 	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt; title"/></a>	      	      
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/" i18n:translate="">Latest Events</a>
+	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/" i18n:translate="">Latest Events</a></h2>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS2">
+                  <img tal:attributes="src string:${portal_url}/rss.gif; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
+              </a>
 	    </dt>
 
 		<!-- each Event item -->
 	    <dd class="featuredItem" tal:repeat="obj events">
+
 	     <metal:macro use-macro="here/atobjs_renderer/macros/atobj_renderer"/>
 
 	    </dd>
 	    <!-- end of each Event item -->
 
          <p tal:condition="python:mtool.getHomeFolder(id=author)">
-              <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/events')"
+              <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/events')"
                  i18n:translate="label_author_internal_events_page">All events from this author&hellip;</a>
          </p>
 
@@ -406,52 +422,11 @@
 	</div>
 	<!-- end of Event listing for user -->
 
-        <!-- start of comments listing for user -->
-            <tal:authorComments define="fullname authorinfo/fullname;
-                                        author_comments python:here.getAuthorsComments(author=(author,fullname));">
+                       
+        </div> <!-- other-published-stuff -->
 
-      <div class="commentHeader" tal:condition="author_comments">Latest Comments</div>
-
-    <div class="discussion" class="discussion showCommenterImage" tal:repeat="comment author_comments">
-
-            <div class="comment" tal:define="obj comment/getObject">
-
-                <div class="commentImage">
-                         <img src="defaultUser.gif"
-                              alt=""
-                              border="0"
-                              height="32"
-                              tal:attributes="src python:here.portal_membership.getPersonalPortrait(author).absolute_url();
-                                              alt author" />
-                </div>
-
-                <div class="documentByLine" i18n:domain="plone.app.discussion">
-
-                        <a href="" tal:attributes="href comment/getURL"
-                                   tal:content="comment/Title">Comment title</a>
-
-                    <tal:posted i18n:translate="label_says">says:</tal:posted>
-
-                    <div class="commentDate"
-                         tal:content="python:toLocalizedTime(obj.creation_date,long_format=1)">
-                         8/23/2001 12:40:44 PM
-                    </div>
-                </div>
-
-                <div class="commentBody">
-
-                    <span tal:replace="structure obj/text" />
-
-                </div>
-           </div>
-    </div>
-            </tal:authorComments>
-
-        <!-- end of comments listing for user -->
-
-            <div class="visualClear"><!-- --></div>
-
- <tal:mailsetup tal:condition="python:email_from_address and authorinfo['has_email']">
+                        <div id="contact-area">
+  <tal:mailsetup tal:condition="python:email_from_address and authorinfo['has_email']">
 
                         <div class="formControls" tal:condition="isAnon">
                         <form
@@ -466,7 +441,6 @@
                         </div>
 
                         <!-- feedback form -->
-
 
                         <tal:owner tal:condition="python: not isOwner and not isAnon">
                             <p class="discreet"
@@ -543,6 +517,8 @@
                             </form>
                         </tal:owner>
                     </tal:mailsetup>
+                        </div> <!-- contactarea -->
+
             <!-- listing of content created by this user -->
 
             <!--        
@@ -596,7 +572,6 @@
 
             </tal:authorContent>
             -->
-
         </div>
     </div> <!-- end simulated tabs -->
         

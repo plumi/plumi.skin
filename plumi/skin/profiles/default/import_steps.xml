@@ -1,11 +1,8 @@
 <?xml version="1.0"?>
 <import-steps>
-  <import-step id="plumi.skin.various"
-               version="20090505-01"
+  <import-step id="plumi.skin.misc"
+               version="20120731-01"
                handler="plumi.skin.setuphandlers.setupVarious"
-               title="Plumi skin: miscellaneous import steps">
-    <dependency step="skins" />
-    Various import steps that are not handled by GS import/export
-    handlers.
+               title="Plumi Skin: miscellaneous import steps">
   </import-step>
 </import-steps>

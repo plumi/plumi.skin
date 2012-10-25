@@ -1,24 +1,98 @@
 <?xml version="1.0"?>
-<portlets>
+<portlets
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="plumi">
 
-     <assignment name="plumi.publish" category="context" key="/"
-        manager="plone.leftcolumn" type="plone.portlet.static.Static"
-        insert-before="navigation">
-        <property name="header">publish</property>
-        <property name="more_url"/>
-        <property name="hide">False</property>
-        <property name="footer"/>
-        <property name="text">
-            &lt;div id="portlet-publish"&gt;
-              &lt;a title="Publish Video" class="internal-link" href="publish"&gt;
-                &lt;span&gt;publish&lt;/span&gt;
-              &lt;/a&gt;
-            &lt;/div&gt;
-        </property>
-        <property name="omit_border">True</property>
-    </assignment>
-    <assignment name="navigation" category="context" key="/"
-        manager="plone.leftcolumn" type="portlets.Navigation">
-    </assignment>
+<assignment
+     manager="ContentWellPortlets.FooterPortletManager1"
+     category="context"
+     key="/"
+     type="plumi.skin.browser.portlets.projects.ProjectsPortlet"
+     name="Projects Portlet"
+     />
+
+<assignment
+     remove="True"
+     manager="plone.leftcolumn"
+     category="context"
+     key="/"
+     type="portlets.Navigation"
+     name="navigation"
+     />
+
+ <assignment name="Navigation Portlet" category="context" key="/"
+    manager="ContentWellPortlets.FooterPortletManager1" type="portlets.Navigation" visible="True">
+  <property name="topLevel">0</property>
+  <property name="portlet_style"> </property>
+  <property name="currentFolderOnly">False</property>
+  <property name="name"></property>
+  <property name="includeTop">False</property>
+  <property name="bottomLevel">0</property>
+  <property name="root"/>
+ </assignment>
+
+<assignment
+     manager="ContentWellPortlets.FooterPortletManager1"
+     category="context"
+     key="/"
+     type="plumi.skin.browser.portlets.BrowsePortlet"
+     name="Browse Portlet"
+     />
+
+<assignment
+     manager="ContentWellPortlets.FooterPortletManager1"
+     category="context"
+     key="/"
+     type="plumi.skin.browser.portlets.PublishPortlet"
+     name="Publish Portlet"
+     />
+
+<assignment
+     manager="ContentWellPortlets.FooterPortletManager1"
+     category="context"
+     key="/"
+     type="plumi.skin.browser.portlets.NewsletterPortlet"
+     name="Newsletter Portlet"
+     />
+
+<assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="plumi.skin.browser.portlets.NewsAndEventsPortlet"
+     name="News and Events Portlet"
+     />
+
+<assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="plumi.skin.browser.portlets.SocialNetworksPortlet"
+     name="Social Networks Portlet"
+     />
+
+<assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="plumi.skin.browser.portlets.FeaturedTopPortlet"
+     name="Featured Top Portlet"
+     />
+
+<assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="plumi.skin.browser.portlets.FeaturedLeftPortlet"
+     name="Featured Left Portlet"
+     />
+
+<assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="plumi.skin.browser.portlets.FeaturedRightPortlet"
+     name="Featured Right Portlet"
+     />
 
 </portlets>
