@@ -204,7 +204,7 @@ a.header-menu-item:hover {
 /* Mid Container ---------------------- */
 
 #mid-container {
-  background: #f9f9f9;
+  background: #efeff1;
 }
 
 #mid-container .row.content {
@@ -1466,6 +1466,46 @@ div.comment button.reply-to-comment-button:active {
   height: 100%;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+/* ----------------------------------------- News/Item Listing
+----------------------------------------- */
+
+ul.list {
+  list-style-type: none;
+  -moz-box-shadow: 0 1px 6px rgba(0,0,0,0.17);
+  -ms-box-shadow: 0 1px 6px rgba(0,0,0,0.17);
+  -webkit-box-shadow: 0 1px 6px rgba(0,0,0,0.17);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.17);
+}
+
+ul.list li {
+  background: #f2f2f3;
+  border-top: 1px solid #ddd;
+  overflow: auto;
+}
+
+ul.list li:first-child {
+  border-top: none;
+}
+
+ul.list li span.posted {
+  padding-top: 8px;
+}
+
+ul.list li span {
+  display: block;
+  padding: 0 8px 8px;
+}
+
+ul.list li .image {
+  padding: 0;
+  display: block;
+  float: right;
+  width: 128px;
+  height: 128px;
+  background-position: right top;
+  background-repeat: no-repeat;
 }
 
 
