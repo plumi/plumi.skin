@@ -1238,13 +1238,11 @@ that IE7/8 do not support :nth-child.
   .block-grid.mobile > li { float: none; width: 100%; margin-left: 0; } 
 }
 
-/* -------------------------------------------------- Table of Contents
------------------------------------------------------
-:: Shared Styles
-:: Plain Text Page
-:: Video Upload Form
-:: Page Name 2
-*/
+
+
+
+
+
 /* ----------------------------------------- Shared Styles
 ----------------------------------------- */
 
@@ -1506,6 +1504,62 @@ ul.list li .image {
   height: 128px;
   background-position: right top;
   background-repeat: no-repeat;
+}
+
+/* ----------------------------------------- Search Page
+----------------------------------------- */
+
+#search-field, .search.data {
+  overflow: auto;
+  border: none;
+  padding: 16px;
+  background: #efeff1;
+  -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.17);
+  -ms-box-shadow: 0 1px 4px rgba(0,0,0,0.17);
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.17);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.17);
+}
+
+.search.data {
+  padding: 0;
+}
+
+.search.data .result, .search.data .filter, .search.data .sort {
+  display: block;
+  float: left;
+  padding: 16px 4px 16px 16px;
+  font-weight: bold;
+}
+
+.search.data .filter {
+  padding: 16px 0;
+}
+
+.search.data .sort {
+  padding: 16px;
+  float: right;
+  border-left: 1px solid #dfdfdf;
+}
+
+.search-term {
+  font-style: italic;
+}
+
+input.searchPage {
+  background: #f6f6f7;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+#search-filter {
+  display: none;
+}
+
+.search.list .title {
+  font-weight: bold;
+  padding-top: 8px;
 }
 
 
