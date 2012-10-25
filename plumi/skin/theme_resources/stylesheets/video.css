@@ -1,0 +1,122 @@
+.row.video-content {
+	background: #c9ccd1;
+}
+
+.under .video-actions a {
+	display: block;
+	float: right;
+	padding: 16px 0 10px 0;
+}
+
+#video-title {
+	padding: 16px 12px;
+	background: #f3f3f5;
+	color: #333;
+}
+
+#video-title h1 {
+	font-size: 24px;
+	font-weight: bold;
+	margin: 0;
+}
+
+ /* Video Item */
+
+ul.video-list {
+	list-style-type: none;
+}
+
+ul.video-list li.video-item {
+	display: block;
+	overflow: auto;
+	margin: 0;
+}
+
+ul.video-list li.video-item a {
+	overflow: auto;
+}
+
+ul.video-list li.video-item img {
+	display: block;
+	float: left;
+	width: 60%;
+	height: auto;
+}
+
+ul.video-list li.video-item h5 {
+  float: left;
+  width: 40%;
+}
+
+ /* Description */
+
+p.documentDescription {
+	margin: 0;
+}
+
+a.more, a.less {
+ 	display: block;
+ 	font-weight: bold;
+ 	color: #445;
+ 	margin: 0 0 1em 0;
+ 	text-align: center;
+ }
+
+ div#full-description {
+ 	background: #dfdfe1;
+ 	padding: 1em;
+ }
+
+/* Video Info */
+
+div#video-info {
+	padding: 14px 10px;
+	background: #dfdfe1;
+}
+
+div.vcard {
+	background: #efeff1;
+}
+
+div.vcard table.vertical {
+	width: 100%;
+}
+
+div.vcard table.vertical th, div.vcard table.vertical td {
+	border: 0px !important;
+}
+
+div.vcard table.vertical tbody th {
+	background: #e6e6e7;
+}
+
+div.vcard table.vertical th {
+	text-align: left;
+	width: 28%;
+}
+
+div.vcard table.vertical ul {
+	margin-bottom: 0px;
+}
+
+/* Video Comments */
+
+div.video-comments-title {
+	margin-top: 24px;
+	border-bottom: 1px solid #ccc;
+	top: 0px;
+}
+
+#description {
+    margin-bottom:10px;
+}
+ 
+
+.videobar span {
+    cursor: pointer !important;
+}
+
+#content {
+    margin-top: -1em !important;
+}
+

@@ -1,0 +1,17 @@
+<div id="newsletter-portlet" i18n:domain="plumi.skin">
+    <h5 i18n:translate="">Stay In Touch</h5>
+    <ul><li>
+            <span i18n:translate="">Subscribe to our Newsletter</span>
+            <form method="post" target="_blank" action="http://engagemedia.us1.list-manage.com/subscribe/post?u=d9dee6898a6443ce6f94eb51a&amp;id=017d30dda8">
+                <input id="newsletter-input" class="text-input" name="EMAIL" value="your email" type="text">
+                <input id="newsletter-submit" class="button small" value="Go" type="submit">
+            </form>
+        </li>
+        <li>
+            <span class="social-title">Social Media</span>
+            <a href="http://www.facebook.com/group.php?gid=43640854087" style="display:inline" target="_blank" ><span class="fb"></span></a>
+            <a href="http://twitter.com/EngageMedia" style="display:inline" target="_blank" ><span class="twitter"></span></a>
+        </li>
+        <li><a tal:attributes="href python: context.portal_url() + '/contact-info'" i18n:translate="">Contact Us</a></li>
+    </ul>
+</div>

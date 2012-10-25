@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>EngageMedia</title>
+
+  <!-- Included Google Webfont -->
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans|Arimo:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- Included CSS Files -->
+  <link rel="stylesheet" href="stylesheets/foundation.css">
+
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+
+    <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style>
+        #portal-advanced-search, #portal-searchbox label, div.searchSection, input.searchButton {display: none}
+    </style>
+</head>
+<body>
+    <div id="upper-container">
+        <div class="row header">
+            <div class="twelve columns header">
+                <div class="one column main-logo"></div>
+                <div class="three columns main-title">
+                    <h2>EngageMedia</h2>
+                    <p>Social justice and environmental video from the Asia Pacific</p>
+                </div>
+                <div class="three columns offset-by-one search">
+                    <input type="text" id="searchGadget" class="text-input" name="searchGadget" value="Search EngageMedia">
+                </div>
+                <div class="four columns menu">
+                    <a href="#" class="header-menu-item header-button language"><img src="stylesheets/images/uk.png"></a>
+                    <a href="#" class="header-menu-item header-button user">User</a>
+                    <a href="/publish" class="header-menu-item">Publish</a>
+                    <a href="/taxonomy" class="header-menu-item">Browse</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mid-container">
+        <div class="row content">
+            <div class="nine columns">
+                <div class="row nest">
+                    <div class="video featured shade" id="featuredvideo">
+                        <div class="viewport">
+                            <img class="featured-image" src="images/main.png">
+                        </div>
+                        <div class="unisub">
+                            <div class="unisub-proxy">
+                            </div>
+                        </div>
+                        <div class="under">
+                            <h3>Witch Hunt Online</h3>
+                            <div class="video-actions">
+                                <a href="#"><span>View High Quality</span></a>
+                                <a href="#"><span>Download</span></a>
+                                <a href="#"><span>Share</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row nest">
+                    <div class="eight columns">
+                        <div class="featured-content">
+                            <img class="featured-image" src="images/image_mini_2.png">
+                            <div class="featured-text">
+                                <ul>
+                                    <li><a href="#">
+World Press Freedom Day: The Ultimate Faq</a><br />International Freedom of Expression Exchange (IFEX) answers all you need to know about the coming World Press Freedom day on May 3, one of the most important days for honouring free expression. </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="four columns">
+                        <div class="featured-filmmaker">
+                            <img class="featured-image" src="images/image_mini.png">
+                            <div class="featured-text">
+                                <h5>Featured Filmmaker: </h5>
+                                Sathis Kumar Krishnan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="three columns news">
+<<<<<<< HEAD
+                <div class="news-section shade">
+                    <div class="column-title">
+                        <span class="column-title-icon"></span>
+                        <h4>News & Events</h4>
+                    </div>
+                    <ul>
+                        <li><a href="#">Competition: Bhinneka Tinggal Duka</a><br />Bhinneka Tinggal Duka? Kompetisi Video Online (in)toleransi di Indonesia ini terbuka untuk publik!</li>
+                                        <li><a href="#">
+    Engagemedia, Malaysiakini, Cjmy, And The Online Citizen Host First Citizen Journalism</a><br />Report on the first ever citizen journalism and online subtitling workshop in Singapore.</li>
+                    </ul>
+                </div>
+                <div class="news-section shade">
+                    <div class="column-title ">
+                        <span class="column-title-icon"></span>
+                        <h4>EngageMedia Blog</h4>
+                    </div>
+                    <ul>
+                        <li><a href="#">Engagemedia Ventures Into Thailand, Sprouting Projects And Partnerships</a><br />Over 2 weeks in early July, I traveled across 3 provinces in the conflict zone of Southern Thailand, and to the capital city of Bangkok.</li>
+                    </ul>
+                    </div>
+                <div class="news-section shade">
+                    <span class="column-title-icon"></span>
+                    <div class="column-title ">
+                        <span class="column-title-icon"></span>
+                        <h4>Latest Comments</h4>
+                    </div>
+                    <ul>
+                        <li><a href="#"> philippe on Trou et Construction Citerne de récupération de l'eau de Pluie en Ferrociment</a><br />Super,je suis content que j'ai servi d'inspiration.</li>
+                    </ul>
+                </div>
+
+                <div class="news-section">
+                    <div class="fb"></div>
+                    <div class="twitter"></div>
+                </div>
+=======
+                <div class="column-title"><h4>News & Events</h4></div>
+                <ul id="news-right-portlet">
+                    <li><a href="#">Competition: Bhinneka Tinggal Duka</a><br />Bhinneka Tinggal Duka? Kompetisi Video Online (in)toleransi di Indonesia ini terbuka untuk publik!</li>
+                                    <li><a href="#">
+Engagemedia, Malaysiakini, Cjmy, And The Online Citizen Host First Citizen Journalism</a><br />Report on the first ever citizen journalism and online subtitling workshop in Singapore.</li>
+                </ul>
+                <div class="column-title"><h4>EngageMedia Blog</h4></div>
+                <ul id="blogs-right-portlet">
+                    <li><a href="#">Engagemedia Ventures Into Thailand, Sprouting Projects And Partnerships</a><br />Over 2 weeks in early July, I traveled across 3 provinces in the conflict zone of Southern Thailand, and to the capital city of Bangkok.</li>
+                </ul>
+                <div class="column-title"><h4>Latest Comments</h4></div>
+                <ul id="comments-right-portlet">
+                    <li><a href="#"> philippe on Trou et Construction Citerne de récupération de l'eau de Pluie en Ferrociment</a><br />Super,je suis content que j'ai servi d'inspiration.</li>
+                </ul>
+>>>>>>> 97c12c6e42e9bc2dd8c0fbe8837a9a969e3dde6f
+            </div>
+        </div>
+        <div class="row row-title"><h4>Latest Videos</h4></div>
+        <div class="row content" id="latestvideos">
+                <div class="three columns video tablet-one">
+                    <div class="viewport shade" style="width: 230px; height: 130px;background: #111;"></div>
+                    <div class="under">
+                        <h5>Video Title</h5>
+                    </div>
+                </div>
+                <div class="three columns video tablet-one">
+                    <div class="viewport shade" style="width: 230px; height: 130px;background: #111;"></div>
+                    <div class="under">
+                        <h5>Video Title</h5>
+                    </div>
+                </div>
+                <div class="three columns video tablet-one">
+                    <div class="viewport shade" style="width: 230px; height: 130px;background: #111;"></div>
+                    <div class="under">
+                        <h5>Video Title</h5>
+                    </div>
+                </div>
+                <div class="three columns video tablet-one">
+                    <div class="viewport shade" style="width: 230px; height: 130px;background: #111;"></div>
+                    <div class="under">
+                        <h5>Video Title</h5>
+                    </div>
+                </div>
+                <div class="three columns video tablet-one">
+                    <div class="viewport shade" style="width: 230px; height: 130px;background: #111;"></div>
+                    <div class="under">
+                        <h5>Video Title</h5>
+                    </div>
+                </div>
+                <div class="three columns video tablet-one">
+                    <div class="viewport shade" style="width: 230px; height: 130px;background: #111;"></div>
+                    <div class="under">
+                        <h5>Video Title</h5>
+                    </div>
+                </div>
+                <div class="three columns video tablet-one">
+                    <div class="viewport shade" style="width: 230px; height: 130px;background: #111;"></div>
+                    <div class="under">
+                        <h5>Video Title</h5>
+                    </div>
+                </div>
+                <div class="three columns video tablet-one">
+                    <div class="viewport shade" style="width: 230px; height: 130px;background: #111;"></div>
+                    <div class="under">
+                        <h5>Video Title</h5>
+                    </div>
+                </div>
+                <div class="column centered load-more"><a class="button large" href="#">Load More</a></div>
+        </div>
+    </div>
+    <div class="row separate-thick"></div>
+    <div id="lower-container">
+        <div class="row footer">
+            <div class="six columns">
+                <div class="logo"></div>
+            </div>
+        </div>
+        <div class="row footer">
+            
+            <div class="three columns offset-by-three">
+                <h5>About Us</h5>
+                <ul>
+                    <li>Editorial Policy</li>
+                    <li>Help</li>
+                    <li>Support Us</li>
+                    <li>Get Involved</li>
+                    <li>Donate</li>
+                </ul>
+            </div>
+            <div class="three columns">
+                <h5>Our Projects</h5>
+                <ul>
+                    <li>Technology</li>
+                    <li>Research & Publications</li>
+                    <li>Content & Compilations</li>
+                    <li>Network Building & Training</li>
+                    <li>Translations</li>
+                </ul>
+            </div>
+            <div class="three columns">
+                <h5>Stay In Touch</h5>
+                <ul>
+                    <li>
+                        Subscribe to our Newsletter
+                        <form action="" method="post">
+                            <input type="text" id="newsletter-input" class="text-input" name="newsletter-input" value="">
+                            <input type="submit" id="newsletter-submit" class="button small" name="newsletter-submit" value="Go">
+                        </form>
+                    </li>
+                    <li>Contact Us</li>   
+                    <li>
+                        <span class="social-title">Social Media</span>
+                        <span class="fb"></span>
+                        <span class="twitter"></span>
+                    </li>                 
+                </ul>
+            </div>
+        </div>
+        <div class="row footer">
+            <div class="colophon"><a href="http://plumi.org">
+                powered by <b>Plumi</b>
+                <span class="plumi-logo"></span>
+            </a></div>
+        </div>
+    </div>
+    <span id="javascript_at_bottom"></span>      
+    <span id="javascript_inline"></span>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<dl class="portlet portletPublishPortlet"
+    i18n:domain="plumi.portlets">
+
+    <dt class="portletHeader publishPortletHeader">
+        <span class="browse-text" i18n:translate="">Publish</span>
+    </dt>
+
+    <div tal:define="portal context/@@plone_portal_state/portal;
+                     home_url portal/portal_membership/getHomeUrl|nothing;">
+
+        <dd class="portletItem publish-portlet">
+            <dl>
+                <dt>
+                    <li>
+                        <a tal:attributes="href view/videos_path" i18n:translate="">Video</a>
+                    </li>
+                    <li>
+                        <a tal:attributes="href view/events_path" i18n:translate="">Event</a>
+                    </li>
+                    <li>
+                        <a tal:attributes="href view/news_path" i18n:translate="">News</a>
+                    </li>
+                </dt>
+            </dl>
+        </dd>
+    </div>
+</dl>

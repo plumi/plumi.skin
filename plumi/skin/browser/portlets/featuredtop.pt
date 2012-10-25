@@ -1,0 +1,18 @@
+<div class="featured-filmmaker video" i18n:domain="plumi.skin">
+    <tal:items tal:repeat="obj view/results">
+        <div class="wrapper-under">
+            <div class="under">
+                <h5><a tal:content="obj/Title" tal:attributes="href python: obj.absolute_url();">test2</a></h5>
+            </div>
+        </div>
+        <div class="proxy-under"></div>
+        <div class="wrapper-image">
+            <div class="rollover">
+                <p><a tal:attributes="href python: obj.absolute_url();"><span tal:replace="python: obj.Description()">Description</span></a></p>
+            </div>
+            <a tal:attributes="href python: obj.absolute_url();">
+                <img alt="''" tal:attributes="src python: obj.getImage().absolute_url() + '_preview'">
+            </a>
+        </div>
+    </tal:items>
+</div>

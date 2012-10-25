@@ -1,0 +1,31 @@
+<dl class="portlet portletBrowse"
+    i18n:domain="plumi.skin">
+
+    <dt class="portletHeader browsePortletHeader">
+        <span class="browse-text" i18n:translate="">Browse</span>
+    </dt>
+
+    <dd class="portletItem browse-portlet">
+        <dl>
+            <dt>
+                <li>
+                    <a tal:attributes="href python: context.portal_url() + '/taxonomy/genre'" i18n:translate="">Genres</a>
+                </li>
+                <li>
+                    <a tal:attributes="href python: context.portal_url() + '/taxonomy/topic'" i18n:translate="">Topics</a>
+                </li>
+                <li>
+                    <a tal:attributes="href python: context.portal_url() + '/taxonomy/countries'" i18n:translate="">Countries</a>
+                </li>
+                <li>
+                    <a tal:attributes="href python: context.portal_url() + '/Members'" i18n:translate="">Members</a>
+                </li>
+                 <li>
+                    <a tal:attributes="href python: context.portal_url() + '/taxonomy/lingua'" i18n:translate="">Languages</a>
+                </li>
+
+            </dt>
+        </dl>
+    </dd>
+
+</dl>

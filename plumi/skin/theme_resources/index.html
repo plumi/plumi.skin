@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>EngageMedia</title>
+
+  <!-- Included Google Webfont -->
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans|Arimo:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- Included CSS Files -->
+  <link rel="stylesheet" href="stylesheets/foundation.css">
+
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+
+    <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <span id="css"></span>
+
+</head>
+<body>
+    <div id="upper-container">
+        <div class="row no-v-padding header">
+            <div class="twelve columns header">
+                <a class="five columns main-title">
+                    <p>Social justice and environmental video from the Asia Pacific</p>
+                </a>
+                <div class="top-menu">
+                    <ul class="header-menu-item" id="language-menu">
+                        <li>
+                            <a href="#" class="english language">English</a>
+                        </li>
+                        <li>
+                            <a href="#" class="bahasa language">Bahasa Indonesia</a>
+                        </li>
+                    </ul>
+                    <ul class="header-menu-item" id="user-menu">
+                        <li>
+                            <a href="#" class="user">
+                                User
+                            </a>
+                        </li>
+                        <li>
+                            <ul class="dropdown shade">
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="six columns menu">
+                     <div class="search">
+                        <input type="text" id="searchGadget" class="text-input" name="searchGadget" value="Search EngageMedia">
+                    </div>
+                    
+                    <ul class="header-menu-item" id="publish-menu">
+                        <li class="header-button">
+                            <a class="user">
+                                Upload2
+                            </a>
+                        </li>
+                        <li>
+                            <ul class="dropdown shade">
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="header-menu-item" id="browse-menu">
+                        <li class="header-button">
+                            <a class="user">
+                                Browse
+                            </a>
+                        </li>
+                        <li>
+                            <ul class="dropdown shade">
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mid-container">
+        <div class="content row">
+            <div class="nine columns">
+                <div class="row full no-top-padding">
+                    <div class="video featured" id="featuredvideo">
+                        <div class="viewport">
+                            <img src="images/main.png">
+                            <div class="unisub">
+                                <div class="unisub-proxy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="description">
+                            <h3>Witch Hunt Online</h3>
+                            <div class="video-meta">
+                                <span>by </span><a href="#">papuanvoices</a>
+                            </div>
+                            <p>International Freedom of Expression Exchange (IFEX) answers all you need to know about the coming World Press Freedom day on May 3, one of the most important days for honouring free expression. </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="full row no-v-padding row-title" id="latest-videos-title">
+                    <h4 title="latest videos" >Latest Videos</h4>
+                    <a href="#" class="rss icon"></a>
+                </div>
+                <div class="row" id="latestvideos">
+                    
+                    <div class="six columns centered load-more"><a class="button large" href="#">Load More</a></div>
+                </div>
+
+            </div>
+
+            <div class="three columns news sidebar">
+                <div class="sidebar-section light-shade">
+                    <div class="featured-filmmaker">
+                        <a href="#">
+                            <span class="featured-text">
+                                <h5>Featured Item </h5>
+                                International Freedom of Expression Exchange (IFEX) answers all you need to know about the coming World Press Freedom day. 
+                            </span>
+                            <img src="images/image_mini_2.png" class="featured-image">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section social-networks">
+                    <span>Stay in touch!</span>
+                    <a href="http://twitter.com/EngageMedia" target="_blank"><div class="twitter"></div></a>
+                    <a href="http://www.facebook.com/group.php?gid=43640854087" target="_blank"><div class="fb"></div></a>
+                </div>
+
+                <div class="sidebar-section shade news-portlet">
+                    <div class="column-title">
+                        <span class="column-title-icon"></span>
+                        <h4 id='news-title'>News & Events</h4>
+                    </div>
+                    <ul id="news-right-portlet">
+                        <li><a href="#"><p class="date">May, 16</p><h5>Competition: Bhinneka Tinggal Duka</h5></a></li>
+                        <li><a href="#"><p class="date">June, 23</p><h5>Competition: Bhinneka Tinggal Duka</h5></a></li>
+                        <li><a href="#"><p class="date">July, 01</p><h5>Competition: Bhinneka Tinggal Duka</h5></a></li>
+                    </ul>
+                    <div class="column-more">
+                        <a href="#" id="more-news">More...</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section shade comments-portlet">
+                    <span class="column-title-icon"></span>
+                    <div class="column-title ">
+                        <span class="column-title-icon"></span>
+                        <h4 id="comments-title">Latest Comments</h4>
+                    </div>
+                    <ul id="comments-right-portlet">
+                        <li><a href="#"><p class="date">May, 16</p><h5>philippe on Trou et Construction Citerne</h5></a></li>
+                        <li><a href="#"><p class="date">May, 19</p><h5>philippe on Trou et Construction Citerne</h5></a></li>
+                        <li><a href="#"><p class="date">July, 02</p><h5>philippe on Trou et Construction Citerne</h5></a></li>
+                    </ul>
+                    <div class="column-more">
+                        <a href="#" id="more-comments">More...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="full row no-v-padding row-title"><h4>EngageMedia Projects</h4></div>
+        <div class="content row">
+            <div class="six columns sidebar">
+                <div class="sidebar-section light-shade">
+                    <div class="featured-content" id="featured-left">
+                        <a href="#">
+                            <img class="featured-image" src="images/image_mini_2.png">
+                            <span class="featured-text">
+                                <h5>World Press Freedom day</h5>
+                                <p>International Freedom of Expression Exchange (IFEX) answers all you need to know about the coming World Press Freedom day.</p>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="column-more">
+                        <a href="projects" id="more-projects">More Projects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="three columns sidebar blog-portlet">
+                <div class="sidebar-section shade">
+                    <div class="column-title">
+                        <h4 id="blog-title">Staff Blog</h4>
+                    </div>
+                    <ul id="blog-right-portlet">
+                        <li><a href="#"><p class="date">May, 16</p><h5>Engagemedia Ventures Into Thailand, Sprouting Projects And Partnerships</h5></a></li>
+                        <li><a href="#"><p class="date">May, 16</p><h5>Engagemedia Ventures Into Thailand, Sprouting Projects And Partnerships</h5></a></li>
+                        <li><a href="#"><p class="date">May, 16</p><h5>Engagemedia Ventures Into Thailand, Sprouting Projects And Partnerships</h5></a></li>
+                    </ul>
+                    <div class="column-more">
+                        <a href="#" id="more-blogs">More...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="three columns sidebar">
+                <div class="sidebar-section light-shade">
+                    <div class="featured-content" id="featured-right">
+                        <a href="#">
+                            <img class="featured-image" src="images/image_mini_2.png">
+                            <span class="featured-text">
+                                <h5>World Press Freedom day</h5>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row separate-thick"></div>
+
+    <div id="lower-container">
+        <div class="row footer">
+            <div class="three columns engage">
+                <h5>EngageMedia</h5>
+            </div>
+            <div class="three columns">
+                <a href="/about-us"><h5>About Us</h5></a>
+                <ul id="navigation-tree">
+                    <li>Editorial Policy</li>
+                    <li>Help</li>
+                    <li>Support Us</li>
+                    <li>Get Involved</li>
+                    <li>Donate</li>
+                </ul>
+            </div>
+            <div class="three columns">
+                <a href="/Projects"><h5>Our Projects</h5></a>
+                <ul id="projects-tree">
+                    <li>Technology</li>
+                    <li>Research & Publications</li>
+                    <li>Content & Compilations</li>
+                    <li>Network Building & Training</li>
+                    <li>Translations</li>
+                </ul>
+            </div>
+            <div class="three columns" id="newsletter-footer">
+                <h5>Stay In Touch2</h5>
+                <ul>
+                    <li>
+                        Subscribe to our Newsletter
+                        <form action="" method="post">
+                            <input type="text" id="newsletter-input" class="text-input" name="newsletter-input" value="">
+                            <input type="submit" id="newsletter-submit" class="button small" name="newsletter-submit" value="Go">
+                        </form>
+                    </li>
+                    <li>Contact Us</li>   
+                    <li>
+                        <span class="social-title">Social Media</span>
+                        <a href="http://www.facebook.com/group.php?gid=43640854087"><span class="fb"></span></a>
+                        <a href="http://twitter.com/EngageMedia"><span class="twitter"></span></a>
+                    </li>                 
+                </ul>
+            </div>
+        </div>
+        <div class="row footer">
+            <div class="colophon"><a href="http://plumi.org">
+                powered by <b>Plumi</b> <span class="plumi-logo"></span></a> - Except where otherwise noted, content on this site is licensed under a <b><a href="http://creativecommons.org/licenses/by/3.0/au/">Creative Commons Attribution 3.0 Australia Licence.</a></b>
+                
+            </div>
+        </div>
+    </div>
+    <span id="javascript_at_bottom"></span>      
+    <span id="javascript_inline"></span>
+    <script>
+    function resizePlayer(){ 
+        if ($(window).width() < 550 ) {
+            mejs.players[0].setPlayerSize($(window).width()-25,($(window).width()-25)/1.75);
+            mejs.players[0].setControlsSize();
+            $('div.videobar').width($(window).width()-25);
+            $('#featuredvideo .description').width($(window).width()-25);
+            try{ mejs.players[0].setVideoSize($(window).width()-25,($(window).width()-25)/1.75); } catch(err) {}
+        } else {
+            $('#featuredvideo .description').attr('style','');
+            $('div.videobar').attr('style','');
+        }
+    };
+
+    $(document).ready(resizePlayer);
+    $(window).resize(resizePlayer);
+    </script>
+</body>
+</html>

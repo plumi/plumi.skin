@@ -1,0 +1,29 @@
+<dl class="portlet portletNewsAndEvents"
+    i18n:domain="plumi.skin" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+    <dt class="portletHeader NewsAndEventsHeader">
+        <span class="portletTopLeft"></span>
+          <a tal:attributes="href string:${here/portal_url}/news_and_events" alt="More News and Events">News and Events</a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <tal:items tal:repeat="obj view/results">
+        <dd class="portletItem odd">
+            <a class="tile" tal:attributes="href python: obj.absolute_url(); title python: obj.Description()">
+                <span tal:replace="python: obj.Title()">test event</span>
+                <span class="portletItemDetails" tal:content="python:toLocalizedTime(obj.Date())">Jul 24, 2012</span>
+            </a>
+        </dd>
+    </tal:items>
+
+    <dd class="portletFooter">
+        <span class="portletBottomLeft"></span>
+        <span>
+          <a tal:attributes="href string:${here/portal_url}/news_and_events" alt="More News and Events">More...</a>
+        </span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+
+
+

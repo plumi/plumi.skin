@@ -1,0 +1,6 @@
+<layers>
+  <layer
+      name="plumi.skin"
+      interface="plumi.skin.browser.interfaces.IPlumiSkinLayer"
+      />
+</layers>
