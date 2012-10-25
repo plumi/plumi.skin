@@ -55,14 +55,14 @@ input:focus {
 }
 
 div.row.header, div.twelve.columns.header {
-  height: 120px;
+  height: 80px;
 }
 
 div.row.header .main-logo {
   float: left;
-  width: 120px;
-  height: 120px;
-  background: url(images/logo.png) center no-repeat;
+  width: 240px;
+  height: 80px;
+  background: url(images/logo_wide.png) left center no-repeat;
 }
 
 div.row.header div.search {
@@ -91,6 +91,7 @@ div.row.header div.menu {
   right: 0;
   height: 20px;
   margin-top: -8px;
+  padding: 0px;
 }
 
 .header-menu-item {
