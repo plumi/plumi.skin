@@ -83,7 +83,6 @@
         <div class="row content">
 
             <div class="nine columns">
-                <div id="content-core">
                     <form name="searchform" action="@@search" class="light-shade searchPage enableAutoFocus" id="searchform">
                         <input type="hidden" name="advanced_search" value="False"><input type="hidden" name="sort_on" value=""><fieldset id="search-field" class="noborder"><input class="searchPage" name="SearchableText" type="text" size="25" title="Search Site" value="lines"><input class="searchPage searchButton allowMultiSubmit" type="submit" value="Search"></fieldset>
                     </form>
@@ -143,16 +142,17 @@
                         <div class="light-shade pagination">
                             <a class="previous page"></a>
                             <span class="pages">
-                                <a href="#">1</a>
+                                <span class="current">1</span>
                                 <a href="#">2</a>
                                 <a href="#">3</a>
                                 <a href="#">4</a>
                                 <a href="#">5</a>
+                                <span class="ellipsis">…</span>
+                                <a href="#">10</a>
                             </span>
                             <a class="next page"></a>
                         </div>
                     </div>
-                </div>
             </div>
 
             <div class="three columns news sidebar">

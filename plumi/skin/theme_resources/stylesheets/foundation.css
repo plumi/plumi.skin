@@ -5,7 +5,7 @@
 html { font-size: 62.5%; }
 
 body { 
-  background: white; 
+  background: #efeff1; 
   /*font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; */
   font-family: "Arimo", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
   font-size: 14px; 
@@ -1567,6 +1567,21 @@ input.searchPage {
   padding-bottom: 0;
 }
 
+/* ----------------------------------------- Taxonomy
+----------------------------------------- */
+
+.taxonomy.data {
+  padding: 0;
+  margin-bottom: 1em;
+}
+
+.taxonomy.data span {
+  display: block;
+  padding: 16px 4px 16px 16px;
+  font-weight: bold;
+  background: #efeff1;
+}
+
 /* ----------------------------------------- Pagination
 ----------------------------------------- */
 
@@ -1574,6 +1589,9 @@ input.searchPage {
   background: #efeff1;
   overflow: auto;
   position: relative;
+  float: none;
+  clear: both;
+  margin-bottom: 1em;
 }
 
 .pagination .pages {
@@ -1585,26 +1603,35 @@ input.searchPage {
   top: 50%;
 }
 
-.pagination .pages a {
+.pagination .pages a, .pagination .pages .current {
   font-weight: bold;
 }
 
-.previous.page {
+.previous.page, .next.page {
   display: block;
-  float: left;
-  border-right: 1px solid #ddd;
+  position: relative;
   width: 42px;
   height: 42px;
-  background: url(images/arrow_left.png) center no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.previous.page:hover, .next.page:hover {
+  background-color: #e4e4e5;
+}
+
+.previous.page {
+  float: left;
+  border-right: 1px solid #ddd;
+  background-image: url(images/arrow_left.png);
 }
 
 .next.page {
-  display: block;
   float: right;
   border-left: 1px solid #ddd;
-  width: 42px;
-  height: 42px;
-  background: url(images/arrow_right.png) center no-repeat;
+  background-image: url(images/arrow_right.png);
 }
 
 
