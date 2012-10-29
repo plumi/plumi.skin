@@ -118,6 +118,57 @@ a.header-menu-item:hover {
 
   /* Header dropdowns */
 
+.row.header ul.dropdown {
+  display: none;
+  position: absolute;
+  top: 28px;
+  right: 0px;
+  list-style-type: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #444;
+  z-index: 1999;
+  min-width: 120px;
+}
+
+.row.header .header-menu-item:hover ul.dropdown {
+  display: block;
+}
+
+.header-button .dropdown-button {
+  padding-right: 30px;
+  background: url(images/user-down.png) right center no-repeat;
+}
+
+.header-button .dropdown-button:active, .header-button .dropdown-button.pressed {
+  color: #eee;
+  background: url(images/user-down-white.png) right center no-repeat;
+}
+
+.row.header .header-button .language, .row.header ul.dropdown li a.language {
+  display: none;
+}
+
+.row.header ul.dropdown li a {
+  display: block;
+  border-top: 1px solid #555;
+  padding: 8px 14px;
+  color: #efeff1;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.row.header ul.dropdown li:first-child a {
+  border-top: none;
+}
+
+.row.header ul.dropdown li a:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+
 #browse-menu .header-button {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -149,24 +200,6 @@ a.header-menu-item:hover {
   -o-border-bottom-right-radius: 3px;
   -ms-border-bottom-right-radius: 3px;
   border-bottom-right-radius: 3px;
-}
-
-.row.header .header-dropdown ul {
-  display: none;
-  position: absolute;
-  top: 28px;
-  right: 0px;
-  list-style-type: none;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #444;
-  z-index: 1999;
-  min-width: 120px;
-}
-
-.row.header .header-menu-item:hover .header-dropdown ul {
-  display: block;
 }
 
 .header-button .dropdown-button {
