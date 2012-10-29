@@ -35,39 +35,43 @@
 <body>
     <div id="top-menu">
         <div class="row no-v-padding">
-            <ul>
+            <ul class="header-menu-item" id="language-menu">
                 <li>
                     <a href="#" class="english language">English</a>
                 </li>
                 <li>
                     <a href="#" class="bahasa language">Bahasa Indonesia</a>
                 </li>
-                <li>
-                    <a href="#" class="user menu">Username</a>
-                </li>
-            </ul>
+                </ul>
+                <ul class="header-menu-item" id="user-menu">
+                    <li>
+                        <a href="#" class="user">
+                            User
+                        </a>
+                    </li>
+                    <li>
+                        <ul class="dropdown shade">
+                        </ul>
+                    </li>
+                </ul>
         </div>
     </div>
     <div id="upper-container">
         <div class="row no-v-padding header">
             <div class="twelve columns header">
-                <div class="one column main-logo"></div>
+                <a href="/"<div class="one column main-logo"></div></a>
                 <div class="six columns menu">
                     <div class="search">
                         <input type="text" id="searchGadget" class="text-input" name="searchGadget" value="Search">
                     </div>
-                    
-                    <ul class="header-menu-item" id="upload-menu">
+                    <ul class="header-menu-item" id="publish-menu">
                         <li class="header-button">
                             <a class="user">
                                 Upload
                             </a>
                         </li>
-                        <li class="header-dropdown">
-                            <ul class="shade">
-                                <li><a href="#">One</a></li>
-                                <li><a href="#">Two</a></li>
-                                <li><a href="#">Three</a></li>
+                       <li>
+                            <ul class="dropdown shade">
                             </ul>
                         </li>
                     </ul>
@@ -77,11 +81,8 @@
                                 Browse
                             </a>
                         </li>
-                        <li class="header-dropdown">
-                            <ul class="shade">
-                                <li><a href="#">One</a></li>
-                                <li><a href="#">Two</a></li>
-                                <li><a href="#">Three</a></li>
+                       <li>
+                            <ul class="dropdown shade">
                             </ul>
                         </li>
                     </ul>
@@ -312,7 +313,7 @@
     <div id="lower-container">
         <div class="row footer">
             <div class="three columns engage">
-                <h5>EngageMedia</h5>
+                <h5>Plumi</h5>
             </div>
             
             <div class="three columns">

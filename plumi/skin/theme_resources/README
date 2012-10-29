@@ -1,3 +1,9 @@
 Documentation notes
 
-To change the global logo: file skin/theme_resources/stylesheets/images/logo_wide.png
+--To change the global logo: file skin/theme_resources/stylesheets/images/logo_wide.png
+--Stay in touch social media (footer): skin/browser/portlets/newsletter.pt
+--About us & Our Projects on footer:
+
+
+--deactivate Plone Classic Theme (plone_site/Plone/prefs_install_products_form)
+

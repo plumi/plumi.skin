@@ -42,6 +42,7 @@ setup(name='plumi.skin',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'Products.ContentWellPortlets',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
