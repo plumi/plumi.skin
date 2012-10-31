@@ -129,8 +129,9 @@
         <copy css:content-children="ul#portal-languageselector" css:theme="ul#language-menu" />
 
         <!-- logo -->
-        <copy attributes="href title" css:content="a#portal-logo" css:theme="a.main-logo-link" />
         <copy attributes="href title" css:content="a#portal-logo" css:theme="a.main-title" />
+        <copy attributes="href title" css:content="a#portal-logo" css:theme="a.main-logo-link" />
+
 
         <!-- RSS icon link -->
         <replace css:theme="a.rss">
