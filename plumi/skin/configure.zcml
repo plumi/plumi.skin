@@ -12,8 +12,6 @@
   <cmf:registerDirectory name="plumi_skin_custom_templates"/>
   <cmf:registerDirectory name="plumi_skin_custom_images"/>
 
-  <i18n:registerTranslations directory="locales" />
-
   <!-- Container for all static theme related files -->
   <plone:static
       directory="theme_resources"
