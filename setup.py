@@ -42,7 +42,6 @@ setup(name='plumi.skin',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'Products.ContentWellPortlets',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
@@ -57,5 +56,4 @@ setup(name='plumi.skin',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      paster_plugins = ["ZopeSkel"],
       )

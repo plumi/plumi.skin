@@ -103,4 +103,21 @@
         interface=".portlets.newsandevents.INewsAndEventsPortlet"
         />
 
+    <browser:page
+        name="search"
+        class="plone.app.search.browser.Search"
+        permission="zope2.View"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        template="templates/search.pt"
+        />
+
+    <browser:page
+        name="updated_search"
+        class="plone.app.search.browser.Search"
+        permission="zope2.View"
+        for="Products.CMFCore.interfaces.IFolderish"
+        template="templates/updated_search.pt"
+        layer=".interfaces.IThemeSpecific"
+        />
+
 </configure>

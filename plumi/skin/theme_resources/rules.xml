@@ -11,6 +11,10 @@
     <theme href="list.html" css:if-content="body.template-video_listing_view #visual-portal-wrapper" />
     <theme href="list.html" css:if-content="body.template-author" />
 
+<!--
+    <theme href="search.html" css:if-content="body.template-search #visual-portal-wrapper" />
+    <theme href="author.html" css:if-content="body.template-author #visual-portal-wrapper" />
+-->
     <theme href="text.html" css:if-content="#visual-portal-wrapper" />
     
     <!-- ALL PAGES -->

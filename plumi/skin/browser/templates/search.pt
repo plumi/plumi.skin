@@ -1,0 +1,185 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+  <metal:block metal:fill-slot="head_slot">
+
+    <link rel="alternate" title="RSS 1.0" type="application/rss+xml"
+          tal:define="here_url context/@@plone_context_state/object_url;"
+          tal:condition="request/SearchableText|nothing"
+          tal:attributes="href string:$here_url/search_rss?${request/QUERY_STRING}"/>
+
+  </metal:block>
+
+  <metal:block fill-slot="top_slot"
+               tal:define="dummy python:request.set('disable_border',1);
+                           disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                           disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+</head>
+
+<body>
+
+  <div id="content-core" metal:fill-slot="main">
+
+    <form name="searchform"
+          action="@@search"
+          class="searchPage enableAutoFocus"
+          tal:define="portal context/@@plone_portal_state/portal;
+                      first_call not:request/advanced_search|nothing;
+                      st python:request.get('SearchableText', '');
+                      DateTime python:modules['DateTime'].DateTime;">
+
+        <input type="hidden" name="advanced_search" value="False" />
+        <input type="hidden" name="sort_on" value="" />
+
+
+        <div class="row">
+
+            <div class="cell width-16 position-0">
+                <h1 class="documentFirstHeading"
+                    i18n:translate=""
+                    tal:condition="not:st">
+                    Search results
+                </h1>
+                <h1 class="documentFirstHeading"
+                    i18n:translate=""
+                    tal:condition="st">
+                    Search results for
+                    <strong id="search-term" tal:content="st" i18n:name="term">
+                        Search Term
+                    </strong>
+                </h1>
+
+            </div>
+            <div class="visualClear"><!-- --></div>
+            <div id="search-results-wrapper"
+                 class="cell width-16 position-0"
+                 tal:define="b_start python:0;
+                             b_start request/b_start | b_start;
+                             batch python: view.results(b_start=b_start, b_size=40);
+                             normalizeString nocall:context/@@plone/normalizeString;">
+
+                <div id="search-results-bar">
+                    <span i18n:translate="batch_x_items_matching_your_criteria" i18n:domain="plone">
+                        <strong i18n:name="number" id="search-results-number"
+                                tal:content="batch/sequence_length|string:0">234</strong>
+                        items matching your search terms.
+                    </span>
+
+
+                    <span id="searchResultsSort">
+                      <span i18n:translate="sort_by">Sort by</span>
+                          <span id="sorting-options">
+                              <metal:sorting define-macro="sorting">
+                                  <tal:block repeat="item view/sort_options">
+                                      <tal:item define="selected item/selected">
+                                      <a data-sort=""
+                                         tal:condition="not:selected"
+                                         tal:content="item/title"
+                                         tal:attributes="href item/url;
+                                                         data-sort python:item.sortkey and item.sortkey or None"></a>
+                                      <strong tal:condition="selected" tal:content="item/title"></strong>
+                                      <span tal:condition="not:repeat/item/end">&middot;</span>
+                                      </tal:item>
+                                  </tal:block>
+                              </metal:sorting>
+                          </span>
+                    </span>
+                </div>
+
+                <div class="visualClear"><!-- --></div>
+
+                <metal:searchresults define-macro="search_results">
+                    <div id="search-results">
+
+                        <metal:noresults tal:condition="not: batch">
+                          <p i18n:domain="plone"><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
+                        </metal:noresults>
+
+                        <metal:results tal:condition="batch"
+                                       tal:define="isAnon context/@@plone_portal_state/anonymous;
+                                                   toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+                                                   site_properties context/portal_properties/site_properties;
+                                                   allowAnonymousViewAbout site_properties/allowAnonymousViewAbout;
+                                                   show_about python:not isAnon or allowAnonymousViewAbout;">
+                <div class="search-results additions" >
+                          <div class="column1 search">
+
+                          <dl class="searchResults">
+                              <div tal:repeat="item batch" tal:omit-tag="" >
+                              <div tal:define="item_url item/getURL;
+                                      item_type item/portal_type;">
+
+                              <span  tal:omit-tag="" >
+                              <div class="clips-holder search">
+
+                                    <dt tal:attributes="class item/ContentTypeClass">
+                                      <div tal:omit-tag="" tal:condition="python:item_type not in ['PlumiVideo']">
+                                         <img tal:replace="structure item/getIcon" />
+                                      </div>
+                                      <div tal:omit-tag="" tal:condition="python:item_type=='PlumiVideo'">
+                                              <span class="search-img">
+                                                  <a tal:attributes="href item/getURL" >
+                                                  <img tal:attributes="src string:${item/getURL}/thumbnailImage_thumb;title item/title; alt item/title;" />
+                                                  </a>
+                        		      </span>
+                                      </div>
+    
+
+                                      <a href="#"
+                                         tal:attributes="href item/getURL;
+                                                         class string:state-${item/review_state}"
+                                         tal:content="item/title" />
+                                    </dt>
+                                    <div tal:condition="python:item_type=='PlumiVideo'" >
+                                    </div>
+                                      <span tal:content="item/Description">Nulla neque velit,a est.</span>
+                                        <em class="documentAuthor"
+                                            i18n:translate="label_by_author">
+                                        Contributed by
+                                            <tal:block tal:condition="item/Creator"
+                                                tal:define="author python:context.portal_membership.getMemberInfo(item.Creator())">
+                                              <a href="#"
+                                                 tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${item/Creator}"
+                                                 tal:content="python:author and author['fullname'] or item.Creator()"
+                                                 tal:omit-tag="not:item/Creator"
+                                                 i18n:name="author">
+                                                Bob Dobalina
+                                              </a>
+                                            </tal:block>
+                                        </em>
+
+
+
+
+                              </div> <!--clips-holder-->
+                             </span>
+
+                              </div>
+                              </div>
+                          </dl>
+                      </div> <!--column1-->
+
+
+                      </div> <!--search-results -->
+                          <div metal:use-macro="context/batch_macros/macros/navigation" />
+                        </metal:results>
+                    </div>
+                </metal:searchresults>
+
+            </div>
+        </div>
+
+        <div class="visualClear"><!-- --></div>
+    </form>
+
+  </div>
+
+</body>
+</html>
+
