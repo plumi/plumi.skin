@@ -2144,3 +2144,15 @@ div#video-listings .video span.duration {
 body.template-logged_out .row .nine, body.template-login_form .row .nine, body.template-register .row .nine, body.template-publish_video .row .nine {
     width:100%;
 }
+
+#viewlet-below-content-title {
+    margin-bottom: 20px;
+}
+
+
+h1#parent-fieldname-title {
+    margin-bottom: 0px !important;
+    line-height: normal !important;
+}
+
+
