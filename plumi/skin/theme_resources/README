@@ -2,8 +2,13 @@ Documentation notes
 
 --To change the global logo: file skin/theme_resources/stylesheets/images/logo_wide.png
 --Stay in touch social media (footer): skin/browser/portlets/newsletter.pt
+--Featured portlet, on the top, right side: 
+Any News Item can appear there, as long as it is categorized as 'featured-top' and it's state is 'Featured' 
+The title appears first, then the image, and on hover the summary of the News Item.
+
 --About us & Our Projects on footer:
 
 
+SOS
 --deactivate Plone Classic Theme (plone_site/Plone/prefs_install_products_form)
 

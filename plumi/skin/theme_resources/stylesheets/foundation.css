@@ -621,7 +621,7 @@ div.sidebar-section {
 }
 
 div.sidebar-section > :last-child {
-  border-bottom: 2px solid #777;
+/*   border-bottom: 2px solid #777; */
 }
 
 div.sidebar ul li a {
