@@ -1981,6 +1981,10 @@ div.listingBarBottom {
   padding-left: 10px;
 }
 
+#user-menu ul.dropdown {
+    top: 17px !important;
+}
+
 a.user {
   cursor: pointer;
 }
