@@ -101,6 +101,9 @@
         <prepend css:content="#portletmanager-plone-leftcolumn" css:theme="#mid-container" />
         <append css:content="#portletmanager-plone-rightcolumn" css:theme="#mid-container" />
 
+        <!--right column portlets-->
+        <append css:theme="div.sidebar" css:content="#portal-column-two"/>
+
         <!-- drop breadcrumbs -->
         <drop css:content="#portal-breadcrumbs" />
 
@@ -372,7 +375,8 @@
         <append css:theme="#video-info" css:content="#video-transcoding" /> 
         <copy css:theme="#video-comments" css:content=".discussion" /> 
         <append css:theme="#video-comments" css:content="#commenting" /> 
-    
+ 
+        <!-- <replace css:theme="h4#news-title"><h4 id="news-title">Other videos by this author</h4> </replace>  -->
         <replace css:theme=".video-list">
             <ul class="video-list">
             <xsl:for-each css:select="#authors_latest li">

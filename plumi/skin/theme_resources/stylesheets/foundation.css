@@ -1018,11 +1018,10 @@ div.video div.rollover {
   display: none;
   position: absolute;
 /*   top: 0; */
-/*  left: 0; */
-  height: 122px;
-  left: 3px;
-  top: 8px;
-  width: 215px;
+  left: 0; 
+  height: 123px;
+  top: 5px;
+  width: 100%;
   bottom: 0px;
   padding: 8px;
   overflow: hidden;
@@ -2155,4 +2154,63 @@ h1#parent-fieldname-title {
     line-height: normal !important;
 }
 
+#content h1.documentFirstHeading {
+    margin-top: 5px !important;
+}
+
+dt.portletHeader {
+    background: linear-gradient(#EFEFF2, #E5E5E7) repeat scroll 0 0 transparent !important;
+    border-bottom: 1px solid #C3C3C3;
+    color: #333333;
+    height: 36px;
+    padding: 0 !important;
+}
+
+dl.portlet dt a {
+    float: left;
+    font-size: 16px;
+    margin: 0;
+    padding: 8px 10px;
+}
+
+span.portletTopLeft {
+    background: none repeat scroll 0 0 #9ED328;
+    float: left;
+    height: 36px;
+    width: 14px;
+}
+
+dd.portletItem {
+    background: none repeat scroll 0 0 #FDFDFE;
+    margin-bottom: 0;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+#content a:link, dd.portletItem a:link {
+    color: #205C90 !important;
+    text-decoration: none !important;
+    font-size: 12px;
+    font-weight: bold;
+    border: none !important;
+}
+
+dd.portletItem a.tile img {
+    display:none;
+}
+
+dd.portletFooter {
+    background: none repeat scroll 0 0 #F2F2F4;
+    color: #444444;
+    display: block;
+    font-weight: bold;
+    padding: 6px 10px !important;
+    text-align: center;
+}
+
+dd.portletFooter a {
+    color: #444444 !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+    border: none !important;
+}
 
