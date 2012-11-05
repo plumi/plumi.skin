@@ -147,19 +147,6 @@
 
 
             <div class="discreet">
-                <tal:location condition="view/author_city|nothing" i18n:translate="text_location">
-                     <span tal:content="view/author_city" tal:omit-tag="" i18n:name="author_city">
-                        Some City
-                    </span>,
-                </tal:location>
-                <tal:location condition="authorinfo/location" i18n:translate="text_location">
-                 <a tal:attributes="href string:${portal_url}/@@author_listing?intype=location&invalue=${authorinfo/location}">
-                    <span tal:content="authorinfo/location" tal:omit-tag="" i18n:name="location">
-                        Some Country
-                    </span>
-                 </a>
-
-                </tal:location>
 
                 <tal:language condition="authorinfo/language">
                 &mdash;
@@ -178,12 +165,7 @@
 
             <div class="visualClear"><!-- --></div>
             
-            <p tal:condition="python:mtool.getHomeFolder(id=author)">
-            <a href="#" tal:attributes="href python:mtool.getHomeFolder(id=author).absolute_url()"
-               i18n:translate="label_author_internal_home_page">Author's home page in this site&hellip;</a>
-            </p>
-
-            <p tal:condition="python: not mtool.getHomeFolder(id=author) and authorinfo['home_page']">
+            <p tal:condition="python: authorinfo['home_page']">
             <a href="#" 
                rel="nofollow"
                tal:attributes="href authorinfo/home_page"
@@ -194,6 +176,22 @@
 	<!-- custom author profile , Plumi Skin implementation -->
     <tal:plumi_domain i18n:domain="plumi">
         <div class="author-details">
+                <tal:location condition="view/author_city|nothing" i18n:translate="text_location">
+                    Location:
+                    <span tal:content="view/author_city" tal:omit-tag="" i18n:name="author_city">
+                        Some City
+                    </span>,
+                </tal:location>
+                <tal:location condition="authorinfo/location" i18n:translate="text_location">
+                    Location:
+                 <a tal:attributes="href string:${portal_url}/@@author_listing?intype=location&invalue=${authorinfo/location}">
+                    <span tal:content="authorinfo/location" tal:omit-tag="" i18n:name="location">
+                        Some Country
+                    </span>
+                 </a>
+
+                </tal:location>
+
 		    <tal:url condition="view/author_url|nothing"
 				          i18n:translate="">
 			        Homepage:
@@ -296,7 +294,7 @@
        <tal:videos define="videos view/videos|nothing" condition="videos">
         <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/" i18n:translate="" >Videos</a></h2>
        <a href="#" class="video-rss-syndicate" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2">
-           <img tal:attributes="src string:${portal_url}/rss.gif; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
+           <img tal:attributes="src string:${portal_url}/rss2_icon.png; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
        </a>
         <br />
         <br />
@@ -314,7 +312,7 @@
 	    <dt class="featuredHeader">
 	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/" i18n:translate="">Latest Videos</a></h2>
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2">
-                  <img tal:attributes="src string:${portal_url}/rss.gif; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
+                  <img tal:attributes="src string:${portal_url}/rss2_icon.png.gif; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
               </a>
 	    </dt>
 		<!-- each video item -->
@@ -326,7 +324,7 @@
 
             <p id="all-videos" tal:condition="python:mtool.getHomeFolder(id=author)">
               <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/videos')"
-                 i18n:translate="label_author_internal_video_page">All videos afrom this author&hellip;</a>
+                 i18n:translate="label_author_internal_video_page">All videos from this author&hellip;</a>
             </p>
 
 	  </dl>
@@ -343,7 +341,7 @@
 	       
 	    <dt class="featuredHeader">
 	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/" i18n:translate="">Latest Callouts</a></h2>
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS2"><img class="feedButton" style="padding-left:3px" src="../rss.gif" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS2"><img class="feedButton" style="padding-left:3px" src="../rss2_icon.png.gif" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
 	    </dt>
 
 		<!-- each Callout item -->
@@ -372,7 +370,7 @@
 	    <dt class="featuredHeader">
 	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest News</a></h2>
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS2">
-           <img tal:attributes="src string:${portal_url}/rss.gif; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
+           <img tal:attributes="src string:${portal_url}/rss2_icon.png; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
               </a>
 	    </dt>
 
@@ -401,7 +399,7 @@
 	    <dt class="featuredHeader">
 	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/" i18n:translate="">Latest Events</a></h2>
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS2">
-                  <img tal:attributes="src string:${portal_url}/rss.gif; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
+                  <img tal:attributes="src string:${portal_url}/rss2_icon.png; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
               </a>
 	    </dt>
 

@@ -1416,6 +1416,7 @@ div.comment button.reply-to-comment-button:active {
 }
 
 .row div#commenting fieldset legend {
+  margin-bottom: 10px;
   display:block;
   padding: 8px 10px;
   width: 100%;
@@ -1436,10 +1437,10 @@ div.comment button.reply-to-comment-button:active {
 
 .row div#commenting fieldset legend + p {
   margin-top: 1em;
+  margin-bottom: 5px !important;
 }
 
 .row div#commenting form {
-  padding: 1em;
 }
 
 /* ----------------------------------------- Author Page
@@ -2221,4 +2222,21 @@ dl.portlet dd.portletItem span.portletItemDetails {
 
 div.portletWrapper {
    margin-bottom: 8px;
+}
+
+div.vcard table.vertical {
+    width: 600px !important;
+}
+
+div.vcard table.vertical th {
+   width: 150px;
+}
+
+table.listing tbody tr.even {
+    background: none repeat scroll 0 0 #EEEEEE;
+}
+
+#content div.newsImageContainer p.discreet {
+    margin-top: 35px !important;
+    width: 200px !important;
 }
