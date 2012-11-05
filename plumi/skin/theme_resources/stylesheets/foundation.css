@@ -2053,11 +2053,11 @@ body.template-featured_videos_homepage ul#dl-links {
 
 /* Front page featured */
 
-.sidebar-section .featured-filmmaker {
+.sidebar .featured-filmmaker {
   margin-bottom: 0px;
 }
 
-.sidebar-section .featured-filmmaker div.under {
+.sidebar .featured-filmmaker div.under {
   background: #efeff1;
   border: none;
   -moz-border-radius: 0;
@@ -2065,16 +2065,16 @@ body.template-featured_videos_homepage ul#dl-links {
   border-radius: 0;
 }
 
-.sidebar-section .featured-filmmaker div.proxy-under {
+.sidebar .featured-filmmaker div.proxy-under {
   height: 48px;
 }
 
-.sidebar-section .featured-filmmaker div.under a {
+.sidebar .featured-filmmaker div.under a {
     color: #333;
     text-shadow: none;
 }
 
-.sidebar-section .featured-filmmaker .rollover {
+.sidebar .featured-filmmaker .rollover {
     width: 100%;
 }
 
@@ -2186,7 +2186,7 @@ dd.portletItem {
     border-bottom: 1px solid #CCCCCC;
 }
 
-#content a:link, dd.portletItem a:link {
+dd.portletItem a:link {
     color: #205C90 !important;
     text-decoration: none !important;
     font-size: 12px;
@@ -2214,3 +2214,11 @@ dd.portletFooter a {
     border: none !important;
 }
 
+dl.portlet dd.portletItem span.portletItemDetails {
+   color: #333333;
+   font-weight: normal;
+}
+
+div.portletWrapper {
+   margin-bottom: 8px;
+}
