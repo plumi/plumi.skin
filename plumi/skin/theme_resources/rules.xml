@@ -341,6 +341,7 @@
                             <div class="rollover">
                                 <p><a><xsl:copy-of select="a[@class='featured-video-image']/@href" /><xsl:copy-of select="substring(p/text(),0, 130)" />...</a></p>
                                 <span class="country"><xsl:copy-of select="dl[@class='plumi-country plumi-props-listing']//a" /></span>
+                                <xsl:copy-of select="span[@class='featuredItemDetailsPosted discreet']" />
                             </div>
                             <xsl:copy-of css:select="a.featured-video-image"/>
                         </div>
@@ -351,7 +352,7 @@
                     <a class="button large" href="latestvideos">More Videos</a>
                 </div>
             </div>
-        </replace>           
+        </replace>
     </rules>
     
     <!-- VIDEO VIEW PAGE -->
