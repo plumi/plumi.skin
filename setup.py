@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '4.4'
+version = '4.5dev'
 
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
@@ -42,18 +42,13 @@ setup(name='plumi.skin',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'Products.ContentWellPortlets',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
       # -*- Entry points: -*-
-
-      [distutils.setup_keywords]
-      paster_plugins = setuptools.dist:assert_string_list
-
-      [egg_info.writers]
-      paster_plugins.txt = setuptools.command.egg_info:write_arg
-
       [z3c.autoinclude.plugin]
       target = plone
       """,
+      setup_requires=['PasteScript']
       )

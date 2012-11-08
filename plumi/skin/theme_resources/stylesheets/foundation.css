@@ -1017,10 +1017,9 @@ a#featuredVideoTitle, #featuredVideoTitle:link, #featuredVideoTitle:visited {
 div.video div.rollover {
   display: none;
   position: absolute;
-/*   top: 0; */
+  top: 0;
   left: 0; 
   height: 123px;
-  top: 5px;
   width: 100%;
   bottom: 0px;
   padding: 8px;
