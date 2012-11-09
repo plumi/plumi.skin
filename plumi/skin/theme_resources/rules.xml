@@ -187,7 +187,7 @@
         <copy css:content="div.featured-filmmaker" css:theme="div.featured-filmmaker" />
 
         <!-- News and Events -->
-        <copy css:content="dl.portletNewsAndEvents dt.portletHeader a" css:theme="h4#news-title" />
+        <copy css:content="dl.portletNewsAndEvents dt.portletHeader a" css:theme="h4#news-title" css:if-content="dl.portletNewsAndEvents dt.portletHeader a" />
         <replace css:theme="ul#news-right-portlet">
         <ul id="news-right-portlet">
            <xsl:for-each css:select="dl.portletNewsAndEvents dd.portletItem">
@@ -277,7 +277,7 @@
              to display the image when it sees 1 item -->
 
         <!-- News and Events -->
-        <copy css:content="dl.portletNewsAndEvents dt.portletHeader a" css:theme="h4#news-title" />
+        <copy css:content="dl.portletNewsAndEvents dt.portletHeader a" css:theme="h4#news-title" css:if-content="dl.portletNewsAndEvents dt.portletHeader a" />
         <replace css:theme="ul#news-right-portlet">
         <ul id="news-right-portlet">
            <xsl:for-each css:select="dl.portletNewsAndEvents dd.portletItem">
