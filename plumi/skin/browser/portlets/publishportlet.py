@@ -7,6 +7,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import i18n
 _ = i18n.MessageFactory("plumi.skin")
 
+
 class IPublishPortlet(IPortletDataProvider):
     """A portlet
 
@@ -15,6 +16,7 @@ class IPublishPortlet(IPortletDataProvider):
     same.
     """
     pass
+
 
 class Assignment(base.Assignment):
     """Portlet assignment.
@@ -31,6 +33,7 @@ class Assignment(base.Assignment):
         "manage portlets" screen.
         """
         return _(u"Publish Portlet")
+
 
 class Renderer(base.Renderer):
     """Portlet renderer.
@@ -78,6 +81,7 @@ class Renderer(base.Renderer):
             base_path = portal_url() + '/publish'
         return base_path
 
+
 class AddForm(base.AddForm):
     """Portlet add form.
 
@@ -88,6 +92,7 @@ class AddForm(base.AddForm):
 
     def create(self, data):
         return Assignment(**data)
+
 
 class EditForm(base.EditForm):
     """Portlet edit form.

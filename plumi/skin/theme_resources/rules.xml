@@ -261,6 +261,7 @@
         <replace theme="//div[@id='featuredvideo']//p">
             <p><xsl:copy-of select="substring(//p[@id='featuredVideoDescription']/text(),0,260)" />...</p>
         </replace>
+        <drop css:theme=".video.featured div.description" css:if-not-content="#featured-item"/>
 
         <!-- RSS icon link to the latest videos feeds -->
         <replace css:theme="#latest-videos-title">
