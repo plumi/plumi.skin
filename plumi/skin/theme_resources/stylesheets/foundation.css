@@ -1020,7 +1020,7 @@ div.video div.rollover {
   top: 0;
   left: 0; 
   height: 123px;
-  width: 100%;
+  width: 215px;
   bottom: 0px;
   padding: 8px;
   overflow: hidden;
@@ -1028,6 +1028,10 @@ div.video div.rollover {
   opacity: 0.82;
 }
 
+div.sidebar-section div.wrapper-image div.rollover {
+    width: 100% !important;
+    height: 100%;
+}
 
 div.video div.rollover, div.video div.rollover p {
   font-size: 12px;
@@ -1040,7 +1044,6 @@ div.video div.rollover p a {
 
 div.video:hover div.rollover {
   display: block;
-  width: 215px;
 }
 
 div.video div.rollover span.country {
@@ -1947,6 +1950,7 @@ div.listingBarBottom {
 
 #video-listings div.video, #latestvideos div.video {
     height: 177px;
+    width: 231px;
 }
 
 #fieldset-openid-login .formControls input, #login-form .formControls input {
@@ -2075,7 +2079,8 @@ body.template-featured_videos_homepage ul#dl-links {
 }
 
 .sidebar .featured-filmmaker .rollover {
-    width: 100%;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .video .wrapper-under {
