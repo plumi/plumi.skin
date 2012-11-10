@@ -73,9 +73,9 @@ div.row.header input#searchGadget {
   font-size: 14px;
   color: #333;
   background-color: rgba(255,255,255,0.82);
-  padding: 8px 6px 7px 6px;
+  padding: 7px 6px 7px 16px;
   position:relative;
-  top: -9px;
+  top: -10px;
   margin-left: 12px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -1994,6 +1994,7 @@ div.listingBarBottom {
 
 #user-menu ul.dropdown {
     top: 17px !important;
+    text-align: right;
 }
 
 a.user {
@@ -2194,17 +2195,16 @@ span.portletTopLeft {
 }
 
 dd.portletItem {
-    background: none repeat scroll 0 0 #FDFDFE;
     margin-bottom: 0;
     border-bottom: 1px solid #CCCCCC;
 }
 
 dd.portletItem a:link {
-    color: #205C90 !important;
-    text-decoration: none !important;
+    color: #205C90;
+    text-decoration: none;
     font-size: 12px;
     font-weight: bold;
-    border: none !important;
+    border: none;
 }
 
 dd.portletItem a.tile img {
