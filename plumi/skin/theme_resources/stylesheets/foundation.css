@@ -779,6 +779,7 @@ ul, ol { font-size: 14px; line-height: inherit; margin-bottom: 17px; list-style-
   border: 1px solid #aaa;
 }
 
+/*
 .header-button:active, .header-button.pressed {
   -moz-box-shadow:  none;
   -ms-box-shadow:  none;
@@ -786,6 +787,9 @@ ul, ol { font-size: 14px; line-height: inherit; margin-bottom: 17px; list-style-
   box-shadow:  none;
   background: #bbb;
 }
+*/
+
+
 
 /* Inputs -------------------- */
 
@@ -1046,10 +1050,14 @@ div.video:hover div.rollover {
   display: block;
 }
 
-div.video div.rollover span.country {
+div.video span.country {
   display: block;
   font-weight: bold;
   margin-top: 0.5em;
+}
+
+div.featured span.country a {
+  margin-left: 7px;
 }
 
 /* Print styles.  Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/ Credit to Paul Irish and HTML5 Boilerplate (html5boilerplate.com)
@@ -2263,4 +2271,13 @@ div.rollover .featuredItemDetailsPosted {
     font-size: 12px;
     float: left;
     margin-top: 5px;
+}
+
+#content .documentDescription, #content #description {
+    padding-bottom: 10px;
+}
+
+.featuredVideo-date {
+    color:white;
+    margin-left: 8px;
 }
