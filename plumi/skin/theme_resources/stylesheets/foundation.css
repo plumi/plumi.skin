@@ -40,6 +40,7 @@ input:focus {
 #top-menu a {
   font-weight: bold;
   color: #f4f4f5;
+  text-align: right;
 }
 
 #top-menu a:hover {
@@ -167,7 +168,7 @@ a.header-menu-item:hover {
   border-top: none;
 }
 
-.row.header ul.dropdown li a:hover {
+.row.header ul.dropdown li a:hover, .header-menu-item ul.dropdown li a:hover {
   background-color: #555;
   color: #fff;
 }
@@ -1997,6 +1998,10 @@ div.listingBarBottom {
     text-align: right;
 }
 
+ul#user-menu ul.dropdown li {
+    width: 100%;
+}
+
 a.user {
   cursor: pointer;
 }
@@ -2172,7 +2177,7 @@ h1#parent-fieldname-title {
     margin-top: 5px !important;
 }
 
-dt.portletHeader {
+dl.portlet dt.portletHeader {
     background: linear-gradient(#EFEFF2, #E5E5E7) repeat scroll 0 0 transparent !important;
     border-bottom: 1px solid #C3C3C3;
     color: #333333;
@@ -2187,19 +2192,20 @@ dl.portlet dt a {
     padding: 8px 10px;
 }
 
-span.portletTopLeft {
+dl.portlet span.portletTopLeft {
     background: none repeat scroll 0 0 #9ED328;
     float: left;
     height: 36px;
     width: 14px;
 }
 
-dd.portletItem {
+dl.portlet dd.portletItem {
+    background: none repeat scroll 0 0 #FDFDFE;
     margin-bottom: 0;
     border-bottom: 1px solid #CCCCCC;
 }
 
-dd.portletItem a:link {
+dl.portlet dd.portletItem a:link {
     color: #205C90;
     text-decoration: none;
     font-size: 12px;
@@ -2207,11 +2213,11 @@ dd.portletItem a:link {
     border: none;
 }
 
-dd.portletItem a.tile img {
+dl.portlet dd.portletItem a.tile img {
     display:none;
 }
 
-dd.portletFooter {
+dl.portlet dl.portlet dd.portletFooter {
     background: none repeat scroll 0 0 #F2F2F4;
     color: #444444;
     display: block;
@@ -2220,7 +2226,7 @@ dd.portletFooter {
     text-align: center;
 }
 
-dd.portletFooter a {
+dl.portlet dd.portletFooter a {
     color: #444444 !important;
     padding-top: 7px !important;
     padding-bottom: 7px !important;
