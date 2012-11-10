@@ -342,7 +342,7 @@
                             <div class="rollover">
                                 <p><a><xsl:copy-of select="a[@class='featured-video-image']/@href" /><xsl:copy-of select="substring(p/text(),0, 130)" />...</a></p>
                                 <span class="country"><xsl:copy-of select="dl[@class='plumi-country plumi-props-listing']//a" /></span>
-                                <xsl:copy-of select="span[@class='featuredItemDetailsPosted discreet']" />
+                                <xsl:value-of select="substring(span[@class='featuredItemDetailsPosted discreet'],14,21)" />
                             </div>
                             <xsl:copy-of css:select="a.featured-video-image"/>
                         </div>
@@ -378,7 +378,6 @@
         <copy css:theme="#video-comments" css:content=".discussion" /> 
         <append css:theme="#video-comments" css:content="#commenting" /> 
  
-        <!-- <replace css:theme="h4#news-title"><h4 id="news-title">Other videos by this author</h4> </replace>  -->
         <replace css:theme=".video-list">
             <ul class="video-list">
             <xsl:for-each css:select="#authors_latest li">
