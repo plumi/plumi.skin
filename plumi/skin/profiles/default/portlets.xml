@@ -20,16 +20,6 @@
      name="navigation"
      />
 
- <assignment name="Navigation Portlet" category="context" key="/"
-    manager="ContentWellPortlets.FooterPortletManager1" type="portlets.Navigation" visible="True">
-  <property name="topLevel">0</property>
-  <property name="portlet_style"> </property>
-  <property name="currentFolderOnly">False</property>
-  <property name="name"></property>
-  <property name="includeTop">False</property>
-  <property name="bottomLevel">0</property>
-  <property name="root"/>
- </assignment>
 
 <assignment
      manager="ContentWellPortlets.FooterPortletManager1"
@@ -48,27 +38,11 @@
      />
 
 <assignment
-     manager="ContentWellPortlets.FooterPortletManager1"
-     category="context"
-     key="/"
-     type="plumi.skin.browser.portlets.NewsletterPortlet"
-     name="Newsletter Portlet"
-     />
-
-<assignment
      manager="plone.rightcolumn"
      category="context"
      key="/"
      type="plumi.skin.browser.portlets.NewsAndEventsPortlet"
      name="News and Events Portlet"
-     />
-
-<assignment
-     manager="plone.rightcolumn"
-     category="context"
-     key="/"
-     type="plumi.skin.browser.portlets.SocialNetworksPortlet"
-     name="Social Networks Portlet"
      />
 
 <assignment
