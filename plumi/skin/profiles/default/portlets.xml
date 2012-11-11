@@ -3,26 +3,18 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="plumi">
 
-<assignment
-     manager="ContentWellPortlets.FooterPortletManager1"
-     category="context"
-     key="/"
-     type="plumi.skin.browser.portlets.projects.ProjectsPortlet"
-     name="Projects Portlet"
-     />
+<assignment 
+    name="navigation" 
+    category="context" 
+    key="/"
+    manager="ContentWellPortlets.FooterPortletManager1" 
+    type="portlets.Navigation">
+    <property name="topLevel">0</property>
+</assignment>
+
 
 <assignment
-     remove="True"
      manager="plone.leftcolumn"
-     category="context"
-     key="/"
-     type="portlets.Navigation"
-     name="navigation"
-     />
-
-
-<assignment
-     manager="ContentWellPortlets.FooterPortletManager1"
      category="context"
      key="/"
      type="plumi.skin.browser.portlets.BrowsePortlet"
@@ -30,7 +22,7 @@
      />
 
 <assignment
-     manager="ContentWellPortlets.FooterPortletManager1"
+     manager="plone.leftcolumn"
      category="context"
      key="/"
      type="plumi.skin.browser.portlets.PublishPortlet"

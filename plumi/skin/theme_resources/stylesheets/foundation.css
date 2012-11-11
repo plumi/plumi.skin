@@ -2120,8 +2120,8 @@ body.template-featured_videos_homepage ul#dl-links {
   height: 22px !important;
 }
 
-.icons-on .contenttype-document {
-background: none;
+.icons-on .contenttype-document, .icons-on .contenttype-event, .icons-on .contenttype-folder, .icons-on .contenttype-link, .icons-on .contenttype-news-item, .icons-on .contenttype-plone-site, .icons-on .contenttype-collection, .icons-on .contenttype-topic, .icons-on #plone-contentmenu-factories .contenttype-file, .icons-on #plone-contentmenu-factories .contenttype-image {
+background: none !important;
 }
 
 div#video-listings .video span.duration {
@@ -2292,4 +2292,28 @@ div.rollover .featuredItemDetailsPosted {
 .featuredVideo-date {
     color:white;
     margin-left: 8px;
+}
+
+div.footer div.portletWrapper {
+    float:left;
+}
+
+div.footer dl.portlet span.portletTopLeft, div.footer dl.portlet dt.portletHeader,  div.footer dl.portlet dd.portletItem {
+    background: none !important;
+    border: none;
+}
+
+div.footer dl.portletNavigationTree dt.hiddenStructure {
+    display: none !important;
+}
+
+div.footer dl.portlet ul.navTreeLevel0 > .navTreeItem {
+    border: none !important;
+    padding: 0 !important;
+}
+
+div.footer dl.portlet dd.portletItem a:link {
+    font-size: 14px !important;
+    color: #205C90 !important;
+    font-weight: normal !important;
 }
