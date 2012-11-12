@@ -1,5 +1,0 @@
-<div class="sidebar-section social-networks" i18n:domain="plumi.skin">
-    <span i18n:translate="">Stay in touch!</span>
-    <a href="http://twitter.com/EngageMedia" target="_blank"><div class="twitter"></div></a>
-    <a href="http://www.facebook.com/group.php?gid=43640854087" target="_blank"><div class="fb"></div></a>
-</div>
