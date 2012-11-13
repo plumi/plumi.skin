@@ -104,7 +104,10 @@
         <!--right column portlets-->
         <append css:theme="div.sidebar" css:content="#portal-column-two"/>
 
-        <replace theme-children="//div[@class='row footer']/div[@class='columns']" css:content-children="div.FooterPortletManager1"/>
+        <!-- footer portlets -->
+        <replace theme-children="//div[@class='row footer']/div[@class='columns']" css:content="div.FooterPortletManager1"/>
+
+        <append css:content="div.manageFooterPortletsLink" theme="//div[@class='row footer']/div[@class='columns']" />
 
         <!-- drop breadcrumbs -->
         <drop css:content="#portal-breadcrumbs" />
