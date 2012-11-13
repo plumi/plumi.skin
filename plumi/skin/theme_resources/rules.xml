@@ -300,6 +300,7 @@
             <div class="content row" id="video-listings">
             <div class="documentDescription"><xsl:copy-of select="//div[@class='documentDescription']" /></div>
             <div class="documentFullDescription"><xsl:copy-of select="//div[@id='content']//div[1]/div[2]" /></div>
+            <xsl:copy-of css:select=".videocount" />
             <div class="listingBarTop"><xsl:copy-of select="//div[@class='listingBar'][1]" /></div>
             <xsl:for-each css:select="#content dl.videos-listing dd.featuredItem">
                 <div class="three columns video tablet-two mobile-one">

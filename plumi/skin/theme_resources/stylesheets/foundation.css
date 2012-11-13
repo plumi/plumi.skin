@@ -2057,8 +2057,8 @@ a#form-help {
 }
 
 div#categorize-text-container {
-    bottom: 290px;
-    left: 500px;
+    bottom: 230px;
+    left: 510px;
     position: relative;
     width: 500px;
 }
@@ -2292,6 +2292,16 @@ div.rollover .featuredItemDetailsPosted {
 .featuredVideo-date {
     color:white;
     margin-left: 8px;
+}
+
+img#license_button1 {
+    margin-left: -25px;
+    margin-right: 10px;
+}
+
+.template-publish_video div.formControls {
+margin-top: -50px;
+margin-left: 25px;
 }
 
 div.footer div.portletWrapper {
