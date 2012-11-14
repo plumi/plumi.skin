@@ -1551,6 +1551,24 @@ ul.list li .image {
   background: #efeff1;
 }
 
+body.template-search .search-img img {
+    float: right;
+}
+
+body.template-search .search-results {
+    border-bottom: 1px solid #DDDDDD;
+    min-height: 100px;
+    padding-bottom: 15px;
+}
+
+body.template-search em.documentAuthor {
+    display: block;
+}
+
+body.template-search #content a:link, dl.portlet a:link {
+    border-bottom: none !important;
+}
+
 .search.data {
   padding: 0;
 }
@@ -1601,6 +1619,8 @@ input.searchPage {
   padding-top: 12px;
   padding-bottom: 0;
 }
+
+
 
 /* ----------------------------------------- Taxonomy
 ----------------------------------------- */
@@ -1758,6 +1778,7 @@ body.template-author h2 {
 
 #content {
   margin: -2.5em 0.25em 2em !important;
+  overflow: auto;
 }
 
 #content #content-core div.row ul.formTabs {

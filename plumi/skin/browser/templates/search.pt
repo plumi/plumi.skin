@@ -55,22 +55,6 @@
 
         <div class="row">
 
-            <div class="cell width-16 position-0">
-                <h1 class="documentFirstHeading"
-                    i18n:translate=""
-                    tal:condition="not:st">
-                    Search results
-                </h1>
-                <h1 class="documentFirstHeading"
-                    i18n:translate=""
-                    tal:condition="st">
-                    Search results for
-                    <strong id="search-term" tal:content="st" i18n:name="term">
-                        Search Term
-                    </strong>
-                </h1>
-
-            </div>
             <div class="visualClear"><!-- --></div>
             <div id="search-results-wrapper"
                  class="cell width-16 position-0"
@@ -128,7 +112,7 @@
                           <dl class="searchResults">
                               <div tal:repeat="item batch" tal:omit-tag="" >
                               <div tal:define="item_url item/getURL;
-                                      item_type item/portal_type;">
+                                      item_type item/portal_type;" class="search-results">
 
                               <span  tal:omit-tag="" >
                               <div class="clips-holder search">
@@ -151,12 +135,12 @@
                                                          class string:state-${item/review_state}"
                                          tal:content="item/title" />
                                     </dt>
+                                    <dd>
                                     <div tal:condition="python:item_type=='PlumiVideo'" >
                                     </div>
-                                      <span tal:content="item/Description">Nulla neque velit,a est.</span>
                                         <em class="documentAuthor"
                                             i18n:translate="label_by_author">
-                                        Contributed by
+                                        by
                                             <tal:block tal:condition="item/Creator"
                                                 tal:define="author python:context.portal_membership.getMemberInfo(item.Creator())">
                                               <a href="#"
@@ -170,6 +154,20 @@
                                         </em>
 
 
+                                         <span tal:define="puiblication_date item/EffectiveDate;">
+
+                                            <span class="documentPublished" tal:condition="python: publication_date != 'None'">
+                                              &mdash;
+                                              <span tal:replace="python:toLocalizedTime(publication_date, long_format=0)">
+                                                August 16, 2001 at 23:35:59
+                                              </span>
+                                            </span>
+
+                                        </span>
+
+
+                                      <span tal:content="item/Description">Nulla neque velit,a est.</span>
+                                    </dd>
 
 
                               </div> <!--clips-holder-->

@@ -95,4 +95,13 @@
         allowed_interface="plumi.content.browser.interfaces.IAuthorPage"
         />
 
+   <browser:page
+        name="taxonomy"
+        class=".views.Taxonomy"
+        permission="zope2.View"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        template="templates/taxonomy.pt"
+        layer=".interfaces.IThemeSpecific"
+        />
+
 </configure>

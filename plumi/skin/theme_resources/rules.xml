@@ -187,6 +187,14 @@
 
     <!-- HOMEPAGE -->
     <rules css:if-content="body.template-featured_videos_homepage">
+
+       <prepend css:theme="div.content">
+            <div class="row no-v-padding">
+                <xsl:copy-of css:select="#edit-bar" />
+                <xsl:copy-of css:select="dl.portalMessage" />
+            </div>
+        </prepend>
+
         
         <!-- Featured video -->
         <replace theme="//*[@id='featuredvideo']/div[1]" content="//video/.."/>
