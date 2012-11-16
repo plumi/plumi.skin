@@ -2278,6 +2278,7 @@ dl.portlet dd.portletFooter a {
 dl.portlet dd.portletItem span.portletItemDetails {
    color: #333333;
    font-weight: normal;
+   display: block;
 }
 
 div.portletWrapper {
