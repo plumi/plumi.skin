@@ -998,11 +998,19 @@ a#featuredVideoTitle, #featuredVideoTitle:link, #featuredVideoTitle:visited {
 }
 
 .video div.description p, .video div.description div.video-meta {
-  padding: 0.5em 8px 0 8px;
+  padding: 0.4em 0px 0 8px;
   color: #efeff1;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
   font-size: 13px;
   line-height: 15px;
+}
+
+div.video-meta {
+  float:left;
+}
+
+.video div.description p {
+  clear:left;
 }
 
 .video div.description div.video-meta a {
@@ -1052,6 +1060,7 @@ div.video span.country {
   display: block;
   font-weight: bold;
   margin-top: 0.5em;
+  clear:left;
 }
 
 div.featured span.country a {
@@ -2312,7 +2321,12 @@ div.rollover .featuredItemDetailsPosted {
 
 .featuredVideo-date {
     color:white;
-    margin-left: 8px;
+    float:left;
+    padding: 0.5em 8px 0 0px;
+    color: #EFEFF1;
+    margin-bottom: 0px;
+    font-size: 13px;
+    line-height: 15px;
 }
 
 img#license_button1 {
