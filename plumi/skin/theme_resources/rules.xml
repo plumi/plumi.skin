@@ -373,12 +373,6 @@
     </rules>
 
         <!-- drop browse/publish menu on pages that doesn't have it -->
-        <drop css:content="ul#publish-menu" css:if-content="body.template-login_form" />
-        <drop css:content="ul#publish-menu" css:if-content="body.template-default_error_message" />
-        <drop css:content="ul#publish-menu" css:if-content="body.template-register" />
-
-        <drop css:content="ul#browse-menu" css:if-content="body.template-login_form" />
-        <drop css:content="ul#browse-menu" css:if-content="body.template-default_error_message" />
-        <drop css:content="ul#browse-menu" css:if-content="body.template-register" />
- 
+        <drop css:if-not-content="#portal-column-one" css:theme="ul#publish-menu" />
+        <drop css:if-not-content="#portal-column-one" css:theme="ul#browse-menu" />
 </rules>
