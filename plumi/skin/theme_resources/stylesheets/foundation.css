@@ -1061,6 +1061,7 @@ div.video span.country {
   font-weight: bold;
   margin-top: 0.5em;
   clear:left;
+  font-size: 13px;
 }
 
 div.featured span.country a {
