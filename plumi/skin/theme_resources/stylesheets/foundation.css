@@ -664,7 +664,7 @@ div.sidebar ul li p.date {
 
  /* "More" links */
 
- div.sidebar div.column-more a {
+ div.sidebar div.column-more a, dd.portletFooter a {
   display: block;
   padding: 6px 10px;
   background: #f2f2f4;
@@ -673,6 +673,11 @@ div.sidebar ul li p.date {
   font-weight: bold;
   border-top: 1px solid #ccc;
  }
+
+dl.portlet dd.portletFooter {
+    padding: 0 !important;
+    border-bottom: 2px solid #777777;
+}
 
  div.sidebar div.column-more a:hover {
   color: #222;
