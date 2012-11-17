@@ -2430,3 +2430,7 @@ form#login_form {
 form.kssattr-formname-register {
     width: 75%;
 }
+
+.author-info li.paypal {
+  padding: 1px 10px;
+}
