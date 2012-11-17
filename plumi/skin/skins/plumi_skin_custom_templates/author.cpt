@@ -292,7 +292,7 @@
 
        <tal:videos define="videos view/videos|nothing" condition="videos">
         <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/" i18n:translate="" >Videos</a></h2>
-       <a href="#" class="video-rss-syndicate" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2">
+       <a href="#" class="videos-rss-syndicate" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2">
            <img tal:attributes="src string:${portal_url}/rss2_icon.png; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
        </a>
         <br />
@@ -338,7 +338,7 @@
 	       
 	    <dt class="featuredHeader">
 	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest News</a></h2>
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS2">
+	      <a href="#" class="news-rss-syndicate" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS2">
            <img tal:attributes="src string:${portal_url}/rss2_icon.png; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
               </a>
 	    </dt>
@@ -367,7 +367,7 @@
 	       
 	    <dt class="featuredHeader">
 	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/" i18n:translate="">Latest Events</a></h2>
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS2">
+	      <a class="events-rss-syndicate" href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS2">
                   <img tal:attributes="src string:${portal_url}/rss2_icon.png; class string:feedButton; alt string:RSS2 Syndication; title string:RSS2 Syndication';id string:icon-rss2syndication;" />
               </a>
 	    </dt>

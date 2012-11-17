@@ -141,7 +141,7 @@
 
 
         <!-- RSS icon link -->
-        <replace css:theme="a.rss">
+        <replace css:theme="a.rss" if-not-path="author">
             <a href="RSS2" class="rss icon"></a>
         </replace>
 
@@ -343,23 +343,22 @@
         <!-- video listing -->
         <replace css:theme="#mid-container #video-listings">
             <div class="content row" id="video-listings">
- 
-            <xsl:for-each css:select=".featured-block dl.videos-listing-only dd.featuredItem">
-                <div class="three columns video">
-                    <div class="wrapper-under">
-                        <div class="under">
-                            <h5><xsl:copy-of css:select="h4 a.featuredItemTitle"/></h5>
+                <xsl:for-each css:select=".featured-block dl.videos-listing-only dd.featuredItem">
+                    <div class="three columns video">
+                        <div class="wrapper-under">
+                            <div class="under">
+                                <h5><xsl:copy-of css:select="h4 a.featuredItemTitle"/></h5>
+                            </div>
                         </div>
-                    </div>
-                    <div class="proxy-under"></div>
-                    <div class="wrapper-image">
-                        <div class="rollover">
-                            <p><a><xsl:copy-of select="a[@class='featured-video-image']/@href" /><xsl:copy-of select="substring(p/text(),0, 130)" />...</a></p>
-                            <span class="country"><xsl:copy-of select="dl[@class='plumi-country plumi-props-listing']//a" /></span>
+                        <div class="proxy-under"></div>
+                        <div class="wrapper-image">
+                            <div class="rollover">
+                                <p><a><xsl:copy-of select="a[@class='featured-video-image']/@href" /><xsl:copy-of select="substring(p/text(),0, 130)" />...</a></p>
+                                <span class="country"><xsl:copy-of select="dl[@class='plumi-country plumi-props-listing']//a" /></span>
+                            </div>
+                            <xsl:copy-of css:select="a.featured-video-image"/>
                         </div>
-                        <xsl:copy-of css:select="a.featured-video-image"/>
-                    </div>
-                    <span class="duration"><xsl:copy-of css:select=".featured-video-duration span" /></span>
+                        <span class="duration"><xsl:copy-of css:select=".featured-video-duration span" /></span>
                 </div>
             </xsl:for-each>
             <div class="foo" style="clear:both"></div>
@@ -422,8 +421,10 @@
         </append>
 
         <!-- RSS icon link -->
-       <replace css:theme="a.rss">
-        </replace>
+        <prepend css:theme="a.rss-videos" content="//a[@class='videos-rss-syndicate']/@href" />
+        <prepend css:theme="a.rss-news" content="//a[@class='news-rss-syndicate']/@href" />
+        <prepend css:theme="a.rss-events" content="//a[@class='events-rss-syndicate']/@href" />
+
     </rules>
 
         <!-- drop browse/publish menu on pages that doesn't have it -->
