@@ -12,13 +12,13 @@
             <dl>
                 <dt>
                     <li>
-                        <a tal:attributes="href view/videos_path" i18n:translate="">Video</a>
+                        <a tal:attributes="href string:${portal/absolute_url}/publish/video" i18n:translate="">Video</a>
                     </li>
                     <li>
-                        <a tal:attributes="href view/events_path" i18n:translate="">Event</a>
+                        <a tal:attributes="href string:${portal/absolute_url}/publish/event" i18n:translate="">Event</a>
                     </li>
                     <li>
-                        <a tal:attributes="href view/news_path" i18n:translate="">News</a>
+                        <a tal:attributes="href string:${portal/absolute_url}/publish/news" i18n:translate="">News</a>
                     </li>
                 </dt>
             </dl>
