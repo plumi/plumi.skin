@@ -141,7 +141,6 @@
            <img src=""
                  alt=""
                  class="portraitPhoto"
-                 width="75"
                  style="float: left; margin: 0 1em 1em;"
                  tal:attributes="src portrait/absolute_url" />
 
@@ -152,24 +151,24 @@
                 &mdash;
                 <span i18n:translate="label_main_language">Main Language:</span>
                   <a tal:attributes="href string:${portal_url}/@@author_listing?intype=language&invalue=${authorinfo/language}">                
-                     <span tal:replace="authorinfo/language">Some language</span>
+                     <span tal:replace="authorinfo/language/title">Some language</span>
                   </a>
                 </tal:language>
             </div>
 
                       
 
-            <p class="documentDescription" tal:content="view/author_userbio|nothing">
+            <p class="documentDescription" tal:content="authorinfo/description|nothing">
                 Author description.
             </p>
 
             <div class="visualClear"><!-- --></div>
             
-            <p tal:condition="python: authorinfo['home_page']">
+            <p class="homepage" tal:condition="python: authorinfo['home_page']">
             <a href="#" 
                rel="nofollow"
                tal:attributes="href authorinfo/home_page"
-               i18n:translate="label_author_external_home_page">Author's external home page&hellip;</a>
+               i18n:translate="label_author_external_home_page"><span tal:replace="authorinfo/home_page"></span></a>
             </p>
 
 
@@ -333,39 +332,9 @@
 	<!-- end of video listing for user -->
         <div id="other-published-stuff">
 
-<tal:comment replace="nothing">
-
-	<!-- Callout listing -->
-	<div class="featured-block" tal:define="callouts view/callouts|nothing" tal:condition="callouts">
-	  <dl class="videos-listing"  i18n:domain="plumi" >
-	       
-	    <dt class="featuredHeader">
-	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/" i18n:translate="">Latest Callouts</a></h2>
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS2"><img class="feedButton" style="padding-left:3px" src="../rss2_icon.png.gif" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt title"/></a>
-	    </dt>
-
-		<!-- each Callout item -->
-	    <dd class="featuredItem" tal:repeat="obj callouts">
-
-	     <metal:macro use-macro="here/atobjs_renderer/macros/atobj_renderer"/>
-
-	    </dd>
-	    <!-- end of each Callout item -->
-
-            <p tal:condition="python:mtool.getHomeFolder(id=author)">
-              <a href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/callouts')"
-                 i18n:translate="label_author_internal_video_page">All callouts from this author&hellip;</a>
-            </p>
-
-	  </dl>
-	</div>
-	<!-- end of Callouts listing for user -->
-
-</tal:comment>
-
 	<!-- News listing -->
 	<div class="featured-block" tal:define="newses view/news|nothing" tal:condition="newses">
-	  <dl class="videos-listing" i18n:domain="plumi">
+	  <dl class="news-listing" i18n:domain="plumi">
 	       
 	    <dt class="featuredHeader">
 	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest News</a></h2>
@@ -376,7 +345,7 @@
 
 		<!-- each news item -->
 	    <dd class="featuredItem" tal:repeat="obj newses">
-
+            <img tal:attributes="src string:${obj/getURL}/image_mini" />
 	     <metal:macro use-macro="here/atobjs_renderer/macros/atobj_renderer"/>
 
 	    </dd>
@@ -394,7 +363,7 @@
 
 	<!-- Events listing -->
 	<div class="featured-block" tal:define="events view/events|nothing" tal:condition="events">
-	  <dl class="videos-listing" i18n:domain="plumi">
+	  <dl class="events-listing" i18n:domain="plumi">
 	       
 	    <dt class="featuredHeader">
 	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/" i18n:translate="">Latest Events</a></h2>

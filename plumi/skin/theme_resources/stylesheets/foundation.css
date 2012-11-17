@@ -1466,10 +1466,6 @@ div.comment button.reply-to-comment-button:active {
 /* ----------------------------------------- Author Page
 ----------------------------------------- */
 
-.author.content.row {
-  min-height: 360px;
-}
-
 .author-info {
   list-style-type: none;
   width: 100%;
@@ -1489,10 +1485,10 @@ div.comment button.reply-to-comment-button:active {
 }
 
 .author-image-wrapper {
-  width: 270px;
-  height: 320px;
+  width: 105px;
+  height: 115px;
   background: #f8f9fa;
-  margin: 0 auto;
+  margin-left: auto;
   position: relative;
   -moz-box-shadow: 0 1px 6px rgba(0,0,0,0.17);
   -ms-box-shadow: 0 1px 6px rgba(0,0,0,0.17);
@@ -1526,6 +1522,7 @@ ul.list li {
   background: #f2f2f3;
   border-top: 1px solid #ddd;
   overflow: auto;
+  display: block;
 }
 
 ul.list li:first-child {
@@ -2362,4 +2359,24 @@ div.footer dl.portlet dd.portletItem a:link {
     font-size: 14px !important;
     color: #205C90 !important;
     font-weight: normal !important;
+}
+
+span.posted h4 {
+    margin-bottom: 0;
+}
+
+ul.news li span.posted, ul.events li span.posted {
+  padding-top: 0px;
+}
+
+ul.news, ul.events {
+  padding-top: 1px;
+}
+
+ul.events a img {
+  display: none;
+}
+
+ul.author-info {
+  width: 86.667% !important;
 }
