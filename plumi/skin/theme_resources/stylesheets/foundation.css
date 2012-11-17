@@ -2406,3 +2406,8 @@ div.footer dl.portlet dd.portletItem a:link {
 form#login_form {
     padding: 1em;
 }
+
+form.kssattr-formname-register {
+    width: 75%;
+}
+
