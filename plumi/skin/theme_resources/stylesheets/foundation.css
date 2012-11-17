@@ -1022,6 +1022,9 @@ a#featuredVideoTitle, #featuredVideoTitle:link, #featuredVideoTitle:visited {
   border-bottom: 1px solid #777;
 }
 
+.video.featured div.description h3 {
+  line-height: 1em;
+}
 .video div.description p, .video div.description div.video-meta {
   padding: 0.4em 0px 0 8px;
   color: #efeff1;
