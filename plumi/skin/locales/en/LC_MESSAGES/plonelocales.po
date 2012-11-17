@@ -1,0 +1,8 @@
+msgid "date_format_long"
+msgstr "${B} ${d}, ${Y}"
+
+msgid "date_format_short"
+msgstr "${B} ${d}, ${Y}"
+
+msgid "time_format"
+msgstr "${I}:${M} ${p}"
