@@ -2369,3 +2369,7 @@ div.footer dl.portlet dd.portletItem a:link {
     color: #205C90 !important;
     font-weight: normal !important;
 }
+
+.loginOption {
+    padding: 1em;
+}
