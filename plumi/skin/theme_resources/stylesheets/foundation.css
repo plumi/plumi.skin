@@ -2373,3 +2373,7 @@ div.footer dl.portlet dd.portletItem a:link {
 .loginOption {
     padding: 1em;
 }
+
+.kssattr-formname-register {
+    width: 75%;
+}
