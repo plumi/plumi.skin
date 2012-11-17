@@ -19,7 +19,13 @@ class Taxonomy(BrowserView):
          
     def __call__(self, request=None, response=None):
         if not self.traverse_subpath:
-            raise NotFound()
+            self.name = ''
+            self.results = [{'id': 'genre','title': 'Genre'},
+                            {'id': 'topic','title': 'Topic'},
+                            {'id': 'countries','title': 'Countries'},
+                            {'id': 'lingua','title': 'Language'},
+                            ]
+            return self.template()
         
         if self.traverse_subpath[0] == 'genre':
             self.index = 'getGenre'
