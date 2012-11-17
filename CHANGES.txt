@@ -1,7 +1,7 @@
-4.5 (2012-11-17)
+4.5b1 (2012-11-17)
 =================
 
- - Rewrite plumi.skin using diazo
+ - rewrite plumi.skin using diazo [yconst, clopy, mgogoulos, dimo, cpsaltis]
 
 4.4 (2012-07-25)
 =================
