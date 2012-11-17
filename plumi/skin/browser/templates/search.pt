@@ -151,19 +151,16 @@
                                                 Bob Dobalina
                                               </a>
                                             </tal:block>
-                                        </em>
 
-
-                                         <span tal:define="puiblication_date item/EffectiveDate;">
-
+                                         <span tal:define="publication_date item/EffectiveDate;">
                                             <span class="documentPublished" tal:condition="python: publication_date != 'None'">
                                               &mdash;
                                               <span tal:replace="python:toLocalizedTime(publication_date, long_format=0)">
                                                 August 16, 2001 at 23:35:59
                                               </span>
                                             </span>
-
                                         </span>
+                                        </em>
 
 
                                       <span tal:content="item/Description">Nulla neque velit,a est.</span>

@@ -4,6 +4,12 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="plumi.skin">
 
+    <interface
+        interface=".interfaces.IThemeSpecific"
+        type="zope.publisher.interfaces.browser.IBrowserSkinType"
+        name="Plumi Skin"
+        />
+
     <plone:portlet
         name="plumi.skin.browser.portlets.PublishPortlet"
         view_permission="zope2.View"
@@ -76,6 +82,7 @@
         permission="zope2.View"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         template="templates/search.pt"
+        layer=".interfaces.IThemeSpecific"        
         />
 
     <browser:page
@@ -86,13 +93,22 @@
         template="templates/updated_search.pt"
         layer=".interfaces.IThemeSpecific"
         />
+        
+    <browser:page
+        name="publish"
+        class="plumi.skin.browser.views.PublishView"
+        permission="cmf.SetOwnProperties"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        layer=".interfaces.IThemeSpecific"
+        />        
 
     <browser:page
-        for="*"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        allowed_interface="plumi.content.browser.interfaces.IAuthorPage"
         name="author_view"
         class=".author.AuthorPage"
         permission="zope2.View"
-        allowed_interface="plumi.content.browser.interfaces.IAuthorPage"
+        layer=".interfaces.IThemeSpecific"        
         />
 
    <browser:page

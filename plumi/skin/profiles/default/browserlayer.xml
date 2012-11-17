@@ -1,6 +1,7 @@
+<?xml version="1.0"?>
 <layers>
   <layer
       name="plumi.skin"
-      interface="plumi.skin.browser.interfaces.IPlumiSkinLayer"
+      interface="plumi.skin.browser.interfaces.IThemeSpecific"
       />
 </layers>

@@ -4,19 +4,13 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <!-- Apply theme to normal Plone pages -->
-    <theme href="index.html" css:if-content="body.template-featured_videos_homepage #visual-portal-wrapper" />
-    
+    <theme href="index.html" css:if-content="body.template-featured_videos_homepage #visual-portal-wrapper" />    
     <theme href="video.html" css:if-content="body.template-video_view #visual-portal-wrapper" />
-
     <theme href="list.html" css:if-content="body.template-video_listing_view #visual-portal-wrapper" />
     <theme href="author.html" css:if-content="body.template-author #visual-portal-wrapper" />
 
-<!--
-    <theme href="search.html" css:if-content="body.template-search #visual-portal-wrapper" />
-    <theme href="author.html" css:if-content="body.template-author #visual-portal-wrapper" />
--->
+    <!--theme href="search.html" css:if-content="body.template-search #visual-portal-wrapper" /-->
     <theme href="text.html" css:if-content="#visual-portal-wrapper" />
-
     <notheme if="$ajax_load" />    
 
     <!-- ALL PAGES -->
@@ -74,6 +68,10 @@
 
         <!-- Drop the javascript target from the theme -->
         <drop css:theme="#javascript_at_bottom"/>
+
+        <!-- Copy over the id/class attributes on the body tag.
+             This is important for per-section styling -->
+        <copy attributes="id dir" css:content="body" css:theme="body" />
 
         <!-- add help image to publish form -->
         <prepend css:if-content="body.template-publish_video" css:theme="#mid-container">
@@ -426,5 +424,8 @@
        <replace css:theme="a.rss">
         </replace>
     </rules>
- 
+
+        <!-- drop browse/publish menu on pages that doesn't have it -->
+        <drop css:if-not-content="#portal-column-one" css:theme="ul#publish-menu" />
+        <drop css:if-not-content="#portal-column-one" css:theme="ul#browse-menu" />
 </rules>

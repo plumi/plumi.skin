@@ -1,2 +1,25 @@
-tesdting
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
 
+<body>
+
+  <div id="content-core" metal:fill-slot="main"
+      tal:define="portal_url context/@@plone_portal_state/portal_url;">
+      <h1 class="documentFirstHeading">Browse videos by <tal:name content="view/name" /></h1>
+      <div class="tileItem" tal:repeat="item view/results">
+          <h2 class="tileHeadline" tal:condition="view/traverse_subpath">
+              <a tal:attributes="href string:${portal_url}/search?${view/index}=${item/id}" tal:content="item/title"></a>
+          </h2>
+          <h2 class="tileHeadline" tal:condition="not: view/traverse_subpath">
+              <a tal:attributes="href string:${portal_url}/taxonomy/${item/id}" tal:content="item/title"></a>
+          </h2>          
+      </div>
+  </div>
+
+</body>
+</html>
