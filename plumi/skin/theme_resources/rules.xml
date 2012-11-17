@@ -194,9 +194,9 @@
         <copy theme="//div[@id='featuredvideo']//div[1]/a" content="//div[@id='featured-front-page']//div[2]/span[1]/a" />
         <copy theme="//div[@id='featuredvideo']//h3" css:content="#featuredVideoTitle" />
         <replace theme="//div[@id='featuredvideo'][1]//p">
-            <p><xsl:copy-of select="substring(//p[@id='featuredVideoDescription']/text(),0,260)" />...</p>
+            <div class="featuredVideo-date">, <xsl:value-of select="substring(//span[@class='featuredItemDetailsPosted discreet'],14,21)" /></div>
             <span class="country"><xsl:copy-of select="//div[@id='featured-front-page']//div[2]//dl[@class='plumi-country plumi-props-listing']/dd/ul/li/a" /></span>
-            <div class="featuredVideo-date"><xsl:value-of select="substring(//span[@class='featuredItemDetailsPosted discreet'],14,21)" /></div>
+            <p><xsl:copy-of select="substring(//p[@id='featuredVideoDescription']/text(),0,260)" />...</p>
         </replace>
         <drop css:theme=".video.featured div.description" css:if-not-content="#featured-item"/>
 
