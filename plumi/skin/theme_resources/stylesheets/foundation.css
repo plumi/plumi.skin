@@ -1768,8 +1768,7 @@ body.template-author h2 {
     min-height: 150px;
 }
 
-/* ----------------------------------------- Video Upload Form
------------------------------------------ */
+/* Video Upload Form */
 
 .template-publish_video #mid-container .documentFirstHeading {
   padding: 16px 12px;
@@ -1820,7 +1819,6 @@ body.template-author h2 {
   display: block;
   overflow: auto;
   border: none;
-  
   background: #C9CCD1;
   border-bottom: 1px solid #bfbfbf;
   -moz-border-radius: 0;
@@ -1865,6 +1863,21 @@ body.template-author h2 {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
+}
+
+.template-publish_video fieldset#fieldset-contentlicensing legend {
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.template-publish_video fieldset#fieldset-contentlicensing input {
+    margin-right: 0.5em;
+}
+
+.template-publish_video fieldset#fieldset-contentlicensing img {
+    margin-left: -1.8em;
+    vertical-align: middle;
+    margin-right: 1em;
 }
 
 /* Inputs */
@@ -2114,7 +2127,7 @@ a#form-help {
 
 div#categorize-text-container {
     bottom: 190px;
-    left: 510px;
+    left: 185px;
     position: relative;
     width: 500px;
 }
@@ -2388,4 +2401,8 @@ div.footer dl.portlet dd.portletItem a:link {
     font-size: 14px !important;
     color: #205C90 !important;
     font-weight: normal !important;
+}
+
+form#login_form {
+    padding: 1em;
 }
