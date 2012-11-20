@@ -1588,12 +1588,20 @@ ul.list li .image {
 
 body.template-search .search-img img {
     float: right;
+    max-height: 96px;
+    max-width: 171px;
 }
 
 body.template-search .search-results {
     border-bottom: 1px solid #DDDDDD;
-    min-height: 100px;
+    min-height: 112px;
     padding-bottom: 15px;
+    padding-top: 5px;
+    clear: both;
+}
+
+body.template-search #content dd {
+    margin: 0;
 }
 
 body.template-search em.documentAuthor {
