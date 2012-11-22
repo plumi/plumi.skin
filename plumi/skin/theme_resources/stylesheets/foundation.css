@@ -438,6 +438,15 @@ div#copyright-citation {
     padding-top: 1em;
 }
     
+#print_citation {
+    display: none;
+}
+
+#click-citation {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 /* Social Networks */
 
 #lower-container span.social-title {
