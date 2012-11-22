@@ -85,6 +85,11 @@
             </div>
         </append>
 
+        <!--drop content licensing on pages other than the video page -->
+        <drop css:content="#copyright-citation" css:if-not-content="body.template-video_view" />
+        <drop css:content="#copyright-button" css:if-not-content="body.template-video_view" />
+        <drop css:content="#copyright-text" css:if-not-content="body.template-video_view" />
+
         <!--portlet managers -->
         <prepend css:content="#portletmanager-plone-leftcolumn" css:theme="#mid-container" />
         <append css:content="#portletmanager-plone-rightcolumn" css:theme="#mid-container" />

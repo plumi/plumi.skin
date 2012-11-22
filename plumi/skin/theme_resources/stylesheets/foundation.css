@@ -421,6 +421,8 @@ input#newsletter-submit {
 /* Copyright */
 div#copyright-button img {
     float: left;   
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 div#copyrightDocumentByLine {
@@ -428,18 +430,32 @@ div#copyrightDocumentByLine {
 }
 
 div#copyright-text {
-    padding-left: 8em;
     padding-top: 0.2em;
+    display: inline;
 }
 
 div#copyright-citation {
     text-align: center;
     font-size: 85%;
     padding-top: 1em;
+    display: inline;
 }
     
+#print_citation {
+    display: none;
+}
+
+#click-citation {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 /* Social Networks */
 
+#copyrightDocumentByLine {
+    margin-top: 2em;
+    padding-bottom: 3px;
+}
 #lower-container span.social-title {
     display: block;
     float: left;
@@ -2181,8 +2197,10 @@ body.template-featured_videos_homepage ul#dl-links {
 }
 
 .icons-on .contenttype-document, .icons-on .contenttype-event, .icons-on .contenttype-folder, .icons-on .contenttype-link, .icons-on .contenttype-news-item, .icons-on .contenttype-plone-site, .icons-on .contenttype-collection, .icons-on .contenttype-topic, .icons-on #plone-contentmenu-factories .contenttype-file, .icons-on #plone-contentmenu-factories .contenttype-image {
-background: none !important;
+    background: none !important;
+    padding-left: 0px !important;    
 }
+
 
 div#video-listings .video span.duration {
    right: 25px;
@@ -2425,3 +2443,4 @@ form.kssattr-formname-register {
 .author-info li.paypal {
   padding: 1px 10px;
 }
+
