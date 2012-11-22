@@ -2116,22 +2116,6 @@ div.unisubs-videoTab-anchoring {
    width: 200px !important;
 }
 
-a#form-help {
-  position: relative;
-  left: 50%;
-  z-index: 1000;
-  top: 100px;
-  margin-left: 410px;
-  font-weight: bold;
-  padding: 4px 10px;
-  background: #2297ee;
-  color: #fff;
-  font-wize: 18px;
-  -moz-border-radius: 11px;
-  -webkit-border-radius: 11px;
-  border-radius: 11px;
-}
-
 div#categorize-text-container {
     bottom: 190px;
     left: 185px;
