@@ -2181,8 +2181,10 @@ body.template-featured_videos_homepage ul#dl-links {
 }
 
 .icons-on .contenttype-document, .icons-on .contenttype-event, .icons-on .contenttype-folder, .icons-on .contenttype-link, .icons-on .contenttype-news-item, .icons-on .contenttype-plone-site, .icons-on .contenttype-collection, .icons-on .contenttype-topic, .icons-on #plone-contentmenu-factories .contenttype-file, .icons-on #plone-contentmenu-factories .contenttype-image {
-background: none !important;
+    background: none !important;
+    padding-left: 0px !important;    
 }
+
 
 div#video-listings .video span.duration {
    right: 25px;
@@ -2425,3 +2427,4 @@ form.kssattr-formname-register {
 .author-info li.paypal {
   padding: 1px 10px;
 }
+
