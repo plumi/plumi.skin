@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<object name="portal_actions" meta_type="Plone Actions Tool"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <action-provider name="portal_workflow"/>
+ <action-provider name="portal_types"/>
+ <action-provider name="portal_actions"/>
+ <object name="user" meta_type="CMF Action Category">
+  <property name="title"></property>
+  <object name="My Account" meta_type="CMF Action">
+   <property name="title">My Account</property>
+   <property name="description"></property>
+   <property
+      name="url_expr">string:${portal_url}/@@personal-information</property>
+   <property name="link_target"></property>
+   <property name="icon_expr"></property>
+   <property
+      name="available_expr">python:(member is not None) and (portal.portal_membership.getHomeFolder() is not None) </property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+ </object>
+</object>
