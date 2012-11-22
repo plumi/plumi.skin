@@ -449,6 +449,10 @@ div#copyright-citation {
 
 /* Social Networks */
 
+#copyrightDocumentByLine {
+    margin-top: 2em;
+    padding-bottom: 3px;
+}
 #lower-container span.social-title {
     display: block;
     float: left;
