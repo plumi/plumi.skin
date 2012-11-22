@@ -421,6 +421,8 @@ input#newsletter-submit {
 /* Copyright */
 div#copyright-button img {
     float: left;   
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 div#copyrightDocumentByLine {
@@ -428,14 +430,15 @@ div#copyrightDocumentByLine {
 }
 
 div#copyright-text {
-    padding-left: 8em;
     padding-top: 0.2em;
+    display: inline;
 }
 
 div#copyright-citation {
     text-align: center;
     font-size: 85%;
     padding-top: 1em;
+    display: inline;
 }
     
 #print_citation {
