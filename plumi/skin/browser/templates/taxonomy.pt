@@ -17,7 +17,7 @@
       <h1 class="documentFirstHeading">Browse videos by <tal:name content="view/name" /></h1>
       <div class="tileItem" tal:repeat="item view/results">
           <h2 class="tileHeadline" tal:condition="view/traverse_subpath">
-              <a tal:attributes="href string:${portal_url}/search?${view/index}=${item/id}" tal:content="item/title"></a>
+              <a tal:attributes="href string:${portal_url}/@@search?${view/index}=${item/id}" tal:content="item/title"></a>
           </h2>
           <h2 class="tileHeadline" tal:condition="not: view/traverse_subpath">
               <a tal:attributes="href string:${portal_url}/taxonomy/${item/id}" tal:content="item/title"></a>

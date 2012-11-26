@@ -1621,6 +1621,7 @@ body.template-search #content dd {
 
 body.template-search em.documentAuthor {
     display: block;
+    padding-bottom: 10px;
 }
 
 body.template-search #content a:link, dl.portlet a:link {

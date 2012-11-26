@@ -1,5 +1,7 @@
 from zope.interface import implements 
+from zope.component import getMultiAdapter
 from zope.publisher.interfaces import IPublishTraverse
+
 from ZPublisher import NotFound
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -73,8 +75,9 @@ class PublishView(BrowserView):
         self.traverse_subpath = []
     
     def __call__(self, request=None, response=None):
-        pm = getToolByName(self.context, 'portal_membership')
-        home = pm.getHomeFolder()
+        portal_state = getMultiAdapter((self.context, self.request), 
+                                       name="plone_portal_state")
+        home = portal_state.member().getHomeFolder()
         if 'news' in self.traverse_subpath:
             target = home.absolute_url()+'/news/createObject?type_name=News%20Item'
         elif 'event' in self.traverse_subpath:
