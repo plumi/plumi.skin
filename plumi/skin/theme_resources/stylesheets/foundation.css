@@ -2445,3 +2445,6 @@ form.kssattr-formname-register {
   padding: 1px 10px;
 }
 
+#contentActionMenus dl.actionMenu a, #contentActionMenus dl.actionMenu.activated dd {
+    z-index:500 !important;
+}
