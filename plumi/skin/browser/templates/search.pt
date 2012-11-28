@@ -52,6 +52,16 @@
                    i18n:attributes="value label_search;"/>
         </fieldset>
 
+                <div id="rss-subscription" i18n:domain="plone"
+                   tal:condition="context/portal_syndication/isSiteSyndicationAllowed">
+                    <a href=""
+                       class="link-feed"
+                       tal:define="here_url context/@@plone_context_state/object_url"
+                       tal:attributes="href string:$here_url/search_rss?${request/QUERY_STRING}">
+                       <img src="" alt="RSS" tal:attributes="src string:${portal_url}/rss.gif" />
+                          Subscribe to an always-updated RSS feed.
+                    </a>
+                </div>
 
         <div class="row">
 
