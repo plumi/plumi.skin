@@ -2448,3 +2448,8 @@ form.kssattr-formname-register {
 #contentActionMenus dl.actionMenu a, #contentActionMenus dl.actionMenu.activated dd {
     z-index:500 !important;
 }
+
+.fieldRequired {
+    color: #DD0000 !important;
+}
+
