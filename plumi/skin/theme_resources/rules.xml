@@ -339,21 +339,24 @@
         <drop css:theme="li.lang" css:if-not-content="div#author-full-details div.discreet a" />
         <replace css:theme="li.lang a" css:content-children="div#author-full-details div.discreet a" />
 
-        <drop css:theme="li.description" css:if-not-content="div#author-full-details p.documentDescription" />
+        <drop css:theme="li.description" if-not-content="//div[@id='author-full-details']/p[@class='documentDescription']/text()" />
         <copy css:theme="li.description" css:content-children="div#author-full-details p.documentDescription" />
 
         <drop css:theme="li.paypal" css:if-not-content="div#paypal-donation" />
         <copy css:theme="li.paypal" css:content="div#paypal-donation" />
 
-        <drop css:theme="li.role" />
-        <drop css:theme="li.genres" />
         <drop css:theme="li.activities" />
+        <drop css:theme="li.interests" />
+        <drop css:theme="li.formats" />
 
         <drop css:theme="li.homepage" css:if-not-content="p.homepage a" />
         <copy css:theme="li.homepage" css:content="p.homepage a" />
 
+        <drop css:theme=".videos-listing-header" css:if-not-content=".videos-listing-only" />
+        <drop css:theme=".news-listing-header" css:if-not-content="dl.news-listing" />
+        <drop css:theme=".events-listing-header" css:if-not-content="dl.events-listing" />
+
         <!-- video listing -->
-        <drop css:theme="#mid-container #video-listings" css:if-not-content="#mid-container #video-listings" />
         <replace css:theme="#mid-container #video-listings">
             <div class="content row" id="video-listings">
                 <xsl:for-each css:select=".featured-block dl.videos-listing-only dd.featuredItem">
