@@ -4,23 +4,23 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <!-- Apply theme to normal Plone pages -->
-    <theme href="index.html" css:if-content="body.template-featured_videos_homepage #visual-portal-wrapper" />    
+    <theme href="index.html" css:if-content="body.template-featured_videos_homepage #visual-portal-wrapper" />
     <theme href="video.html" css:if-content="body.template-video_view #visual-portal-wrapper" />
     <theme href="list.html" css:if-content="body.template-video_listing_view #visual-portal-wrapper" />
     <theme href="author.html" css:if-content="body.template-author #visual-portal-wrapper" />
 
     <!--theme href="search.html" css:if-content="body.template-search #visual-portal-wrapper" /-->
     <theme href="text.html" css:if-content="#visual-portal-wrapper" />
-    <notheme if="$ajax_load" />    
+    <notheme if="$ajax_load" />
 
     <!-- ALL PAGES -->
     <rules>
         <!-- Drop the viewport meta tag from Plone -->
         <drop css:content="meta[name=viewport]"/>
-        
+
         <!-- Copy all meta tags -->
         <before content="/html/head/meta" css:theme="#css" />
-        
+
         <!-- Get page title -->
         <replace content="/html/head/title" theme="/html/head/title"/>
 
@@ -107,11 +107,11 @@
 
         <!-- drop tags on news items -->
         <drop css:content="body.portaltype-news-item div#category" />
-        
-        <!-- HEADER -->        
+
+        <!-- HEADER -->
         <!-- Copy search box -->
         <copy css:content="#portal-searchbox" css:theme="div.search" />
-        
+
         <!-- copy user menu -->
         <rules css:if-content="a#user-name">
             <copy css:content-children="dl#portal-personaltools dd.actionMenuContent > ul" css:theme="#user-menu ul.dropdown" />
@@ -148,15 +148,15 @@
 
         <!-- Content footer is for siteelement doormat, so update this rule if
              doormat is needed for the theme -->
-        <drop css:theme="#content-footer" />       
+        <drop css:theme="#content-footer" />
         <copy css:content-children=".siteelement-footertext .footertext" css:theme="#colophon" />
 
-        <!-- main content -->        
-        <copy css:content="#portal-column-content" css:theme="#post-content > div.text-content > div.nine" />        
+        <!-- main content -->
+        <copy css:content="#portal-column-content" css:theme="#post-content > div.text-content > div.nine" />
         <drop css:content="span.documentModified > span" />
-        
+
     </rules>
-    
+
 
     <!--rules css:if-path="portal_registration/passwordreset">
         <copy content="/html/head/base" theme="/html/head/base" />
@@ -188,15 +188,21 @@
             </div>
         </prepend>
 
-        
+
         <!-- Featured video -->
         <replace theme="//*[@id='featuredvideo']/div[1]" content="//video/.."/>
         <copy theme="//div[@id='featuredvideo']//div[1]/a" content="//div[@id='featured-front-page']//div[2]/span[1]/a" />
         <copy theme="//div[@id='featuredvideo']//h3" css:content="#featuredVideoTitle" />
         <replace theme="//div[@id='featuredvideo'][1]//p">
-            <div class="featuredVideo-date">, <xsl:value-of select="substring(//span[@class='featuredItemDetailsPosted discreet'],14,21)" /></div>
-            <span class="country"><xsl:copy-of select="//div[@id='featured-front-page']//div[2]//dl[@class='plumi-country plumi-props-listing']/dd/ul/li/a" /></span>
-            <p><xsl:copy-of select="substring(//p[@id='featuredVideoDescription']/text(),0,260)" />...</p>
+            <div class="featuredVideo-date">
+                <xsl:value-of select="substring(//span[@class='featuredItemDetailsPosted discreet'],14,21)" />
+            </div>
+            <span class="country">
+                <xsl:copy-of select="//div[@id='featured-front-page']//div[2]//dl[@class='plumi-country plumi-props-listing']/dd/ul/li/a" />
+            </span>
+            <p>
+                <xsl:copy-of select="substring(//p[@id='featuredVideoDescription']/text(),0,260)" />...
+            </p>
         </replace>
         <drop css:theme=".video.featured div.description" css:if-not-content="#featured-item"/>
 
@@ -250,10 +256,10 @@
             </div>
         </replace>
     </rules>
-    
+
     <!-- VIDEO VIEW PAGE -->
     <rules css:if-content="body.template-video_view">
-        
+
         <prepend css:theme="div.video-content">
             <div class="row no-v-padding">
                 <xsl:copy-of css:select="#edit-bar" />
@@ -263,16 +269,16 @@
         <append css:theme="#video-title" css:content="span.documentAuthor" />
         <append css:theme="#video-title" css:content="span.documentModified" />
         <append css:theme="#video-title" css:content="#statistics" />
-        <copy css:content="#content h1.documentFirstHeading > span" css:theme="#video-title h1" /> 
-        <copy css:theme=".video" css:content="#video-core" /> 
-        <copy css:theme="#description" css:content="#content p.documentDescription" /> 
-        <copy css:theme="#full-description" css:content="#full-description > div" /> 
-        <copy css:theme="#video-info" css:content="#video-infos" /> 
-        <append css:theme="#video-info" css:content="#video-licensing" /> 
-        <append css:theme="#video-info" css:content="#video-transcoding" /> 
-        <copy css:theme="#video-comments" css:content=".discussion" /> 
-        <append css:theme="#video-comments" css:content="#commenting" /> 
- 
+        <copy css:content="#content h1.documentFirstHeading > span" css:theme="#video-title h1" />
+        <copy css:theme=".video" css:content="#video-core" />
+        <copy css:theme="#description" css:content="#content p.documentDescription" />
+        <copy css:theme="#full-description" css:content="#full-description > div" />
+        <copy css:theme="#video-info" css:content="#video-infos" />
+        <append css:theme="#video-info" css:content="#video-licensing" />
+        <append css:theme="#video-info" css:content="#video-transcoding" />
+        <copy css:theme="#video-comments" css:content=".discussion" />
+        <append css:theme="#video-comments" css:content="#commenting" />
+
         <replace css:theme=".video-list">
             <ul class="video-list">
             <xsl:for-each css:select="#authors_latest li">
@@ -283,7 +289,7 @@
             </ul>
         </replace>
     </rules>
-   
+
 
     <!-- VIDEO LISTINGS PAGE -->
     <rules css:if-content="body.template-video_listing_view">
@@ -295,7 +301,7 @@
             </div>
         </prepend>
 
-        <!-- video listing -->     
+        <!-- video listing -->
         <copy css:theme="#mid-container div.full h4" css:content-children="div#content div h1.documentFirstHeading" />
         <replace css:theme="#mid-container #video-listings">
             <div class="content row" id="video-listings">
@@ -325,8 +331,8 @@
             <div class="listingBarBottom"><xsl:copy-of select="//div[@class='listingBar'][1]" /></div>
             </div>
         </replace>
-    </rules> 
-    
+    </rules>
+
 
    <!-- AUTHOR PAGE -->
     <rules css:if-content="body.template-author">
