@@ -331,23 +331,29 @@
    <!-- AUTHOR PAGE -->
     <rules css:if-content="body.template-author">
         <copy css:theme="#mid-container div#video-title h1" css:content-children="#region-content div h1.documentFirstHeading" />
-        <copy css:theme="li.location" css:content-children="div.author-location" />
-        <replace css:theme="li.lang a" css:content-children="div.author-language a" />
-        <copy css:theme="li.interests" css:content-children="div.author-interests" />
-        <copy css:theme="li.activities" css:content-children="div.author-activities" />
-        <copy css:theme="li.formats" css:content-children="div.author-formats" />
-
-        <copy css:theme="li.description" css:content-children="div#author-full-details p.documentDescription" />
         <copy css:theme="div.author-image-wrapper" css:content="#author-full-details > img" />
+
+        <drop css:theme="li.location" css:if-not-content="div.author-details a" />
+        <copy css:theme="li.location" css:content-children="div.author-details a" />
+
+        <drop css:theme="li.lang" css:if-not-content="div#author-full-details div.discreet a" />
+        <replace css:theme="li.lang a" css:content-children="div#author-full-details div.discreet a" />
+
+        <drop css:theme="li.description" css:if-not-content="div#author-full-details p.documentDescription" />
+        <copy css:theme="li.description" css:content-children="div#author-full-details p.documentDescription" />
+
+        <drop css:theme="li.paypal" css:if-not-content="div#paypal-donation" />
         <copy css:theme="li.paypal" css:content="div#paypal-donation" />
+
+        <drop css:theme="li.role" />
+        <drop css:theme="li.genres" />
+        <drop css:theme="li.activities" />
+
+        <drop css:theme="li.homepage" css:if-not-content="p.homepage a" />
         <copy css:theme="li.homepage" css:content="p.homepage a" />
 
-        <drop css:if-not-content="div.author-language a" css:theme="li.lang a" />
-        <drop css:if-not-content="div.author-interests" css:theme="li.interests" />
-        <drop css:if-not-content="div.author-activities" css:theme="li.activities" />
-        <drop css:if-not-content="div.author-formats" css:theme="li.formats" />
-
         <!-- video listing -->
+        <drop css:theme="#mid-container #video-listings" css:if-not-content="#mid-container #video-listings" />
         <replace css:theme="#mid-container #video-listings">
             <div class="content row" id="video-listings">
                 <xsl:for-each css:select=".featured-block dl.videos-listing-only dd.featuredItem">
