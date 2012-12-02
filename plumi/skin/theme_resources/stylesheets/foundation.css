@@ -1142,7 +1142,7 @@ div.featured span.country a {
 .row { width: 986px; margin: 0 auto; padding: 1em 8px; position: relative; }
 .row .row { max-width: 100%; }
 .column, .columns { float: left; min-height: 1px; padding: 0 8px; position: relative; }
-
+table.listing th.column { float: none;}
 /* no top padding for normal rows preceded by normal rows */
 .row + .row {padding-top: 0;}
 .row + .row.no-v-padding {padding-bottom: 0;}
