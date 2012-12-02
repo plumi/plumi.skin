@@ -1469,6 +1469,10 @@ div.comment button.reply-to-comment-button:active {
   background: linear-gradient(#555, #777);
 }
 
+div#commenting p {
+    padding: 10px;
+}
+
 .row div#commenting fieldset {
   border: none;
   padding: 0;
@@ -1929,7 +1933,7 @@ div.formControls {
   overflow:auto;
 }
 
-div.formControls input[type="submit"] {
+div.formControls input[type="submit"], .reply input[type="submit"] {
   float: left;
   display: block;
   padding: 4px 5px;
