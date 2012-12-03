@@ -200,13 +200,16 @@
                         block.find('a.featuredItemTitle').attr('title', item.description);
                         
                         block.find('div.rollover').text(item.date);
-                        block.find('div.rollover').prepend('<span class="country"><a /></span>');
+                        if (item.countries) {
+                            block.find('div.rollover').prepend('<span class="country"><a /></span>');
+                            block.find('div.rollover span.country a').text(item.countries.title);
+                            block.find('div.rollover span.country a').attr('href', item.countries.url);
+                        }
                         block.find('div.rollover').prepend('<p><a /></p');
                         block.find('div.rollover p a').text(item.description);
                         block.find('div.rollover p a').attr('href', item.url);
-                        block.find('div.rollover span.country a').text(item.countries.title);
-                        block.find('div.rollover span.country a').attr('href', item.countries.url);
-                                                
+
+
                         block.find('a.featured-video-image').attr('href', item.url);
                         block.find('a.featured-video-image img').attr('src', item.url + '/thumbnailImage_thumb');
                         

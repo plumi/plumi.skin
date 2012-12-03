@@ -21,6 +21,11 @@ class JSONResults(BrowserView):
         results = []
         for brain in brains:
             date = brain.effective.year() > 1000 and brain.effective or brain.created
+            try:
+                countries = VideoView(self.context, self.request).get_country_info(brain.getCountries)
+            except:
+                countries = False
+
             results.append({
                 'id': brain.getId,
                 'uid': brain.UID,
@@ -29,7 +34,7 @@ class JSONResults(BrowserView):
                 'title': brain.Title == "" and brain.id or brain.Title,
                 'description': brain.Description,
                 'duration': brain.videoDuration,
-                'countries': VideoView(self.context, self.request).get_country_info(brain.getCountries),
+                'countries': countries,
                 'date': self.context.toLocalizedTime(date),
                 'is_folderish': brain.is_folderish,
                 })
