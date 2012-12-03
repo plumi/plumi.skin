@@ -27,13 +27,6 @@
         <!-- Copy the <base> tag -->
         <copy content="/html/head/base" theme="/html/head/base" />
 
-        <!-- TEMPORARY FIX FOR EM. SHOULD BE MORE GENERIC -->
-        <rules if-path="portal_registration/passwordreset">
-            <append theme="//html/head">
-                <base href="https://www.engagemedia.org/portal_registration" />
-            </append>
-        </rules>
-
         <!-- copy body attrs -->
         <prepend theme="/html/body" content="/html/body/@class" />
         <prepend theme="/html/body" content="/html/body/@id" />
@@ -72,18 +65,6 @@
         <!-- Copy over the id/class attributes on the body tag.
              This is important for per-section styling -->
         <copy attributes="id dir" css:content="body" css:theme="body" />
-
-        <!-- add categorize warning to the bottom of the publish form -->
-        <append css:if-content="body.template-publish_video" css:theme="#mid-container">
-            <div id="categorize-text-container">
-                <span class="categorize-test">HAVE YOU CATEGORISED YOUR VIDEO? Choose the Categorise tab above to make it easier for people to find your video, before clicking Save Changes.</span>
-            <script>
-                window.onload=function(){$('li.lastFormTab').click(function (e) {
-                    $('#categorize-text-container').hide();
-                });}
-            </script>
-            </div>
-        </append>
 
         <!--drop content licensing on pages other than the video page -->
         <drop css:content="#copyright-citation" css:if-not-content="body.template-video_view" />

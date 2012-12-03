@@ -119,5 +119,22 @@
         template="templates/taxonomy.pt"
         layer=".interfaces.IThemeSpecific"
         />
+        
+   <browser:page
+        name="JSON"
+        class=".views.JSONResults"
+        permission="zope2.View"
+        for="Products.ATContentTypes.interfaces.topic.IATTopic"
+        layer=".interfaces.IThemeSpecific"
+        /> 
+        
+    <browser:page
+        name="JSON"
+        class=".views.JSONResults"
+        permission="zope2.View"
+        for="plone.app.collection.interfaces.ICollection"
+        layer=".interfaces.IThemeSpecific"
+        /> 
+        
 
 </configure>

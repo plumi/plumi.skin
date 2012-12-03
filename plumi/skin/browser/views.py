@@ -8,6 +8,35 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
+try:
+    import simplejson as json
+except:
+    import json
+
+from plumi.content.browser.video import VideoView
+
+class JSONResults(BrowserView):
+    def __call__(self, request=None, response=None):
+        brains = self.context.queryCatalog(self.request, batch=True)
+        results = []
+        for brain in brains:
+            date = brain.effective.year() > 1000 and brain.effective or brain.created
+            results.append({
+                'id': brain.getId,
+                'uid': brain.UID,
+                'url': brain.getURL(),
+                'portal_type': brain.portal_type,
+                'title': brain.Title == "" and brain.id or brain.Title,
+                'description': brain.Description,
+                'duration': brain.videoDuration,
+                'countries': VideoView(self.context, self.request).get_country_info(brain.getCountries),
+                'date': self.context.toLocalizedTime(date),
+                'is_folderish': brain.is_folderish,
+                })
+        # return results in JSON format
+        self.context.REQUEST.response.setHeader("Content-type",
+                                                "application/json")            
+        return json.dumps(results)
 
 class Taxonomy(BrowserView):
     """A taxonomy view for countries, genres, etc"""

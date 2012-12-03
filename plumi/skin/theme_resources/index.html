@@ -175,6 +175,55 @@
 
     $(document).ready(resizePlayer);
     $(window).resize(resizePlayer);
+    
+    var b_start=10, b_size=9;
+    $('.load-more a').live('click', function(){
+        $('.load-more a').addClass('loading');
+        $.ajax({url: 'latestvideos/JSON?b_size='+b_size+'&b_start='+b_start,
+                type: 'GET',
+                contentType: 'application/json',
+                success: function(data) {
+                    var i = 0;
+                    b_start+=b_size;
+                    if (data.length < b_size ) {
+                        $('.load-more').fadeOut(200);
+                    }  
+                    data.forEach(function(item){
+                        i+=1;
+                        if (i>b_size) {
+                            return;
+                        }                       
+                        var block = $('#latestvideos div:first').clone();
+                        
+                        block.find('a.featuredItemTitle').text(item.title);                       
+                        block.find('a.featuredItemTitle').attr('href', item.url);
+                        block.find('a.featuredItemTitle').attr('title', item.description);
+                        
+                        block.find('div.rollover').text(item.date);
+                        block.find('div.rollover').prepend('<span class="country"><a /></span>');
+                        block.find('div.rollover').prepend('<p><a /></p');
+                        block.find('div.rollover p a').text(item.description);
+                        block.find('div.rollover p a').attr('href', item.url);
+                        block.find('div.rollover span.country a').text(item.countries.title);
+                        block.find('div.rollover span.country a').attr('href', item.countries.url);
+                                                
+                        block.find('a.featured-video-image').attr('href', item.url);
+                        block.find('a.featured-video-image img').attr('src', item.url + '/thumbnailImage_thumb');
+                        
+                        block.find('span.duration span.discreet').text(item.duration);
+                        
+                        block.insertBefore($('.load-more'));
+                        $('.load-more a.loading').removeClass('loading');
+                    });
+                },
+                error: function(jqXHR, textstate, errorThrown){
+                    $('.load-more a.loading').removeClass('loading');
+                    $('.load-more').fadeOut(200);
+                }
+            }
+        );
+        return false;
+    });
     </script>
 </body>
 </html>

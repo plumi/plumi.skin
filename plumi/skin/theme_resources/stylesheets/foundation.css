@@ -852,6 +852,13 @@ div.column.centered.load-more {
   padding: 10px 10px 5px 0;
 }
 
+div.load-more a.loading {
+    background-image: url('images/spinner.gif');
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 30%;
+}
+
 /* Video ---------------------- */
 
 .video {
