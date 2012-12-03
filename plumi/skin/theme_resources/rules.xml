@@ -419,11 +419,8 @@
         </div>
         </replace>
 
-        <append css:theme="#mid-container">
-            <div class="content row">
-                <xsl:copy-of css:select="div#contact-area" />
-            </div>
-        </append>
+        <append css:theme=".contact-author-content" css:content="div#contact-area form" />
+
 
         <!-- RSS icon link -->
         <prepend css:theme="a.rss-videos" content="//a[@class='videos-rss-syndicate']/@href" />
