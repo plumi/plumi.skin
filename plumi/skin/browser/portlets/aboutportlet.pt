@@ -1,0 +1,29 @@
+<dl class="portletAbout"
+    i18n:domain="plumi.skin">
+
+    <dt class="aboutPortletHeader">
+        <h5 i18n:translate="">About Plumi</h5>
+    </dt>
+
+    <dd class="about-portlet">
+        <dl>
+            <dt>
+                <li class="portletItem">
+                    <a href="http://blog.plumi.org/" i18n:translate="">Plumi Blog</a>
+                </li>
+                <li class="portletItem">
+                    <a href="http://www.flossmanuals.net/plumi/" i18n:translate="">Plumi Manual</a>
+                </li>
+                <li class="portletItem">
+                    <a href="http://demo.plumi.org/" i18n:translate="">Plumi Demo Site</a>
+                </li>
+                <li class="portletItem">
+                    <a href="http://engagemedia.org/" i18n:translate="">EngageMedia.org</a>
+                </li>
+                <li class="portletItem">
+                    <a href="https://unweb.me/" i18n:translate="">Unweb.me</a>
+                </li>
+            </dt>
+        </dl>
+    </dd>
+</dl>

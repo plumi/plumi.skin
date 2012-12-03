@@ -1,0 +1,27 @@
+<dl class="portletContent"
+    i18n:domain="plumi.skin">
+
+    <dt class="contentPortletHeader">
+        <h5 i18n:translate="">Content</h5>
+    </dt>
+
+    <dd class="content-portlet">
+        <dl>
+            <dt>
+                <li class="portletItem">
+                    <a tal:attributes="href python: context.portal_url() + '/recent_comments'" i18n:translate="">Comments</a>
+                </li>
+                <li class="portletItem">
+                    <a tal:attributes="href python: context.portal_url() + '/latestvideos'" i18n:translate="">Videos</a>
+                </li>
+                <li class="portletItem">
+                    <a tal:attributes="href python: context.portal_url() + '/news'" i18n:translate="">News</a>
+                </li>
+                <li class="portletItem">
+                    <a tal:attributes="href python: context.portal_url() + '/events'" i18n:translate="">Events</a>
+                </li>
+            </dt>
+        </dl>
+    </dd>
+
+</dl>

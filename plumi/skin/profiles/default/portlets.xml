@@ -3,14 +3,21 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="plumi">
 
-<assignment 
-    name="navigation" 
-    category="context" 
-    key="/"
-    manager="ContentWellPortlets.FooterPortletManager1" 
-    type="portlets.Navigation">
-    <property name="topLevel">0</property>
-</assignment>
+<assignment
+     manager="ContentWellPortlets.FooterPortletManager1"
+     category="context"
+     key="/"
+     type="plumi.skin.browser.portlets.ContentPortlet"
+     name="Content Portlet"
+     />
+
+<assignment
+     manager="ContentWellPortlets.FooterPortletManager1"
+     category="context"
+     key="/"
+     type="plumi.skin.browser.portlets.AboutPortlet"
+     name="About Portlet"
+     />
 
 
 <assignment

@@ -33,6 +33,28 @@
         />
 
     <plone:portlet
+        name="plumi.skin.browser.portlets.ContentPortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.contentportlet.Renderer"
+        assignment=".portlets.contentportlet.Assignment"
+        addview=".portlets.contentportlet.AddForm"
+        editview=".portlets.contentportlet.EditForm"
+        interface=".portlets.contentportlet.IContentPortlet"
+        />
+
+    <plone:portlet
+        name="plumi.skin.browser.portlets.AboutPortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.aboutportlet.Renderer"
+        assignment=".portlets.aboutportlet.Assignment"
+        addview=".portlets.aboutportlet.AddForm"
+        editview=".portlets.aboutportlet.EditForm"
+        interface=".portlets.aboutportlet.IAboutPortlet"
+        />
+
+    <plone:portlet
         name="plumi.skin.browser.portlets.FeaturedTopPortlet"
         view_permission="zope2.View"
         edit_permission="cmf.ManagePortal"
