@@ -315,7 +315,6 @@
         </replace>
     </rules>
 
-
    <!-- AUTHOR PAGE -->
     <rules css:if-content="body.template-author">
         <copy css:theme="#mid-container div#video-title h1" css:content-children="#region-content div h1.documentFirstHeading" />
@@ -356,19 +355,30 @@
                     <div class="three columns video">
                         <div class="wrapper-under">
                             <div class="under">
-                                <h5><xsl:copy-of css:select="h4 a.featuredItemTitle"/></h5>
+                                <h5>
+                                    <xsl:copy-of css:select="h4 a.featuredItemTitle"/>
+                                </h5>
                             </div>
                         </div>
                         <div class="proxy-under"></div>
                         <div class="wrapper-image">
                             <div class="rollover">
-                                <p><a><xsl:copy-of select="a[@class='featured-video-image']/@href" /><xsl:copy-of select="substring(p/text(),0, 130)" />...</a></p>
-                                <span class="country"><xsl:copy-of select="dl[@class='plumi-country plumi-props-listing']//a" /></span>
+                                <p>
+                                    <a>
+                                        <xsl:copy-of select="a[@class='featured-video-image']/@href" />
+                                        <xsl:copy-of select="substring(p/text(),0, 130)" />...
+                                    </a>
+                                </p>
+                                <span class="country">
+                                    <xsl:copy-of select="dl[@class='plumi-country plumi-props-listing']//a" />
+                                </span>
                                 <xsl:value-of select="substring(span[@class='featuredItemDetailsPosted discreet'],14,21)" />
                             </div>
                             <xsl:copy-of css:select="a.featured-video-image"/>
                         </div>
-                        <span class="duration"><xsl:copy-of css:select=".featured-video-duration span" /></span>
+                        <span class="duration">
+                            <xsl:copy-of css:select=".featured-video-duration span" />
+                        </span>
                 </div>
             </xsl:for-each>
             <div class="foo" style="clear:both"></div>
@@ -386,13 +396,21 @@
                 <ul class="news list">
                     <xsl:for-each css:select=".featured-block dl.news-listing dd.featuredItem">
                         <li>
-                            <span class="image"><xsl:copy-of select="img" /></span>
-                            <span class="posted"><xsl:copy-of select="div/h4" /></span>
-                            <span class="posted"><xsl:value-of select="substring(div/span[@class='featuredItemDetailsPosted discreet'],10,28)" /></span>
-                            <span class="content">
-                            <xsl:copy-of select="substring(div/p[@class='discreet plumi-nice-description']/text(),0, 430)" />
+                            <span class="image">
+                                <xsl:copy-of select="img" />
                             </span>
-                            <span class="readmore"><xsl:copy-of select="div/p/span[@class='featured-read-more']/a" /></span>
+                            <span class="posted">
+                                <xsl:copy-of select="div/h4" />
+                            </span>
+                            <span class="posted">
+                                <xsl:value-of select="substring(div/span[@class='featuredItemDetailsPosted discreet'],10,28)" />
+                            </span>
+                            <span class="content">
+                                <xsl:copy-of select="substring(div/p[@class='discreet plumi-nice-description']/text(),0, 430)" />
+                            </span>
+                            <span class="readmore">
+                                <xsl:copy-of select="div/p/span[@class='featured-read-more']/a" />
+                            </span>
                         </li>
                     </xsl:for-each>
                 </ul>
@@ -402,30 +420,37 @@
 
         <!-- events listing -->
         <replace css:theme="#events-listing">
-        <div class="content row">
-            <div class="twelve columns">
-                <ul class="events list">
-                    <xsl:for-each css:select=".featured-block dl.events-listing dd.featuredItem">
-                        <li>
-                            <span class="image"><xsl:copy-of select="img" /></span>
-                            <span class="posted"><xsl:copy-of select="div/h4" /></span>
-                            <span class="posted"><xsl:value-of select="substring(div/span[@class='featuredItemDetailsPosted discreet'],10,28)" /></span>
-                            <span class="content">
-                            <xsl:copy-of select="substring(div/p[@class='discreet plumi-nice-description']/text(),0, 430)" />
-                            </span>
-                            <xsl:for-each select="div/p/a">
-                                <xsl:copy-of select="." />
-                            </xsl:for-each>
-                            <span class="readmore"><xsl:copy-of select="div/p/span[@class='featured-read-more']/a" /></span>
-                        </li>
-                    </xsl:for-each>
-                </ul>
+            <div class="content row">
+                <div class="twelve columns">
+                    <ul class="events list">
+                        <xsl:for-each css:select=".featured-block dl.events-listing dd.featuredItem">
+                            <li>
+                                <span class="image">
+                                    <xsl:copy-of select="img" />
+                                </span>
+                                <span class="posted">
+                                    <xsl:copy-of select="div/h4" />
+                                </span>
+                                <span class="posted">
+                                    <xsl:value-of select="substring(div/span[@class='featuredItemDetailsPosted discreet'],10,28)" />
+                                </span>
+                                <span class="content">
+                                    <xsl:copy-of select="substring(div/p[@class='discreet plumi-nice-description']/text(),0, 430)" />
+                                </span>
+                                <xsl:for-each select="div/p/a">
+                                    <xsl:copy-of select="." />
+                                </xsl:for-each>
+                                <span class="readmore">
+                                    <xsl:copy-of select="div/p/span[@class='featured-read-more']/a" />
+                                </span>
+                            </li>
+                        </xsl:for-each>
+                    </ul>
+                </div>
             </div>
-        </div>
         </replace>
 
         <append css:theme=".contact-author-content" css:content="div#contact-area form" />
-
 
         <!-- RSS icon link -->
         <prepend css:theme="a.rss-videos" content="//a[@class='videos-rss-syndicate']/@href" />
