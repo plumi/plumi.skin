@@ -855,8 +855,7 @@ div.column.centered.load-more {
 div.load-more a.loading {
     background-image: url('images/spinner.gif');
     background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: 30%;
+    background-position: 30% center;
 }
 
 /* Video ---------------------- */
@@ -2431,6 +2430,12 @@ span.posted h4 {
 
 ul.news li span.posted, ul.events li span.posted {
   padding-top: 0px;
+}
+
+ul.news li span.posted.posted-date, ul.events li span.posted.posted-date {
+  font-size: 12px;
+  margin-top: -5px;
+  padding-bottom: 12px;
 }
 
 ul.news, ul.events {

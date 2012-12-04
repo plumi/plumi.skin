@@ -30,10 +30,52 @@ ul.video-list li.video-item {
 	display: block;
 	overflow: auto;
 	margin: 0;
+    position: relative;
 }
 
 ul.video-list li.video-item a {
 	overflow: auto;
+}
+
+ul.video-list li.video-item a .rollover {
+    display:none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 8px;
+    overflow: hidden;
+    background: #f5f5f7;
+    opacity: 0.82;
+    width: 60%;
+    height: 100%;
+    font-size: 12px;
+}
+
+ul.video-list li.video-item a .rollover p {
+    padding-top: 8px;
+    font-size: 12px;
+}
+
+ul.video-list li.video-item a:hover .rollover {
+    display: block;
+}
+
+ul.video-list li.video-item a:hover div.duration {
+    display: none;
+}
+
+ul.video-list li.video-item div.duration {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 3px 3px 3px 3px;
+    bottom: 8px;
+    color: #DFDFE1;
+    display: block;
+    float: right;
+    font-size: 12px;
+    padding: 2px 3px;
+    position: absolute;
+    right: 126px;
 }
 
 ul.video-list li.video-item img {
