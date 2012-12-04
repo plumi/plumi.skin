@@ -341,8 +341,13 @@
         <copy css:theme="li.homepage" css:content="p.homepage a" />
 
         <drop css:theme=".videos-listing-header" css:if-not-content=".videos-listing-only" />
+        <drop css:theme="#video-listings" css:if-not-content=".videos-listing-only" />
+
         <drop css:theme=".news-listing-header" css:if-not-content="dl.news-listing" />
+        <drop css:theme="#news-listing" css:if-not-content="dl.news-listing" />
+
         <drop css:theme=".events-listing-header" css:if-not-content="dl.events-listing" />
+        <drop css:theme="#events-listing" css:if-not-content="dl.events-listing" />
 
         <!-- video listing -->
         <replace css:theme="#mid-container #video-listings">
