@@ -171,6 +171,7 @@
 
 
         <!-- Featured video -->
+        <drop theme="//*[@id='featuredvideo']/.." if-not-content="//video" />
         <replace theme="//*[@id='featuredvideo']/div[1]" content="//video/.."/>
         <copy theme="//div[@id='featuredvideo']//div[1]/a" content="//div[@id='featured-front-page']//div[2]/span[1]/a" />
         <copy theme="//div[@id='featuredvideo']//h3" css:content="#featuredVideoTitle" />
