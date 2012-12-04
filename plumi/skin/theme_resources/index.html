@@ -206,7 +206,7 @@
                             block.find('div.rollover span.country a').attr('href', item.countries.url);
                         }
                         block.find('div.rollover').prepend('<p><a /></p');
-                        block.find('div.rollover p a').text(item.description.substr(0,130));
+                        block.find('div.rollover p a').text(item.description.substr(0,130)+'...');
                         block.find('div.rollover p a').attr('href', item.url);
 
 
