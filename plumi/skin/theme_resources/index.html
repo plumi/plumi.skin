@@ -197,7 +197,7 @@
                         
                         block.find('a.featuredItemTitle').text(item.title);                       
                         block.find('a.featuredItemTitle').attr('href', item.url);
-                        block.find('a.featuredItemTitle').attr('title', item.description);
+                        block.find('a.featuredItemTitle').attr('title', item.description.substr(0,130));
                         
                         block.find('div.rollover').text(item.date);
                         if (item.countries) {
@@ -206,7 +206,7 @@
                             block.find('div.rollover span.country a').attr('href', item.countries.url);
                         }
                         block.find('div.rollover').prepend('<p><a /></p');
-                        block.find('div.rollover p a').text(item.description);
+                        block.find('div.rollover p a').text(item.description.substr(0,130));
                         block.find('div.rollover p a').attr('href', item.url);
 
 
