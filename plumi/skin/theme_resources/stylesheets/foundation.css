@@ -855,8 +855,7 @@ div.column.centered.load-more {
 div.load-more a.loading {
     background-image: url('images/spinner.gif');
     background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: 30%;
+    background-position: 30% center;
 }
 
 /* Video ---------------------- */
