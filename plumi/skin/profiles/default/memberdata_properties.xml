@@ -1,4 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_memberdata" meta_type="Plone Memberdata Tool">
  <property name="author_paypal" type="string"></property>
-</object> 
+ <property name="genre_interests" type="lines"></property>
+ <property name="activities" type="lines"></property>
+ <property name="media_formats" type="lines"></property>
+</object>
