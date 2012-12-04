@@ -364,10 +364,7 @@
                         <div class="wrapper-image">
                             <div class="rollover">
                                 <p>
-                                    <a>
-                                        <xsl:copy-of select="a[@class='featured-video-image']/@href" />
-                                        <xsl:copy-of select="substring(p/text(),0, 130)" />...
-                                    </a>
+                                    <a><xsl:copy-of select="a[@class='featured-video-image']/@href" /><xsl:copy-of select="substring(p/text(),0, 130)" />...</a>
                                 </p>
                                 <span class="country">
                                     <xsl:copy-of select="dl[@class='plumi-country plumi-props-listing']//a" />
@@ -402,7 +399,7 @@
                             <span class="posted">
                                 <xsl:copy-of select="div/h4" />
                             </span>
-                            <span class="posted">
+                            <span class="posted posted-date">
                                 <xsl:value-of select="substring(div/span[@class='featuredItemDetailsPosted discreet'],10,28)" />
                             </span>
                             <span class="content">
@@ -431,7 +428,7 @@
                                 <span class="posted">
                                     <xsl:copy-of select="div/h4" />
                                 </span>
-                                <span class="posted">
+                                <span class="posted posted-date">
                                     <xsl:value-of select="substring(div/span[@class='featuredItemDetailsPosted discreet'],10,28)" />
                                 </span>
                                 <span class="content">

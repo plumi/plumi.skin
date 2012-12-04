@@ -2433,6 +2433,12 @@ ul.news li span.posted, ul.events li span.posted {
   padding-top: 0px;
 }
 
+ul.news li span.posted.posted-date, ul.events li span.posted.posted-date {
+  font-size: 12px;
+  margin-top: -5px;
+  padding-bottom: 12px;
+}
+
 ul.news, ul.events {
   padding-top: 1px;
 }
