@@ -260,13 +260,21 @@
         <append css:theme="#video-info" css:content="#video-transcoding" />
         <copy css:theme="#video-comments" css:content=".discussion" />
         <append css:theme="#video-comments" content="//*[@class='reply'][1]" />
-	<drop css:theme=".video-comments-title" css:if-not-content=".discussion div" />
+	    <drop css:theme=".video-comments-title" css:if-not-content=".discussion div" />
 
         <replace css:theme=".video-list">
             <ul class="video-list">
             <xsl:for-each css:select="#authors_latest li">
                 <li class="video-item">
-                    <xsl:copy-of css:select="a" />
+                    <a class="video-download"><xsl:copy-of select="a/@href" />
+                        <xsl:copy-of select="a/img" />
+                        <xsl:copy-of select="a/h5" />
+                        <div class="rollover">
+                            <xsl:copy-of select="substring(a/@title,0,130)" />...
+                            <p><xsl:copy-of select="p/span[@class='posted-date']" /></p>
+                        </div>
+                        
+                    </a>
                 </li>
             </xsl:for-each>
             </ul>
