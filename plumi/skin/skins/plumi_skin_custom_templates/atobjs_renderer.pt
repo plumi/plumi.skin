@@ -16,7 +16,7 @@
 
       <span class="featuredItemDetailsPosted discreet" i18n:translate="">
         Posted:
-        <tal:date content="python:toLocalizedTime(obj.created)" i18n:name="PostedDate"/>
+        <span class="posted-date" tal:content="python:toLocalizedTime(obj.created)" i18n:name="PostedDate"/>
       </span>
 
 
