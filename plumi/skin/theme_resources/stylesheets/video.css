@@ -61,6 +61,23 @@ ul.video-list li.video-item a:hover .rollover {
     display: block;
 }
 
+ul.video-list li.video-item a:hover div.duration {
+    display: none;
+}
+
+ul.video-list li.video-item div.duration {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 3px 3px 3px 3px;
+    bottom: 8px;
+    color: #DFDFE1;
+    display: block;
+    float: right;
+    font-size: 12px;
+    padding: 2px 3px;
+    position: absolute;
+    right: 126px;
+}
+
 ul.video-list li.video-item img {
 	display: block;
 	float: left;

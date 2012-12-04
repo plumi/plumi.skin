@@ -269,6 +269,7 @@
                     <a class="video-download"><xsl:copy-of select="a/@href" />
                         <xsl:copy-of select="a/img" />
                         <xsl:copy-of select="a/h5" />
+                        <xsl:copy-of select="div[@class='duration']" />
                         <div class="rollover">
                             <xsl:copy-of select="substring(a/@title,0,130)" />...
                             <p><xsl:copy-of select="p/span[@class='posted-date']" /></p>
