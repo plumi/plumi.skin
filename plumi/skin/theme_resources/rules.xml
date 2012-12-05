@@ -350,8 +350,13 @@
         <copy css:theme="li.homepage a" css:content="p.homepage a" />
 
         <drop css:theme="li.homepages" css:if-not-content="div.other-homepages" />
-        <copy css:theme="li.homepages" css:content-children="div.homepages-container" />
-
+        <replace css:theme="li.homepages">
+            <xsl:for-each css:select="div.other-homepages">
+              <li class="homepages">
+                <xsl:copy-of select="a" />
+              </li>
+            </xsl:for-each>
+        </replace>
         <drop css:theme=".videos-listing-header" css:if-not-content=".videos-listing-only" />
         <drop css:theme="#video-listings" css:if-not-content=".videos-listing-only" />
 
