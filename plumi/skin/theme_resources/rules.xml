@@ -274,7 +274,7 @@
                             <xsl:copy-of select="substring(a/@title,0,130)" />...
                             <p><xsl:copy-of select="p/span[@class='posted-date']" /></p>
                         </div>
-                        
+
                     </a>
                 </li>
             </xsl:for-each>
@@ -336,6 +336,18 @@
         <drop css:theme="li.lang" css:if-not-content="div#author-full-details div.discreet a" />
         <replace css:theme="li.lang a" css:content-children="div#author-full-details div.discreet a" />
 
+        <drop css:theme="li.homepage" css:if-not-content="p.homepage a" />
+        <copy css:theme="li.homepage a" css:content="p.homepage a" />
+
+        <drop css:theme="li.homepages" css:if-not-content="div.other-homepages" />
+        <replace css:theme="li.homepages">
+            <xsl:for-each css:select="div.other-homepages">
+              <li class="homepages">
+                <xsl:copy-of select="a" />
+              </li>
+            </xsl:for-each>
+        </replace>
+
         <drop css:theme="li.interests" css:if-not-content="div.author-interests" />
         <replace css:theme-children="li.interests" css:content-children="div.author-interests" />
 
@@ -351,17 +363,6 @@
         <drop css:theme="li.paypal" css:if-not-content="div#paypal-donation" />
         <copy css:theme="li.paypal" css:content="div#paypal-donation" />
 
-        <drop css:theme="li.homepage" css:if-not-content="p.homepage a" />
-        <copy css:theme="li.homepage a" css:content="p.homepage a" />
-
-        <drop css:theme="li.homepages" css:if-not-content="div.other-homepages" />
-        <replace css:theme="li.homepages">
-            <xsl:for-each css:select="div.other-homepages">
-              <li class="homepages">
-                <xsl:copy-of select="a" />
-              </li>
-            </xsl:for-each>
-        </replace>
         <drop css:theme=".videos-listing-header" css:if-not-content=".videos-listing-only" />
         <drop css:theme="#video-listings" css:if-not-content=".videos-listing-only" />
 
