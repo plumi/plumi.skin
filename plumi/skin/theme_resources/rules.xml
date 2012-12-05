@@ -349,6 +349,9 @@
         <drop css:theme="li.homepage" css:if-not-content="p.homepage a" />
         <copy css:theme="li.homepage a" css:content="p.homepage a" />
 
+        <drop css:theme="li.homepages" css:if-not-content="div.other-homepages" />
+        <copy css:theme="li.homepages" css:content-children="div.homepages-container" />
+
         <drop css:theme=".videos-listing-header" css:if-not-content=".videos-listing-only" />
         <drop css:theme="#video-listings" css:if-not-content=".videos-listing-only" />
 

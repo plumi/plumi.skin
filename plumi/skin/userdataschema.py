@@ -38,6 +38,13 @@ def formats(context):
                      for term in voc_terms]
     return SimpleVocabulary(terms)
 
+@grok.provider(IContextSourceBinder)
+def homepages(context):
+    mt = getToolByName(context.context, 'portal_membership')
+    member = mt.getMemberById(context.context.getId())
+    voc_homepages = member.getProperty('homepages')
+    return SimpleVocabulary(voc_homepages)
+
 class UserDataSchemaProvider(object):
     implements(IUserDataSchemaProvider)
 
@@ -70,5 +77,11 @@ class IEnhancedUserDataSchema(IUserDataSchema):
     media_formats = schema.List(
         title=u'Media Formats',
         value_type=schema.Choice(source = formats),
+        required=False,
+    )
+
+    homepages = schema.List(
+        title=u'Social Media links',
+        value_type=schema.URI(),
         required=False,
     )

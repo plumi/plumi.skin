@@ -2496,3 +2496,35 @@ div.footer li.portletItem {
     display: block;
     padding: 10px 0;
 }
+
+/***********************************/
+/* Author page social links styling  */
+
+.myspace-link, .facebook-link, .twitter-link, .orkut-link, .delicious-link, .homepage-link {
+    margin: 0 0 0 10px;
+    padding: 0 0 0 15px;
+}
+
+.myspace-link {
+    background: url(images/myspace_icon.gif) no-repeat left 3px;
+}
+
+.facebook-link {
+    background: url(images/facebook_icon.gif) no-repeat left 3px;
+}
+
+.twitter-link {
+    background: url(images/twitter_icon.gif) no-repeat left 3px;
+}
+
+.orkut-link {
+    background: url(images/orkut_icon.gif) no-repeat left 3px;
+}
+
+.delicious-link {
+    background: url(images/delicious_icon.gif) no-repeat left 3px;
+}
+
+.homepage-link {
+    background: url(images/homepage_icon.gif) no-repeat left 3px;
+}

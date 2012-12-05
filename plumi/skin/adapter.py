@@ -26,3 +26,9 @@ class EnhancedUserDataPanelAdapter(UserDataPanelAdapter):
     def set_media_formats(self, value):
         return self.context.setMemberProperties({'media_formats': value})
     media_formats = property(get_media_formats, set_media_formats)
+
+    def get_homepages(self):
+        return self.context.getProperty('homepages', '')
+    def set_homepages(self, value):
+        return self.context.setMemberProperties({'homepages': value})
+    homepages = property(get_homepages, set_homepages)

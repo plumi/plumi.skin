@@ -4,4 +4,5 @@
  <property name="genre_interests" type="lines"></property>
  <property name="activities" type="lines"></property>
  <property name="media_formats" type="lines"></property>
+ <property name="homepages" type="lines"></property>
 </object>

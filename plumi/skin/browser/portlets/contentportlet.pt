@@ -9,9 +9,6 @@
         <dl>
             <dt>
                 <li class="portletItem">
-                    <a tal:attributes="href python: context.portal_url() + '/recent_comments'" i18n:translate="">Comments</a>
-                </li>
-                <li class="portletItem">
                     <a tal:attributes="href python: context.portal_url() + '/latestvideos'" i18n:translate="">Videos</a>
                 </li>
                 <li class="portletItem">
@@ -19,6 +16,9 @@
                 </li>
                 <li class="portletItem">
                     <a tal:attributes="href python: context.portal_url() + '/events'" i18n:translate="">Events</a>
+                </li>
+                <li class="portletItem">
+                    <a tal:attributes="href python: context.portal_url() + '/recent_comments'" i18n:translate="">Comments</a>
                 </li>
             </dt>
         </dl>

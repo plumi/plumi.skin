@@ -144,6 +144,20 @@
                  style="float: left; margin: 0 1em 1em;"
                  tal:attributes="src portrait/absolute_url" />
 
+		    <tal:homepages condition="view/author_homepages_display|nothing">
+                    <div id="other-homepages-title" i18n:translate="social_networking_blogs">Social Networking and Blogs</div>
+                    <div class="homepages-container">
+			            <div class="other-homepages"
+                             tal:repeat="homepage view/author_homepages_display">
+			               <a tal:attributes="href homepage;
+                                              class python:context.isSocialNetworkURL(homepage)"
+                              tal:content="homepage">
+				                Some URL
+			                </a>
+                        </div>
+                    </div>
+            </tal:homepages>
+
 
             <div class="discreet author-language">
 
