@@ -247,8 +247,8 @@
                         <br />
                     </tal:postcode>
 
-            <div class="author-interests">
-    		    <tal:genre_interests condition="view/author_genre_interests|nothing">
+            <div class="author-interests" tal:condition="view/author_genre_interests|nothing">
+    		    <tal:genre_interests>
                     <span class="genre_header" i18n:translate="">Genre Interests : </span>
                     <tal:repeat repeat="interest view/author_genre_interests">
                         <!--a class="author_interest" tal:attributes="href string:${portal_url}/taxonomy/genre/${interest/lower}" tal:content="interest"></a-->
@@ -260,8 +260,8 @@
                 </tal:genre_interests>
             </div>
 
-            <div class="author-activities">
-		        <tal:activities condition="view/author_activities|nothing">
+            <div class="author-activities" tal:condition="view/author_activities|nothing">
+		        <tal:activities>
                             <span class="activities_header" i18n:translate="">Activities : </span>
 			        <tal:repeat repeat="activity view/author_activities">
 				        <a tal:attributes="href string:${portal_url}/@@author_listing?intype=activities&invalue=${activity}">
@@ -273,8 +273,8 @@
                 </tal:activities>
             </div>
 
-            <div class="author-formats">
-                <tal:media_formats condition="view/author_media_formats|nothing">
+            <div class="author-formats" tal:condition="view/author_media_formats|nothing">
+                <tal:media_formats>
                     <span class="media_formats_header" i18n:translate="">Media Formats : </span>
 			        <tal:repeat repeat="format view/author_media_formats">
 				        <!--a href="here/author_interests_page"><span class="author_media_formats" tal:content="format"/></a-->

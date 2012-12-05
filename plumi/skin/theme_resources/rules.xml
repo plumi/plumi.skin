@@ -336,8 +336,13 @@
         <drop css:theme="li.lang" css:if-not-content="div#author-full-details div.discreet a" />
         <replace css:theme="li.lang a" css:content-children="div#author-full-details div.discreet a" />
 
+        <drop css:theme="li.interests" css:if-not-content="div.author-interests" />
         <replace css:theme-children="li.interests" css:content-children="div.author-interests" />
+
+        <drop css:theme="li.activities" css:if-not-content="div.author-activities" />
         <replace css:theme-children="li.activities" css:content-children="div.author-activities" />
+
+        <drop css:theme="li.formats" css:if-not-content="div.author-formats" />
         <replace css:theme-children="li.formats" css:content-children="div.author-formats" />
 
         <drop css:theme="li.description" if-not-content="//div[@id='author-full-details']/p[@class='documentDescription']/text()" />
