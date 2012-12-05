@@ -219,7 +219,7 @@
 
 
                     <tal:street condition="view/author_street|nothing">
-                        <span class="street_label" i18n:translate="">Address : </span>
+                        <span class="street_label" i18n:translate="">Address: </span>
                         <span tal:content="view/author_street" class="author_street" >
                             Some street
                         </span>
@@ -229,7 +229,7 @@
 
 
                     <tal:phone condition="view/author_phone|nothing">
-                        <span class="phone_label" i18n:translate="">Phone : </span>
+                        <span class="phone_label" i18n:translate="">Phone: </span>
                         <span tal:content="view/author_phone" class="author_phone" >
                             Some phone number
                         </span>
@@ -239,7 +239,7 @@
 
 
                     <tal:postcode condition="view/author_postcode|nothing">
-                        <span class="postcode_label" i18n:translate="">Post Code : </span>
+                        <span class="postcode_label" i18n:translate="">Post Code: </span>
                         <span tal:content="view/author_postcode" class="author_postcode" >
                             Some post code 
                         </span>
@@ -249,7 +249,7 @@
 
             <div class="author-interests" tal:condition="view/author_genre_interests|nothing">
     		    <tal:genre_interests>
-                    <span class="genre_header" i18n:translate="">Genre Interests : </span>
+                    <span class="genre_header" i18n:translate="">Genre Interests: </span>
                     <tal:repeat repeat="interest view/author_genre_interests">
                         <!--a class="author_interest" tal:attributes="href string:${portal_url}/taxonomy/genre/${interest/lower}" tal:content="interest"></a-->
                         <a tal:attributes="href string:${portal_url}/@@author_listing?intype=genre&invalue=${interest}">
@@ -262,7 +262,7 @@
 
             <div class="author-activities" tal:condition="view/author_activities|nothing">
 		        <tal:activities>
-                            <span class="activities_header" i18n:translate="">Activities : </span>
+                            <span class="activities_header" i18n:translate="">Activities: </span>
 			        <tal:repeat repeat="activity view/author_activities">
 				        <a tal:attributes="href string:${portal_url}/@@author_listing?intype=activities&invalue=${activity}">
                                             <span class="author_activity" tal:content="activity"/>
@@ -275,7 +275,7 @@
 
             <div class="author-formats" tal:condition="view/author_media_formats|nothing">
                 <tal:media_formats>
-                    <span class="media_formats_header" i18n:translate="">Media Formats : </span>
+                    <span class="media_formats_header" i18n:translate="">Media Formats: </span>
 			        <tal:repeat repeat="format view/author_media_formats">
 				        <!--a href="here/author_interests_page"><span class="author_media_formats" tal:content="format"/></a-->
 				        <a tal:attributes="href string:${portal_url}/@@author_listing?intype=mediaformats&invalue=${format}">
