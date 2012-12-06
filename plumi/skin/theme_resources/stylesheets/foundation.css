@@ -2221,6 +2221,7 @@ div#video-listings .video span.duration {
     padding: 1em 0;
     text-align: center;
     width: 110px;
+    height: 140px;
 }
 
 @media only screen and (max-width: 985px) {
