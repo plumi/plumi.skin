@@ -136,6 +136,8 @@
         <copy css:content="#portal-column-content" css:theme="#post-content > div.text-content > div.nine" />
         <drop css:content="span.documentModified > span" />
 
+        <!-- Userprefs page -->
+        <drop css:theme="div.sidebar" if-path="/@@usergroup-userprefs" />
     </rules>
 
 
@@ -468,6 +470,7 @@
                     </ul>
                 </div>
             </div>
+        </div>
         </replace>
 
         <append css:theme=".contact-author-content" css:content="div#contact-area form" />

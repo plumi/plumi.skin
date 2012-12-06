@@ -2361,7 +2361,7 @@ div.tileItem div.documentByLine {
 }
 
 #feedback_form div.formControls {
-   margin: 0
+   margin: 0;
 }
 
 div.rollover .featuredItemDetailsPosted {
