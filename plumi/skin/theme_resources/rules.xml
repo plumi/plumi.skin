@@ -471,7 +471,6 @@
                     </ul>
                 </div>
             </div>
-        </div>
         </replace>
 
         <append css:theme=".contact-author-content" css:content="div#contact-area form" />
