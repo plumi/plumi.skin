@@ -2491,6 +2491,7 @@ form.kssattr-formname-register {
 
 #rss-subscription {
     line-height:  normal !important;
+    padding-left: 8px;
 }
 
 body.template-search .row {
