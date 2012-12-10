@@ -80,6 +80,140 @@
                         items matching your search terms.
                     </span>
 
+  <dl class="actionMenu deactivated"
+                        tal:attributes="class python:view.show_advanced_search() and 'actionMenu activated' or 'actionMenu deactivated'">
+
+                      <dt class="actionMenuHeader">
+                          <a href="#"
+                             tal:attributes="href view/advanced_search_trigger"
+                             id="search-filter-toggle"
+                             i18n:translate="narrow_search_options">
+                              Filter the results.
+                          </a>
+                      </dt>
+                      <dd class="actionMenuContent">
+                          <div id="search-filter" i18n:domain="plone">
+
+                              <fieldset class="noborder">
+
+                                  <legend i18n:translate="label_item_type">Item type</legend>
+
+                                  <div class="field"
+                                       tal:define="portal_types portal/portal_types;
+                                                   types_list view/types_list;
+                                                   all_checked python:(len(types_list) == len(request.get('portal_type', []))) or first_call;
+                                                   toggle_select_state python:all_checked and 'true' or 'false';">
+
+                                      <div class="formHelp"></div>
+
+                                      <span class="optionsToggle">
+                                          <input type="checkbox"
+                                                 onchange=""
+                                                 name="pt_toggle"
+                                                 value="#"
+                                                 id="pt_toggle"
+                                                 class="noborder"
+                                                 checked="checked"
+                                                 tal:attributes="checked python:all_checked and 'checked' or '';
+                                                                 onchange string:javascript:toggleSelect(this, 'portal_type:list', ${toggle_select_state});"/>
+
+                                          <label for="pt_toggle"
+                                                 i18n:translate="label_toggle"
+                                                 >Select All/None
+                                          </label>
+                                      </span>
+                                      <br />
+                                      <div style="float:left; margin-right: 2em;"
+                                           tal:define="typeLists python:context.createMultiColumnList(types_list, numCols=2, sort_on='self');"
+                                           tal:attributes="style python:isRTL and 'float: right;; margin-left: 2em;;' or 'float: left;; margin-right: 2em;;';"
+                                           tal:repeat="sublist typeLists">
+                                          <tal:items repeat="type sublist">
+                                              <input type="checkbox"
+                                                     name="portal_type:list"
+                                                     value="#"
+                                                     class="noborder"
+                                                     checked="checked"
+                                                     tal:attributes="value type;
+                                                                     id string:portal_type_${repeat/sublist/number}_${repeat/type/number};
+                                                                     checked python:((type in request.get('portal_type', [])) or first_call) and 'checked' or ''"/>
+                                              <label for=""
+                                                     i18n:translate=""
+                                                     tal:attributes="for string:portal_type_${repeat/sublist/number}_${repeat/type/number}"
+                                                     tal:content="python: portal_types.getTypeInfo(type).Title()"
+                                                     />
+                                              <br />
+                                          </tal:items>
+                                      </div>
+                                      <div class="visualClear"><!-- --></div>
+                                  </div>
+                              </fieldset>
+
+                              <fieldset class="noborder">
+
+                                  <legend i18n:translate="label_new_items_since">New items since</legend>
+
+                                  <div class="field">
+
+                                      <div class="formHelp"></div>
+
+                                      <tal:datetime define="today python:DateTime().earliestTime();
+                                                            yesterday python:(today-1).Date();
+                                                            lastweek python:(today-7).Date();
+                                                            lastmonth python:(today-31).Date();
+                                                            ever string:1970-01-02;
+                                                            checked python:request.get('created', []);
+                                                            checked python:(len(checked) == 1) and checked[0] or ever">
+                                          <input type="radio"
+                                                 id="query-date-yesterday"
+                                                 name="created.query:record:list:date"
+                                                 tal:attributes="value yesterday;
+                                                                 checked python:checked==yesterday and 'checked' or '';"
+                                                 />
+                                          <label for="query-date-yesterday" i18n:translate="time_yesterday">Yesterday</label>
+                                          <br />
+                                          <input type="radio"
+                                                 id="query-date-lastweek"
+                                                 name="created.query:record:list:date"
+                                                 tal:attributes="value lastweek;
+                                                                 checked python:checked==lastweek and 'checked' or '';"
+                                                 />
+                                          <label for="query-date-lastweek" i18n:translate="time_last_week">Last week</label>
+                                          <br />
+                                          <input type="radio"
+                                                 id="query-date-lastmonth"
+                                                 name="created.query:record:list:date"
+                                                 tal:attributes="value lastmonth;
+                                                                 checked python:checked==lastmonth and 'checked' or '';"
+                                                 />
+                                          <label for="query-date-lastmonth" i18n:translate="time_last_month">Last month</label>
+                                          <br />
+                                          <input type="radio"
+                                                 id="query-date-ever"
+                                                 name="created.query:record:list:date"
+                                                 tal:attributes="value ever;
+                                                                 checked python:checked==ever and 'checked' or '';"
+                                                 />
+                                          <label for="query-date-ever" i18n:translate="time_ever">Ever</label>
+                                      </tal:datetime>
+
+                                      <input type="hidden" name="created.range:record" value="min" />
+                                  </div>
+
+                                  <div class="formControls">
+                                      <input class="searchPage searchButton allowMultiSubmit"
+                                             type="submit"
+                                             value="Search"
+                                             i18n:attributes="value label_search;"/>
+                                  </div>
+
+                                  <div class="visualClear"><!-- --></div>
+                              </fieldset>
+
+                          </div>
+                      </dd>
+
+                    </dl>
+
 
                     <span id="searchResultsSort">
                       <span i18n:translate="sort_by">Sort by</span>
