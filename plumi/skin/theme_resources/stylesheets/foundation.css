@@ -2202,11 +2202,12 @@ body.template-featured_videos_homepage ul#dl-links {
   height: 22px !important;
 }
 
-.icons-on .contenttype-document, .icons-on .contenttype-event, .icons-on .contenttype-folder, .icons-on .contenttype-link, .icons-on .contenttype-news-item, .icons-on .contenttype-plone-site, .icons-on .contenttype-collection, .icons-on .contenttype-topic, .icons-on #plone-contentmenu-factories .contenttype-file, .icons-on #plone-contentmenu-factories .contenttype-image {
-    background: none !important;
-    padding-left: 0px !important;
+.contenttype-plumi-video-folder {
+    background: no-repeat transparent 0px -644px url(../../contenttypes-sprite.png);
+    line-height: 2em;
+    display: inline-block;
+    padding-left: 20px !important;
 }
-
 
 div#video-listings .video span.duration {
    right: 25px;
