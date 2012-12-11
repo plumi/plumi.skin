@@ -1373,6 +1373,10 @@ dl.portalMessage.info dd {
   border-bottom: 2px solid #95957C;
 }
 
+dl.portalMessage {
+    margin: 1em 0 2em !important;
+}
+
 /* Universal Subtitles Container */
 
 div.unisub {
