@@ -2538,3 +2538,8 @@ div.footer li.portletItem {
 .homepage-link {
     background: url(images/homepage_icon.gif) no-repeat left 3px;
 }
+
+.row #commenting textarea {
+    height: 75px;
+}
+
