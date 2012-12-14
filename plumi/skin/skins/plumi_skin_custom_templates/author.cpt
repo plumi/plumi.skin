@@ -433,8 +433,7 @@
 
                             <form name="feedback_form"
                                   action=""
-                                  method="post"
-                                  tal:attributes="action string:$here_url/${template/getId}">
+                                  method="post">
 
                             <fieldset>
 

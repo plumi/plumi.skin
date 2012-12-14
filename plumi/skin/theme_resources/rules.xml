@@ -329,6 +329,14 @@
 
    <!-- AUTHOR PAGE -->
     <rules css:if-content="body.template-author">
+
+     <prepend css:theme="div.content">
+            <div class="row no-v-padding">
+                <xsl:copy-of css:select="#edit-bar" />
+                <xsl:copy-of css:select="dl.portalMessage" />
+            </div>
+        </prepend>
+
         <copy css:theme="#mid-container div#video-title h1" css:content-children="#region-content div h1.documentFirstHeading" />
         <copy css:theme="div.author-image-wrapper" css:content="#author-full-details > img" />
 

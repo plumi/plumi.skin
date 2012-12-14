@@ -1373,6 +1373,10 @@ dl.portalMessage.info dd {
   border-bottom: 2px solid #95957C;
 }
 
+dl.portalMessage {
+    margin: 1em 0 2em !important;
+}
+
 /* Universal Subtitles Container */
 
 div.unisub {
@@ -2534,3 +2538,8 @@ div.footer li.portletItem {
 .homepage-link {
     background: url(images/homepage_icon.gif) no-repeat left 3px;
 }
+
+.row #commenting textarea {
+    height: 95px;
+}
+
