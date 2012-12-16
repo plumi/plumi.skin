@@ -2071,6 +2071,10 @@ div.listingBarBottom {
     width: 231px;
 }
 
+#video-listings div.video {
+    margin-left: 9px;
+}   
+
 #fieldset-openid-login .formControls input, #login-form .formControls input {
   margin-left: -40px !important;
   position: relative;
