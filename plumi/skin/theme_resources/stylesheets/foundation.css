@@ -2564,3 +2564,11 @@ body.template-video_listing_view #video-listings ul {
     list-style: disc inside none;
 }
 
+body.template-video_view #full-description li {
+    display: list-item;
+}
+
+body.template-video_view #full-description ul {
+    list-style: disc inside none;
+}
+
