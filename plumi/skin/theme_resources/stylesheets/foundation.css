@@ -2572,3 +2572,7 @@ body.template-video_view #full-description ul {
     list-style: disc inside none;
 }
 
+#post-comments {
+    overflow: hidden;
+}
+
