@@ -341,7 +341,7 @@
         <copy css:theme="div.author-image-wrapper" css:content="#author-full-details > img" />
 
         <drop css:theme="li.location" css:if-not-content="div.author-location a" />
-        <copy css:theme="li.location" css:content-children="div.author-location a" />
+        <copy css:theme="li.location" css:content="div.author-location a" />
 
         <drop css:theme="li.lang" css:if-not-content="div#author-full-details div.discreet a" />
         <replace css:theme="li.lang a" css:content-children="div#author-full-details div.discreet a" />

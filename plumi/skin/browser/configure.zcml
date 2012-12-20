@@ -108,6 +108,14 @@
         />
 
     <browser:page
+      for="*"
+      name="author_listing"
+      class=".authorlisting.AuthorListing"
+      template="templates/authorlist.pt"
+      permission="zope2.View"
+      />
+
+    <browser:page
         name="updated_search"
         class="plone.app.search.browser.Search"
         permission="zope2.View"

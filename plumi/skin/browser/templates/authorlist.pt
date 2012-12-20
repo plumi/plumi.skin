@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+  <head>
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1)" />
+    <metal:block fill-slot="column_one_slot" />
+    <metal:block fill-slot="column_two_slot" />
+  </head>
+  <metal:main fill-slot="content"
+           tal:define="intype request/intype|nothing;
+                       invalue request/invalue|nothing;
+                       Batch python:modules['Products.CMFPlone'].Batch;
+                       b_size python:12;b_start python:0;b_start request/b_start | b_start;
+                       userData python:view.returnUserData(intype=intype,invalue=invalue);
+                       batch python:Batch(userData, b_size, int(b_start), orphan=1);">
+
+        <h1 class="documentFirstHeading"
+            i18n:translate="heading_search_results">Search results</h1>
+
+        <strong i18n:translate="batch_x_items_matching_your_criteria">
+            <span i18n:name="number" tal:omit-tag="" tal:content="python:len(userData)">234</span> users prefer 
+            <span tal:content="invalue"/> in <span tal:content="intype"/> 
+        </strong>
+
+        <!-- Navigation -->
+        <div metal:use-macro="here/batch_macros/macros/navigation" />
+        
+        <tal:rep tal:repeat="user batch">
+            <div class="card">
+                <a href="#" tal:attributes="href string:author/${user/userid}">
+                    <img src="defaultUser.gif"
+                         alt=""
+                         border="0"
+                         width="75"
+                         height="100"
+                         tal:attributes="src user/user_portrait" />
+                    <br />
+                    <span tal:content="user/userid">user id</span>
+                    <span tal:condition="user/location">
+                        <br />
+                        (<span tal:content="user/location|nothing">fullname</span>)
+                    </span>
+                </a>
+                <br />
+           </div>            
+        </tal:rep>
+        
+        <!-- Navigation -->
+        <div class="visualClear" id="clear-space-before-navigation"><!-- --></div>
+
+        <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+        <div class="visualClear" id="clear-space-after-navigation"><!-- --></div>
+        
+  </metal:main>
+</html>

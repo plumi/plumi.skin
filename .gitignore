@@ -1,4 +1,4 @@
 *.py?
 *.DS_Store
-
+*~
 plumi.skin.egg-info/
