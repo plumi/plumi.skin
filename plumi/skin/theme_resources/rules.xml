@@ -287,8 +287,8 @@
 
     <!-- VIDEO LISTINGS PAGE -->
     <rules css:if-content="body.template-video_listing_view">
-        <!-- Show edit bar on Member listings -->
-        <prepend if-path="/Members" css:theme="div#mid-container">
+        <!-- Show edit bar on listings -->
+        <prepend css:theme="div#mid-container">
             <div class="row no-v-padding">
                 <xsl:copy-of css:select="#edit-bar" />
                 <xsl:copy-of css:select="dl.portalMessage" />

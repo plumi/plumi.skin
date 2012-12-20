@@ -1,4 +1,4 @@
-4.5rc (2012-12-14)
+4.5rc1 (2012-12-14)
 =================
 
  - many CSS fixes [clopy, mgogoulos, dimo, cpsaltis]

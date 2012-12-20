@@ -1991,8 +1991,9 @@ div.formControls input[type="submit"]:hover {
   box-shadow: 0 2px 7px rgba(0,0,0,0.2);
 }
 
-.videobar span {
+div.videobar span {
     cursor: pointer !important;
+    top: 6px  !important;
 }
 
 div.formControls input[type="submit"]:active {
@@ -2024,6 +2025,10 @@ div.searchSection, input.searchButton {
 #edit-bar {
     min-height: 30px !important;
     border-top: 3px solid #75AD0A !important;
+}
+
+#content-views {
+    margin-top: -1px;
 }
 
 #mid-container h1 {
@@ -2070,6 +2075,10 @@ div.listingBarBottom {
     height: 177px;
     width: 231px;
 }
+
+#video-listings div.video {
+    margin-left: 9px;
+}   
 
 #fieldset-openid-login .formControls input, #login-form .formControls input {
   margin-left: -40px !important;
@@ -2541,5 +2550,25 @@ div.footer li.portletItem {
 
 .row #commenting textarea {
     height: 95px;
+}
+
+.footer-logo {
+    padding-right: 35px;
+}
+
+body.template-video_listing_view #video-listings li {
+    display: list-item;
+}
+
+body.template-video_listing_view #video-listings ul {
+    list-style: disc inside none;
+}
+
+body.template-video_view #full-description li {
+    display: list-item;
+}
+
+body.template-video_view #full-description ul {
+    list-style: disc inside none;
 }
 
