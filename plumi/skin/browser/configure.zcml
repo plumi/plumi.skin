@@ -113,6 +113,7 @@
       class=".authorlisting.AuthorListing"
       template="templates/authorlist.pt"
       permission="zope2.View"
+      layer=".interfaces.IThemeSpecific"
       />
 
     <browser:page
