@@ -2576,3 +2576,6 @@ body.template-video_view #full-description ul {
     overflow: hidden;
 }
 
+#creative_commons_overlay {
+    cursor: pointer;
+}
