@@ -1306,6 +1306,8 @@ img { -ms-interpolation-mode: bicubic; }
   div.LSBox { display: none !important; }
   div.row.header div.search { display: none !important; }
   .header-menu-item { float: left !important; }
+  .main-logo { display:none !important;}
+  div.row.header div.menu {right: auto !important;}
   .search {float: left;}
 }
 /* Block Grids ---------------------- */
@@ -2248,6 +2250,9 @@ div#video-listings .video span.duration {
    #portal-searchbox { display:none;}
    #browse-menu, #publish-menu {margin-top: -8px; margin-left:9px; margin-right:0px;}
    div.row.header div.search { display: none; float: none; clear: both; }
+   .header-menu-item { float: left !important; }
+   .main-logo { display:none !important;}
+   div.row.header div.menu {right: auto !important;}
    div.row.header, div.twelve.columns.header { height: 130px; }
    div.top-menu .header-menu-item { float: left; }
    div.row.header a.main-title p {left:0; }
