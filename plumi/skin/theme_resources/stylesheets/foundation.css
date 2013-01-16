@@ -60,7 +60,7 @@ div.row.header, div.twelve.columns.header {
 
 div.row.header .main-logo {
   float: left;
-  width: 240px;
+  width: 240px !important;
   height: 80px;
   background: url(images/logo_wide.png) left center no-repeat;
 }
@@ -1246,8 +1246,8 @@ img { -ms-interpolation-mode: bicubic; }
   .left-auto, .push-two, .push-three, .push-four, .push-five, .push-six, .push-seven, .push-eight, .push-nine, .push-ten { left: auto; }
   .right-auto, .pull-two, .pull-three, .pull-four, .pull-five, .pull-six, .pull-seven, .pull-eight, .pull-nine, .pull-ten { right: auto; }
   .column, .columns {    float: left !important; }
-  .video.featured {  left: 0px !important;   }
-  body.template-featured_videos_homepage #mid-container #featuredvideo .description { left: 0px !important; }
+/*  .video.featured {  left: 0px !important;   }
+  body.template-featured_videos_homepage #mid-container #featuredvideo .description { left: 0px !important; } */
 
 /* Tablet Grid ---------------------- */
 @media only screen and (max-width: 985px) and (min-width: 768px) { body { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; width: 100%; min-width: 0; margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0; }
@@ -1280,6 +1280,7 @@ img { -ms-interpolation-mode: bicubic; }
   .pull-four-tablet { right: 66.667%; } }
   .push-five-tablet { left: 83.333%; }
   .pull-five-tablet { right: 83.333%; } }
+}
 
 
 /* Mobile Grid ---------------------- */
@@ -1306,8 +1307,6 @@ img { -ms-interpolation-mode: bicubic; }
   div.LSBox { display: none !important; }
   div.row.header div.search { display: none !important; }
   .header-menu-item { float: left !important; }
-  .main-logo { display:none !important;}
-  div.row.header div.menu {right: auto !important;}
   .search {float: left;}
 }
 /* Block Grids ---------------------- */
@@ -2081,7 +2080,7 @@ div.listingBarBottom {
 #video-listings div.video {
     margin-left: 9px;
 }   
-
+ 
 #fieldset-openid-login .formControls input, #login-form .formControls input {
   margin-left: -40px !important;
   position: relative;
@@ -2245,21 +2244,41 @@ div#video-listings .video span.duration {
 }
 
 @media only screen and (max-width: 985px) {
-   #upper-container div.row.header { background:none repeat scroll 0 0 #C9CCD1; }
-   #upper-container div.header {width: 100%;}
-   #portal-searchbox { display:none;}
+   /* #upper-container div.row.header { background:none repeat scroll 0 0 #C9CCD1; width:100% !important; } */
+   #upper-container div.header {width: 100% !important;}
+   /* #portal-searchbox { display:none;} */
    #browse-menu, #publish-menu {margin-top: -8px; margin-left:9px; margin-right:0px;}
-   div.row.header div.search { display: none; float: none; clear: both; }
-   .header-menu-item { float: left !important; }
-   .main-logo { display:none !important;}
-   div.row.header div.menu {right: auto !important;}
-   div.row.header, div.twelve.columns.header { height: 130px; }
+   /* div.row.header div.search { display: none; float: none; clear: both; } */
+   div.row.header, div.twelve.columns.header { height: 116px; }
    div.top-menu .header-menu-item { float: left; }
-   div.row.header a.main-title p {left:0; }
+   div.row.header a.main-title p { visibility: hidden; }
    div.download { display: none; }
    div.unisubs-videoTab { display:none !important; }
    div.video div.rollover, div.video div.rollover p { max-width: 215px; }
    #video-listings div.video, #latestvideos div.video { max-width: 231px; }
+   .featured-filmmaker .wrapper-under {
+       width: 400px;
+   }
+   .sidebar .featured-filmmaker {
+       margin-top: 15px;
+   }
+   /* #div.row.header .main-title p { display:none; } */
+   #latestvideos {
+       max-width: 710px;
+   }
+   .template-video_view ul.video-list li.video-item div.duration {
+       left: 6px;
+       right: auto;
+   }
+
+   div.LSBox {
+       margin-top: -17px !important;
+   }
+
+}
+
+/* Mobile */
+@media only screen and (max-width: 705px) {
    body.template-featured_videos_homepage #mid-container #featuredvideo .description {
        clear: both;
        position: inherit;
@@ -2268,6 +2287,8 @@ div#video-listings .video span.duration {
        height: auto;
        padding-bottom: 10px;
    }
+  .video.featured {  left: 0px !important;   }
+  body.template-featured_videos_homepage #mid-container #featuredvideo .description { left: 0px !important; }
 }
 
 body.template-logged_out .row .nine,
