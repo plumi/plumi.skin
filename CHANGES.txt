@@ -1,5 +1,13 @@
+4.5 (2013-01-30)
+================
+ - fix broken link in news & events portlet [mgogoulos]
+ - css improvements for tablets and smartphones [clopy, mgogoulos]
+ - minor css fixes [mgogoulos, clopy]
+ - re-add author listings [clopy]
+ - show edit bar on video listings and collections [mgogoulos]
+
 4.5rc1 (2012-12-14)
-=================
+===================
 
  - many CSS fixes [clopy, mgogoulos, dimo, cpsaltis]
  - author page rewrite [clopy]
