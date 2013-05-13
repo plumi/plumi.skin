@@ -2605,3 +2605,8 @@ body.template-video_view #full-description ul {
 #creative_commons_overlay {
     cursor: pointer;
 }
+
+body.template-file_view #content-core img {
+    margin: 0 !important;
+}
+
