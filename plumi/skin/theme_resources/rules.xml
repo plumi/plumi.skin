@@ -185,7 +185,7 @@
                 <xsl:copy-of select="//div[@id='featured-front-page']//div[2]//dl[@class='plumi-country plumi-props-listing']/dd/ul/li/a" />
             </span>
             <p>
-                <xsl:copy-of select="substring(//p[@id='featuredVideoDescription']/text(),0,260)" />...
+                <xsl:copy-of select="substring(//p[@id='featuredVideoDescription']/text(),0,160)" />...
             </p>
         </replace>
         <drop css:theme=".video.featured div.description" css:if-not-content="#featured-item"/>
