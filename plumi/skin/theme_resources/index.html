@@ -176,7 +176,7 @@
     $(document).ready(resizePlayer);
     $(window).resize(resizePlayer);
     
-    var b_start=10, b_size=9;
+    var b_start=9, b_size=9;
     $('.load-more a').live('click', function(){
         $('.load-more a').addClass('loading');
         $.ajax({url: 'latestvideos/JSON?b_size='+b_size+'&b_start='+b_start,

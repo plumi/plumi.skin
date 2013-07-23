@@ -185,7 +185,7 @@
                 <xsl:copy-of select="//div[@id='featured-front-page']//div[2]//dl[@class='plumi-country plumi-props-listing']/dd/ul/li/a" />
             </span>
             <p>
-                <xsl:copy-of select="substring(//p[@id='featuredVideoDescription']/text(),0,260)" />...
+                <xsl:copy-of select="substring(//p[@id='featuredVideoDescription']/text(),0,160)" />...
             </p>
         </replace>
         <drop css:theme=".video.featured div.description" css:if-not-content="#featured-item"/>
@@ -252,6 +252,7 @@
         </prepend>
         <append css:theme="#video-title" css:content="span.documentAuthor" />
         <append css:theme="#video-title" css:content="span.documentModified" />
+        <append css:theme="#video-title" css:content="span.contentHistory" />
         <append css:theme="#video-title" css:content="#statistics" />
         <copy css:content="#content h1.documentFirstHeading > span" css:theme="#video-title h1" />
         <copy css:theme=".video" css:content="#video-core" />
@@ -260,6 +261,7 @@
         <copy css:theme="#video-info" css:content="#video-infos" />
         <append css:theme="#video-info" css:content="#video-licensing" />
         <append css:theme="#video-info" css:content="#video-transcoding" />
+        <append css:theme="#video-info" css:content="#contact-author" />
         <copy css:theme="#video-comments" css:content=".discussion" />
         <append css:theme="#video-comments" content="//*[@class='reply'][1]" />
 	    <drop css:theme=".video-comments-title" css:if-not-content=".discussion div" />

@@ -500,6 +500,11 @@ div#copyright-citation {
     left: -4px;
 }
 
+#contact-author img {
+    width: 18px;
+    margin-right: 5px;
+}
+
 /* Links ---------------------- */
 a { color: #26a; text-decoration: none; line-height: inherit; }
 
@@ -1391,6 +1396,10 @@ div.unisub-proxy {
 }
 
  /* Comments */
+
+#content dd {
+  margin: 0 0 1em 1.2em !important;
+}
 
 div.comment {
   position: relative;
@@ -2605,3 +2614,8 @@ body.template-video_view #full-description ul {
 #creative_commons_overlay {
     cursor: pointer;
 }
+
+body.template-file_view #content-core img {
+    margin: 0 !important;
+}
+

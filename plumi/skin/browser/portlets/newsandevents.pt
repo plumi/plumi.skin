@@ -3,7 +3,7 @@
 
     <dt class="portletHeader NewsAndEventsHeader">
         <span class="portletTopLeft"></span>
-          <a tal:attributes="href string:${here/portal_url}/news_and_events" alt="More News and Events">News and Events</a>
+          <a tal:attributes="href string:${here/portal_url}/@@search?advanced_search=False&sort_order=reverse&portal_type:list=Event&portal_type:list=News Item&sort_on=Date" alt="More News and Events">News and Events</a>
         <span class="portletTopRight"></span>
     </dt>
 
