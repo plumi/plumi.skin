@@ -1,3 +1,10 @@
+4.5.1 (2013-07-21)
+=================
+
+- add history button link to videos [mgogoulos]
+- added contact this author link on video view page [clopy]
+- various css fixes [clopy,mgogoulos]
+
 4.5rc1 (2012-12-14)
 =================
 
