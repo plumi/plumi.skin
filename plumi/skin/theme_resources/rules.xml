@@ -259,9 +259,9 @@
         <copy css:theme="#description" css:content="#content p.documentDescription" />
         <copy css:theme="#full-description" css:content="#full-description > div" />
         <copy css:theme="#video-info" css:content="#video-infos" />
+        <append css:theme="#video-info" css:content="#contact-author" />
         <append css:theme="#video-info" css:content="#video-licensing" />
         <append css:theme="#video-info" css:content="#video-transcoding" />
-        <append css:theme="#video-info" css:content="#contact-author" />
         <copy css:theme="#video-comments" css:content=".discussion" />
         <append css:theme="#video-comments" content="//*[@class='reply'][1]" />
 	    <drop css:theme=".video-comments-title" css:if-not-content=".discussion div" />
