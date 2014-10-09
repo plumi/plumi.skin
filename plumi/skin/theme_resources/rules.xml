@@ -16,7 +16,7 @@
     <!-- ALL PAGES -->
     <rules>
         <!-- Drop the viewport meta tag from Plone -->
-        <drop css:content="meta[name=viewport]"/>
+        <!-- <drop css:content="meta[name=viewport]"/>-->
 
         <!-- Copy all meta tags -->
         <before content="/html/head/meta" css:theme="#css" />
