@@ -1,3 +1,7 @@
+4.6	(2014-10-11)
+
+- added CSS styles for better adaptive/responsive appearance[jiannst]
+
 4.5.1 (2013-07-21)
 =================
 

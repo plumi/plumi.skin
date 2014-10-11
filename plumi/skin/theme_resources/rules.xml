@@ -18,6 +18,11 @@
         <!-- Drop the viewport meta tag from Plone -->
         <!-- <drop css:content="meta[name=viewport]"/>-->
 
+        <!-- Replace viewport meta for better handheld devices -->
+        <replace content="/html/head/meta[@name='viewport']">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0" />
+        </replace>
+        
         <!-- Copy all meta tags -->
         <before content="/html/head/meta" css:theme="#css" />
 
