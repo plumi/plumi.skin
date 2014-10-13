@@ -20,6 +20,12 @@
 	margin: 0;
 }
 
+/* External Video */
+
+.video iframe {
+	width: 100%;
+}
+
  /* Video Item */
 
 ul.video-list {

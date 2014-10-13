@@ -6,6 +6,7 @@
     <!-- Apply theme to normal Plone pages -->
     <theme href="index.html" css:if-content="body.template-featured_videos_homepage #visual-portal-wrapper" />
     <theme href="video.html" css:if-content="body.template-video_view #visual-portal-wrapper" />
+    <theme href="video.html" css:if-content="body.template-external_video_view #visual-portal-wrapper" />
     <theme href="list.html" css:if-content="body.template-video_listing_view #visual-portal-wrapper" />
     <theme href="author.html" css:if-content="body.template-author #visual-portal-wrapper" />
 
@@ -264,7 +265,52 @@
         <append css:theme="#video-info" css:content="#contact-author" />
         <copy css:theme="#video-comments" css:content=".discussion" />
         <append css:theme="#video-comments" content="//*[@class='reply'][1]" />
-	    <drop css:theme=".video-comments-title" css:if-not-content=".discussion div" />
+      <drop css:theme=".video-comments-title" css:if-not-content=".discussion div" />
+
+        <replace css:theme=".video-list">
+            <ul class="video-list">
+            <xsl:for-each css:select="#authors_latest li">
+                <li class="video-item">
+                    <a class="video-download"><xsl:copy-of select="a/@href" />
+                        <xsl:copy-of select="a/img" />
+                        <xsl:copy-of select="a/h5" />
+                        <xsl:copy-of select="div[@class='duration']" />
+                        <div class="rollover">
+                            <xsl:copy-of select="substring(a/@title,0,130)" />...
+                            <p><xsl:copy-of select="p/span[@class='posted-date']" /></p>
+                        </div>
+
+                    </a>
+                </li>
+            </xsl:for-each>
+            </ul>
+        </replace>
+    </rules>
+
+    <!-- EXTERNAL VIDEO VIEW PAGE -->
+    <rules css:if-content="body.template-external_video_view">
+
+        <prepend css:theme="div.video-content">
+            <div class="row no-v-padding">
+                <xsl:copy-of css:select="#edit-bar" />
+                <xsl:copy-of css:select="dl.portalMessage" />
+            </div>
+        </prepend>
+        <append css:theme="#video-title" css:content="span.documentAuthor" />
+        <append css:theme="#video-title" css:content="span.documentModified" />
+        <append css:theme="#video-title" css:content="span.contentHistory" />
+        <append css:theme="#video-title" css:content="#statistics" />
+        <copy css:content="#content h1.documentFirstHeading > span" css:theme="#video-title h1" />
+        <copy css:theme=".video" css:content="#video-core" />
+        <copy css:theme="#description" css:content="#content p.documentDescription" />
+        <copy css:theme="#full-description" css:content="#full-description > div" />
+        <copy css:theme="#video-info" css:content="#video-infos" />
+        <append css:theme="#video-info" css:content="#video-licensing" />
+        <append css:theme="#video-info" css:content="#video-transcoding" />
+        <append css:theme="#video-info" css:content="#contact-author" />
+        <copy css:theme="#video-comments" css:content=".discussion" />
+        <append css:theme="#video-comments" content="//*[@class='reply'][1]" />
+      <drop css:theme=".video-comments-title" css:if-not-content=".discussion div" />
 
         <replace css:theme=".video-list">
             <ul class="video-list">
