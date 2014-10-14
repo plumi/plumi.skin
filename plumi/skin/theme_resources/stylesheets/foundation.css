@@ -3246,6 +3246,10 @@ div.tileItem div.documentByLine{
 
 @media only screen and (max-width: 991px) {
   
+  a.featured-video-image img{
+    max-height: 195px;
+  }
+
   .button.large{
     padding:13px 11px;
   }
@@ -3255,7 +3259,7 @@ div.tileItem div.documentByLine{
   }
 
   div.row.header input#searchGadget{
-    padding: 12px 6px 11px 16px;
+    padding: 10px 6px 10px 16px;
   }
 
   .header-button a{
@@ -3534,8 +3538,8 @@ div.tileItem div.documentByLine{
   }
 
   .columns.video{
-    width:100% !important;
-    max-width:100% !important;
+    width:50% !important;
+    max-width:50% !important;
     height: auto !important;
     margin-left:0 !important;
     margin-right:0 !important;
@@ -3820,10 +3824,13 @@ div.tileItem div.documentByLine{
   div.featured-content a .featured-text{
     font-size: 16px;
   }
-
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
+
+  a.featured-video-image img{
+    max-height: 1000em;
+  }
 
   .main-title{
     position: relative;
@@ -3913,10 +3920,9 @@ div.tileItem div.documentByLine{
   #search-results-bar > span#searchResultsSort{
     margin:0;
   }
-
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 639px) {
  
   div.row.header div.menu{
     right:auto;
@@ -4009,7 +4015,7 @@ div.tileItem div.documentByLine{
     }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 479px) {
 
   /* ===== AUTHOR PAGE ===== */
 
@@ -4028,5 +4034,4 @@ div.tileItem div.documentByLine{
     padding:1em;
     display: inline-block;
   }
-
 }
