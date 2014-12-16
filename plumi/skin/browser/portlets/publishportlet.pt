@@ -14,9 +14,9 @@
                     <li>
                         <a tal:attributes="href string:${portal/absolute_url}/publish/video" i18n:translate="">Video</a>
                     </li>
-                    <!-- <li>
+                    <li>
                         <a tal:attributes="href string:${home_url}/videos/createObject?type_name=PlumiExternalVideo" i18n:translate="">External Video</a>
-                    </li> -->
+                    </li>
                     <li>
                         <a tal:attributes="href string:${portal/absolute_url}/publish/event" i18n:translate="">Event</a>
                     </li>
