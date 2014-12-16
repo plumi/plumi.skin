@@ -17,8 +17,13 @@
     <!-- ALL PAGES -->
     <rules>
         <!-- Drop the viewport meta tag from Plone -->
-        <drop css:content="meta[name=viewport]"/>
+        <!-- <drop css:content="meta[name=viewport]"/>-->
 
+        <!-- Replace viewport meta for better handheld devices -->
+        <replace content="/html/head/meta[@name='viewport']">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0" />
+        </replace>
+        
         <!-- Copy all meta tags -->
         <before content="/html/head/meta" css:theme="#css" />
 
@@ -260,9 +265,9 @@
         <copy css:theme="#description" css:content="#content p.documentDescription" />
         <copy css:theme="#full-description" css:content="#full-description > div" />
         <copy css:theme="#video-info" css:content="#video-infos" />
+        <append css:theme="#video-info" css:content="#contact-author" />
         <append css:theme="#video-info" css:content="#video-licensing" />
         <append css:theme="#video-info" css:content="#video-transcoding" />
-        <append css:theme="#video-info" css:content="#contact-author" />
         <copy css:theme="#video-comments" css:content=".discussion" />
         <append css:theme="#video-comments" content="//*[@class='reply'][1]" />
       <drop css:theme=".video-comments-title" css:if-not-content=".discussion div" />
