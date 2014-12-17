@@ -1125,6 +1125,23 @@ div.featured span.country a {
    margin-top: -2px;
 }
 
+/* video publish form */
+
+#loading-indicator, #videoaddmode-form {
+  margin-bottom: 60px
+}
+#videoaddmode-form {
+  text-align: center;
+}
+.button.addModeSelector {
+  width: auto;
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  font-size: 150%;
+}
+
+
 /* Print styles.  Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/ Credit to Paul Irish and HTML5 Boilerplate (html5boilerplate.com)
 */
 .print-only { display: none !important; }
