@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '4.5.2-externalvideo-pre2'
+version = '4.5.2-externalvideo-pre3'
 
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
