@@ -250,7 +250,7 @@
                                                    site_properties context/portal_properties/site_properties;
                                                    allowAnonymousViewAbout site_properties/allowAnonymousViewAbout;
                                                    show_about python:not isAnon or allowAnonymousViewAbout;">
-                <div class="search-results additions" >
+                <div class="search-results additions" tal:define="videoTypes python:['PlumiVideo', 'PlumiExternalVideo']" >
                           <div class="column1 search">
 
                           <dl class="searchResults">
@@ -262,13 +262,13 @@
                               <div class="clips-holder search">
 
                                     <dt tal:attributes="class item/ContentTypeClass">
-                                      <div tal:omit-tag="" tal:condition="python:item_type not in ['PlumiVideo']">
+                                      <div tal:omit-tag="" tal:condition="python:item_type not in videoTypes">
                                          <img tal:replace="structure item/getIcon" />
                                       </div>
-                                      <div tal:omit-tag="" tal:condition="python:item_type=='PlumiVideo'">
+                                      <div tal:omit-tag="" tal:condition="python:item_type in videoTypes">
                                               <span class="search-img">
                                                   <a tal:attributes="href item/getURL" >
-                                                  <img tal:attributes="src string:${item/getURL}/thumbnailImage_thumb;title item/title; alt item/title;" />
+                                                    <img  tal:condition="item/thumbnailImage" tal:attributes="src string:${item/getURL}/thumbnailImage_thumb;title item/title; alt item/title;" />
                                                   </a>
                         		      </span>
                                       </div>
@@ -280,7 +280,7 @@
                                          tal:content="item/title" />
                                     </dt>
                                     <dd>
-                                    <div tal:condition="python:item_type=='PlumiVideo'" >
+                                    <div tal:condition="python:item_type in videoTypes" >
                                     </div>
                                         <em class="documentAuthor"
                                             i18n:translate="label_by_author">

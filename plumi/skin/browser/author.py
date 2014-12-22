@@ -111,7 +111,7 @@ class AuthorPage(CategoriesProvider):
     def videos(self):
         try:
             homeurl = '/'.join(self.mtool.getHomeFolder(id=self.author).getPhysicalPath())
-            query = dict(portal_type='PlumiVideo',
+            query = dict(portal_type=['PlumiVideo', 'PlumiExternalVideo'],
                          path={'query': homeurl},
                          sort_on='effective',
                          sort_order='reverse',
