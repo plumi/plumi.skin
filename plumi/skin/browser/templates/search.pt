@@ -268,7 +268,10 @@
                                       <div tal:omit-tag="" tal:condition="python:item_type in videoTypes">
                                               <span class="search-img">
                                                   <a tal:attributes="href item/getURL" >
-                                                    <img  tal:condition="item/thumbnailImage" tal:attributes="src string:${item/getURL}/thumbnailImage_thumb;title item/title; alt item/title;" />
+                                                    <img  tal:condition="item/thumbnailImage"
+                                                        tal:attributes="src string:${item/getURL}/thumbnailImage_thumb;title item/title; alt item/title;" />
+                                                    <img  tal:condition="not: item/thumbnailImage"
+                                                        tal:attributes="src string:${portal_url}/plumi-default-thumbnail.jpg;title item/title; alt item/title;" />
                                                   </a>
                         		      </span>
                                       </div>
