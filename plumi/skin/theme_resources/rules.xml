@@ -73,9 +73,9 @@
         <copy attributes="id dir" css:content="body" css:theme="body" />
 
         <!--drop content licensing on pages other than the video page -->
-        <drop css:content="#copyright-citation" css:if-not-content="body.template-video_view" />
-        <drop css:content="#copyright-button" css:if-not-content="body.template-video_view" />
-        <drop css:content="#copyright-text" css:if-not-content="body.template-video_view" />
+        <drop css:content="#copyright-citation" css:if-not-content="body.template-video_view, body.template-external_video_view" />
+        <drop css:content="#copyright-button" css:if-not-content="body.template-video_view, body.template-external_video_view" />
+        <drop css:content="#copyright-text" css:if-not-content="body.template-video_view, body.template-external_video_view" />
 
         <!--portlet managers -->
         <prepend css:content="#portletmanager-plone-leftcolumn" css:theme="#mid-container" />
@@ -237,7 +237,7 @@
                             </div>
                             <xsl:copy-of css:select="a.featured-video-image"/>
                         </div>
-                        <span class="duration"><xsl:copy-of css:select=".featured-video-duration span" /></span>
+                        <xsl:copy-of css:select=".featured-video-duration span" />
                     </div>
                 </xsl:for-each>
                 <div class="six columns centered load-more">
@@ -248,7 +248,7 @@
     </rules>
 
     <!-- VIDEO VIEW PAGE -->
-    <rules css:if-content="body.template-video_view">
+    <rules css:if-content="body.template-video_view, body.template-external_video_view">
 
         <prepend css:theme="div.video-content">
             <div class="row no-v-padding">
@@ -372,7 +372,7 @@
                         </div>
                         <xsl:copy-of css:select="a.featured-video-image"/>
                     </div>
-                    <span class="duration"><xsl:copy-of css:select=".featured-video-duration span" /></span>
+                    <xsl:copy-of css:select=".featured-video-duration span" />
                 </div>
             </xsl:for-each>
             <div class="listingBarBottom"><xsl:copy-of select="//div[@class='listingBar'][1]" /></div>
@@ -383,12 +383,13 @@
    <!-- AUTHOR PAGE -->
     <rules css:if-content="body.template-author">
 
-     <prepend css:theme="div.content">
+      <prepend css:theme="div.content">
             <div class="row no-v-padding">
                 <xsl:copy-of css:select="#edit-bar" />
                 <xsl:copy-of css:select="dl.portalMessage" />
             </div>
         </prepend>
+
 
         <copy css:theme="#mid-container div#video-title h1" css:content-children="#region-content div h1.documentFirstHeading" />
         <copy css:theme="div.author-image-wrapper" css:content="#author-full-details > img" />
@@ -460,9 +461,7 @@
                             </div>
                             <xsl:copy-of css:select="a.featured-video-image"/>
                         </div>
-                        <span class="duration">
-                            <xsl:copy-of css:select=".featured-video-duration span" />
-                        </span>
+                        <xsl:copy-of css:select=".featured-video-duration span" />
                 </div>
             </xsl:for-each>
             <div class="foo" style="clear:both"></div>
