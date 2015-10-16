@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plumi | Search results</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/stylesheets/lib/mediaelementplayer.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/stylesheets/styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="header">
+            <header>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 header-logo-outer">
+                            <div class="header-inner">
+                                <a href="" title="" id="portal-logo" class="logo"><img src="img/logo_wide.jpg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3 pull-right header-buttons-outer">
+                            <div class="header-inner">
+                                <div class="header-buttons">
+                                    <div class="btn-group browse-group" role="group">
+                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Browse
+                                            <span class="caret"></span>
+                                        </button>
+                                        <div id="browse-dropdown-menu" class="dropdown-menu">
+                                            <div id="browse-dropdown-menu-place"></div>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group publish-group" role="group">
+                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Publish
+                                            <span class="caret"></span>
+                                        </button>
+                                        <div id="publish-dropdown-menu" class="dropdown-menu">
+                                            <div id="publish-dropdown-menu-place"></div>
+                                        </div>
+                                    </div>
+                                    <a href="" title="" id="personaltools-login" class="btn btn-primary btn-sm login-btn">Login</a>
+                                    <a href="" title="" id="personaltools-join" class="btn btn-primary btn-sm login-btn">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-5 col-lg-7 header-search-outer">
+                            <div class="header-inner">
+                                <div class="header-search">
+                                    <div class="header-search-form-wrapper">
+                                        <form name="" id="" class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search..." id="searchbox-text">
+                                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                            </button>
+                                            </span>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div id="main" class="gutter-top">
+            <main>
+                <div class="container">
+                    <div class="row">
+                        <div id="main-content" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gutter-bottom">
+                            <div class="category-page gutter-bottom">
+                                <div class="latest-videos-top">
+                                    <h3 class="latest-videos-title">Search results for "........"</h3>
+                                    <a href="#" title="" class="rss-icon"></a>
+                                </div>
+                                <!-- <div class="category-page-inner"> -->
+                                <form name="searchform" action="@@search" class="category-page-inner searchPage enableAutoFocus" id="searchform">
+                                <!-- <form name="searchform" action="@@search" class="searchPage enableAutoFocus" id="searchform"> -->
+
+                                    <input type="hidden" name="advanced_search" value="False" />
+                                    <input type="hidden" name="sort_on" value="" />
+                                    <input type="hidden" name="SearchableText" id="SearchableText" value="" />
+
+                                    <div class="results-display-filters">
+                                        <div class="row">
+
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div id="search-results-bar"></div>
+                                            </div>
+                                            
+                                            <!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                <div class="search-note"><strong>35</strong> items matching your search terms</div>
+                                            </div>                                            
+                                            
+                                            <div class="pull-right col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                
+                                                <div class="results-filter">
+                                                    <div class="btn-group" role="group">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            Filter the results
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        
+                                                        <div class="dropdown-menu dropdown-menu-right" id="results-filters-wrapper"></div>
+                                            
+                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                            
+                                                            <li>
+                                                                <div class="results-filters-title">Item type</div>
+                                                        
+                                                                <div id="results-filters-type-container"></div>
+                                                        
+                                                                <ul class="results-filters-wrapper">
+                                                                    <li>
+                                                                        <label>
+                                                                            <input type="checkbox" name="itemType[]" value="allnone" checked="">Select All/None</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label>
+                                                                            <input type="checkbox" name="itemType[]" value="colection" checked="">Collection</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label>
+                                                                            <input type="checkbox" name="itemType[]" value="folder" checked="">Folder</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label>
+                                                                            <input type="checkbox" name="itemType[]" value="newsitems" checked="">News Item</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label>
+                                                                            <input type="checkbox" name="itemType[]" value="page" checked="">Page</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label>
+                                                                            <input type="checkbox" name="itemType[]" value="plumivideofolder" checked="">Plumi Video Folder</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label>
+                                                                            <input type="checkbox" name="itemType[]" value="video" checked="">Video</label>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <div class="results-filters-title second">New items since</div>
+                                                        
+                                                                <div id="results-filters-since-container"></div>
+                                                        
+                                                                <ul class="results-filters-wrapper" style="display:none;">
+                                                                    <li>
+                                                                        <label>
+                                                                            <input type="radio" name="newItemsSince" value="yesterday">Yesterday</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label>
+                                                                            <input type="radio" name="newItemsSince" value="lastweek">Last week</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label>
+                                                                            <input type="radio" name="newItemsSince" value="lastmonth">Last month</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label>
+                                                                            <input type="radio" name="newItemsSince" value="ever" checked="">Ever</label>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="results-sort">
+                                                    Sort by
+                                                    <div class="btn-group" role="group">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            Relevance
+                                                            <span id="default-sort"></span>
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-right pull15px-right">
+                                                            <li><a href="#" title="">Relevance</a></li>
+                                                            <li><a href="#" title="">Date (newest first)</a></li>
+                                                            <li><a href="#" title="">Alphabetically</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="lv-wrapper lv-single">
+                                        <div class="row">
+
+                                            <div id="search-results-content"></div>
+
+                                            <!-- <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img">
+                                                    <a href="#" title=""><img src="http://demo.plumi.org/Members/anna/videos/ghoulbert-gets-good/thumbnailImage_thumb" alt=""><span class="video-duration">03:14</span></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Ghoulbert Gets Good</a></span>
+                                                <span class="video-thumb-meta">January 31, 2013 | <a href="#" title="">Australia</a></span>
+                                                <span class="video-thumb-descr">A colourful comic short about Ghoulbert, a happy-go-lucky demon living a comfy suburban existance, thwarted by his innoncenc...</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img">
+                                                    <a href="#" title=""><img src="http://demo.plumi.org/Members/anna/videos/telestreet-the-italian-media-jacking-movement/thumbnailImage_thumb" alt=""><span class="video-duration">07:43</span></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Telestreet: The Italian Media Jacking Movement</a></span>
+                                                <span class="video-thumb-meta">January 30, 2013 | <a href="#" title="">Italy</a></span>
+                                                <span class="video-thumb-descr">A short documentary exploring Italy's Telestreet phenomena, a network of close to 200 micro pirate TV transmitters that begu...</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img">
+                                                    <a href="#" title=""><img src="http://demo.plumi.org/Members/anna/videos/abstractor/thumbnailImage_thumb" alt=""><span class="video-duration">02:15</span></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Abstractor</a></span>
+                                                <span class="video-thumb-meta">January 30, 2013 | <a href="#" title="">United States</a></span>
+                                                <span class="video-thumb-descr">Abstractor can instantly transform any television into a beautiful piece of art. Watch and find out how to make your own....</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img">
+                                                    <a href="#" title=""><img src="http://demo.plumi.org/Members/anna/videos/history-is-happening-rap-news-cablegate/thumbnailImage_thumb" alt=""><span class="video-duration">06:22</span></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">History is Happening (Rap News - Cablegate)</a></span>
+                                                <span class="video-thumb-meta">January 30, 2013 | <a href="#" title="">Australia</a></span>
+                                                <span class="video-thumb-descr">Join your affable host Robert Foster, as he executes a rhyme inquisition on some of the key players in the Wiki-saga. It's d...</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img">
+                                                    <img src="http://demo.plumi.org/Members/anna/videos/taring-padi-artist-kollective/thumbnailImage_thumb" alt=""><span class="video-duration">10:00</span></span>
+                                                <span class="video-thumb-title"><a href="#" title="">Taring Padi Artist Kollective</a></span>
+                                                <span class="video-thumb-meta">January 30, 2013 | <a href="#" title="">Indonesia</a></span>
+                                                <span class="video-thumb-descr">This Indonesian collective uses street theatre, huge banners/paintings, puppets, zines, music and street posters to communic...</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img">
+                                                    <a href="#" title=""><img src="http://demo.plumi.org/Members/anna/videos/a-wrapped-heart-inside-the-refrigerator/thumbnailImage_thumb" alt=""><span class="video-duration">06:31</span></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">A Wrapped Heart Inside the Refrigerator</a></span><span class="video-thumb-meta">January 30, 2013 | <a href="#" title="">United States</a></span>
+                                                <span class="video-thumb-descr">A contemporary Indonesian shadow puppet performance using traditional and electronic music to create an imaginary of social ...</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img">
+                                                    <a href="#" title=""><img src="http://demo.plumi.org/Members/anna/videos/reclaim-da-mullet/thumbnailImage_thumb" alt=""><span class="video-duration">03:29</span></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Reclaim Da Mullet</a></span>
+                                                <span class="video-thumb-meta">January 30, 2013 | <a href="#" title="">Australia</a></span>
+                                                <span class="video-thumb-descr">Temporary Autonomous Zones in Adelaide, a counter-fringe with special effects....</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img">
+                                                    <a href="#" title=""><img src="http://demo.plumi.org/Members/anna/videos/empty-show/thumbnailImage_thumb" alt=""><span class="video-duration">08:50</span></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Empty Show</a></span>
+                                                <span class="video-thumb-meta">January 30, 2013 | <a href="#" title="">Australia</a></span>
+                                                <span class="video-thumb-descr">Australian artists enter an empty building and make it beautiful. Welcome to the Empty Show where subversion through art bre...</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img">
+                                                    <a href="#" title=""><img src="http://demo.plumi.org/Members/anna/videos/colony-collapse-filastine/thumbnailImage_thumb" alt=""><span class="video-duration">04:57</span></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Colony Collapse (Filastine)</a></span>
+                                                <span class="video-thumb-meta">January 30, 2013 | <a href="#" title="">Indonesia</a></span>
+                                                <span class="video-thumb-descr">A music video confronting ongoing catastrophes that are the very fabric of our globalised economic order, the faultlines bet...</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img no-img-thumb">
+                                                    <a href="#" title="" class="video"></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Video</a></span>
+                                                <span class="video-thumb-meta">September 30, 2015 | <a href="#" title="">International</a></span>
+                                                <span class="video-thumb-descr">Suspendisse eu dui est. Curabitur erat ipsum, ultrices eget nisl eu, faucibus malesuada leo. Sed pellentesque, elit sit amet malesuada dapibus, tellus massa malesuada mauris, at porta nunc massa at nisl.</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img no-img-thumb">
+                                                    <a href="#" title="" class="folder"></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Folder</a></span>
+                                                <span class="video-thumb-meta">September 30, 2015 | <a href="#" title="">International</a></span>
+                                                <span class="video-thumb-descr">Suspendisse eu dui est. Curabitur erat ipsum, ultrices eget nisl eu, faucibus malesuada leo. Sed pellentesque, elit sit amet malesuada dapibus, tellus massa malesuada mauris, at porta nunc massa at nisl.</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img no-img-thumb">
+                                                    <a href="#" title="" class="newsitem"></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">News item</a></span>
+                                                <span class="video-thumb-meta">September 30, 2015 | <a href="#" title="">International</a></span>
+                                                <span class="video-thumb-descr">Suspendisse eu dui est. Curabitur erat ipsum, ultrices eget nisl eu, faucibus malesuada leo. Sed pellentesque, elit sit amet malesuada dapibus, tellus massa malesuada mauris, at porta nunc massa at nisl.</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img no-img-thumb">
+                                                    <a href="#" title="" class="event"></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Event</a></span>
+                                                <span class="video-thumb-meta">September 30, 2015 | <a href="#" title="">International</a></span>
+                                                <span class="video-thumb-descr">Suspendisse eu dui est. Curabitur erat ipsum, ultrices eget nisl eu, faucibus malesuada leo. Sed pellentesque, elit sit amet malesuada dapibus, tellus massa malesuada mauris, at porta nunc massa at nisl.</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img no-img-thumb">
+                                                    <a href="#" title="" class="picture"></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Image</a></span>
+                                                <span class="video-thumb-meta">September 30, 2015 | <a href="#" title="">International</a></span>
+                                                <span class="video-thumb-descr">Suspendisse eu dui est. Curabitur erat ipsum, ultrices eget nisl eu, faucibus malesuada leo. Sed pellentesque, elit sit amet malesuada dapibus, tellus massa malesuada mauris, at porta nunc massa at nisl.</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img no-img-thumb">
+                                                    <a href="#" title="" class="page"></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Page</a></span>
+                                                <span class="video-thumb-meta">September 30, 2015 | <a href="#" title="">International</a></span>
+                                                <span class="video-thumb-descr">Suspendisse eu dui est. Curabitur erat ipsum, ultrices eget nisl eu, faucibus malesuada leo. Sed pellentesque, elit sit amet malesuada dapibus, tellus massa malesuada mauris, at porta nunc massa at nisl.</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img no-img-thumb">
+                                                    <a href="#" title="" class="collection"></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Collection</a></span>
+                                                <span class="video-thumb-meta">September 30, 2015 | <a href="#" title="">International</a></span>
+                                                <span class="video-thumb-descr">Suspendisse eu dui est. Curabitur erat ipsum, ultrices eget nisl eu, faucibus malesuada leo. Sed pellentesque, elit sit amet malesuada dapibus, tellus massa malesuada mauris, at porta nunc massa at nisl.</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img no-img-thumb">
+                                                    <a href="#" title="" class="file"></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">File</a></span>
+                                                <span class="video-thumb-meta">September 30, 2015 | <a href="#" title="">International</a></span>
+                                                <span class="video-thumb-descr">Suspendisse eu dui est. Curabitur erat ipsum, ultrices eget nisl eu, faucibus malesuada leo. Sed pellentesque, elit sit amet malesuada dapibus, tellus massa malesuada mauris, at porta nunc massa at nisl.</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img no-img-thumb">
+                                                    <a href="#" title="" class="link"></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Link</a></span>
+                                                <span class="video-thumb-meta">September 30, 2015 | <a href="#" title="">International</a></span>
+                                                <span class="video-thumb-descr">Suspendisse eu dui est. Curabitur erat ipsum, ultrices eget nisl eu, faucibus malesuada leo. Sed pellentesque, elit sit amet malesuada dapibus, tellus massa malesuada mauris, at porta nunc massa at nisl.</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img no-img-thumb">
+                                                    <a href="#" title="" class="external-video"></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">External video</a></span>
+                                                <span class="video-thumb-meta">September 30, 2015 | <a href="#" title="">International</a></span>
+                                                <span class="video-thumb-descr">Suspendisse eu dui est. Curabitur erat ipsum, ultrices eget nisl eu, faucibus malesuada leo. Sed pellentesque, elit sit amet malesuada dapibus, tellus massa malesuada mauris, at porta nunc massa at nisl.</span>
+                                            </div>
+                                            <div class="video-thumb list gutter-bottom-half">
+                                                <span class="video-thumb-img no-img-thumb">
+                                                    <a href="#" title="" class="plumi-video-folder"></a>
+                                                </span>
+                                                <span class="video-thumb-title"><a href="#" title="">Plumi video folder</a></span>
+                                                <span class="video-thumb-meta">September 30, 2015 | <a href="#" title="">International</a></span>
+                                                <span class="video-thumb-descr">Suspendisse eu dui est. Curabitur erat ipsum, ultrices eget nisl eu, faucibus malesuada leo. Sed pellentesque, elit sit amet malesuada dapibus, tellus massa malesuada mauris, at porta nunc massa at nisl.</span>
+                                            </div> -->
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div id="footer">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="footer-box footer-box-first">
+                            <a href="" title="" id="footer-logo"><img src="img/logo-footer.jpg" alt="" /></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 footer-portlets">
+                        <div class="footer-portlets-wrapper">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="bottom-inner">
+                        <a href="http://blog.plumi.org/" title="powered by Plumi" target="_blank">powered by <strong>Plumi</strong><span class="bottom-logo"></span></a>- Except where otherwise noted, content on this site is licensed under a <strong><a href="http://creativecommons.org/licenses/by/3.0/au/" title="">Creative Commons Attribution 3.0 Australia License.</a></strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/lib/mediaelement-and-player.min.js"></script>
+
+    <script src="++resource++collective.transcode.js/unisubs-widgetizer-inner.js"></script>
+    <script src="++resource++collective.transcode.js/unisubs-widgetizer.js"></script>
+
+    <script type="text/javascript" src="assets/javascript/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+
+</html>

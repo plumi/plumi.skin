@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<theme href="new-templates/login.html" css:if-content="#login_form" />
+
+<head>
+    <title>Plumi | Register</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/stylesheets/lib/mediaelementplayer.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/stylesheets/styles.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            <header>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 header-logo-outer">
+                            <div class="header-inner">
+                                <a href="" title="" id="portal-logo" class="logo"><img src="img/logo_wide.jpg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3 pull-right header-buttons-outer">
+                            <div class="header-inner">
+                                <div class="header-buttons">
+                                    <div class="btn-group browse-group" role="group">
+                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Browse
+                                            <span class="caret"></span>
+                                        </button>
+                                        <div id="browse-dropdown-menu" class="dropdown-menu">
+                                            <div id="browse-dropdown-menu-place"></div>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group publish-group" role="group">
+                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Publish
+                                            <span class="caret"></span>
+                                        </button>
+                                        <div id="publish-dropdown-menu" class="dropdown-menu">
+                                            <div id="publish-dropdown-menu-place"></div>
+                                        </div>
+                                    </div>
+                                    <a href="" title="" id="personaltools-login" class="btn btn-primary btn-sm login-btn">Login</a>
+                                    <a href="" title="" id="personaltools-join" class="btn btn-primary btn-sm login-btn">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-5 col-lg-7 header-search-outer">
+                            <div class="header-inner">
+                                <div class="header-search">
+                                    <div class="header-search-form-wrapper">
+                                        <form name="" id="" class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search..." id="searchbox-text">
+                                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                            </button>
+                                            </span>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div id="main" class="gutter-top">
+            <main>
+                <div class="container">
+                    <div class="row">
+                        <div id="main-content" class="col-lg-6 col-lg-push-3 col-md-8 col-md-push-2 col-sm-12 col-xs-12 gutter-bottom">
+                            <div class="login-wrapper gutter-bottom">
+                                <h1>Registration Form</h1>
+                                <div class="login-wrapper-inner">
+                                
+                                    <div class="register-form-wrapper">
+
+                                        <form class="register-form">
+                                            <label for="name">Full name<sup class="req-star">*</sup></label>
+                                            <input type="text" name="name" class="register-fullname" required="">
+                                            <span class="input-help">Enter your full name, e.g. John Smith.</span>
+                                            <label for="username">Username<sup class="req-star">*</sup></label>
+                                            <input type="text" name="user" class="register-username" required="">
+                                            <span class="input-help">Enter a user name, usually something like "<i>jsmith</i>". No spaces or special characters allowed. Usernames and passwords are case sensitive, so make sure the caps lock key is not enabled.</span>
+                                            <label for="email">E-mail<sup class="req-star">*</sup></label>
+                                            <input type="email" name="email" class="register-email" required="">
+                                            <span class="input-help">Enter your email address. This is necessary in case the password is lost. We respect your privacy, and will not give the address away to any third parties or expose it anywhere.</span>
+                                            <label for="password">Password<sup class="req-star">*</sup></label>
+                                            <input type="password" name="password" class="register-password" minlength="5" required="">
+                                            <span class="input-help">Minimum 5 characters.</span>
+                                            <label for="confirm-password">Confirm password<sup class="req-star">*</sup></label>
+                                            <input type="password" name="confirm-password" minlength="5" class="register-confirm-password" required="">
+                                            <span class="input-help">Re-enter the password.</span>
+                                            <label for="captcha-code">Type the code<sup class="req-star">*</sup></label>
+                                            <input type="text" name="captcha-code" class="register-captcha-code" required="">
+                                            <span class="register-captcha-code-img"><img src="http://demo.plumi.org/getCaptchaImage/000d040a040b000a020a1e00006d01046e0d020c07060105" alt="Enter the word"></span>
+                                            <span class="input-help">Type the code from shown in the picture.</span>
+                                            <input type="submit" name="register" class="register-submit btn btn-primary" value="Register">
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div id="footer">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="footer-box footer-box-first">
+                            <a href="" title="" id="footer-logo"><img src="img/logo-footer.jpg" alt="" /></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 footer-portlets">
+                        <div class="footer-portlets-wrapper">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="bottom-inner">
+                        <a href="http://blog.plumi.org/" title="powered by Plumi" target="_blank">powered by <strong>Plumi</strong><span class="bottom-logo"></span></a>- Except where otherwise noted, content on this site is licensed under a <strong><a href="http://creativecommons.org/licenses/by/3.0/au/" title="">Creative Commons Attribution 3.0 Australia License.</a></strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/lib/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+
+</html>
