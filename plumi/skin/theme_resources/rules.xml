@@ -1,503 +1,511 @@
-<rules
-    xmlns="http://namespaces.plone.org/diazo"
-    xmlns:css="http://namespaces.plone.org/diazo/css"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
+<rules xmlns="http://namespaces.plone.org/diazo" xmlns:css="http://namespaces.plone.org/diazo/css" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <!-- Apply theme to normal Plone pages -->
-    <theme href="index.html" css:if-content="body.template-featured_videos_homepage #visual-portal-wrapper" />
-    <theme href="video.html" css:if-content="body.template-video_view #visual-portal-wrapper" />
-    <theme href="list.html" css:if-content="body.template-video_listing_view #visual-portal-wrapper" />
-    <theme href="author.html" css:if-content="body.template-author #visual-portal-wrapper" />
-
-    <!--theme href="search.html" css:if-content="body.template-search #visual-portal-wrapper" /-->
-    <theme href="text.html" css:if-content="#visual-portal-wrapper" />
+    <!-- <theme href="text.html" css:if-content="#visual-portal-wrapper" /> -->
+    <theme href="new-templates/search-results.html" css:if-content="body.template-search" />
+    <theme href="new-templates/home.html" css:if-content="body.template-featured_videos_homepage #featured-front-page" />
+    <theme href="new-templates/single-video.html" css:if-content="body.template-video_view" />
+    <theme href="new-templates/latest-videos-new.html" css:if-content="body.template-video_listing_view" />
+    <theme href="new-templates/recent-comments.html" css:if-content="body.template-folder_listing.section-recent_comments" />
+    <theme href="new-templates/login.html" css:if-content="#login_form" />
+    <theme href="new-templates/register.html" css:if-content="body.template-register" />
+    <theme href="new-templates/author.html" css:if-content="body.template-author #visual-portal-wrapper" />
     <notheme if="$ajax_load" />
 
-    <!-- ALL PAGES -->
+    <!-- ==================== GENERAL RULES ==================== -->
     <rules>
-        <!-- Drop the viewport meta tag from Plone -->
-        <!-- <drop css:content="meta[name=viewport]"/>-->
-
-        <!-- Replace viewport meta for better handheld devices -->
-        <replace content="/html/head/meta[@name='viewport']">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0" />
-        </replace>
-        
         <!-- Copy all meta tags -->
         <before content="/html/head/meta" css:theme="#css" />
-
         <!-- Get page title -->
-        <replace content="/html/head/title" theme="/html/head/title"/>
-
+        <replace content="/html/head/title" theme="/html/head/title" />
         <!-- Copy the <base> tag -->
         <copy content="/html/head/base" theme="/html/head/base" />
-
         <!-- copy body attrs -->
         <prepend theme="/html/body" content="/html/body/@class" />
         <prepend theme="/html/body" content="/html/body/@id" />
         <prepend theme="/html/body" content="/html/body/@dir" />
-
-        <!-- Copy style and link tags in the order they appear in the content -->
-        <after content="/html/head/style | /html/head/link" css:theme="#css" />
-
         <!-- Drop the "type" attribute from <script> tags. HTML5 doesn't mandate
              it and we can save a few bytes there. -->
-        <drop css:content="script" attributes="type"/>
-
-        <!-- Copy script tags in the order they appear in the content but place
-             them at the bottom of the theme. -->
-        <before
-            css:content="head > script"
-            css:theme="#javascript_at_bottom"
-            />
-
-        <!-- Copy inline javascripts from within the body -->
-        <!-- reCaptcha needs to stay within the body because they generate html
-             in place where the JS is. -->
-        <replace
-            content="//body//script[not(contains(@src, 'www.google.com/recaptcha/api/challenge'))]"
-            css:theme="#javascript_inline"
-            method="raw"
-            />
-
-        <!-- Drop the scripts within the body because we have copied them to the
-             end of the page -->
-        <drop content="//div[@id='visual-portal-wrapper']//script[not(contains(@src, 'www.google.com/recaptcha/api/challenge'))]"/>
-
-        <!-- Drop the javascript target from the theme -->
-        <drop css:theme="#javascript_at_bottom"/>
-
+        <drop css:content="script" attributes="type" />
         <!-- Copy over the id/class attributes on the body tag.
              This is important for per-section styling -->
         <copy attributes="id dir" css:content="body" css:theme="body" />
-
-        <!--drop content licensing on pages other than the video page -->
-        <drop css:content="#copyright-citation" css:if-not-content="body.template-video_view" />
-        <drop css:content="#copyright-button" css:if-not-content="body.template-video_view" />
-        <drop css:content="#copyright-text" css:if-not-content="body.template-video_view" />
-
-        <!--portlet managers -->
-        <prepend css:content="#portletmanager-plone-leftcolumn" css:theme="#mid-container" />
-        <append css:content="#portletmanager-plone-rightcolumn" css:theme="#mid-container" />
-
-        <!--right column portlets-->
-        <append css:theme="div.sidebar" css:content="#portal-column-two"/>
-
-        <!-- footer portlets -->
-        <replace theme-children="//div[@class='row footer']/div[@class='columns']" css:content="div.FooterPortletManager1"/>
-
-        <append css:content="div.manageFooterPortletsLink" theme="//div[@class='row footer']/div[@class='columns']" />
-
         <!-- drop breadcrumbs -->
         <drop css:content="#portal-breadcrumbs" />
-
-        <!-- drop tags on news items -->
-        <drop css:content="body.portaltype-news-item div#category" />
-
-        <!-- HEADER -->
-        <!-- Copy search box -->
-        <copy css:content="#portal-searchbox" css:theme="div.search" />
-
-        <!-- copy user menu -->
-        <rules css:if-content="a#user-name">
-            <copy css:content-children="dl#portal-personaltools dd.actionMenuContent > ul" css:theme="#user-menu ul.dropdown" />
-            <copy css:content-children="a#user-name" css:theme="ul#user-menu > li > a.user" />
-            <copy attributes="href title" css:content="a#user-name" css:theme="ul#user-menu > li > a" />
-        </rules>
-        <rules css:if-content="ul#portal-personaltools > li#anon-personalbar">
-            <copy css:content="a#personaltools-login" css:theme="ul#user-menu" />
-            <append css:content="a#personaltools-join" css:theme="ul#user-menu" />
-            <drop css:theme="#user-menu ul.dropdown" />
-        </rules>
-
-        <!-- copy browse menu -->
-        <copy css:content-children="dl.portletBrowse > dt" css:theme="ul#browse-menu > li.header-button > a.user" />
-        <copy css:content="dd.browse-portlet" css:theme="ul#browse-menu ul.dropdown" />
-
-        <!-- copy upload menu -->
-        <copy css:content-children="dl.portletPublishPortlet > dt" css:theme="ul#publish-menu > li.header-button > a.user" />
-        <copy css:content="dd.publish-portlet" css:theme="ul#publish-menu ul.dropdown" />
-
-        <!-- copy language selector -->
-        <copy css:content-children="ul#portal-languageselector" css:theme="ul#language-menu" />
-
         <!-- logo -->
-        <copy attributes="href title" css:content="a#portal-logo" css:theme="a.main-title" />
-        <copy attributes="href title" css:content="a#portal-logo" css:theme="a.main-logo-link" />
-
-
-        <!-- RSS icon link -->
-        <replace css:theme="a.rss" if-not-path="author">
-            <a href="RSS2" class="rss icon"></a>
+        <copy attributes="href title" css:content="a#portal-logo" css:theme="a#portal-logo" />
+        <!-- header login button -->
+        <copy css:if-not-content="#login_form" attributes="href title rel" css:content="a#personaltools-login" css:theme="a#personaltools-login" />
+        <drop css:if-content="#login_form" css:theme="a#personaltools-login" />
+        <!-- header register button -->
+        <copy css:if-content="#login_form" attributes="href title rel" css:content="a#personaltools-join" css:theme="a#personaltools-join" />
+        <drop css:if-not-content="#login_form" css:theme="a#personaltools-join" />
+        <!-- header browse menu -->
+        <replace css:if-content="dl.portlet.portletBrowse" css:theme="#browse-dropdown-menu-place">
+          <xsl:copy-of select="//dl[@class='portlet portletBrowse']" />
         </replace>
+        <rules css:if-not-content="dl.portlet.portletBrowse">
+            <drop css:theme="#header div.browse-group" />
+        </rules>
 
-
-        <!-- Content footer is for siteelement doormat, so update this rule if
-             doormat is needed for the theme -->
-        <drop css:theme="#content-footer" />
-        <copy css:content-children=".siteelement-footertext .footertext" css:theme="#colophon" />
-
-        <!-- main content -->
-        <copy css:content="#portal-column-content" css:theme="#post-content > div.text-content > div.nine" />
-        <drop css:content="span.documentModified > span" />
-
-        <!-- Userprefs page -->
-        <drop css:theme="div.sidebar" if-path="/@@usergroup-userprefs" />
-    </rules>
-
-
-    <!--rules css:if-path="portal_registration/passwordreset">
-        <copy content="/html/head/base" theme="/html/head/base" />
-    </rules-->
-
-    <!-- Login Page-->
-    <rules css:if-content="#login_form">
-        <drop css:theme="div.sidebar" />
-    </rules>
-
-    <!-- Register Page -->
-    <rules css:if-content="body.template-register">
-        <drop css:theme="div.sidebar" />
-    </rules>
-
-    <!-- Publish Page -->
-    <rules css:if-content="body.template-publish_video">
-        <drop css:theme="div.sidebar" />
-    </rules>
-
-
-    <!-- HOMEPAGE -->
-    <rules css:if-content="body.template-featured_videos_homepage">
-
-       <prepend css:theme="div.content">
-            <div class="row no-v-padding">
-                <xsl:copy-of css:select="#edit-bar" />
-                <xsl:copy-of css:select="dl.portalMessage" />
-            </div>
-        </prepend>
-
-
-        <!-- Featured video -->
-        <drop theme="//*[@id='featuredvideo']/.." if-not-content="//video" />
-        <replace theme="//*[@id='featuredvideo']/div[1]" content="//video/.."/>
-        <copy theme="//div[@id='featuredvideo']//div[1]/a" content="//div[@id='featured-front-page']//div[2]/span[1]/a" />
-        <copy theme="//div[@id='featuredvideo']//h3" css:content="#featuredVideoTitle" />
-        <replace theme="//div[@id='featuredvideo'][1]//p">
-            <div class="featuredVideo-date">
-                <xsl:value-of select="//span[@class='featuredItemDetailsPosted discreet']/span[@class='posted-date']" />
-            </div>
-            <span class="country">
-                <xsl:copy-of select="//div[@id='featured-front-page']//div[2]//dl[@class='plumi-country plumi-props-listing']/dd/ul/li/a" />
+        <!-- header publish menu -->
+        <replace css:if-content="dl.portlet.portletPublishPortlet" css:theme="#publish-dropdown-menu-place">
+          <xsl:copy-of select="//dl[@class='portlet portletPublishPortlet']" />
+        </replace>
+        <rules css:if-not-content="dl.portlet.portletPublishPortlet">
+            <drop css:theme="#header div.publish-group" />
+        </rules>
+        
+        <!-- header search box-->
+        <copy attributes="name id action" css:content="#portal-searchbox > form" css:theme="form#the-search-form" />
+        <drop css:content="div#portal-searchbox .searchSection" />
+        <drop css:content="div#portal-searchbox div#portal-advanced-search" />
+        <drop css:content="div#portal-searchbox #searchGadget_form label" />
+        <replace css:content="div#portal-searchbox" css:theme=".header-search-form-wrapper" />
+        <replace css:content-children="#searchGadget">
+            <xsl:attribute name="class">
+                <xsl:value-of select="." /> form-control searchField</xsl:attribute>
+            <xsl:attribute name="placeholder">Search...</xsl:attribute>
+            <xsl:apply-templates select="node()" />
+        </replace>
+        <replace css:content="div#portal-searchbox .LSBox">
+            <xsl:for-each css:select="#searchGadget">
+                <xsl:copy-of css:select="*" />
+            </xsl:for-each>
+            <span class="input-group-btn">
+                <button class="btn btn-default searchButton" type="submit">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
             </span>
-            <p>
-                <xsl:copy-of select="substring(//p[@id='featuredVideoDescription']/text(),0,160)" />...
-            </p>
-        </replace>
-        <drop css:theme=".video.featured div.description" css:if-not-content="#featured-item"/>
-
-        <!-- RSS icon link to the latest videos feeds -->
-        <replace css:theme="#latest-videos-title">
-            <div class="full row no-v-padding row-title" id="latest-videos-title">
-                <h4><a href="latestvideos">Latest Videos</a></h4>
-                <a href="latestvideos/RSS2" class="rss icon"></a>
-            </div>
-
-        </replace>
-        <!-- In order for this to work, we need News, Comments, Blogs portlets with more link and dates enabled.
-             The portlets take their class names according to their names, so keep the portlets News, Comments, Blogs
-             For the featured items, we need portlets Feature 1 and Featured 2, showing 1 item, and the hack on the portlets collection
-             to display the image when it sees 1 item -->
-
-        <!-- Featured items. Right portlets 1 -->
-        <copy css:content="div.featured-filmmaker" css:theme="div.featured-filmmaker" />
-        <copy css:content="div#featured-left" css:theme="div#featured-left" />
-        <copy css:content="div#featured-right" css:theme="div#featured-right" />
-        <replace css:theme="#more-projects">
-        <a href="projects" id="more-projects">More Projects</a>
-        </replace>
-        <!-- Social Networks-->
-        <copy css:content-children="div.social-networks" css:theme="div.social-networks" />
-        <!-- Latest videos -->
-        <replace css:theme="#mid-container #latestvideos">
-            <div id="latestvideos" class="row content">
-                <xsl:for-each css:select="#featured-latest-videos dd.featuredItem">
-                    <div class="four columns video">
-                        <div class="wrapper-under">
-                            <div class="under">
-                                <h5><xsl:copy-of css:select="h4 a.featuredItemTitle"/></h5>
-                            </div>
-                        </div>
-                        <div class="proxy-under"></div>
-                        <div class="wrapper-image">
-                            <div class="rollover">
-                                <p><a><xsl:copy-of select="a[@class='featured-video-image']/@href" /><xsl:copy-of select="substring(p/text(),0, 130)" />...</a></p>
-                                <span class="country"><xsl:copy-of select="dl[@class='plumi-country plumi-props-listing']//a" /></span>
-                                <xsl:value-of select="span[@class='featuredItemDetailsPosted discreet']/span[@class='posted-date']" />
-                            </div>
-                            <xsl:copy-of css:select="a.featured-video-image"/>
-                        </div>
-                        <span class="duration"><xsl:copy-of css:select=".featured-video-duration span" /></span>
-                    </div>
-                </xsl:for-each>
-                <div class="six columns centered load-more">
-                    <a class="button large" href="latestvideos">More Videos</a>
-                </div>
+            <div class="LSResult" id="LSResult" style="">
+                <div class="LSShadow" id="LSShadow"></div>
             </div>
         </replace>
+
+        <!-- footer logo -->
+        <copy attributes="href title" css:content="a#portal-logo" css:theme="a#footer-logo" />
+
+        <!-- footer portlets-->
+        <replace css:if-content="#portal-footer-wrapper" css:content="#portal-footer-wrapper div.FooterPortletManager1" css:theme=".footer-portlets-wrapper" />
+        <replace css:if-not-content="#portal-footer-wrapper" css:content="div.FooterPortletManager1" css:theme=".footer-portlets-wrapper" />
+
+        <!-- Search field -->
+        <replace attributes="value" css:content="#searchGadget" css:theme="#searchGadget" />
+        <replace attributes="value" css:content="#searchGadget" css:theme="#SearchableText" />
     </rules>
 
-    <!-- VIDEO VIEW PAGE -->
-    <rules css:if-content="body.template-video_view">
-
-        <prepend css:theme="div.video-content">
-            <div class="row no-v-padding">
-                <xsl:copy-of css:select="#edit-bar" />
-                <xsl:copy-of css:select="dl.portalMessage" />
-            </div>
-        </prepend>
-        <append css:theme="#video-title" css:content="span.documentAuthor" />
-        <append css:theme="#video-title" css:content="span.documentModified" />
-        <append css:theme="#video-title" css:content="span.contentHistory" />
-        <append css:theme="#video-title" css:content="#statistics" />
-        <copy css:content="#content h1.documentFirstHeading > span" css:theme="#video-title h1" />
-        <copy css:theme=".video" css:content="#video-core" />
-        <copy css:theme="#description" css:content="#content p.documentDescription" />
-        <copy css:theme="#full-description" css:content="#full-description > div" />
-        <copy css:theme="#video-info" css:content="#video-infos" />
-        <append css:theme="#video-info" css:content="#contact-author" />
-        <append css:theme="#video-info" css:content="#video-licensing" />
-        <append css:theme="#video-info" css:content="#video-transcoding" />
-        <copy css:theme="#video-comments" css:content=".discussion" />
-        <append css:theme="#video-comments" content="//*[@class='reply'][1]" />
-	    <drop css:theme=".video-comments-title" css:if-not-content=".discussion div" />
-
-        <replace css:theme=".video-list">
-            <ul class="video-list">
-            <xsl:for-each css:select="#authors_latest li">
-                <li class="video-item">
-                    <a class="video-download"><xsl:copy-of select="a/@href" />
-                        <xsl:copy-of select="a/img" />
-                        <xsl:copy-of select="a/h5" />
-                        <xsl:copy-of select="div[@class='duration']" />
-                        <div class="rollover">
-                            <xsl:copy-of select="substring(a/@title,0,130)" />...
-                            <p><xsl:copy-of select="p/span[@class='posted-date']" /></p>
-                        </div>
-
-                    </a>
-                </li>
-            </xsl:for-each>
-            </ul>
-        </replace>
-    </rules>
-
-
-    <!-- VIDEO LISTINGS PAGE -->
+    <!-- ==================== LATEST VIDEOS PAGE ==================== -->
     <rules css:if-content="body.template-video_listing_view">
-        <!-- Show edit bar on listings -->
-        <prepend css:theme="div#mid-container">
-            <div class="row no-v-padding">
-                <xsl:copy-of css:select="#edit-bar" />
-                <xsl:copy-of css:select="dl.portalMessage" />
-            </div>
-        </prepend>
+        
+        <replace css:content="#portal-column-two" css:theme="#sidebar-content-wrapper" />
+        <drop css:content="div#portal-searchbox #searchGadget_form label" />
 
-        <!-- video listing -->
-        <copy css:theme="#mid-container div.full h4" css:content-children="div#content div h1.documentFirstHeading" />
-        <replace css:theme="#mid-container #video-listings">
-            <div class="content row" id="video-listings">
-            <div class="documentDescription"><xsl:copy-of select="//div[@class='documentDescription']" /></div>
-            <div class="documentFullDescription"><xsl:copy-of select="//div[@id='content']//div[1]/div[2]" /></div>
-            <xsl:copy-of css:select=".videocount" />
-            <div class="listingBarTop"><xsl:copy-of select="//div[@class='listingBar'][1]" /></div>
-            <xsl:for-each css:select="#content dl.videos-listing dd.featuredItem">
-                <div class="three columns video tablet-two mobile-one">
-                    <div class="wrapper-under">
-                        <div class="under">
-                            <h5><xsl:copy-of css:select="h4 a.featuredItemTitle"/></h5>
-                        </div>
-                    </div>
-                    <div class="proxy-under"></div>
-                    <div class="wrapper-image">
-                        <div class="rollover">
-                            <p><a><xsl:copy-of select="a[@class='featured-video-image']/@href" /><xsl:copy-of select="substring(p/text(),0, 130)" />...</a></p>
-                            <span class="country"><xsl:copy-of select="dl[@class='plumi-country plumi-props-listing']//a" /></span>
-                            <xsl:value-of select="span[@class='featuredItemDetailsPosted discreet']/span[@class='posted-date']" />
-                        </div>
-                        <xsl:copy-of css:select="a.featured-video-image"/>
-                    </div>
-                    <span class="duration"><xsl:copy-of css:select=".featured-video-duration span" /></span>
+        <drop css:content="#kssPortalMessage" />
+        <drop css:content="#viewlet-above-content" />
+        <drop css:content="#viewlet-below-content" />
+
+        <replace css:content="#content">
+            <xsl:for-each css:select=".featuredItem">
+                <div class="video-thumb col-lg-3 col-md-4 col-sm-6 col-xs-12 gutter-bottom-half">
+                    <span class="video-thumb-img">
+                        <a href="#" title="">
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="a[@class='featured-video-image']/@href" />
+                            </xsl:attribute>
+                            <xsl:copy-of css:select=".featured-video-image img" />
+                            <span class="video-duration"><xsl:copy-of css:select=".featured-video-duration .discreet" /></span>
+                        </a>
+                    </span>
+                    <span class="video-thumb-title"><xsl:copy-of css:select=".featuredItemTitle" /></span>
+                    <span class="video-thumb-meta"><xsl:copy-of css:select=".posted-date" /> | <xsl:copy-of css:select=".plumi-country dd ul li a" /></span>
+                    <span class="video-thumb-descr">
+                        <a href="#" title="">
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="p[@class='discreet plumi-nice-description rounded']//a/@href" />
+                            </xsl:attribute>                   
+                            <xsl:copy-of select="substring(p[@class='discreet plumi-nice-description rounded']/text(),0, 130)"/>...
+                        </a>
+                    </span>
                 </div>
             </xsl:for-each>
-            <div class="listingBarBottom"><xsl:copy-of select="//div[@class='listingBar'][1]" /></div>
-            </div>
         </replace>
+
+        <replace css:content="#portal-column-content" css:theme="#latest-videos-wrapper" />
     </rules>
 
-   <!-- AUTHOR PAGE -->
-    <rules css:if-content="body.template-author">
+    <!-- ==================== AUTHOR PAGE ==================== -->
+    <rules css:if-content="body.template-author #visual-portal-wrapper">
 
-     <prepend css:theme="div.content">
-            <div class="row no-v-padding">
-                <xsl:copy-of css:select="#edit-bar" />
-                <xsl:copy-of css:select="dl.portalMessage" />
-            </div>
-        </prepend>
+        <copy css:content-children=".documentFirstHeading" css:theme=".author-text h1" />
 
-        <copy css:theme="#mid-container div#video-title h1" css:content-children="#region-content div h1.documentFirstHeading" />
-        <copy css:theme="div.author-image-wrapper" css:content="#author-full-details > img" />
+        <copy attributes="href title" css:content="#author-full-details .videos-rss-syndicate" css:theme=".author-videos-rss" />
 
-        <drop css:theme="li.location" css:if-not-content="div.author-location a" />
-        <copy css:theme="li.location" css:content="div.author-location a" />
+        <copy attributes="href title" css:content="#other-published-stuff .news-rss-syndicate" css:theme=".author-news-rss" />
 
-        <drop css:theme="li.lang" css:if-not-content="div#author-full-details div.discreet a" />
-        <replace css:theme="li.lang a" css:content-children="div#author-full-details div.discreet a" />
+        <replace css:content=".videos-listing-only">
+            <xsl:for-each css:select="dd.featuredItem">
+                <div class="video-thumb col-lg-1-5 col-md-3 col-sm-6 col-xs-12 gutter-bottom-half">
 
-        <drop css:theme="li.homepage" css:if-not-content="p.homepage a" />
-        <copy css:theme="li.homepage a" css:content="p.homepage a" />
+                    <span class="video-thumb-img">
+                        <a href="#" title="">
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="a[@class='featured-video-image']/@href" />
+                            </xsl:attribute>
+                            <xsl:copy-of css:select=".featured-video-image img" />
+                            <span class="video-duration"><xsl:copy-of css:select=".featured-video-duration .discreet" /></span>
+                        </a>
+                    </span>
 
-        <drop css:theme="li.homepages" css:if-not-content="div.other-homepages" />
-        <replace css:theme="li.homepages">
-            <xsl:for-each css:select="div.other-homepages">
-              <li class="homepages">
-                <xsl:copy-of select="a" />
-              </li>
-            </xsl:for-each>
-        </replace>
+                    <span class="video-thumb-title"><xsl:copy-of css:select=".featuredItemTitle" /></span>
 
-        <drop css:theme="li.interests" css:if-not-content="div.author-interests" />
-        <replace css:theme-children="li.interests" css:content-children="div.author-interests" />
+                    <span class="video-thumb-meta"><xsl:copy-of css:select=".posted-date" /> | <xsl:copy-of css:select=".plumi-country dd ul li a" /></span>
 
-        <drop css:theme="li.activities" css:if-not-content="div.author-activities" />
-        <replace css:theme-children="li.activities" css:content-children="div.author-activities" />
+                    <span class="video-thumb-descr">
+                        <a href="#" title="">                    
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="p[@class='discreet plumi-nice-description rounded']//a/@href" />
+                            </xsl:attribute>                   
+                            <xsl:copy-of select="substring(p[@class='discreet plumi-nice-description rounded']/text(),0, 130)"/>...
+                        </a>
+                    </span>
 
-        <drop css:theme="li.formats" css:if-not-content="div.author-formats" />
-        <replace css:theme-children="li.formats" css:content-children="div.author-formats" />
-
-        <drop css:theme="li.description" if-not-content="//div[@id='author-full-details']/p[@class='documentDescription']/text()" />
-        <copy css:theme="li.description" css:content-children="div#author-full-details p.documentDescription" />
-
-        <drop css:theme="li.paypal" css:if-not-content="div#paypal-donation" />
-        <copy css:theme="li.paypal" css:content="div#paypal-donation" />
-
-        <drop css:theme=".videos-listing-header" css:if-not-content=".videos-listing-only" />
-        <drop css:theme="#video-listings" css:if-not-content=".videos-listing-only" />
-
-        <drop css:theme=".news-listing-header" css:if-not-content="dl.news-listing" />
-        <drop css:theme="#news-listing" css:if-not-content="dl.news-listing" />
-
-        <drop css:theme=".events-listing-header" css:if-not-content="dl.events-listing" />
-        <drop css:theme="#events-listing" css:if-not-content="dl.events-listing" />
-
-        <!-- video listing -->
-        <replace css:theme="#mid-container #video-listings">
-            <div class="content row" id="video-listings">
-                <xsl:for-each css:select=".featured-block dl.videos-listing-only dd.featuredItem">
-                    <div class="three columns video">
-                        <div class="wrapper-under">
-                            <div class="under">
-                                <h5>
-                                    <xsl:copy-of css:select="h4 a.featuredItemTitle"/>
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="proxy-under"></div>
-                        <div class="wrapper-image">
-                            <div class="rollover">
-                                <p>
-                                    <a><xsl:copy-of select="a[@class='featured-video-image']/@href" /><xsl:copy-of select="substring(p/text(),0, 130)" />...</a>
-                                </p>
-                                <span class="country">
-                                    <xsl:copy-of select="dl[@class='plumi-country plumi-props-listing']//a" />
-                                </span>
-                                <xsl:value-of select="span[@class='featuredItemDetailsPosted discreet']/span[@class='posted-date']" />
-                            </div>
-                            <xsl:copy-of css:select="a.featured-video-image"/>
-                        </div>
-                        <span class="duration">
-                            <xsl:copy-of css:select=".featured-video-duration span" />
-                        </span>
                 </div>
+                
             </xsl:for-each>
-            <div class="foo" style="clear:both"></div>
-            <xsl:copy-of select="//p[@id='all-videos']" />
-            <!--xsl:copy-of select="//div[@id='other-published-stuff']" />
-            <xsl:copy-of select="//div[@id='contact-area']" /-->
-            </div>
         </replace>
 
-        <!-- news listing -->
-        <!--copy css:theme="#mid-container div.full h4" css:content-children="#region-content div h1.documentFirstHeading" /-->
-        <replace css:theme="#news-listing">
-        <div class="content row">
-            <div class="twelve columns">
-                <ul class="news list">
-                    <xsl:for-each css:select=".featured-block dl.news-listing dd.featuredItem">
-                        <li>
-                            <span class="image">
-                                <xsl:copy-of select="img" />
-                            </span>
-                            <span class="posted">
-                                <xsl:copy-of select="div/h4" />
-                            </span>
-                            <span class="posted posted-date">
-                                <xsl:value-of select="div/span[@class='featuredItemDetailsPosted discreet']/span[@class='posted-date']" />
-                            </span>
-                            <span class="content">
-                                <xsl:copy-of select="substring(div/p[@class='discreet plumi-nice-description']/text(),0, 430)" />
-                            </span>
-                            <span class="readmore">
-                                <xsl:copy-of select="div/p/span[@class='featured-read-more']/a" />
-                            </span>
-                        </li>
-                    </xsl:for-each>
-                </ul>
-            </div>
-        </div>
+        <replace css:content=".news-listing">
+
+            <xsl:for-each css:select="dd.featuredItem">
+
+                <div class="news-item">
+                    <div class="news-item-thumb">
+                        <a href="#" title="">
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="div/p[@class='discreet plumi-nice-description']//a/@href" />
+                            </xsl:attribute>
+                            <xsl:copy-of css:select=".featuredItem > img" />
+                        </a>
+                    </div>
+                    <div class="news-item-main">
+                        <section>
+                            <div class="news-item-title">
+                                <header>
+                                    <h4><xsl:copy-of css:select=".featuredItemTitle" /></h4>
+                                </header>
+                            </div>
+                            <div class="news-item-meta">
+                                <time><xsl:copy-of css:select=".posted-date" /></time>
+                            </div>
+                            <div class="news-item-text">
+                                <main>
+                                    <p>
+                                        <xsl:copy-of select="substring(div/p[@class='discreet plumi-nice-description']/text(),0, 390)"/>...
+                                    </p>
+                                    <p>
+                                        <a href="#" title="">
+                                            <xsl:attribute name="href">
+                                                <xsl:value-of select="div/p[@class='discreet plumi-nice-description']//a/@href" />
+                                            </xsl:attribute>Read more →
+                                        </a>
+                                    </p>
+                                </main>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+            </xsl:for-each>
         </replace>
 
-        <!-- events listing -->
-        <replace css:theme="#events-listing">
-            <div class="content row">
-                <div class="twelve columns">
-                    <ul class="events list">
-                        <xsl:for-each css:select=".featured-block dl.events-listing dd.featuredItem">
+        <replace css:content=".videos-listing-only" css:theme="#author-videos-place" />
+        <replace css:content=".news-listing" css:theme="#author-news-place" />
+    </rules>
+
+    <!-- ==================== SEARCH RESULTS PAGE ==================== -->
+    <rules css:if-content="body.template-search">
+        <replace css:content="#rss-subscription" css:theme="a.rss-icon" />
+        <drop css:content=".actionMenuHeader" />
+        <replace css:content="#searchResultsSort">
+            <div class="results-sort">
+                Sort by
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <xsl:copy-of css:select="#sorting-options strong" />
+                        <span id="default-sort"></span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right pull35px-right">
+                        <xsl:for-each css:select="#searchResultsSort #sorting-options a">
                             <li>
-                                <span class="image">
-                                    <xsl:copy-of select="img" />
-                                </span>
-                                <span class="posted">
-                                    <xsl:copy-of select="div/h4" />
-                                </span>
-                                <span class="posted posted-date">
-                                    <xsl:value-of select="div/span[@class='featuredItemDetailsPosted discreet']/span[@class='posted-date']" />
-                                </span>
-                                <span class="content">
-                                    <xsl:copy-of select="substring(div/p[@class='discreet plumi-nice-description']/text(),0, 430)" />
-                                </span>
-                                <xsl:for-each select="div/p/a">
-                                    <xsl:copy-of select="." />
-                                </xsl:for-each>
-                                <span class="readmore">
-                                    <xsl:copy-of select="div/p/span[@class='featured-read-more']/a" />
-                                </span>
+                                <xsl:copy-of css:select="*" />
                             </li>
                         </xsl:for-each>
                     </ul>
                 </div>
             </div>
         </replace>
+        <replace css:content="#search-filter">
+            <div class="results-filter">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Filter the results
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <xsl:for-each css:select="fieldset.noborder">
+                            <li>
+                                <div class="results-filters-title">
+                                    <xsl:copy-of css:select="legend" />
+                                </div>
+                                <xsl:copy-of css:select="div.field" />
+                            </li>
+                        </xsl:for-each>
+                    </ul>
+                </div>
+            </div>
+        </replace>
+        <replace css:content="#search-results-bar" css:theme="#search-results-bar" />
+        <replace css:content="#search-results .column1.search">
+            <xsl:for-each css:select="dl.searchResults > .search-results .clips-holder.search">
+                <div class="video-thumb list gutter-bottom-half">
+                    <!-- VIDEO THUMB [default] -->
+                    <xsl:for-each css:select="dt.contenttype-plumivideo .search-img" css:if-content="dt.contenttype-plumivideo">
+                        <span class="video-thumb-img">
+                            <xsl:copy-of select="a" />
+                        </span>
+                    </xsl:for-each>
+                    <!-- NEWS ITEM THUMB -->
+                    <xsl:for-each css:select="dt.contenttype-news-item a" css:if-content="dt.contenttype-news-item">
+                        <span class="video-thumb-img no-img-thumb">
+                            <a href="#" title="" class="newsitem"><xsl:copy-of select="dt[@class='contenttype-news-item']/a/@href" /></a>
+                        </span>
+                    </xsl:for-each>
+                    <!-- FOLDER THUMB -->
+                    <xsl:for-each css:select="dt.contenttype-folder a" css:if-content="dt.contenttype-folder">
+                        <span class="video-thumb-img no-img-thumb">
+                            <a href="#" title="" class="folder"><xsl:copy-of select="dt[@class='contenttype-folder']/a/@href" /></a>
+                        </span>
+                    </xsl:for-each>
+                     <!-- EVENT THUMB -->
+                    <xsl:for-each css:select="dt.contenttype-event a" css:if-content="dt.contenttype-event">
+                        <span class="video-thumb-img no-img-thumb">
+                            <a href="#" title="" class="event"><xsl:copy-of select="dt[@class='contenttype-event']/a/@href" /></a>
+                        </span>
+                    </xsl:for-each>
+                    <!-- IMAGE THUMB -->
+                    <xsl:for-each css:select="dt.contenttype-image a" css:if-content="dt.contenttype-image">
+                        <span class="video-thumb-img no-img-thumb">
+                            <a href="#" title="" class="picture"><xsl:copy-of select="dt[@class='contenttype-image']/a/@href" /></a>
+                        </span>
+                    </xsl:for-each>
+                    <!-- PAGE THUMB -->
+                    <xsl:for-each css:select="dt.contenttype-document a" css:if-content="dt.contenttype-document">
+                        <span class="video-thumb-img no-img-thumb">
+                            <a href="#" title="" class="page"><xsl:copy-of select="dt[@class='contenttype-document']/a/@href" /></a>
+                        </span>
+                    </xsl:for-each>
+                    <!-- COLLECTION THUMB -->
+                    <xsl:for-each css:select="dt.contenttype-collection a" css:if-content="dt.contenttype-collection">
+                        <span class="video-thumb-img no-img-thumb">
+                            <a href="#" title="" class="collection"><xsl:copy-of select="dt[@class='contenttype-collection']/a/@href" /></a>
+                        </span>
+                    </xsl:for-each>
+                    <!-- FILE THUMB -->
+                    <xsl:for-each css:select="dt.contenttype-file a" css:if-content="dt.contenttype-file">
+                        <span class="video-thumb-img no-img-thumb">
+                            <a href="#" title="" class="file"><xsl:copy-of select="dt[@class='contenttype-file']/a/@href" /></a>
+                        </span>
+                    </xsl:for-each>
+                    <!-- LINK THUMB -->
+                    <!-- TODO: Is not sure that "contenttype-link" is the correct class name -->
+                    <xsl:for-each css:select="dt.contenttype-link a" css:if-content="dt.contenttype-link">
+                        <span class="video-thumb-img no-img-thumb">
+                            <a href="#" title="" class="link"><xsl:copy-of select="dt[@class='contenttype-link']/a/@href" /></a>
+                        </span>
+                    </xsl:for-each>
+                    <!-- EXTERNAL VIDEO THUMB -->
+                    <xsl:for-each css:select="dt.contenttype-plumiexternalvideo a" css:if-content="dt.contenttype-plumiexternalvideo">
+                        <span class="video-thumb-img no-img-thumb">
+                            <a href="#" title="" class="external-video"><xsl:copy-of select="dt[@class='contenttype-plumiexternalvideo']/a/@href" /></a>
+                        </span>
+                    </xsl:for-each>
+                    <!-- PLUMI VIDEO FOLDER THUMB -->
+                    <xsl:for-each css:select="dt.contenttype-plumi-video-folder a" css:if-content="dt.contenttype-plumi-video-folder">
+                        <span class="video-thumb-img no-img-thumb">
+                            <a href="#" title="" class="plumi-video-folder"><xsl:copy-of select="dt[@class='contenttype-plumi-video-folder']/a/@href" /></a>
+                        </span>
+                    </xsl:for-each>
 
-        <append css:theme=".contact-author-content" css:content="div#contact-area form" />
 
-        <!-- RSS icon link -->
-        <prepend css:theme="a.rss-videos" content="//a[@class='videos-rss-syndicate']/@href" />
-        <prepend css:theme="a.rss-news" content="//a[@class='news-rss-syndicate']/@href" />
-        <prepend css:theme="a.rss-events" content="//a[@class='events-rss-syndicate']/@href" />
 
+
+
+                    <span class="video-thumb-title">
+                        <xsl:copy-of css:select="dt > a" />
+                    </span>
+                    <span class="video-thumb-meta"><xsl:copy-of css:select="dd .documentAuthor" /></span>
+                    <span class="video-thumb-descr"><xsl:copy-of css:select="dd > span" /></span>
+                </div>
+            </xsl:for-each>
+        </replace>
+        <replace css:content="#search-results" css:theme="#search-results-content" />
     </rules>
 
-        <!-- drop browse/publish menu on pages that doesn't have it -->
-        <drop css:if-not-content="#portal-column-one" css:theme="ul#publish-menu" />
-        <drop css:if-not-content="#portal-column-one" css:theme="ul#browse-menu" />
+    <!-- ==================== RECENT COMMENTS PAGE ==================== -->
+    <rules css:if-content="body.template-folder_listing.section-recent_comments">
+        <replace css:content="#portal-column-two" css:theme="#sidebar-content-wrapper" />
+        <replace css:content="#parent-fieldname-title" css:theme=".latest-videos-top h1" />
+        <replace css:content="#document-action-rss2" css:theme="a.rss-icon" />
+        <drop css:content="#content-core img" />
+        <replace css:content="#content-core" css:theme="#recent-comments-wrapper" />
+    </rules>
+
+    <!-- ==================== HOME PAGE ==================== -->
+    <rules css:if-content="body.template-featured_videos_homepage #featured-front-page">
+        <replace css:content="video#main-video" css:theme="video#main-video" />
+        <replace css:content=".videobar" css:theme=".videobar" />
+        <replace css:content="a#featuredVideoTitle" css:theme=".home-video-text-inner h1 a" />
+        <replace css:content="#featured-front-page > div > .featuredItemDetailsPosted a" css:theme="a.home-feat-video-author" />
+        <replace css:content="#featured-front-page > div > .featuredItemDetailsPosted .posted-date" css:theme=".home-feat-video-data" />
+        <replace css:content="#featured-front-page > div > .plumi-country li > a" css:theme="a.home-feat-video-country-cat" />
+        <replace css:theme="#featuredVideoDescription">
+            <xsl:copy-of select="substring(//p[@id='featuredVideoDescription']/text(),0,300)" />...
+        </replace>
+        <copy attributes="href" css:content=".featuredHeader > a:first-child" css:theme=".home-latest-videos-wrap > div > a.rss-icon" />
+        <copy attributes="href" css:content=".featuredHeader > a:last-child" css:theme=".home-latest-videos-wrap > div h3.latest-videos-title a" />
+        <replace css:theme=".lv-home .latest-videos-wrapper">
+            <xsl:for-each css:select="#featured-latest-videos dd.featuredItem">
+                <div class="video-thumb col-lg-3 col-md-4 col-sm-6 col-xs-12 gutter-bottom-half">
+                    <span class="video-thumb-img">
+                        <xsl:copy-of css:select="a.featured-video-image" /><span class="video-duration"><xsl:copy-of css:select=".featured-video-duration span" /></span>
+                    </span>
+                    <span class="video-thumb-title"><xsl:copy-of css:select="h4 a.featuredItemTitle"/></span>
+                    <span class="video-thumb-meta"><span class="featuredItemDate"><xsl:value-of select="span[@class='featuredItemDetailsPosted discreet']/span[@class='posted-date']" /></span> | <span class="featuredItemCountry"><xsl:copy-of select="dl[@class='plumi-country plumi-props-listing']//a" /></span></span>
+                    <span class="video-thumb-descr"><a href="#" title=""><xsl:copy-of select="a[@class='featured-video-image']/@href" /><xsl:copy-of select="substring(p/text(),0, 130)" />...</a></span>
+                </div>
+            </xsl:for-each>
+        </replace>
+        <copy css:content="#portal-column-two > div" css:theme="#sidebar aside" />
+    </rules>
+
+    <!-- ==================== SINGLE VIDEO PAGE ==================== -->
+    <rules css:if-content="body.template-video_view">
+        <replace css:content="video#main-video" css:theme="video#main-video" />
+        <replace css:content=".videobar" css:theme=".videobar" />
+        <replace css:content=".documentFirstHeading" css:theme=".documentFirstHeading" />
+        <copy css:theme="#video-small-description" css:content=".documentDescription" />
+        
+        <drop css:theme=".video-meta" /> <!-- TODO: ... -->
+        <drop css:theme=".more-text" /> <!-- TODO: ... -->
+        <drop css:theme=".show-more-text" /> <!-- TODO: ... -->
+
+        <drop css:theme=".rss-icon" />
+        <drop css:content="#contact-author img" />
+        <copy css:theme=".video-copyright" css:content="#copyright-text" />
+        <replace css:theme="#copyright-citation" css:content="#copyright-citation" />
+        <replace css:theme="#video-info-inner-content" css:content="#video-infos" />
+        <replace css:content="#contact-author" css:theme=".video-author-contact" />
+        <drop css:content="#authors_latest h1" />
+        <drop css:content="#authors_latest script" />
+
+        <replace css:content="#authors_latest ul">
+            <ul class="sidebar-list user-videos">
+                <xsl:for-each css:select="li">
+                    <li>
+                        <a href="{a/@href}" rel="nofollow"></a><!-- TODO: Without this, can't read 'href' value of the <a> (link) element -->
+                        <span class="video-thumb-img">
+                            <a href="{a/@href}" title="">
+                                <xsl:copy-of css:select="img" />
+                                <span class="video-duration"><xsl:copy-of css:select=".duration" /></span>
+                            </a>
+                        </span>
+                        <span class="video-thumb-title">
+                            <a href="{a/@href}" title="">
+                                <xsl:copy-of css:select=".featuredItemTitle" />
+                            </a>
+                        </span>
+                        <span class="video-thumb-meta"><xsl:copy-of css:select=".posted-date" /></span>
+                    </li>
+                </xsl:for-each>
+            </ul>
+        </replace>
+        
+        <replace css:content="#authors_latest" css:theme="#other-videos-place" />
+    </rules>
+
+    <!-- ==================== REGISTER PAGE ==================== -->
+    <rules css:if-content="body.template-register">
+        <replace css:content="#portal-column-content" css:theme=".register-form-wrapper" />
+        <drop css:content=".documentFirstHeading" />
+        <replace css:content="form.kssattr-formname-register label[for='form.fullname']">
+            <label for="form.fullname">Full name <sup class="req-star">*</sup></label>
+        </replace>
+        <replace css:content="#formfield-form-fullname .widget.formlibInlineValidation">
+            <div class="widget formlibInlineValidation">
+                <input type="text" id="form.fullname" name="form.fullname" required="required" />
+                <span class="input-help">Enter your full name, e.g. John Smith.</span>
+            </div>
+        </replace>
+        <replace css:content="form.kssattr-formname-register label[for='form.username']">
+            <label for="form.username">Usename <sup class="req-star">*</sup></label>
+        </replace>
+        <replace css:content="#formfield-form-username .widget.formlibInlineValidation">
+            <div class="widget formlibInlineValidation">
+                <input type="text" id="form.username" name="form.username" required="required" />
+                <span class="input-help">Enter a user name, usually something like "jsmith". No spaces or special characters allowed. Usernames and passwords are case sensitive, so make sure the caps lock key is not enabled.</span>
+            </div>
+        </replace>
+        <replace css:content="form.kssattr-formname-register label[for='form.email']">
+            <label for="form.email">E-mail <sup class="req-star">*</sup></label>
+        </replace>
+        <replace css:content="#formfield-form-email .widget.formlibInlineValidation">
+            <div class="widget formlibInlineValidation">
+                <input type="email" id="form.email" name="form.email" required="required" />
+                <span class="input-help">Enter your email address. This is necessary in case the password is lost. We respect your privacy, and will not give the address away to any third parties or expose it anywhere.</span>
+            </div>
+        </replace>
+        <replace css:content="form.kssattr-formname-register label[for='form.password']">
+            <label for="form.password">Password <sup class="req-star">*</sup></label>
+        </replace>
+        <replace css:content="#formfield-form-password .widget.formlibInlineValidation">
+            <div class="widget formlibInlineValidation">
+                <input type="password" id="form.password" name="form.password" minlength="5" required="required" />
+                <span class="input-help">Minimum 5 characters.</span>
+            </div>
+        </replace>
+        <replace css:content="form.kssattr-formname-register label[for='form.password_ctl']">
+            <label for="form.password_ctl">Confirm password <sup class="req-star">*</sup></label>
+        </replace>
+        <replace css:content="#formfield-form-password_ctl .widget.formlibInlineValidation">
+            <div class="widget formlibInlineValidation">
+                <input type="password" id="form.password_ctl" name="form.password_ctl" required="required" />
+                <span class="input-help">Re-enter the password.</span>
+            </div>
+        </replace>
+        <replace css:content="form.kssattr-formname-register input[type='submit']">
+            <input type="submit" id="form.actions.register" name="form.actions.register" class="register-submit btn btn-primary" value="Register" />
+        </replace>
+    </rules>
+
+    <!-- ==================== LOGIN PAGE ==================== -->
+    <rules css:if-content="#login_form">
+        <replace css:content="#portal-column-content" css:theme=".login-form-wrapper" />
+        <replace css:content="form#login_form label[for='__ac_name']">
+            <label for="__ac_name">Username <sup class="req-star">*</sup></label>
+        </replace>
+        <replace css:content="form#login_form label[for='__ac_password']">
+            <label for="__ac_password">Password <sup class="req-star">*</sup></label>
+        </replace>
+        <replace css:content="form#login_form input[type='text']">
+            <input type="text" id="__ac_name" value="" name="__ac_name" required="required" />
+        </replace>
+        <replace css:content="form#login_form input[type='password']">
+            <input type="password" id="__ac_password" name="__ac_password" required="required" />
+        </replace>
+        <replace css:content="form#login_form .formControls input[type='submit']">
+            <input type="submit" name="login" class="login-submit btn btn-primary" value="Login" />
+        </replace>
+        <replace css:content="div.FooterPortletManager1" css:theme=".footer-box-wrapper-1" />
+    </rules>
+
 </rules>
