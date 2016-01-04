@@ -1211,27 +1211,243 @@ ul.rss-icons-list li#document-action-rss2 a {
   display: none;
 }
 
-#contact-author a {
+/* SINGLE PAGE */
+#page-content-description {
+  font-style: italic;
+}
+
+#page-content-core .newsImageContainer {
+  margin: 20px 0;
+}
+
+/* TAXONOMY PAGE */
+.taxonomy-list .tileItem,
+.members-list .tileItem {
+  position: relative;
+  display: table;
+  width: 100%;
+  padding: 30px 15px 30px 5px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.taxonomy-list p.discreet,
+.members-list p.discreet {
+  padding: 30px 15px 20px;
+}
+
+.taxonomy-list .tileItem {
+  margin: 0 0 -1px 0;
+  padding: 30px 15px 30px 5px;
+}
+
+.members-list .tileItem {
+  padding: 12px 15px 18px 0;
+}
+
+.taxonomy-list .tileHeadline {
+  margin: 0;
+  font-size: 1em;
+}
+
+.taxonomy-list .tileHeadline a,
+.members-list .tileItem a {
   position: relative;
   display: inline-block;
-  margin: 5px 0;
-  padding-left: 20px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
 }
-@media (max-width: 767px) {
-  #contact-author a {
-    margin-bottom: 20px;
-  }
+
+a.contenttype-plumivideo,
+a.contenttype-news-item,
+a.contenttype-folder,
+a.contenttype-image,
+a.contenttype-event,
+a.contenttype-document,
+a.contenttype-collection,
+a.contenttype-file,
+a.contenttype-link,
+a.contenttype-plumiexternalvideo,
+a.contenttype-plumi-video-folder {
+  padding-left: 65px;
+  /* &.video:before, */
+  /* &.newsitem:before, */
+  /* &.folder:before, */
+  /* &.picture:before, */
+  /* &.event:before, */
+  /* &.page:before, */
+  /* &.collection:before, */
+  /* &.file:before, */
+  /* &.link:before, */
+  /* &.external-video:before, */
+  /* &.plumi-video-folder:before, */
 }
-#contact-author a:before {
-  position: absolute;
-  top: 1px;
-  left: 0;
+a.contenttype-plumivideo:before,
+a.contenttype-news-item:before,
+a.contenttype-folder:before,
+a.contenttype-image:before,
+a.contenttype-event:before,
+a.contenttype-document:before,
+a.contenttype-collection:before,
+a.contenttype-file:before,
+a.contenttype-link:before,
+a.contenttype-plumiexternalvideo:before,
+a.contenttype-plumi-video-folder:before {
+  position: relative;
+  display: inline-block;
   font-family: 'Glyphicons Halflings';
-  content: "\2709";
-  line-height: 1;
-  padding-top: 1px;
-  width: 20px;
-  height: 100%;
+  font-size: 20px;
+  text-align: center;
+  top: 3px;
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  margin-left: -65px;
+  line-height: 48px;
+  background-color: #f5f5f5;
+  color: #e0e0e0;
+}
+a.contenttype-plumivideo.contenttype-plumivideo:before,
+a.contenttype-news-item.contenttype-plumivideo:before,
+a.contenttype-folder.contenttype-plumivideo:before,
+a.contenttype-image.contenttype-plumivideo:before,
+a.contenttype-event.contenttype-plumivideo:before,
+a.contenttype-document.contenttype-plumivideo:before,
+a.contenttype-collection.contenttype-plumivideo:before,
+a.contenttype-file.contenttype-plumivideo:before,
+a.contenttype-link.contenttype-plumivideo:before,
+a.contenttype-plumiexternalvideo.contenttype-plumivideo:before,
+a.contenttype-plumi-video-folder.contenttype-plumivideo:before {
+  content: "\e009";
+}
+a.contenttype-plumivideo.contenttype-news-item:before,
+a.contenttype-news-item.contenttype-news-item:before,
+a.contenttype-folder.contenttype-news-item:before,
+a.contenttype-image.contenttype-news-item:before,
+a.contenttype-event.contenttype-news-item:before,
+a.contenttype-document.contenttype-news-item:before,
+a.contenttype-collection.contenttype-news-item:before,
+a.contenttype-file.contenttype-news-item:before,
+a.contenttype-link.contenttype-news-item:before,
+a.contenttype-plumiexternalvideo.contenttype-news-item:before,
+a.contenttype-plumi-video-folder.contenttype-news-item:before {
+  content: "\e122";
+}
+a.contenttype-plumivideo.contenttype-folder:before,
+a.contenttype-news-item.contenttype-folder:before,
+a.contenttype-folder.contenttype-folder:before,
+a.contenttype-image.contenttype-folder:before,
+a.contenttype-event.contenttype-folder:before,
+a.contenttype-document.contenttype-folder:before,
+a.contenttype-collection.contenttype-folder:before,
+a.contenttype-file.contenttype-folder:before,
+a.contenttype-link.contenttype-folder:before,
+a.contenttype-plumiexternalvideo.contenttype-folder:before,
+a.contenttype-plumi-video-folder.contenttype-folder:before {
+  content: "\e118";
+}
+a.contenttype-plumivideo.contenttype-image:before,
+a.contenttype-news-item.contenttype-image:before,
+a.contenttype-folder.contenttype-image:before,
+a.contenttype-image.contenttype-image:before,
+a.contenttype-event.contenttype-image:before,
+a.contenttype-document.contenttype-image:before,
+a.contenttype-collection.contenttype-image:before,
+a.contenttype-file.contenttype-image:before,
+a.contenttype-link.contenttype-image:before,
+a.contenttype-plumiexternalvideo.contenttype-image:before,
+a.contenttype-plumi-video-folder.contenttype-image:before {
+  content: "\e060";
+}
+a.contenttype-plumivideo.contenttype-event:before,
+a.contenttype-news-item.contenttype-event:before,
+a.contenttype-folder.contenttype-event:before,
+a.contenttype-image.contenttype-event:before,
+a.contenttype-event.contenttype-event:before,
+a.contenttype-document.contenttype-event:before,
+a.contenttype-collection.contenttype-event:before,
+a.contenttype-file.contenttype-event:before,
+a.contenttype-link.contenttype-event:before,
+a.contenttype-plumiexternalvideo.contenttype-event:before,
+a.contenttype-plumi-video-folder.contenttype-event:before {
+  content: "\e109";
+}
+a.contenttype-plumivideo.contenttype-document:before,
+a.contenttype-news-item.contenttype-document:before,
+a.contenttype-folder.contenttype-document:before,
+a.contenttype-image.contenttype-document:before,
+a.contenttype-event.contenttype-document:before,
+a.contenttype-document.contenttype-document:before,
+a.contenttype-collection.contenttype-document:before,
+a.contenttype-file.contenttype-document:before,
+a.contenttype-link.contenttype-document:before,
+a.contenttype-plumiexternalvideo.contenttype-document:before,
+a.contenttype-plumi-video-folder.contenttype-document:before {
+  content: "\e032";
+}
+a.contenttype-plumivideo.contenttype-collection:before,
+a.contenttype-news-item.contenttype-collection:before,
+a.contenttype-folder.contenttype-collection:before,
+a.contenttype-image.contenttype-collection:before,
+a.contenttype-event.contenttype-collection:before,
+a.contenttype-document.contenttype-collection:before,
+a.contenttype-collection.contenttype-collection:before,
+a.contenttype-file.contenttype-collection:before,
+a.contenttype-link.contenttype-collection:before,
+a.contenttype-plumiexternalvideo.contenttype-collection:before,
+a.contenttype-plumi-video-folder.contenttype-collection:before {
+  content: "\e224";
+}
+a.contenttype-plumivideo.contenttype-file:before,
+a.contenttype-news-item.contenttype-file:before,
+a.contenttype-folder.contenttype-file:before,
+a.contenttype-image.contenttype-file:before,
+a.contenttype-event.contenttype-file:before,
+a.contenttype-document.contenttype-file:before,
+a.contenttype-collection.contenttype-file:before,
+a.contenttype-file.contenttype-file:before,
+a.contenttype-link.contenttype-file:before,
+a.contenttype-plumiexternalvideo.contenttype-file:before,
+a.contenttype-plumi-video-folder.contenttype-file:before {
+  content: "\e022";
+}
+a.contenttype-plumivideo.contenttype-link:before,
+a.contenttype-news-item.contenttype-link:before,
+a.contenttype-folder.contenttype-link:before,
+a.contenttype-image.contenttype-link:before,
+a.contenttype-event.contenttype-link:before,
+a.contenttype-document.contenttype-link:before,
+a.contenttype-collection.contenttype-link:before,
+a.contenttype-file.contenttype-link:before,
+a.contenttype-link.contenttype-link:before,
+a.contenttype-plumiexternalvideo.contenttype-link:before,
+a.contenttype-plumi-video-folder.contenttype-link:before {
+  content: "\e144";
+}
+a.contenttype-plumivideo.contenttype-plumiexternalvideo:before,
+a.contenttype-news-item.contenttype-plumiexternalvideo:before,
+a.contenttype-folder.contenttype-plumiexternalvideo:before,
+a.contenttype-image.contenttype-plumiexternalvideo:before,
+a.contenttype-event.contenttype-plumiexternalvideo:before,
+a.contenttype-document.contenttype-plumiexternalvideo:before,
+a.contenttype-collection.contenttype-plumiexternalvideo:before,
+a.contenttype-file.contenttype-plumiexternalvideo:before,
+a.contenttype-link.contenttype-plumiexternalvideo:before,
+a.contenttype-plumiexternalvideo.contenttype-plumiexternalvideo:before,
+a.contenttype-plumi-video-folder.contenttype-plumiexternalvideo:before {
+  content: "\e059";
+}
+a.contenttype-plumivideo.contenttype-plumi-video-folder:before,
+a.contenttype-news-item.contenttype-plumi-video-folder:before,
+a.contenttype-folder.contenttype-plumi-video-folder:before,
+a.contenttype-image.contenttype-plumi-video-folder:before,
+a.contenttype-event.contenttype-plumi-video-folder:before,
+a.contenttype-document.contenttype-plumi-video-folder:before,
+a.contenttype-collection.contenttype-plumi-video-folder:before,
+a.contenttype-file.contenttype-plumi-video-folder:before,
+a.contenttype-link.contenttype-plumi-video-folder:before,
+a.contenttype-plumiexternalvideo.contenttype-plumi-video-folder:before,
+a.contenttype-plumi-video-folder.contenttype-plumi-video-folder:before {
+  content: "\e117";
 }
 
 /* LATESTS VIDEOS PAGE */
@@ -1246,6 +1462,20 @@ ul.rss-icons-list li#document-action-rss2 a {
 @media (max-width: 991px) {
   .lv-single .video-thumb {
     min-height: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  body.template-video_listing_view #portal-column-content {
+    position: relative;
+    width: 100%;
+    padding: 0 15px;
+    display: inline-block;
+  }
+  body.template-video_listing_view #portal-column-content .video-thumb {
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
   }
 }
 
@@ -1478,6 +1708,48 @@ ul.rss-icons-list li#document-action-rss2 a {
   text-align: center;
   font-size: 12px;
   color: #777777;
+}
+
+#contact-author a,
+#send-this a {
+  position: relative;
+  display: inline-block;
+  margin: 5px 0;
+  padding-left: 20px;
+}
+@media (max-width: 767px) {
+  #contact-author a,
+  #send-this a {
+    margin-bottom: 20px;
+  }
+}
+#contact-author a:before,
+#send-this a:before {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  font-family: 'Glyphicons Halflings';
+  line-height: 1;
+  padding-top: 1px;
+}
+
+#contact-author a:before {
+  content: "\2709";
+  width: 20px;
+  height: 100%;
+}
+
+#send-this {
+  list-style: none;
+  padding: 15px 0;
+  margin: 0;
+}
+#send-this li {
+  margin: 0;
+  padding: 0;
+}
+#send-this li a:before {
+  content: "\e171";
 }
 
 /* LOGIN PAGE */

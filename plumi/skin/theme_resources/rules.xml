@@ -3,12 +3,21 @@
     <!-- <theme href="text.html" css:if-content="#visual-portal-wrapper" /> -->
     <theme href="new-templates/search-results.html" css:if-content="body.template-search" />
     <theme href="new-templates/home.html" css:if-content="body.template-featured_videos_homepage #featured-front-page" />
+    <theme href="new-templates/single-page.html" css:if-content="body.template-newsitem_view" />
     <theme href="new-templates/single-video.html" css:if-content="body.template-video_view" />
-    <theme href="new-templates/latest-videos-new.html" css:if-content="body.template-video_listing_view" />
+
+    <theme href="new-templates/taxonomy.html" css:if-content="body.template-taxonomy" />
+    
+    <theme href="new-templates/folders-list.html" css:if-content="body.template-folder_listing" css:if-not-content="body.template-folder_listing.section-recent_comments" />
+
+    <theme href="new-templates/latest-videos-new.html" css:if-content="body.template-video_listing_view.section-latestvideos" />
+    <theme href="new-templates/member-videos-new.html" css:if-content="body.template-video_listing_view.section-Members" />
+
     <theme href="new-templates/recent-comments.html" css:if-content="body.template-folder_listing.section-recent_comments" />
     <theme href="new-templates/login.html" css:if-content="#login_form" />
     <theme href="new-templates/register.html" css:if-content="body.template-register" />
     <theme href="new-templates/author.html" css:if-content="body.template-author #visual-portal-wrapper" />
+	
     <notheme if="$ajax_load" />
 
     <!-- ==================== GENERAL RULES ==================== -->
@@ -93,16 +102,58 @@
         <replace attributes="value" css:content="#searchGadget" css:theme="#SearchableText" />
     </rules>
 
-    <!-- ==================== LATEST VIDEOS PAGE ==================== -->
-    <rules css:if-content="body.template-video_listing_view">
-        
+    <!-- ==================== TAXONOMY PAGE ==================== -->
+    <rules css:if-content="body.template-taxonomy">
         <replace css:content="#portal-column-two" css:theme="#sidebar-content-wrapper" />
+        <replace css:content=".documentFirstHeading" css:theme=".documentFirstHeading" />
+
+        <replace css:content="#content-core">
+            <xsl:for-each css:select=".tileItem">
+                <div class="tileItem-wrapper col-lg-6 col-md-6 col-sm-12 col-xs-12 trt">
+                    <div class="tileItem">
+                        <xsl:copy-of css:select="h2" />
+                    </div>
+                </div>
+            </xsl:for-each>
+        </replace>
+
+        <replace css:content="#content" css:theme="#taxonomy-list-content" />
+    </rules>
+
+    <!-- ==================== FOLDER LISTING PAGES ==================== -->
+    <rules css:if-content="body.template-folder_listing" css:if-not-content="body.template-folder_listing.section-recent_comments">
+        <replace css:content="#content-core dl">
+            <xsl:for-each css:select="dt">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="tileItem">
+                        <xsl:copy-of css:select=".summary a" />
+                    </div>
+                </div>
+            </xsl:for-each>
+        </replace>
+        
+        <drop css:if-content="#content-core p.discreet" css:theme="#send-this-wrapper" />
+        <copy css:if-not-content="#content-core p.discreet" css:content="#document-action-sendto" css:theme="#send-this li" />
+        <replace css:content=".documentFirstHeading" css:theme=".documentFirstHeading" />
+        <replace css:content="#content-core" css:theme="#members-list-content" />
+
+        <replace css:if--content="#document-action-rss2" css:content="#document-action-rss2" css:theme="a.rss-icon" />
+        <drop css:if-not-content="#document-action-rss2" css:theme=".rss-icons-list" />
+    </rules>
+
+    <!-- ==================== LATEST VIDEOS PAGE ==================== -->
+    <rules css:if-content="body.template-video_listing_view.section-latestvideos">
+        
         <drop css:content="div#portal-searchbox #searchGadget_form label" />
+
+        <replace css:if-content="#portal-column-two" css:content="#portal-column-two" css:theme="#sidebar-content-wrapper" />
+        <drop css:if-not-content="#portal-column-two" css:theme="#sidebar" />        
 
         <drop css:content="#kssPortalMessage" />
         <drop css:content="#viewlet-above-content" />
         <drop css:content="#viewlet-below-content" />
-
+        <drop css:theme=".rss-icon" />
+    
         <replace css:content="#content">
             <xsl:for-each css:select=".featuredItem">
                 <div class="video-thumb col-lg-3 col-md-4 col-sm-6 col-xs-12 gutter-bottom-half">
@@ -128,7 +179,48 @@
                 </div>
             </xsl:for-each>
         </replace>
+    
+        <replace css:content="#portal-column-content" css:theme="#latest-videos-wrapper" />
+    </rules>
 
+    <!-- ==================== MEMBER VIDEOS PAGE ==================== -->
+    <rules css:if-content="body.template-video_listing_view.section-Members">
+        
+        <drop css:content="div#portal-searchbox #searchGadget_form label" />
+
+        <drop css:if-not-content="#portal-column-two" css:theme="#sidebar" />        
+
+        <drop css:content="#kssPortalMessage" />
+        <drop css:content="#viewlet-above-content" />
+        <drop css:content="#viewlet-below-content" />
+        <drop css:theme=".rss-icon" />
+    
+        <replace css:content="#content">
+            <xsl:for-each css:select=".featuredItem">
+                <div class="video-thumb col-lg-1-5 col-md-3 col-sm-6 col-xs-12 gutter-bottom-half">
+                    <span class="video-thumb-img">
+                        <a href="#" title="">
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="a[@class='featured-video-image']/@href" />
+                            </xsl:attribute>
+                            <xsl:copy-of css:select=".featured-video-image img" />
+                            <span class="video-duration"><xsl:copy-of css:select=".featured-video-duration .discreet" /></span>
+                        </a>
+                    </span>
+                    <span class="video-thumb-title"><xsl:copy-of css:select=".featuredItemTitle" /></span>
+                    <span class="video-thumb-meta"><xsl:copy-of css:select=".posted-date" /> | <xsl:copy-of css:select=".plumi-country dd ul li a" /></span>
+                    <span class="video-thumb-descr">
+                        <a href="#" title="">
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="p[@class='discreet plumi-nice-description rounded']//a/@href" />
+                            </xsl:attribute>                   
+                            <xsl:copy-of select="substring(p[@class='discreet plumi-nice-description rounded']/text(),0, 130)"/>...
+                        </a>
+                    </span>
+                </div>
+            </xsl:for-each>
+        </replace>
+    
         <replace css:content="#portal-column-content" css:theme="#latest-videos-wrapper" />
     </rules>
 
@@ -386,6 +478,18 @@
             </xsl:for-each>
         </replace>
         <copy css:content="#portal-column-two > div" css:theme="#sidebar aside" />
+    </rules>
+
+    <!-- ==================== SINGLE NEWS ITEM PAGE ==================== -->
+
+    <rules css:if-content="body.template-newsitem_view">
+        
+        <replace css:content=".documentFirstHeading" css:theme=".documentFirstHeading" />
+
+        <copy css:content=".documentDescription" css:theme="#page-content-description" />
+        <copy css:content="#content-core" css:theme="#page-content-core" />
+
+        <drop css:theme=".video-meta" /> <!-- TODO: ... -->
     </rules>
 
     <!-- ==================== SINGLE VIDEO PAGE ==================== -->
